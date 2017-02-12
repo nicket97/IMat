@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 
-
-<AnchorPane id="AnchorPane" fx:id="centerstage" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.CenterstageController">
+<AnchorPane id="AnchorPane" fx:id="centerstage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.CenterstageController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <fx:include source="Startpage.fxml" />
+            <fx:include fx:id="startpage" source="Startpage.fxml" />
          </children>
-      </Pane>
+      </StackPane>
    </children>
 </AnchorPane>
