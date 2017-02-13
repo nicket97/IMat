@@ -12,7 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import main.controllers.childControllers.Controllable;
 
 /**
  *
@@ -22,19 +22,20 @@ public class MainController implements Initializable{
 
     @FXML private Button btnTest;
 
+    private Controllable[] controllers;
+
+    public MainController(Controllable[] controllers){
+        //Can assign to private variables with more readable names
+        this.controllers = controllers;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //At this point, the other controllers have not been initialized
-        //However, they do not need to be constructed since the JavaFX creates them.
+
     }
 
     @FXML
     private void btnTest_onAction(ActionEvent e){
-        System.out.println("Hello world");
+        controllers[1].testMe();
     }
-
-
-    
-    
-    
 }

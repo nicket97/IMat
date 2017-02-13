@@ -7,28 +7,51 @@ package main;
  */
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import main.controllers.childControllers.Controllable;
+import main.controllers.MainController;
 
 /**
  *
  * @author Felix
  */
 public class Main extends Application {
-    
+
+    public static String[] childControllerNames = {
+            "Cart",
+            "Centerstage",
+            "Nav",
+            "Sidebar",
+            "Startpage"
+    };
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/resources/fxml/Main.fxml"));
+        Controllable[] childControllers = new Controllable[childControllerNames.length];
 
-        Scene scene = new Scene(root, 600, 400);
+        //Ett äkta fulhack
+        //Get the child controllers
+        for(int i = 0; i < childControllerNames.length; i++ ) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/" + childControllerNames[i] + ".fxml"));
+            loader.load();
+            childControllers[i] = loader.getController();
+        }
+
+        //Create our main controller
+        MainController mainController = new MainController(childControllers);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Main.fxml"));
+
+        //Set the main controller programmatically
+        loader.setController(mainController);
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root, 800, 600);
         
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("iMat");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
