@@ -21,8 +21,4 @@ public class SidebarController implements Initializable{
         
     }
     
-    public void injectMainController(MainController main){
-        this.main = main;
-    }
-    
 }

@@ -20,8 +20,4 @@ public class StartpageController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         
     }
-    
-    public void injectMainController(MainController main){
-        this.main = main;
-    }
 }
