@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-feb-14, 17:46:01
+    Author     : Felix
+*/
+
+.txtForm{
+    -fx-background-color: #f2f2f2;
+    -fx-border-color: #bcbcbc;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 5px;
+    
+    -fx-effect: dropshadow(one-pass-box, #a3a3a3, 2, 15, 0, 0);
+}
