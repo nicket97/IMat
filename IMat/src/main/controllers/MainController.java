@@ -10,9 +10,10 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import main.controllers.childControllers.Controllable;
+import main.controllers.childControllers.*;
 
 /**
  *
@@ -22,12 +23,16 @@ public class MainController implements Initializable{
 
     @FXML private Button btnTest;
 
-    private Controllable[] controllers;
-
-    public MainController(Controllable[] controllers){
-        //Can assign to private variables with more readable names
-        this.controllers = controllers;
-    }
+    @FXML
+    private CartController cartCtrl;
+    @FXML
+    private NavController navController;
+    @FXML
+    private SidebarController sidebarController;
+    @FXML
+    private StartpageController startpageController;
+    @FXML
+    private CenterstageController centerstageController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,6 +41,11 @@ public class MainController implements Initializable{
 
     @FXML
     private void btnTest_onAction(ActionEvent e){
-        controllers[1].testMe();
+      //  System.out.println(cartCtrl.toString());
+        centerstageController.testMe();
+        System.out.println(navController.toString());
+      //  System.out.println(sidebarController.toString());
+      //  System.out.println(startpageController.toString());
+        //controllers[1].testMe();
     }
 }
