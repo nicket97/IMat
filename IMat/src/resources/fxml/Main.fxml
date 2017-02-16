@@ -5,13 +5,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:id="mainPane" fx:controller="main.controllers.MainController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MainController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <Pane prefHeight="1260.0" prefWidth="2212.0" BorderPane.alignment="CENTER">
                <children>
                   <fx:include fx:id="centerstage" source="Centerstage.fxml" />
+                  <Pane layoutX="1226.0" layoutY="68.0" prefHeight="40.0" prefWidth="160.0">
+                    
+                  </Pane>
                </children>
             </Pane>
          </center>
@@ -23,6 +26,11 @@
                <children>
                   <fx:include fx:id="nav" source="Nav.fxml" />
                   <Button fx:id="btnTest" layoutX="64.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnTest_onAction" text="Logga in ffs" />
+                  <Pane layoutX="263.0" layoutY="40.0" prefHeight="41.0" prefWidth="160.0">
+                     <children>
+                        <fx:include source="SpinBox.fxml" />
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </top>

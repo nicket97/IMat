@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.controllers.childControllers.*;
@@ -33,23 +34,16 @@ public class MainController implements Initializable{
 
     @FXML private Button btnTest;
 
-    @FXML
-    private CartController cartCtrl;
-    @FXML
-    private NavController navController;
-    @FXML
-    private SidebarController sidebarController;
-    @FXML
-    private StartpageController startpageController;
-    @FXML
-    private CenterstageController centerstageController;
-    @FXML
     private UserController userController;
 
     @FXML
     AnchorPane mainPane;
 
     private IMatDataHandler dataHandler;
+    @FXML
+    private Pane navigation;
+    @FXML
+    private Pane sidebar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

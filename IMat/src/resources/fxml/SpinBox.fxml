@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+
+<fx:root type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" >
+    <TextField id="txtSpinner" fx:id="txtVal" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="60.0" stylesheets="@../css/SpinnerBox.css" />
+    <StackPane fx:id="incPane" layoutX="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="40.0" stylesheets="@../css/SpinnerBox.css">
+        <children>
+            <Region id="incRegion" prefHeight="200.0" prefWidth="200.0" styleClass="spinnerBtn" stylesheets="@../css/SpinnerBox.css" />
+        </children>
+    </StackPane>
+    <StackPane fx:id="decPane" layoutX="60.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="40.0" stylesheets="@../css/SpinnerBox.css">
+       <children>
+          <Region id="decRegion" prefHeight="200.0" prefWidth="200.0" styleClass="spinnerBtn" stylesheets="@../css/SpinnerBox.css" />
+       </children>
+    </StackPane>
+    <StackPane fx:id="addPane" layoutX="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="60.0" stylesheets="@../css/SpinnerBox.css">
+        <children>
+           <Region id="decRegion" prefHeight="200.0" prefWidth="200.0" styleClass="spinnerBtn" stylesheets="@../css/SpinnerBox.css" />
+        </children>
+    </StackPane>
+</fx:root>
