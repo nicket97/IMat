@@ -22,7 +22,7 @@ import javafx.scene.layout.StackPane;
  * @author Felix
  */
 
-public class SpinBoxController extends Pane implements Initializable {
+public class SpinBox extends Pane implements Initializable {
     @FXML
     private TextField txtVal;
     @FXML
@@ -32,12 +32,12 @@ public class SpinBoxController extends Pane implements Initializable {
     @FXML
     private StackPane addPane;
     
-    public SpinBoxController(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/fxml/SpinBox.fxml"));
+    public SpinBox(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpinBox.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
+        
         try  {
             fxmlLoader.load();
         } catch (IOException exception)  {
