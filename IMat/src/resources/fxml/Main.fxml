@@ -22,7 +22,7 @@
             <Pane fx:id="navigation" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <fx:include fx:id="nav" source="Nav.fxml" />
-                  <Button fx:id="btnTest" layoutX="64.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnTest_onAction" text="Delete me" />
+                  <Button fx:id="btnTest" layoutX="64.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnTest_onAction" text="Logga in ffs" />
                </children>
             </Pane>
          </top>

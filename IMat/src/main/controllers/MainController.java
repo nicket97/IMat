@@ -12,7 +12,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import main.controllers.childControllers.*;
 
 /**
@@ -44,8 +46,10 @@ public class MainController implements Initializable{
       //  System.out.println(cartCtrl.toString());
         centerstageController.testMe();
         System.out.println(navController.toString());
+
       //  System.out.println(sidebarController.toString());
       //  System.out.println(startpageController.toString());
         //controllers[1].testMe();
+
     }
 }
