@@ -29,9 +29,4 @@ public class SidebarController implements Controllable{
     public void setVisible(boolean value) {
 
     }
-
-    @Override
-    public void testMe() {
-
-    }
 }

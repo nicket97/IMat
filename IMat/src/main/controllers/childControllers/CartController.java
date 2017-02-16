@@ -26,9 +26,4 @@ public class CartController implements Controllable{
     public void setVisible(boolean value) {
 
     }
-
-    @Override
-    public void testMe() {
-
-    }
 }

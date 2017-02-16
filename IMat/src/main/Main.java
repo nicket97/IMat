@@ -23,12 +23,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/resources/fxml/Main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Main.fxml"));
+        Parent root = loader.load();
 
         Scene scene = new Scene(root, 800, 600);
-        
+
         primaryStage.setTitle("iMat");
         primaryStage.setScene(scene);
+        //Add listener for closing the stage
+        primaryStage.setOnCloseRequest(windowEvent -> loader.<MainController>getController().shutdown(windowEvent));
         primaryStage.show();
     }
 

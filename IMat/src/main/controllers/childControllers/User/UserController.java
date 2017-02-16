@@ -10,6 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.controllers.childControllers.Controllable;
+import se.chalmers.ait.dat215.project.Customer;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.User;
 
 import javax.xml.bind.annotation.XmlAccessorOrder;
 import java.awt.event.ActionEvent;
@@ -30,10 +33,33 @@ public class UserController implements Controllable {
     @FXML
     Button btnLogin;
 
+    private IMatDataHandler dataHandler;
+    private User currentUser;
+    private Customer currentCustomer;
 
-    Stage userStage;
-    Scene loginScene;
-    Parent root = null;
+    private Stage userStage;
+    private Scene loginScene;
+    private Parent root = null;
+
+
+    public UserController(){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Login.fxml"));
+            userStage = new Stage();
+            loader.setController(this);
+            root = loader.load();
+        }catch (Exception e){
+            System.out.println(e);
+            e.printStackTrace();
+
+            showError();
+        }
+
+        dataHandler = IMatDataHandler.getInstance();
+        currentUser = dataHandler.getUser();
+        currentUser.setUserName("arne");
+        currentCustomer = dataHandler.getCustomer();
+    }
 
     @Override
     public void setVisible(boolean value) {
@@ -47,23 +73,8 @@ public class UserController implements Controllable {
     }
 
     @Override
-    public void testMe() {
-
-    }
-
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
-        try{
-            userStage = new Stage();
-            root = FXMLLoader.load(getClass().getResource("/resources/fxml/Login.fxml"));
-        }catch (IOException e){
-            System.out.println(e);
-            e.printStackTrace();
-
-            showError();
-        }
     }
 
     @FXML
@@ -76,5 +87,6 @@ public class UserController implements Controllable {
         error.setTitle("Fel");
         error.setHeaderText("Ajdå!");
         error.setContentText("Någonting gick väldigt fel. Vi ber om ursäkt för detta!");
+        error.showAndWait();
     }
 }

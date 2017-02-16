@@ -23,9 +23,4 @@ public class CenterstageController implements Controllable{
     public void setVisible(boolean value) {
 
     }
-
-    @Override
-    public void testMe() {
-        System.out.println("Woho!");
-    }
 }

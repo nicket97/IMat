@@ -9,7 +9,4 @@ public interface Controllable extends Initializable {
 
     //This is supposed to set all the controller's underlying panes' visibility
     void setVisible(boolean value);
-
-    //Delete this one when you want to
-    void testMe();
 }

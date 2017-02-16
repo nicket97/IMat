@@ -25,9 +25,4 @@ public class StartpageController implements Controllable{
     public void setVisible(boolean value) {
 
     }
-
-    @Override
-    public void testMe() {
-
-    }
 }
