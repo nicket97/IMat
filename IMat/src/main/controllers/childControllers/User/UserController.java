@@ -25,7 +25,10 @@ import java.util.ResourceBundle;
  * Created by pontu on 2017-02-15.
  */
 public class UserController implements Controllable {
-
+    
+    @FXML
+    AnchorPane anchorUser;
+    
     @FXML
     TextField txtUsername;
     //More textfield
@@ -43,9 +46,13 @@ public class UserController implements Controllable {
 
 
     public UserController(){
-        try{
+      
+        
+        /*try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Login.fxml"));
             userStage = new Stage();
+            userStage.setAlwaysOnTop(true);
+         
             loader.setController(this);
             root = loader.load();
         }catch (Exception e){
@@ -54,6 +61,9 @@ public class UserController implements Controllable {
 
             showError();
         }
+        */
+        
+        
 
         dataHandler = IMatDataHandler.getInstance();
         currentUser = dataHandler.getUser();
@@ -63,13 +73,13 @@ public class UserController implements Controllable {
 
     @Override
     public void setVisible(boolean value) {
-        if(root == null){
-            showError();
-            return;
-        }
-        loginScene = new Scene(root, 440, 540);
-        userStage.setScene(loginScene);
-        userStage.show();
+       //anchorUser.setVisible(value);
+       
+       System.out.println("WOho");
+    }
+    
+    public void setParentPane(AnchorPane pane){
+        anchorUser = pane;
     }
 
     @Override

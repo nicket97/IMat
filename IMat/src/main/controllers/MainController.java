@@ -5,6 +5,7 @@
  */
 package main.controllers;
 
+import fxComponents.SpinBox;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -20,6 +21,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.controllers.childControllers.*;
@@ -34,21 +36,26 @@ public class MainController implements Initializable{
 
     @FXML private Button btnTest;
 
+    @FXML
     private UserController userController;
 
     @FXML
-    AnchorPane mainPane;
+    StackPane mainPane;
+    
+    @FXML
+    AnchorPane anchorUser;
 
     private IMatDataHandler dataHandler;
     @FXML
     private Pane navigation;
     @FXML
     private Pane sidebar;
+    @FXML
+    private SpinBox Spinner;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
-        userController = new UserController();
     }
 
     public void shutdown(WindowEvent e){
@@ -73,7 +80,8 @@ public class MainController implements Initializable{
 
     @FXML
     private void btnTest_onAction(ActionEvent e){
-        userController.setVisible(true);
+      //  anchorUser.setVisible(true);
+      userController.setVisible(true);
     }
 
     private void addListeners(){

@@ -33,19 +33,12 @@ public class SpinBox extends Pane implements Initializable {
     @FXML
     private StackPane addPane;
     
-    public SpinBox(){
+    public SpinBox() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpinBox.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        
-        try  {
-            fxmlLoader.load();
-        } catch (IOException exception)  {
-            throw new RuntimeException(exception);
-        }
-        
-
+        fxmlLoader.load();
     }
     
     @FXML

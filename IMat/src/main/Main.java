@@ -26,7 +26,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Main.fxml"));
         Parent root = loader.load();
 
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 1280, 720);
 
         primaryStage.setTitle("iMat");
         primaryStage.setScene(scene);
