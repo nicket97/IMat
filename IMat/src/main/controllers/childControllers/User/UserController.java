@@ -59,12 +59,32 @@ public class UserController implements Controllable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        currentUser = dataHandler.getUser();
+    }
 
+    public void logOut(){
+        currentUser.setUserName("");
+        currentUser.setPassword("");
     }
 
     @FXML
     private void btnLogin_onActionPerformed(javafx.event.ActionEvent e){
+            User loginUser = new User();
+            loginUser.setUserName(txtUsername.getText());
+            loginUser.setPassword(txtPassword.getText());
+            dataHandler.logIn(loginUser);
 
+            currentUser = dataHandler.getUser();
+
+            if(currentUser == null){
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setTitle("Fel");
+                error.setHeaderText("Fel användarnamn eller lösenord.");
+                error.showAndWait();
+            }else{
+                System.out.println("Logged in as: " + currentUser.getUserName());
+                setVisible(false);
+            }
     }
 
     @FXML

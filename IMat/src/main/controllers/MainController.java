@@ -79,6 +79,8 @@ public class MainController implements Initializable{
             return;
         }
 
+        //Automatic log out
+        userController.logOut();
         dataHandler.shutDown();
     }
 
