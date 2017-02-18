@@ -8,15 +8,21 @@ package fxComponents;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
 /**
  *
@@ -33,6 +39,8 @@ public class SpinBox extends Pane implements Initializable {
     @FXML
     private StackPane addPane;
     
+    private int count = 1;
+    
     public SpinBox() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpinBox.fxml"));
 
@@ -41,9 +49,59 @@ public class SpinBox extends Pane implements Initializable {
         fxmlLoader.load();
     }
     
+    private void updateTxtVal(){
+        txtVal.setText("" + count);
+        if(count>1){
+            decPane.setDisable(false);
+        }
+        else{
+            decPane.setDisable(true);
+        }
+    }
+    
+   
+    
+    private synchronized void addToCartAnimation(){
+        Node checkMark = addPane.getChildren().get(0);
+        Node cart = addPane.getChildren().get(1);
+        
+/*        
+        FadeTransition fadeCart = new FadeTransition(Duration.millis(200), cart);
+        fadeCart.setFromValue(1.0);
+        fadeCart.setToValue(0.0);
+        
+        FadeTransition fillCart = new FadeTransition(Duration.millis(1000), cart);
+        fillCart.setFromValue(0.0);
+        fillCart.setToValue(1.0);
+  */      
+        FadeTransition fillMark = new FadeTransition(Duration.millis(600), checkMark);
+        fillMark.setFromValue(0.0);
+        fillMark.setToValue(1.0);
+        
+        FadeTransition fadeMark = new FadeTransition(Duration.millis(1000), checkMark);
+        fadeMark.setFromValue(1.0);
+        fadeMark.setToValue(0.0);
+        
+        PauseTransition pause = new PauseTransition(Duration.millis(500));
+        
+        SequentialTransition st = new SequentialTransition(fillMark, pause, fadeMark);
+        st.setInterpolator(Interpolator.LINEAR);
+        cart.setVisible(false);
+        st.play();
+        
+        
+    }
+    
     @FXML
     protected void incVal(MouseEvent e){
+        count++;
+        updateTxtVal();
         
+    }
+      @FXML
+    protected void decVal(MouseEvent e){
+        count--;
+        updateTxtVal();
     }
     
     @FXML
@@ -52,15 +110,21 @@ public class SpinBox extends Pane implements Initializable {
     }
 
     @FXML
-    private void addToCart(MouseEvent event) {
+    private synchronized void addToCart(MouseEvent event) {
+        addPane.setDisable(true);
         System.out.print("Woho");
+        addToCartAnimation();
+        addPane.setDisable(false);
         
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txtVal.setText("1");
-        incPane.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> controlCheck(event));
+        txtVal.setText(""+ count);
+        incPane.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> incVal(event));
+        decPane.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> decVal(event));
+        decPane.setDisable(true);
+        addPane.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> addToCart(event));
         
     }
 }
