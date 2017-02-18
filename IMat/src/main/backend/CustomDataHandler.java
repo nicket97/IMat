@@ -4,6 +4,10 @@ import se.chalmers.ait.dat215.project.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 /**
@@ -12,7 +16,7 @@ import java.util.List;
 public class CustomDataHandler extends BackendWrapper {
     private static CustomDataHandler instance = null;
 
-    private User currentUser;
+    private User currentUser = null;
     private Customer currentCustomer;
 
     public static CustomDataHandler getInstance(){
@@ -26,13 +30,28 @@ public class CustomDataHandler extends BackendWrapper {
         super();
     }
 
-    @Override
-    public User getUser(){
-        return currentUser;
-    }
+    public User createNewUser(String email, String password){
+        User newUser = new User();
+        newUser.setUserName(email);
+        newUser.setPassword(password);
 
-    public User createNewUser(){
-        System.out.println(imatDirectory());
-        return currentUser;
+        if(email.isEmpty() || password.isEmpty())
+            return newUser;
+
+        try {
+            File users = new File(imatDirectory() + "/users.txt");
+            users.createNewFile();
+
+            FileWriter fw = new FileWriter(users, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw);
+
+            out.println(email + " " + password);
+            out.flush();
+        } catch (IOException e) {
+            System.out.println("Couldn't find user file!");
+        }
+
+        return newUser;
     }
 }

@@ -26,7 +26,7 @@
                <font>
                   <Font size="13.0" />
                </font></Text>
-            <Button fx:id="btnRegister" layoutX="140.0" layoutY="446.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera dig" />
+            <Button fx:id="btnRegister" layoutX="140.0" layoutY="446.0" mnemonicParsing="false" onAction="#btnRegister_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera dig" />
             <Text layoutX="127.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logga In" textAlignment="CENTER">
                <font>
                   <Font size="48.0" />

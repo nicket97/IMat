@@ -1,5 +1,6 @@
 package main.controllers.childControllers.User;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,9 +25,9 @@ public class UserController implements Controllable {
     @FXML
     AnchorPane anchorUser;
     
-    @FXML
-    TextField txtUsername;
-    //More textfield
+    @FXML TextField txtUsername;
+    @FXML TextField txtPassword;
+
 
     @FXML
     Button btnLogin;
@@ -63,7 +64,12 @@ public class UserController implements Controllable {
 
     @FXML
     private void btnLogin_onActionPerformed(javafx.event.ActionEvent e){
-        dataHandler.createNewUser();
+
+    }
+
+    @FXML
+    private void btnRegister_onActionPerformed(ActionEvent e){
+        dataHandler.createNewUser(txtUsername.getText(), txtPassword.getText());
     }
 
     @FXML
