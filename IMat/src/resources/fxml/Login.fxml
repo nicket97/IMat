@@ -13,7 +13,7 @@
             <Button fx:id="btnClose" layoutX="414.0" layoutY="3.0" mnemonicParsing="false" onAction="#btnClose_onActionPerformed" styleClass="btnClose" stylesheets="@../css/ButtonSchemes.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
             <TextField fx:id="txtUsername" layoutX="120.0" layoutY="196.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange användarnam" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
             <TextField fx:id="txtPassword" cache="true" layoutX="120.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange lösenord" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
-            <Button fx:id="btnLogin" layoutX="139.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnLogin_onAction" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Logga In" />
+            <Button fx:id="btnLogin" layoutX="139.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnLogin_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Logga In" />
             <Text layoutX="128.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Användarnamn">
                <font>
                   <Font size="14.0" />
