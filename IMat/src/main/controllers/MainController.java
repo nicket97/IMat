@@ -24,6 +24,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.User.UserController;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
@@ -45,7 +46,7 @@ public class MainController implements Initializable{
     @FXML
     AnchorPane anchorUser;
 
-    private IMatDataHandler dataHandler;
+    private CustomDataHandler dataHandler;
     @FXML
     private Pane navigation;
     @FXML
@@ -55,7 +56,10 @@ public class MainController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dataHandler = IMatDataHandler.getInstance();
+        dataHandler = CustomDataHandler.getInstance();
+
+        //Give controllers their stuff
+        injectControllers();
     }
 
     public void shutdown(WindowEvent e){
@@ -85,6 +89,11 @@ public class MainController implements Initializable{
     }
 
     private void addListeners(){
+
+    }
+
+    private void injectControllers(){
+        userController.setParentPane(anchorUser);
     }
 
 }

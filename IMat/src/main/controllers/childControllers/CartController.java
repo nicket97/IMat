@@ -15,7 +15,6 @@ import main.controllers.MainController;
  * @author Felix
  */
 public class CartController implements Controllable{
-    private MainController main;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {

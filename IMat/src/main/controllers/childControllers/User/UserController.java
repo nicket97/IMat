@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import main.backend.CustomDataHandler;
+import main.backend.UserHandler;
 import main.controllers.childControllers.Controllable;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
@@ -36,7 +38,7 @@ public class UserController implements Controllable {
     @FXML
     Button btnLogin;
 
-    private IMatDataHandler dataHandler;
+    private CustomDataHandler dataHandler;
     private User currentUser;
     private Customer currentCustomer;
 
@@ -46,36 +48,15 @@ public class UserController implements Controllable {
 
 
     public UserController(){
-      
-        
-        /*try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Login.fxml"));
-            userStage = new Stage();
-            userStage.setAlwaysOnTop(true);
-         
-            loader.setController(this);
-            root = loader.load();
-        }catch (Exception e){
-            System.out.println(e);
-            e.printStackTrace();
-
-            showError();
-        }
-        */
-        
-        
-
-        dataHandler = IMatDataHandler.getInstance();
+        dataHandler = CustomDataHandler.getInstance();
         currentUser = dataHandler.getUser();
-        currentUser.setUserName("arne");
         currentCustomer = dataHandler.getCustomer();
     }
 
     @Override
     public void setVisible(boolean value) {
-       //anchorUser.setVisible(value);
-       
-       System.out.println("WOho");
+        anchorUser.setVisible(value);
+        anchorUser.setManaged(value);
     }
     
     public void setParentPane(AnchorPane pane){
@@ -90,6 +71,11 @@ public class UserController implements Controllable {
     @FXML
     private void btnLogin_onAction(javafx.event.ActionEvent e){
 
+    }
+
+    @FXML
+    private void btnClose_onActionPerformed(javafx.event.ActionEvent e){
+        setVisible(false);
     }
 
     private void showError(){
