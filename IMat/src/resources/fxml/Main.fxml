@@ -16,7 +16,7 @@
              <center>
                 <Pane prefHeight="1260.0" prefWidth="2212.0" BorderPane.alignment="CENTER">
                    <children>
-                       <SpinBox fx:id="Spinner"> </SpinBox>
+                        
                       <fx:include fx:id="centerstage" source="Centerstage.fxml" />
                       <Pane layoutX="1226.0" layoutY="68.0" prefHeight="40.0" prefWidth="160.0">
 
@@ -29,8 +29,9 @@
              </left>
              <top>
                 <Pane fx:id="navigation" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                   <children>
+                   <children><SpinBox fx:id="Spinner"> </SpinBox>
                       <fx:include fx:id="nav" source="Nav.fxml" />
+                      <SpinBox fx:id="Spinner"> </SpinBox>
                       <Button fx:id="btnTest" layoutX="64.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnTest_onAction" text="Logga in ffs" />
                    </children>
                 </Pane>
@@ -39,7 +40,7 @@
           </BorderPane>
        </children>
     </AnchorPane>
-   <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
+   <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false" >
       <children>
          <HBox alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
             <children>

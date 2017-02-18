@@ -8,8 +8,37 @@ and open the template in the editor.
     Author     : Felix
 */
 .spinnerBtn{
-    -fx-background-color: green;
-    -fx-border-width: 0.5px;
+    -fx-background-color: blue;
+    -fx-border-width: 0.7px;
     -fx-border-color: white;
     
 }
+.spinnerBtn:pressed{
+    -fx-background-color: green;
+}
+
+#incRegion{
+    -fx-background-image: url("../img/Icons/Plus.png");
+}
+#decRegion{
+    -fx-background-image: url("../img/Icons/Minus.png");
+}
+#addRegion{
+    -fx-background-image: url("../img/Icons/AddToCart.png")
+}
+#addedRegion{
+    -fx-background-image: url("../img/Icons/AddedToCart.png");
+}
+#txtSpinner{
+    -fx-background-color: #f2f2f2;
+    -fx-border-color: #bcbcbc;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 5px;
+    
+    -fx-effect: dropshadow(one-pass-box, #a3a3a3, 2, 15, 0, 0);
+    
+    -fx-font-family: "Verdana";
+    -fx-font-fill: #5b5b5b;
+    -fx-font-size: 18px;
+}
+
