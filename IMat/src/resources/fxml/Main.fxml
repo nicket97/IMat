@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import fxComponents.* ?>
 
-<?import fxComponents.SpinBox?>
-<StackPane id="StackPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MainController">
+<StackPane id="StackPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="1280.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MainController">
     <AnchorPane id="AnchorPane" visible="false">
        <children>
           <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -37,7 +37,6 @@
                 <Pane fx:id="navigation" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                    <children><SpinBox fx:id="Spinner"> </SpinBox>
                       <fx:include fx:id="nav" source="Nav.fxml" />
-                      <SpinBox fx:id="Spinner"> </SpinBox>
                    </children>
                 </Pane>
 
@@ -78,7 +77,7 @@
          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
@@ -119,7 +118,7 @@
                </GridPane>
             </children>
          </Pane>
-         <Pane fx:id="leftBorder" prefHeight="200.0" prefWidth="200.0" styleClass="background" stylesheets="@../css/MainFrameWork.css" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
+         <Pane fx:id="leftBorder" maxWidth="-Infinity" prefWidth="120.0" styleClass="background" stylesheets="@../css/MainFrameWork.css" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
          <Pane fx:id="rightBorder" prefHeight="200.0" prefWidth="200.0" styleClass="background" stylesheets="@../css/MainFrameWork.css" GridPane.columnIndex="9" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
          <AnchorPane fx:id="centerStage" prefHeight="756.0" prefWidth="1680.0" GridPane.columnIndex="1" GridPane.columnSpan="8" GridPane.rowIndex="2" GridPane.rowSpan="5">
             <children>

@@ -26,10 +26,12 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Main.fxml"));
         Parent root = loader.load();
 
-        Scene scene = new Scene(root, 1280, 720);
-
+        Scene scene = new Scene(root, 1920, 1080);
+        
         primaryStage.setTitle("iMat");
         primaryStage.setScene(scene);
+        primaryStage.setMinHeight(720);
+        primaryStage.setMinWidth(1280);
         //Add listener for closing the stage
         primaryStage.setOnCloseRequest(windowEvent -> loader.<MainController>getController().shutdown(windowEvent));
         primaryStage.show();

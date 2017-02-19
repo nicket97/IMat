@@ -1,6 +1,5 @@
 package main.backend;
 
-import com.sun.istack.internal.Nullable;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.User;
 
@@ -53,7 +52,6 @@ public class UserHandler {
         return newUser;
     }
 
-    @Nullable
     public User logIn(User user) {
        if(userExists(user)){
            currentUser.setUserName(user.getUserName());

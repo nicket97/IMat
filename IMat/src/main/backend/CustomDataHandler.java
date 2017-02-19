@@ -1,6 +1,5 @@
 package main.backend;
 
-import com.sun.istack.internal.Nullable;
 import se.chalmers.ait.dat215.project.*;
 
 import javax.swing.*;
