@@ -23,15 +23,14 @@ import java.util.ResourceBundle;
  */
 public class UserController implements Controllable {
     
-    @FXML
-    AnchorPane anchorUser;
-    
-    @FXML TextField txtUsername;
-    @FXML TextField txtPassword;
+    @FXML private TextField txtUsername;
+    @FXML private TextField txtPassword;
+    @FXML private TextField txtRegEmail;
+    @FXML private TextField txtRegPassword;
+    @FXML private TextField txtRegPasswordRepeat;
+    @FXML private AnchorPane anchorRegister;
 
-
-    @FXML
-    Button btnLogin;
+    private AnchorPane anchorUser;
 
     private CustomDataHandler dataHandler;
     private UserHandler userHandler;
@@ -79,18 +78,39 @@ public class UserController implements Controllable {
                 error.setHeaderText("Fel användarnamn eller lösenord.");
                 error.showAndWait();
             }else{
-                System.out.println("Logged in as: " + currentUser.getUserName());
                 setVisible(false);
             }
     }
 
     @FXML
     private void btnRegister_onActionPerformed(ActionEvent e){
-        userHandler.createNewUser(txtUsername.getText(), txtPassword.getText());
+        anchorRegister.setVisible(true);
+    }
+
+    @FXML
+    private void btnRegisterNew_onActionPerformed(ActionEvent e){
+        if(checkEmail(txtRegEmail.getText()) && checkPass(txtRegPassword.getText(), txtRegPasswordRepeat.getText())){
+            User newUser = userHandler.createNewUser(txtRegEmail.getText(), txtRegPassword.getText());
+
+            if(newUser == null){
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setTitle("Fel");
+                error.setHeaderText("E-postadressen finns redan!");
+                error.showAndWait();
+
+                txtRegEmail.clear();
+                return;
+            }
+
+            userHandler.logIn(newUser);
+            setVisible(false);
+            anchorRegister.setVisible(false);
+        }
     }
 
     @FXML
     private void btnClose_onActionPerformed(javafx.event.ActionEvent e){
+        anchorRegister.setVisible(false);
         setVisible(false);
     }
 
@@ -100,5 +120,37 @@ public class UserController implements Controllable {
         error.setHeaderText("Ajdå!");
         error.setContentText("Någonting gick väldigt fel. Vi ber om ursäkt för detta!");
         error.showAndWait();
+    }
+
+    private boolean checkEmail(String email){
+        boolean valid = email.contains("@") && email.contains(".");
+        if (!valid){
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Felaktig data");
+            error.setHeaderText("Ogiltig e-postadress");
+            error.showAndWait();
+
+            //Gör röd
+            txtRegEmail.clear();
+            txtRegEmail.requestFocus();
+        }
+
+        return valid;
+    }
+
+    private boolean checkPass(String passwordFst, String passwordSnd){
+        boolean valid = passwordFst.equals(passwordSnd);
+        if(!valid){
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Felaktig data");
+            error.setHeaderText("Dina lösenord matchar inte!");
+            error.showAndWait();
+
+            //Gör röd
+            txtRegPassword.clear();
+            txtRegPassword.requestFocus();
+            txtRegPasswordRepeat.clear();
+        }
+        return valid;
     }
 }

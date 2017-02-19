@@ -87,7 +87,8 @@ public class MainController implements Initializable{
     @FXML
     private void btnTest_onAction(ActionEvent e){
       //  anchorUser.setVisible(true);
-      userController.setVisible(true);
+        if(!dataHandler.getUserHandler().isLoggedIn())
+            userController.setVisible(true);
     }
 
     private void addListeners(){

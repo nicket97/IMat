@@ -27,8 +27,14 @@ public class UserHandler {
         newUser.setUserName(email);
         newUser.setPassword(password);
 
+        //Empty
         if(email.isEmpty() || password.isEmpty())
-            return newUser;
+            return new User(); //Return empty user = not logged in
+
+        if(emailExists(newUser)){
+            System.out.println("User already exists!");
+            return null;
+        }
 
         try {
             File users = new File(iMatDir + "/users.txt");
@@ -49,6 +55,29 @@ public class UserHandler {
 
     @Nullable
     public User logIn(User user) {
+       if(userExists(user)){
+           currentUser.setUserName(user.getUserName());
+           currentUser.setPassword(user.getPassword());
+
+           System.out.println("Logged in as: " + currentUser.getUserName());
+
+           return user;
+       }
+
+        System.out.println("User not found!");
+        return null;
+    }
+
+    public void logOut(){
+        currentUser.setUserName("");
+        currentUser.setPassword("");
+    }
+
+    public boolean isLoggedIn(){
+        return !(currentUser.getUserName().isEmpty() && currentUser.getPassword().isEmpty());
+    }
+
+    private boolean userExists(User user){
         List<String> users = new ArrayList<>();
 
         try {
@@ -66,24 +95,38 @@ public class UserHandler {
             System.out.println("Couldn't find user file!");
         }
 
-        boolean exists = false;
         for(String s : users){
             if(s.equals(user.getUserName() + " " + user.getPassword()))
-                exists = true;
+                return true;
         }
 
-        if(!exists)
-            return null;
-
-        currentUser.setUserName(user.getUserName());
-        currentUser.setPassword(user.getPassword());
-
-        return user;
+        return false;
     }
 
-    public void logOut(){
-        currentUser.setUserName("");
-        currentUser.setPassword("");
+    private boolean emailExists(User user){
+        List<String> emails = new ArrayList<>();
+
+        try {
+            File usersfile = new File(iMatDir + "/users.txt");
+            usersfile.createNewFile();
+
+            //This is seriously hacking. Java... sigh.
+            BufferedReader reader = new BufferedReader(new FileReader(usersfile));
+
+            String line;
+            while((line = reader.readLine()) != null){
+                emails.add(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Couldn't find user file!");
+        }
+
+        for(String s : emails){
+            if(s.split("\\s+")[0].equals(user.getUserName()))
+                return true;
+        }
+
+        return false;
     }
 
 }

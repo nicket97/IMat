@@ -3,36 +3,77 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="user" prefHeight="540.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.UserController">
    <children>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
+      <VBox alignment="TOP_RIGHT" prefHeight="540.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btnClose" layoutX="414.0" layoutY="3.0" mnemonicParsing="false" onAction="#btnClose_onActionPerformed" styleClass="btnClose" stylesheets="@../css/ButtonSchemes.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
-            <TextField fx:id="txtUsername" layoutX="120.0" layoutY="196.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange e-postadress" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
-            <TextField fx:id="txtPassword" cache="true" layoutX="120.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange lösenord" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
-            <Button fx:id="btnLogin" layoutX="139.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnLogin_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Logga In" />
-            <Text layoutX="128.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-post">
-               <font>
-                  <Font size="14.0" />
-               </font></Text>
-            <Text layoutX="128.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lösenord">
-               <font>
-                  <Font size="14.0" />
-               </font></Text>
-            <Text layoutX="137.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inte redan kund? Bli kund idag!">
-               <font>
-                  <Font size="13.0" />
-               </font></Text>
-            <Button fx:id="btnRegister" layoutX="140.0" layoutY="446.0" mnemonicParsing="false" onAction="#btnRegister_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera dig" />
-            <Text layoutX="127.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logga In" textAlignment="CENTER">
-               <font>
-                  <Font size="48.0" />
-               </font>
-            </Text>
+            <Button fx:id="btnClose" mnemonicParsing="false" onAction="#btnClose_onActionPerformed" styleClass="btnClose" stylesheets="@../css/ButtonSchemes.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+            <StackPane>
+               <children>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
+                     <children>
+                        <TextField fx:id="txtUsername" layoutX="120.0" layoutY="196.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange e-postadress" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
+                        <TextField fx:id="txtPassword" cache="true" layoutX="120.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange lösenord" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
+                        <Button fx:id="btnLogin" layoutX="139.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnLogin_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Logga In" />
+                        <Text layoutX="128.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-post">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="128.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lösenord">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="137.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inte redan kund? Bli kund idag!">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btnLoginRegister" layoutX="140.0" layoutY="446.0" mnemonicParsing="false" onAction="#btnRegister_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera dig" />
+                        <Text layoutX="127.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logga in" textAlignment="CENTER">
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="anchorRegister" prefHeight="536.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" visible="false" StackPane.alignment="CENTER">
+                     <children>
+                        <Text layoutX="73.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrera dig" textAlignment="CENTER">
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="120.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-post" wrappingWidth="39.798828125">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="txtRegEmail" layoutX="120.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange din e-postadress" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
+                        <TextField fx:id="txtRegPassword" cache="true" layoutX="120.0" layoutY="258.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange ett lösenord" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
+                        <Text layoutX="120.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lösenord med minst 6 tecken" wrappingWidth="200.00000596046448">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="txtRegPasswordRepeat" cache="true" layoutX="120.0" layoutY="317.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange ditt lösenord igen" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
+                        <Text layoutX="120.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetera lösenord" wrappingWidth="200.00000596046448">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btnRegRegister" layoutX="140.0" layoutY="405.0" mnemonicParsing="false" onAction="#btnRegisterNew_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera dig" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
          </children>
-      </AnchorPane>
+      </VBox>
    </children>
 </AnchorPane>
