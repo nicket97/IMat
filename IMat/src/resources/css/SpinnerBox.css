@@ -8,13 +8,13 @@ and open the template in the editor.
     Author     : Felix
 */
 .spinnerBtn{
-    -fx-background-color: blue;
+    -fx-background-color: #2869d3;
     -fx-border-width: 0.7px;
     -fx-border-color: white;
     
 }
 .spinnerBtn:pressed{
-    -fx-background-color: green;
+    -fx-background-color: #1454bc;
 }
 
 #incRegion{
@@ -22,6 +22,9 @@ and open the template in the editor.
 }
 #decRegion{
     -fx-background-image: url("../img/Icons/Minus.png");
+}
+#decRegion:disabled{
+    -fx-background-color: #84b3ff;
 }
 #addRegion{
     -fx-background-image: url("../img/Icons/AddToCart.png")
