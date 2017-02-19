@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.backend.CustomDataHandler;
+import main.backend.UserHandler;
 import main.controllers.childControllers.Controllable;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.User;
@@ -33,6 +34,7 @@ public class UserController implements Controllable {
     Button btnLogin;
 
     private CustomDataHandler dataHandler;
+    private UserHandler userHandler;
     private User currentUser;
     private Customer currentCustomer;
 
@@ -43,6 +45,7 @@ public class UserController implements Controllable {
 
     public UserController(){
         dataHandler = CustomDataHandler.getInstance();
+        userHandler = dataHandler.getUserHandler();
         currentUser = dataHandler.getUser();
         currentCustomer = dataHandler.getCustomer();
     }
@@ -62,19 +65,13 @@ public class UserController implements Controllable {
         currentUser = dataHandler.getUser();
     }
 
-    public void logOut(){
-        currentUser.setUserName("");
-        currentUser.setPassword("");
-    }
-
     @FXML
     private void btnLogin_onActionPerformed(javafx.event.ActionEvent e){
             User loginUser = new User();
             loginUser.setUserName(txtUsername.getText());
             loginUser.setPassword(txtPassword.getText());
-            dataHandler.logIn(loginUser);
 
-            currentUser = dataHandler.getUser();
+            currentUser = userHandler.logIn(loginUser);
 
             if(currentUser == null){
                 Alert error = new Alert(Alert.AlertType.ERROR);
@@ -89,7 +86,7 @@ public class UserController implements Controllable {
 
     @FXML
     private void btnRegister_onActionPerformed(ActionEvent e){
-        dataHandler.createNewUser(txtUsername.getText(), txtPassword.getText());
+        userHandler.createNewUser(txtUsername.getText(), txtPassword.getText());
     }
 
     @FXML

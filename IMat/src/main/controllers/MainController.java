@@ -80,7 +80,7 @@ public class MainController implements Initializable{
         }
 
         //Automatic log out
-        userController.logOut();
+        dataHandler.getUserHandler().logOut();
         dataHandler.shutDown();
     }
 
