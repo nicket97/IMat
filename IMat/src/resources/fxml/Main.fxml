@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import fxComponents.SpinBox?>
+<?import fxComponents.*?>
 <StackPane id="StackPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="1280.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MainController">
     <AnchorPane id="AnchorPane" visible="false">
        <children>
@@ -122,7 +122,7 @@
                            </AnchorPane>
                         </children>
                      </Pane>
-                     <Pane fx:id="bottomBorder" prefHeight="80.0" prefWidth="1410.0" GridPane.columnIndex="2" GridPane.columnSpan="8" GridPane.rowIndex="1">
+                     <Pane fx:id="bottomBorder" prefHeight="80.0" prefWidth="1410.0" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="1">
                         <children>
                            <fx:include source="Nav.fxml" />
                         </children>
@@ -133,7 +133,7 @@
          </Pane>
          <Pane fx:id="leftBorder" maxWidth="-Infinity" prefWidth="120.0" styleClass="background" stylesheets="@../css/MainFrameWork.css" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
          <Pane fx:id="rightBorder" prefHeight="200.0" prefWidth="200.0" styleClass="background" stylesheets="@../css/MainFrameWork.css" GridPane.columnIndex="9" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
-         <AnchorPane fx:id="centerStage" prefHeight="756.0" prefWidth="1680.0" GridPane.columnIndex="1" GridPane.columnSpan="8" GridPane.rowIndex="2" GridPane.rowSpan="5">
+         <AnchorPane fx:id="centerStage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="760.0" prefWidth="1680.0" GridPane.columnIndex="1" GridPane.columnSpan="8" GridPane.rowIndex="2" GridPane.rowSpan="5">
             <children>
                <GridPane>
                   <columnConstraints>

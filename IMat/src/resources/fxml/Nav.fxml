@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane id="AnchorPane" fx:id="nav" prefHeight="80.0" prefWidth="1480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.navigation.NavController">
+<AnchorPane id="AnchorPane" fx:id="nav" prefHeight="80.0" prefWidth="1480.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.navigation.NavController">
    <children>
       <GridPane fx:id="gridMain" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1480.0">
         <columnConstraints>
@@ -34,55 +29,56 @@
           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="80.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Region fx:id="navHome" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" />
-            <Region fx:id="navGreens" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="1" />
-            <Region fx:id="navBread" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="2" />
-            <Region fx:id="navPantry" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="3" />
-            <Region fx:id="navDairy" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="4" />
-            <Region fx:id="navProtein" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="5" />
-            <Region fx:id="navColonial" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="6" />
-            <Region fx:id="navCheckout" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="7" />
-            <Region fx:id="navDivider" prefHeight="200.0" prefWidth="200.0" styleClass="navDivider" stylesheets="@../css/Navigation.css" GridPane.columnIndex="8" />
-            <StackPane fx:id="cartPane" prefHeight="150.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="9">
+            <StackPane id="navCart" fx:id="cartPane" prefHeight="150.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="9">
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" styleClass="navCart" stylesheets="@../css/Navigation.css" />
-                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="78.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/Icons/Cart.png" />
                      </image>
                   </ImageView>
                </children>
             </StackPane>
-            <AnchorPane fx:id="anchorFruit" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css">
+            <StackPane fx:id="navHome" prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <ImageView pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <image>
-                        <Image url="@../img/Icons/Cart.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="80.0" prefWidth="80.0" text="Frukt &amp; Grönt" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Hem" />
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="anchorBread" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="1">
+            </StackPane>
+            <StackPane fx:id="navGreens" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <ImageView pickOnBounds="true" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <image>
-                        <Image url="@../img/Icons/Cart.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="80.0" prefWidth="80.0" text="Bröd" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Frukt &amp; Grönt" />
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="anchorColonial" prefHeight="200.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="2">
+            </StackPane>
+            <StackPane fx:id="navBread" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
                <children>
-                  <ImageView pickOnBounds="true" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <image>
-                        <Image url="@../img/Icons/Cart.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="80.0" prefWidth="80.0" text="Kolonial" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Bröd" />
                </children>
-            </AnchorPane>
+            </StackPane>
+            <StackPane fx:id="navPantry" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Skafferi" />
+               </children>
+            </StackPane>
+            <StackPane fx:id="navDairy" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Mejeri" />
+               </children>
+            </StackPane>
+            <StackPane fx:id="navProtein" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Protein" />
+               </children>
+            </StackPane>
+            <StackPane fx:id="navColonial" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Kolonial" />
+               </children>
+            </StackPane>
+            <StackPane fx:id="navCheckout" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="7">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Kassa" />
+               </children>
+            </StackPane>
          </children>
       </GridPane>
    </children>
