@@ -32,6 +32,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setMinHeight(720);
         primaryStage.setMinWidth(1280);
+        primaryStage.setFullScreen(true);
         //Add listener for closing the stage
         primaryStage.setOnCloseRequest(windowEvent -> loader.<MainController>getController().shutdown(windowEvent));
         primaryStage.show();

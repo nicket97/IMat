@@ -13,8 +13,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import fxComponents.* ?>
 
+<?import fxComponents.SpinBox?>
 <StackPane id="StackPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="1280.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MainController">
     <AnchorPane id="AnchorPane" visible="false">
        <children>
@@ -44,19 +44,6 @@
           </BorderPane>
        </children>
     </AnchorPane>
-   <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
-      <children>
-         <HBox alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
-            <children>
-               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                  <children>
-                     <fx:include fx:id="user" source="UserPanel.fxml" />
-                  </children>
-               </VBox>
-            </children>
-         </HBox>
-      </children>
-   </AnchorPane>
    <GridPane>
      <columnConstraints>
          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
@@ -147,4 +134,17 @@
       </children>
    </GridPane>
     <Button fx:id="btnTest" layoutX="64.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnTest_onAction" text="Logga in ffs" />
+   <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css">
+      <children>
+         <HBox alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
+            <children>
+               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
+                  <children>
+                     <fx:include fx:id="user" source="UserPanel.fxml" />
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+      </children>
+   </AnchorPane>
 </StackPane>
