@@ -105,6 +105,28 @@
                            <fx:include fx:id="userStatus" source="UserStatusPanel.fxml" />
                         </children>
                      </Pane>
+                     <Pane prefHeight="200.0" prefWidth="200.0">
+                        <children>
+                           <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
+                              <children>
+                                 <HBox alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
+                                    <children>
+                                       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
+                                          <children>
+                                             <fx:include fx:id="user" source="UserPanel.fxml" />
+                                          </children>
+                                       </VBox>
+                                    </children>
+                                 </HBox>
+                              </children>
+                           </AnchorPane>
+                        </children>
+                     </Pane>
+                     <Pane fx:id="bottomBorder" prefHeight="80.0" prefWidth="1410.0" GridPane.columnIndex="2" GridPane.columnSpan="8" GridPane.rowIndex="1">
+                        <children>
+                           <fx:include source="Nav.fxml" />
+                        </children>
+                     </Pane>
                   </children>
                </GridPane>
             </children>
@@ -134,20 +156,6 @@
                </GridPane>
             </children>
          </AnchorPane>
-         <Pane fx:id="bottomBorder" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="8" GridPane.rowIndex="7" />
       </children>
    </GridPane>
-   <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
-      <children>
-         <HBox alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
-            <children>
-               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
-                  <children>
-                     <fx:include fx:id="user" source="UserPanel.fxml" />
-                  </children>
-               </VBox>
-            </children>
-         </HBox>
-      </children>
-   </AnchorPane>
 </StackPane>

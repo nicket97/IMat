@@ -21,6 +21,8 @@ import main.controllers.MainController;
  */
 public class Main extends Application {
 
+    public static final int NUMBER_OF_CATEGORIES = 7;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Main.fxml"));
