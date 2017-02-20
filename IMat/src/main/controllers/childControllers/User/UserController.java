@@ -2,16 +2,17 @@ package main.controllers.childControllers.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.backend.CustomDataHandler;
 import main.backend.UserHandler;
-import main.controllers.childControllers.Controllable;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.User;
 
@@ -21,7 +22,7 @@ import java.util.ResourceBundle;
 /**
  * Created by pontu on 2017-02-15.
  */
-public class UserController implements Controllable {
+public class UserController implements Initializable{
     
     @FXML private TextField txtUsername;
     @FXML private TextField txtPassword;
@@ -29,6 +30,7 @@ public class UserController implements Controllable {
     @FXML private TextField txtRegPassword;
     @FXML private TextField txtRegPasswordRepeat;
     @FXML private AnchorPane anchorRegister;
+
 
     private AnchorPane anchorUser;
 
@@ -49,10 +51,16 @@ public class UserController implements Controllable {
         currentCustomer = dataHandler.getCustomer();
     }
 
-    @Override
-    public void setVisible(boolean value) {
+    public void setLoginVisible(boolean value) {
         anchorUser.setVisible(value);
         anchorUser.setManaged(value);
+        anchorRegister.setVisible(false);
+    }
+
+    public void setRegisterVisible(boolean value){
+        anchorUser.setVisible(value);
+        anchorUser.setManaged(value);
+        anchorRegister.setVisible(value);
     }
     
     public void setParentPane(AnchorPane pane){
@@ -78,13 +86,13 @@ public class UserController implements Controllable {
                 error.setHeaderText("Fel användarnamn eller lösenord.");
                 error.showAndWait();
             }else{
-                setVisible(false);
+                setLoginVisible(false);
             }
     }
 
     @FXML
     private void btnRegister_onActionPerformed(ActionEvent e){
-        anchorRegister.setVisible(true);
+        setRegisterVisible(true);
     }
 
     @FXML
@@ -103,15 +111,13 @@ public class UserController implements Controllable {
             }
 
             userHandler.logIn(newUser);
-            setVisible(false);
-            anchorRegister.setVisible(false);
+            setLoginVisible(false);
         }
     }
 
     @FXML
     private void btnClose_onActionPerformed(javafx.event.ActionEvent e){
-        anchorRegister.setVisible(false);
-        setVisible(false);
+        setLoginVisible(false);
     }
 
     private void showError(){

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="userStatus" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.UserStatusController">
+   <children>
+      <StackPane prefHeight="40.0" prefWidth="290.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <BorderPane fx:id="borderLoggedIn" prefHeight="200.0" prefWidth="200.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
+               <left>
+                  <Text fx:id="textLoginStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="rune@sköldpadda.se" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </left>
+               <right>
+                  <ImageView fx:id="imgUserSettings" fitHeight="39.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../img/Icons/Settings.png" />
+                     </image>
+                  </ImageView>
+               </right>
+            </BorderPane>
+            <BorderPane fx:id="borderLoggedOut" prefHeight="200.0" prefWidth="200.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
+               <left>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Utloggad" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </left>
+               <right>
+                  <Button fx:id="btnOpenLogin" mnemonicParsing="false" onAction="#btnOpenLogin_onActionPerformed" text="Logga in" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

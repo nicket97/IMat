@@ -1,5 +1,7 @@
 package main.backend;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.User;
 
@@ -15,10 +17,16 @@ public class UserHandler {
     Customer currentCustomer;
     String iMatDir;
 
+    private BooleanProperty loggedInProperty = new SimpleBooleanProperty(false);
+
     public UserHandler(User cUser, Customer cCustomer, String iMatDir){
         currentCustomer = cCustomer;
         currentUser = cUser;
         this.iMatDir = iMatDir;
+    }
+
+    public User getUser(){
+        return currentUser;
     }
 
     public User createNewUser(String email, String password){
@@ -59,6 +67,7 @@ public class UserHandler {
 
            System.out.println("Logged in as: " + currentUser.getUserName());
 
+           loggedInProperty.set(true);
            return user;
        }
 
@@ -69,10 +78,16 @@ public class UserHandler {
     public void logOut(){
         currentUser.setUserName("");
         currentUser.setPassword("");
+        loggedInProperty.set(false);
+        System.out.println("Logged out");
     }
 
     public boolean isLoggedIn(){
-        return !(currentUser.getUserName().isEmpty() && currentUser.getPassword().isEmpty());
+        return loggedInProperty.getValue();
+    }
+
+    public BooleanProperty getLoggedInProperty(){
+        return loggedInProperty;
     }
 
     private boolean userExists(User user){

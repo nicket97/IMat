@@ -27,6 +27,7 @@ import javafx.stage.WindowEvent;
 import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.User.UserController;
+import main.controllers.childControllers.User.UserStatusController;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
@@ -39,6 +40,8 @@ public class MainController implements Initializable{
 
     @FXML
     private UserController userController;
+    @FXML
+    private UserStatusController userStatusController;
 
     @FXML
     StackPane mainPane;
@@ -84,19 +87,13 @@ public class MainController implements Initializable{
         dataHandler.shutDown();
     }
 
-    @FXML
-    private void btnTest_onAction(ActionEvent e){
-      //  anchorUser.setVisible(true);
-        if(!dataHandler.getUserHandler().isLoggedIn())
-            userController.setVisible(true);
-    }
-
     private void addListeners(){
 
     }
 
     private void injectControllers(){
         userController.setParentPane(anchorUser);
+        userStatusController.setUserController(userController);
     }
 
 }
