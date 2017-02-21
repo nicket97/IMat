@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -31,12 +29,7 @@
          <children>
             <StackPane id="navCart" fx:id="cartPane" prefHeight="150.0" prefWidth="200.0" styleClass="navButton" stylesheets="@../css/Navigation.css" GridPane.columnIndex="9">
                <children>
-                  <Region prefHeight="200.0" prefWidth="200.0" styleClass="navCart" stylesheets="@../css/Navigation.css" />
-                  <ImageView fitHeight="78.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/Icons/Cart.png" />
-                     </image>
-                  </ImageView>
+                  <Region id="cartIcon" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/Navigation.css" />
                </children>
             </StackPane>
             <StackPane fx:id="navHome" prefHeight="150.0" prefWidth="200.0">

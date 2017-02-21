@@ -11,6 +11,9 @@ import main.backend.UserHandler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
 /**
  * Created by Pontus on 2017-02-20.
@@ -20,9 +23,10 @@ public class UserStatusController implements Initializable {
     UserController userController;
     UserHandler userHandler;
 
-    @FXML BorderPane borderLoggedOut;
-    @FXML Text textLoginStatus;
-    @FXML private ImageView imgUserSettings;
+    @FXML StackPane userStatus;
+    @FXML AnchorPane paneLoggedOut;
+    @FXML AnchorPane paneLoggedIn;
+    @FXML Label textLoginStatus;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,8 +45,13 @@ public class UserStatusController implements Initializable {
         userController.setLoginVisible(true);
     }
 
+    @FXML
+    private void btnOpenRegister_onActionPerformed(ActionEvent e){
+        userController.setRegisterVisible(true);
+    }
+    
     private void setLoggedIn(boolean value){
-        borderLoggedOut.setVisible(!value);
+        userStatus.setVisible(!value);
 
         if(value){
             textLoginStatus.setText(userHandler.getUser().getUserName());
@@ -50,8 +59,6 @@ public class UserStatusController implements Initializable {
     }
 
     private void addListeners(){
-        //Detta är trams
-        imgUserSettings.setOnMouseClicked(e -> userHandler.logOut());
 
         //Lyssna efter ut- och inloggningar
         userHandler.getLoggedInProperty().addListener(x -> setLoggedIn(userHandler.isLoggedIn()));
