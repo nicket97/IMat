@@ -1,5 +1,8 @@
 package main.backend;
 
+import javafx.beans.property.ListProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import se.chalmers.ait.dat215.project.*;
 
 import javax.swing.*;
@@ -20,6 +23,8 @@ public class CustomDataHandler extends BackendWrapper {
     private Customer currentCustomer;
     private UserHandler userHandler;
 
+    private ObservableList<Product> displayedProducts;
+
     public static CustomDataHandler getInstance(){
         if(instance == null)
             instance = new CustomDataHandler();
@@ -29,6 +34,7 @@ public class CustomDataHandler extends BackendWrapper {
 
     private CustomDataHandler(){
         super();
+        displayedProducts = FXCollections.observableArrayList();
     }
 
     public UserHandler getUserHandler(){
@@ -36,6 +42,10 @@ public class CustomDataHandler extends BackendWrapper {
             userHandler = new UserHandler(getUser(), getCustomer(), imatDirectory());
 
         return userHandler;
+    }
+
+    public ObservableList<Product> getDisplayedProducts(){
+        return displayedProducts;
     }
 
 }
