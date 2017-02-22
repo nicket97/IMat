@@ -15,5 +15,9 @@ and open the template in the editor.
     -fx-background-color: #cfdee9;
 }
 #topBorder{
-    -fx-effect: dropshadow(three-pass-box, #00171fA0, 30, 0.2, 0, 5);
+    -fx-effect: dropshadow(two-pass-box, #00171fA0, 20, 0.05, 0, 1);
+}
+
+#bottomBar{
+    -fx-effect: dropshadow(two-pass-box, #00171fA0, 20, 0.05, 0, -1);
 }
