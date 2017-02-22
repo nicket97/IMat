@@ -4,10 +4,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="300.0" styleClass="txtForm" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="730.0" styleClass="txtForm" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.SearchController">
    <children>
-      <TextField fx:id="txtSearch" layoutX="14.0" layoutY="18.0" prefHeight="25.0" prefWidth="249.0" promptText="Sök efter vara eller produkt" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="18.0" />
-      <Button fx:id="btnSearch" layoutX="197.0" layoutY="18.0" mnemonicParsing="false" onAction="#btnSearch_onActionPerformed" text="Q" AnchorPane.rightAnchor="0.0" />
+      <TextField fx:id="txtSearch" layoutX="14.0" layoutY="18.0" prefHeight="65.0" prefWidth="655.0" promptText="Sök efter vara eller produkt" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="18.0" />
+      <Button fx:id="btnSearch" layoutX="690.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnSearch_onActionPerformed" text="Q" AnchorPane.rightAnchor="14.0" />
    </children>
 </AnchorPane>

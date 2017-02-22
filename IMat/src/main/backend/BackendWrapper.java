@@ -10,7 +10,6 @@ import java.util.List;
  * Created by Pontus on 2017-02-18.
  */
 public abstract class BackendWrapper {
-    private static CustomDataHandler instance = null;
 
     private IMatDataHandler dataHandler;
 

@@ -85,7 +85,7 @@
                               <fx:include source="Nav.fxml" />
                            </children>
                         </Pane>
-                        <Pane prefHeight="160.0" prefWidth="171.0" GridPane.columnIndex="6">
+                        <Pane prefHeight="160.0" prefWidth="171.0" GridPane.columnIndex="4">
                            <children>
                               <fx:include source="SearchField.fxml" />
                            </children>
