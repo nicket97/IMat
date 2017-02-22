@@ -34,7 +34,7 @@
             </StackPane>
             <StackPane fx:id="navHome" prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Hem" />
+                  <Label id="navFirst" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Hem" />
                </children>
             </StackPane>
             <StackPane fx:id="navGreens" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -69,7 +69,7 @@
             </StackPane>
             <StackPane fx:id="navCheckout" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="7">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Kassa" />
+                  <Label id="navLast" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Kassa" />
                </children>
             </StackPane>
          </children>

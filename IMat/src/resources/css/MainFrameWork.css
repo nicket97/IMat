@@ -3,11 +3,17 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 2017-feb-19, 19:55:17
     Author     : Felix
 */
 
 .background{
     -fx-background-color: #00171F;
+}
+.backgroundCenter{
+    -fx-background-color: #cfdee9;
+}
+#topBorder{
+    -fx-effect: dropshadow(three-pass-box, #00171fA0, 30, 0.2, 0, 5);
 }
