@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 2017-feb-14, 17:46:01
     Author     : Felix
 */
@@ -19,4 +19,31 @@ and open the template in the editor.
 
 .txtForm:focused{
     -fx-background-color: #cfdee9;
+}
+
+.searchButton{
+    -fx-background-color: #003459;
+    -fx-background-insets: 0px;
+    -fx-background-image: url("../img/Icons/MagGlass.png");
+    -fx-background-radius: 0px;
+    -fx-border-color: #91bfe0;
+    -fx-border-radius: 0px;
+    -fx-border-width: 1px 1px 1px 0;
+    -fx-border-insets: 0px;
+}
+.searchButton:hover{
+    -fx-background-color: #cfdee9;
+    -fx-background-image: url("../img/Icons/MagGlassHover.png");
+    -fx-border-color: #003459;
+    -fx-border-width: 2px;
+}
+
+.searchField{
+    -fx-background-color: #cfdee9;
+    -fx-background-radius: 0px;
+    -fx-border-color: #91bfe0;
+    -fx-font-size: 24px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #003459;
+    -fx-prompt-text-fill: #5b5b5b;
 }

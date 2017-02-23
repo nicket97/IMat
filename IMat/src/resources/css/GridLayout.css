@@ -8,27 +8,9 @@ and open the template in the editor.
     Author     : Felix
 */
 
-#GridFrame{
-    -fx-border-width: 2px;
-    -fx-border-color: #666666;
-    -fx-background-color: red;
-
-}
-#ActionText{
-    -fx-font: bold 28px "Franklin Gothic Medium" ;
-
-}
-#ImageBox{
-    -fx-background-color: blue;
-    -fx-border-width: 3px;
-    -fx-border-color: green;
-    -fx-border-style: solid;
-}
-
-
 .startpageFrame{
     -fx-background-color: #003459;
-    -fx-border-color: #00a8e8;
+    -fx-border-color: #003459;
 
     -fx-border-width: 3px;
 }
@@ -36,13 +18,26 @@ and open the template in the editor.
     -fx-background-color: #cfdee9;
     -fx-border-color: #00171F;
 }
+.startpageImage{
+    -fx-background-image: url("../img/Icons/Cart.png");
+}
 .startpageLabel{
     -fx-font-family: "Arial";
     -fx-font-style: italic;
     -fx-font-size: 48px;
     -fx-font-weight: bold;
-    -fx-text-fill: #00a8e8;
+    -fx-text-fill: #91bfe0;
 }
-.startpageLabel:hover{
+#imgHover{
+    -fx-background-image: url("");
+    -fx-background-color: black;
+}
+#txtHover{
     -fx-text-fill: #00171F;
+}
+
+#startpageMessage{
+    -fx-font-family: "Arial";
+    -fx-text-fill: #003459;
+    -fx-font-style: italic;
 }

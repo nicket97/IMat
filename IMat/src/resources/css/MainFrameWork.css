@@ -9,10 +9,12 @@ and open the template in the editor.
 */
 
 .background{
-    -fx-background-color: #00171F;
+    -fx-background-color: #91bfe0;
 }
 .backgroundCenter{
     -fx-background-color: #cfdee9;
+    -fx-border-width: 1px 2px;
+    -fx-border-color: #003459;
 }
 #topBorder{
     -fx-effect: dropshadow(two-pass-box, #00171fA0, 20, 0.05, 0, 1);

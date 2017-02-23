@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -60,11 +61,12 @@
                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                </GridPane>
+               <fx:include fx:id="startpage" source="Startpage.fxml" />
             </children>
          </Pane>
          <Pane id="bottomBar" fx:id="bottomBar" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/MainFrameWork.css" GridPane.columnIndex="1" GridPane.columnSpan="8" GridPane.rowIndex="7">
             <children>
-               <fx:include source="BottomBar.fxml" />
+               <fx:include fx:id="bottomBar" source="BottomBar.fxml" />
             </children>
          </Pane>
          <Pane fx:id="topBorder" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowSpan="2">
@@ -74,43 +76,55 @@
                      <Image url="@../img/Img/Background-Area.jpg" />
                   </image>
                </ImageView>
-               <GridPane>
+               <GridPane alignment="CENTER">
                   <columnConstraints>
                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="200.0" />
                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="180.0" />
                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="95.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="350.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="40.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="350.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="165.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="730.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="175.0" />
                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="300.0" />
                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
+                     <ColumnConstraints />
                   </columnConstraints>
                   <rowConstraints>
-                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                     <RowConstraints maxHeight="-Infinity" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <children>
-                      <ImageView fitHeight="192.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.rowSpan="2">
-                        <image>
-                           <Image url="@../img/Icons/iMatLogo2.png" />
-                        </image>
-                        <effect>
-                           <DropShadow color="#5cc7f0" height="9.14" radius="3.3275" spread="0.03" width="6.17" />
-                        </effect>
-                     </ImageView>
-                     <Pane prefHeight="100.0" prefWidth="300.0" GridPane.columnIndex="8">
+                     <Pane prefHeight="100.0" prefWidth="300.0" GridPane.columnIndex="6">
                         <children>
                            <fx:include fx:id="userStatus" source="UserStatusPanel.fxml" />
                         </children>
                      </Pane>
-                     <Pane id="topBorder" fx:id="bottomBorder" prefHeight="80.0" prefWidth="1410.0" stylesheets="@../css/MainFrameWork.css" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="1">
+                     <Pane id="topBorder" fx:id="bottomBorder" prefHeight="80.0" prefWidth="1410.0" stylesheets="@../css/MainFrameWork.css" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="3">
                         <children>
-                           <fx:include source="Nav.fxml" />
+                           <fx:include fx:id="nav" source="Nav.fxml" />
                         </children>
                      </Pane>
+                     <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <children>
+                           <fx:include fx:id="search" source="SearchField.fxml" />
+                        </children>
+                     </Pane>
+                     <ImageView fitHeight="240.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.rowSpan="4">
+                        <image>
+                           <Image url="@../img/Logo/iMatLogo2.png" />
+                        </image>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <effect>
+                           <DropShadow blurType="GAUSSIAN" color="#00a8e8" height="6.17" radius="4.0675" width="12.1" />
+                        </effect>
+                     </ImageView>
                   </children>
+                  <cursor>
+                     <Cursor fx:constant="DEFAULT" />
+                  </cursor>
                </GridPane>
             </children>
          </Pane>
