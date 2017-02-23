@@ -64,6 +64,13 @@
                                <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
                                <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                            </rowConstraints>
+                     <children>
+                        <Pane GridPane.columnIndex="7" GridPane.rowSpan="4">
+                           <children>
+                              <fx:include source="Cart.fxml" />
+                           </children>
+                        </Pane>
+                     </children>
                        </GridPane>
                    </children>
                </Pane>
