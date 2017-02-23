@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 2017-feb-14, 17:46:01
+    Author     : Felix
+*/
+
+.btnCart{
+
+}
+
+.txt{
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-text-fill: 003459
+}
+
+.background{
+
+}
+
+#header{
+    -fx-font-size: 64px;
+}

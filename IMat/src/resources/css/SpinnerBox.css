@@ -8,13 +8,16 @@ and open the template in the editor.
     Author     : Felix
 */
 .spinnerBtn{
-    -fx-background-color: #2869d3;
+    -fx-background-color: #00a8e8;
     -fx-border-width: 0.7px;
-    -fx-border-color: white;
+    -fx-border-color: #003459;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
     
 }
 .spinnerBtn:pressed{
-    -fx-background-color: #1454bc;
+    -fx-background-color: #003459;
+    -fx-border-color: #00a8e8;
 }
 
 #incRegion{
@@ -24,7 +27,7 @@ and open the template in the editor.
     -fx-background-image: url("../img/Icons/Minus.png");
 }
 #decRegion:disabled{
-    -fx-background-color: #84b3ff;
+    -fx-background-color: #007ea7;
 }
 #addRegion{
     -fx-background-image: url("../img/Icons/AddToCart.png")
@@ -33,15 +36,15 @@ and open the template in the editor.
     -fx-background-image: url("../img/Icons/AddedToCart.png");
 }
 #txtSpinner{
-    -fx-background-color: #f2f2f2;
-    -fx-border-color: #bcbcbc;
-    -fx-border-radius: 3px;
-    -fx-background-radius: 5px;
+    -fx-background-color: #cfdee9;
+    -fx-border-color: #003459;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
     
     -fx-effect: dropshadow(one-pass-box, #a3a3a3, 2, 15, 0, 0);
     
-    -fx-font-family: "Verdana";
-    -fx-font-fill: #5b5b5b;
+    -fx-font-family: "Arial";
+    -fx-font-fill: #003459;
     -fx-font-size: 18px;
 }
 

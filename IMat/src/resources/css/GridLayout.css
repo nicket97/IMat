@@ -29,7 +29,7 @@ and open the template in the editor.
     -fx-text-fill: #91bfe0;
 }
 #imgHover{
-    -fx-background-image: url("");
+    
     -fx-background-color: black;
 }
 #txtHover{
