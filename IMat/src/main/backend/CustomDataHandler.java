@@ -35,6 +35,10 @@ public class CustomDataHandler extends BackendWrapper {
     private CustomDataHandler(){
         super();
         displayedProducts = FXCollections.observableArrayList();
+
+        if(!getUserHandler().isLoggedIn()){
+            getShoppingCart().getItems().clear();
+        }
     }
 
     public UserHandler getUserHandler(){

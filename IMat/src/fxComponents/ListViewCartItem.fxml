@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="anchorItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="300.0">
+         <children>
+            <Label fx:id="labelTitle" prefHeight="17.0" prefWidth="80.0" text="Mjölk">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtAmount" prefHeight="40.0" prefWidth="40.0" />
+            <VBox prefHeight="40.0" prefWidth="40.0">
+               <children>
+                  <Region id="incRegion" fx:id="regionInc" prefHeight="20.0" prefWidth="60.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
+                  <Region id="decRegion" fx:id="regionDec" prefHeight="20.0" prefWidth="60.0" style="-fx-background-image: ;" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
+               </children>
+            </VBox>
+            <Label fx:id="labelUnit" prefHeight="20.0" prefWidth="30.0" text="1L">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="60.0" text="59.00:-">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

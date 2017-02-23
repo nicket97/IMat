@@ -5,8 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import main.backend.CustomDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,14 +28,23 @@ public class SearchController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
-
-        dataHandler.getDisplayedProducts().addListener((ListChangeListener<? super Product>)  x -> System.out.println("List changed."));
+        addListeners();
     }
 
     @FXML
     private void btnSearch_onActionPerformed(ActionEvent e){
+        startSearch();
+    }
+
+    private void startSearch(){
         if(txtSearch.getText().isEmpty())
             return;
+
+        //Just optional for quick testing
+        if(txtSearch.getText().equals("add")) {
+            dataHandler.getDisplayedProducts().stream().forEach(p -> dataHandler.getShoppingCart().addItem(new ShoppingItem(p, 1)));
+            return;
+        }
 
         List<Product> result = search(txtSearch.getText());
         dataHandler.getDisplayedProducts().clear();
@@ -44,14 +55,14 @@ public class SearchController implements Initializable {
     }
 
     private List<Product> search(String search){
-        System.out.println("Searching for " + search + "...");
-
-        //Just a stream test
-        //return dataHandler.getProducts().stream().filter(p -> p.getName().contains(search)).toArray(Product[]::new);
-
         //Add more search logic here
 
         return dataHandler.findProducts(search);
+    }
+
+    private void addListeners(){
+        dataHandler.getDisplayedProducts().addListener((ListChangeListener<? super Product>)  x -> System.out.println("List changed."));
+        txtSearch.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) startSearch();});
     }
 
     private void printSearchResult(List<Product> result){
