@@ -24,7 +24,7 @@ and open the template in the editor.
 .startpageLabel{
     -fx-font-family: "Arial";
     -fx-font-style: italic;
-    -fx-font-size: 48px;
+    -fx-font-size: 3em;
     -fx-font-weight: bold;
     -fx-text-fill: #91bfe0;
 }
@@ -40,4 +40,5 @@ and open the template in the editor.
     -fx-font-family: "Arial";
     -fx-text-fill: #003459;
     -fx-font-style: italic;
+    -fx-font-size: 5em;
 }

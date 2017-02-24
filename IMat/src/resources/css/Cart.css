@@ -9,19 +9,46 @@ and open the template in the editor.
 */
 
 .btnCart{
-
+    -fx-background-insets: 0px;
+    -fx-background-color: #00171F;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-font-family: "Arial";
+    -fx-font-size: 1.5em;
+    -fx-text-fill: #cfdee9;
+    -fx-font-weight: bold;
+}
+.btnCart:hover{
+    -fx-background-color: #00171f;
+    -fx-border-color: #cfdee9;
+    -fx-border-width: 2px;  
+    
+    -fx-text-fill: #cfdee9;
+}
+.btnCart:focused{
+    -fx-background-color: #00171f;
+    -fx-border-color: #cfdee9;
+    -fx-border-width: 2px;  
+    
+    -fx-text-fill: #cfdee9;
 }
 
 .txt{
     -fx-font-family: "Arial";
     -fx-font-weight: bold;
-    -fx-text-fill: 003459
+    -fx-text-fill: #cfdee9;
+    -fx-font-size: 1.5em;
 }
 
 .background{
-
+    -fx-background-color: linear-gradient(to bottom, #91bfe0, #003459);
+}
+.backgroundBorder{
+    -fx-background-color: linear-gradient(to bottom, #003459, #003459);
 }
 
 #header{
-    -fx-font-size: 64px;
+    -fx-font-size: 4em;
+    -fx-text-fill: #003459;
+    -fx-background-color: #91bfe0;
 }

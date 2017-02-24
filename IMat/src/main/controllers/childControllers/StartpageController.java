@@ -14,6 +14,7 @@
  import javafx.scene.image.ImageView;
  import javafx.scene.input.MouseEvent;
  import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
  import main.controllers.MainController;
 
 /**
@@ -50,12 +51,14 @@ public class StartpageController implements Controllable{
     private Label img4;
     @FXML
     private Label txtWelcome;
+    @FXML
+    private FlowPane flowPane;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         for(int i = 0; i < 4; i++){
-            Node child = startpage.getChildren().get(i);
+            Node child = flowPane.getChildren().get(i);
             child.setOnMouseEntered(event -> setBtnHover(event));
             child.setOnMouseExited(event -> setBtnDefault(event));
 

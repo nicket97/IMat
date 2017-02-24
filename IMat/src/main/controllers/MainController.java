@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -36,8 +37,6 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
  */
 public class MainController implements Initializable{
 
-    @FXML private Button btnTest;
-
     @FXML
     private UserController userController;
     @FXML
@@ -48,14 +47,24 @@ public class MainController implements Initializable{
     
     @FXML
     AnchorPane anchorUser;
-
+    @FXML
     private CustomDataHandler dataHandler;
     @FXML
-    private Pane navigation;
+    private Pane leftBorder;
     @FXML
-    private Pane sidebar;
+    private Pane rightBorder;
     @FXML
-    private SpinBox Spinner;
+    private AnchorPane centerStage;
+    @FXML
+    private Pane topBorder;
+    @FXML
+    private Pane bottomBorder;
+    @FXML
+    private AnchorPane bottomBar;
+    @FXML
+    private Pane Mallar;
+    @FXML
+    private GridPane DONOTREMOVE;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
