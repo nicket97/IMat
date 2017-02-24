@@ -37,6 +37,13 @@ and open the template in the editor.
     
     -fx-text-fill: #003459;
 }
+.btnForms:focused{
+    -fx-background-color: #cfdee9;
+    -fx-border-color: #003459;
+    -fx-border-width: 2px;  
+    
+    -fx-text-fill: #003459;
+}
 
 .btnClose{
     -fx-background-color: none;

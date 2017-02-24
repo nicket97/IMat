@@ -51,8 +51,8 @@ public class UserStatusController implements Initializable {
     }
     
     private void setLoggedIn(boolean value){
-        userStatus.setVisible(!value);
-
+        userStatus.getChildren().get(1).setVisible(!value);
+        userStatus.getChildren().get(1).setMouseTransparent(value);
         if(value){
             textLoginStatus.setText(userHandler.getUser().getUserName());
         }
