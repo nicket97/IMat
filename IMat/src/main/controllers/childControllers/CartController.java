@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Pane;
 import main.backend.CustomDataHandler;
 import main.controllers.MainController;
 import se.chalmers.ait.dat215.project.ShoppingCart;
@@ -27,6 +28,7 @@ public class CartController implements Initializable{
     @FXML ListView listViewCartItems;
     @FXML Label labelSum;
 
+    @FXML private Pane cart;
 
     private ShoppingCart shoppingCart;
 
@@ -37,7 +39,13 @@ public class CartController implements Initializable{
     }
 
     public void setVisible(boolean value){
+        //Animation here
+        cart.setVisible(value);
+        cart.setManaged(value);
+    }
 
+    public boolean isVisible(){
+        return cart.isVisible();
     }
 
     private void addListeners(){
@@ -46,6 +54,8 @@ public class CartController implements Initializable{
     }
 
     private void updateChart(){
+        setVisible(true);
+
         listViewCartItems.getItems().clear();
         listViewCartItems.getItems().addAll(shoppingCart.getItems());
 

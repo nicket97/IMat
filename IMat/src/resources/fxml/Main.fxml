@@ -28,30 +28,6 @@
       <children>
          <Pane fx:id="leftBorder" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="120.0" styleClass="background" stylesheets="@../css/MainFrameWork.css" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
          <Pane fx:id="rightBorder" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="120.0" styleClass="background" stylesheets="@../css/MainFrameWork.css" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-         <AnchorPane fx:id="centerStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="630.0" minWidth="1120.0" prefHeight="760.0" prefWidth="1680.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-            <children>
-               <GridPane disable="true">
-                  <columnConstraints>
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="200.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="180.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="350.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="40.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="350.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="170.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="300.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
-                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
-                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
-                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-               </GridPane>
-               <fx:include source="Centerstage.fxml" />
-            </children>
-         </AnchorPane>
          <Pane fx:id="topBorder" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowSpan="2">
             <children>
                <ImageView fitHeight="240.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
@@ -101,6 +77,37 @@
             </children>
          </Pane>
          <fx:include fx:id="bottomBorder" source="BottomBar.fxml" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <AnchorPane fx:id="centerStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="630.0" minWidth="1120.0" prefHeight="760.0" prefWidth="1680.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <children>
+               <fx:include source="Centerstage.fxml" />
+               <GridPane disable="true">
+                  <columnConstraints>
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="200.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="180.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="350.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="40.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="350.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="170.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="300.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
+                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
+                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                  <children>
+                     <Pane prefHeight="216.0" prefWidth="300.0" GridPane.columnIndex="7" GridPane.rowSpan="4">
+                        <children>
+                           <fx:include fx:id="cart" source="Cart.fxml" />
+                        </children>
+                     </Pane>
+                  </children>
+               </GridPane>
+            </children>
+         </AnchorPane>
       </children>
    </GridPane>
     <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
