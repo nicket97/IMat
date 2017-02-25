@@ -41,7 +41,8 @@ public class MainController implements Initializable{
     private UserController userController;
     @FXML
     private UserStatusController userStatusController;
-
+    @FXML
+    private CenterstageController centerstageController;
     @FXML
     StackPane mainPane;
     
@@ -103,6 +104,7 @@ public class MainController implements Initializable{
     private void injectControllers(){
         userController.setParentPane(anchorUser);
         userStatusController.setUserController(userController);
+        userStatusController.addListener(centerstageController);
     }
 
 }

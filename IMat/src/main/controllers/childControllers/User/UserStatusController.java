@@ -10,10 +10,14 @@ import main.backend.CustomDataHandler;
 import main.backend.UserHandler;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.controllers.childControllers.Controllable;
+import main.controllers.childControllers.LoginStatusListener;
 
 /**
  * Created by Pontus on 2017-02-20.
@@ -27,7 +31,9 @@ public class UserStatusController implements Initializable {
     @FXML AnchorPane paneLoggedOut;
     @FXML AnchorPane paneLoggedIn;
     @FXML Label textLoginStatus;
-
+    
+    private List<LoginStatusListener> listeners = new ArrayList<>();
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userHandler = CustomDataHandler.getInstance().getUserHandler();
@@ -40,6 +46,10 @@ public class UserStatusController implements Initializable {
         userController = controller;
     }
 
+    public void addListener(LoginStatusListener controller){
+        listeners.add(controller);
+    }
+    
     @FXML
     private void btnOpenLogin_onActionPerformed(ActionEvent e){
         userController.setLoginVisible(true);
@@ -56,6 +66,7 @@ public class UserStatusController implements Initializable {
         if(value){
             textLoginStatus.setText(userHandler.getUser().getUserName());
         }
+        notifyLoginStatusListeners(value);
     }
 
     private void addListeners(){
@@ -63,4 +74,12 @@ public class UserStatusController implements Initializable {
         //Lyssna efter ut- och inloggningar
         userHandler.getLoggedInProperty().addListener(x -> setLoggedIn(userHandler.isLoggedIn()));
     }
+    
+    private void notifyLoginStatusListeners(boolean value){
+        if(!listeners.isEmpty()){
+        for(LoginStatusListener listener:listeners){
+            listener.loginStatusChanged(value);
+        }}
+    }
+    
 }

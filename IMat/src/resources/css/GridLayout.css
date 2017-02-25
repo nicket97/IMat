@@ -28,10 +28,7 @@ and open the template in the editor.
     -fx-font-weight: bold;
     -fx-text-fill: #91bfe0;
 }
-#imgHover{
-    
-    -fx-background-color: black;
-}
+
 #txtHover{
     -fx-text-fill: #00171F;
 }
@@ -41,4 +38,68 @@ and open the template in the editor.
     -fx-text-fill: #003459;
     -fx-font-style: italic;
     -fx-font-size: 5em;
+}
+
+#img1{
+    -fx-background-image: url("../img/Icons/Shop.png");
+}
+
+#img1Hover{
+    -fx-background-image: url("../img/Icons/ShopHover.png");
+}
+
+#img2{
+    -fx-background-image: url("../img/Icons/Login.png");
+}
+
+#img2Hover{
+    -fx-background-image: url("../img/Icons/LoginHover.png");    
+}
+
+#img3{
+    -fx-background-image: url("../img/Icons/Search.png");    
+}
+
+#img3Hover{
+    -fx-background-image: url("../img/Icons/SearchHover.png");    
+}
+
+#img4{
+    -fx-background-image: url("../img/Icons/Register.png");
+}
+
+#img4Hover{
+        -fx-background-image: url("../img/Icons/RegisterHover.png");
+}
+
+#img1In{
+    -fx-background-image: url("../img/Icons/Shop.png");
+}
+
+#img1InHover{
+    -fx-background-image: url("../img/Icons/Shop.png");
+}
+
+#img2In{
+    -fx-background-image: url("../img/Icons/History.png");
+}
+
+#img2InHover{
+    -fx-background-image: url("../img/Icons/HistoryHover.png");
+}
+
+#img3In{
+    -fx-background-image: url("../img/Icons/Search.png");
+}
+
+#img3InHover{
+        -fx-background-image: url("../img/Icons/SearchHover.png");
+}
+
+#img4In{
+        -fx-background-image: url("../img/Icons/Customer.png");
+}
+
+#img4InHover{
+        -fx-background-image: url("../img/Icons/CustomerHover.png");
 }

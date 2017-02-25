@@ -7,8 +7,7 @@
 
 <AnchorPane fx:id="startpage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="506.66667" minWidth="1120.0" prefHeight="760.0" prefWidth="1680.0" styleClass="backgroundCenter" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.StartpageController">
    <children>
-      <Label id="startpageMessage" fx:id="txtWelcome" alignment="CENTER" layoutX="650.0" layoutY="40.0" stylesheets="@../css/GridLayout.css" text="Välkommen" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
-        
+      <Label id="startpageMessage" fx:id="txtWelcome" alignment="CENTER" layoutX="650.0" layoutY="40.0" stylesheets="@../css/GridLayout.css" text="Välkommen" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0"> 
       </Label>
       <FlowPane fx:id="flowPane" alignment="CENTER" columnHalignment="CENTER" hgap="40.0" layoutX="380.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="520.0" vgap="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
          <children>
@@ -22,7 +21,7 @@
             </AnchorPane>
             <AnchorPane fx:id="btnChoice2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="440.0" styleClass="startpageFrame" stylesheets="@../css/GridLayout.css">
                <children>
-                  <Label fx:id="txt2" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="35.0" layoutY="45.0" mouseTransparent="true" prefHeight="150.0" styleClass="startpageLabel" stylesheets="@../css/GridLayout.css" text=" Börja Handla " textAlignment="RIGHT" wrapText="true" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="45.0">
+                  <Label fx:id="txt2" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="35.0" layoutY="45.0" mouseTransparent="true" prefHeight="150.0" styleClass="startpageLabel" stylesheets="@../css/GridLayout.css" text="Logga In " textAlignment="RIGHT" wrapText="true" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="45.0">
                      <font>
                         <Font size="48.0" />
                      </font>
@@ -32,7 +31,7 @@
             </AnchorPane>
             <AnchorPane fx:id="btnChoice3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="440.0" styleClass="startpageFrame" stylesheets="@../css/GridLayout.css">
                <children>
-                  <Label fx:id="txt3" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="35.0" layoutY="45.0" mouseTransparent="true" prefHeight="150.0" styleClass="startpageLabel" stylesheets="@../css/GridLayout.css" text=" Börja Handla " textAlignment="RIGHT" wrapText="true" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="45.0">
+                  <Label fx:id="txt3" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="35.0" layoutY="45.0" mouseTransparent="true" prefHeight="150.0" styleClass="startpageLabel" stylesheets="@../css/GridLayout.css" text="Sök Vara " textAlignment="RIGHT" wrapText="true" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="45.0">
                      
                   </Label>
                   <Label fx:id="img3" layoutX="313.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" styleClass="startpageImage" stylesheets="@../css/GridLayout.css" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="68.0" />
@@ -40,7 +39,7 @@
             </AnchorPane>
             <AnchorPane fx:id="btnChoice4" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="440.0" styleClass="startpageFrame" stylesheets="@../css/GridLayout.css">
                <children>
-                  <Label fx:id="txt4" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="35.0" layoutY="45.0" mouseTransparent="true" prefHeight="150.0" styleClass="startpageLabel" stylesheets="@../css/GridLayout.css" text=" Börja Handla " textAlignment="RIGHT" wrapText="true" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="45.0">
+                  <Label fx:id="txt4" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="35.0" layoutY="45.0" mouseTransparent="true" prefHeight="150.0" styleClass="startpageLabel" stylesheets="@../css/GridLayout.css" text="Registrera konto " textAlignment="RIGHT" wrapText="true" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="45.0">
                      
                   </Label>
                   <Label fx:id="img4" layoutX="313.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" styleClass="startpageImage" stylesheets="@../css/GridLayout.css" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="68.0" />

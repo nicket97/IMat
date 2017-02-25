@@ -7,13 +7,23 @@ package main.controllers.childControllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
+import main.backend.UserHandler;
+import main.controllers.childControllers.User.UserStatusController;
 /**
  *
  * @author Felix
  */
-public class CenterstageController implements Controllable{
 
+public class CenterstageController implements Controllable, LoginStatusListener{
+
+    @FXML
+    private AnchorPane centerstage;
+    
+    @FXML
+    private StartpageController startpageController;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -22,5 +32,10 @@ public class CenterstageController implements Controllable{
     @Override
     public void setVisible(boolean value) {
 
+    }
+
+    @Override
+    public void loginStatusChanged(boolean value) {
+        startpageController.setLoginStatus(value);
     }
 }
