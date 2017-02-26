@@ -7,6 +7,7 @@ package main.controllers.childControllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import fxComponents.ListViewCartItem;
@@ -18,6 +19,7 @@ import javafx.scene.layout.Pane;
 import main.backend.CustomDataHandler;
 import main.controllers.MainController;
 import se.chalmers.ait.dat215.project.ShoppingCart;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
@@ -49,15 +51,21 @@ public class CartController implements Initializable{
     }
 
     private void addListeners(){
-        shoppingCart.addShoppingCartListener(x -> updateChart());
-        listViewCartItems.setCellFactory(x -> new ListViewCartItem());
+        shoppingCart.addShoppingCartListener(x -> updateChart(x.getShoppingItem(), x.isAddEvent()));
+        listViewCartItems.setCellFactory(x -> new ListViewCartItem(shoppingCart));
     }
 
-    private void updateChart(){
+    private void updateChart(ShoppingItem item, boolean add){
         setVisible(true);
+        List<ShoppingItem> viewedItems = listViewCartItems.getItems();
 
-        listViewCartItems.getItems().clear();
-        listViewCartItems.getItems().addAll(shoppingCart.getItems());
+        System.out.println("Adding " + item.getProduct().getName());
+
+        if(add) {
+            viewedItems.add(item);
+        }
+        else
+            viewedItems.remove(item);
 
         labelSum.setText(shoppingCart.getTotal() + " kr");
     }

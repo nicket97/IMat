@@ -1,5 +1,6 @@
 package fxComponents;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,7 +9,9 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.io.IOException;
@@ -25,10 +28,14 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
     @FXML private Label labelUnit;
     @FXML private TextField txtAmount;
     @FXML private Label labelPrice;
+    @FXML private Label labelDelete;
+    @FXML private Region regionInc;
+    @FXML private Region regionDec;
 
-    private ShoppingItem item;
+    private ShoppingCart cart;
+    private SimpleIntegerProperty amount = new SimpleIntegerProperty();
 
-    public ListViewCartItem(){
+    public ListViewCartItem(ShoppingCart cart){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListViewCartItem.fxml"));
 
@@ -38,29 +45,59 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
             System.out.println("Whoops. Can't find fxml.");
             e.printStackTrace();
         }
+
+        this.cart = cart;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        addListeners();
+    }
 
+    public SimpleIntegerProperty getAmountProperty(){
+        return amount;
     }
 
     @Override
     protected void updateItem(ShoppingItem item, boolean empty){
+        super.updateItem(item, empty);
+
         if(item == null)
             empty = true;
 
-        setVisible(empty);
-        setManaged(empty);
+        setItem(item);
 
-        if(empty) return;
+        if(empty) {
+            System.out.println("Size of list: ");
+            labelTitle.setText("DELETED");
+            setText(null);
+            setGraphic(null);
+            return;
+        }
 
         labelTitle.setText(item.getProduct().getName());
         labelUnit.setText(item.getProduct().getUnitSuffix());
-        txtAmount.setText(String.valueOf((int)item.getAmount()));
+        amount.set((int)item.getAmount());
+        txtAmount.setText(String.valueOf(amount.getValue()));
         labelPrice.setText(String.valueOf(item.getProduct().getPrice()*item.getAmount()) + ":-");
 
         setGraphic(anchorItem);
         setText(null);
+    }
+
+    private void addListeners() {
+        regionInc.setOnMouseClicked(e -> {
+            getItem().setAmount(getItem().getAmount() + 1);
+            updateItem(getItem(), false);
+        });
+
+        regionDec.setOnMouseClicked(e -> {
+            if (amount.getValue() > 1){
+                getItem().setAmount(getItem().getAmount() - 1);
+                updateItem(getItem(), false);
+            }
+        });
+
+        labelDelete.setOnMouseClicked(e -> {cart.removeItem(getItem()); setItem(null);});
     }
 }
