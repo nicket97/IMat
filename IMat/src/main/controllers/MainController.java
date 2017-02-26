@@ -29,6 +29,7 @@ import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.User.UserController;
 import main.controllers.childControllers.User.UserStatusController;
+import main.controllers.childControllers.navigation.NavController;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
@@ -44,11 +45,15 @@ public class MainController implements Initializable{
     @FXML
     private CenterstageController centerstageController;
     @FXML
+    private NavController navController;
+    @FXML
+    private CartController cartController;
+
+    @FXML
     StackPane mainPane;
     
-    @FXML
-    AnchorPane anchorUser;
-    @FXML
+    @FXML AnchorPane anchorUser;
+
     private CustomDataHandler dataHandler;
     @FXML
     private Pane leftBorder;
@@ -105,6 +110,7 @@ public class MainController implements Initializable{
         userController.setParentPane(anchorUser);
         userStatusController.setUserController(userController);
         userStatusController.addListener(centerstageController);
+        navController.injectControllers(cartController);
     }
 
 }

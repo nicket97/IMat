@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -75,4 +76,7 @@
          </children>
       </GridPane>
    </children>
+   <effect>
+      <DropShadow blurType="ONE_PASS_BOX" color="#455165" height="47.69" offsetY="2.0" radius="24.025" width="50.41" />
+   </effect>
 </AnchorPane>
