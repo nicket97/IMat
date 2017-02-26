@@ -79,7 +79,7 @@ public class StartpageController implements Controllable{
             Node child = flowPane.getChildren().get(i);
             child.setOnMouseEntered(event -> setBtnHover(event));
             child.setOnMouseExited(event -> setBtnDefault(event));
-
+            child.setOnMouseClicked(event -> setClicked(event));
         }        
     }
     
@@ -113,6 +113,38 @@ public class StartpageController implements Controllable{
         Label img = (Label) source.getChildren().get(1);
         txt.setId(null);
         img.setId(data.getImg());
+    }
+
+    private void setClicked(MouseEvent e){
+        AnchorPane source = (AnchorPane) e.getSource();
+        Label txt = (Label) source.getChildren().get(0);
+
+
+        //LÄGG TILL SKIT HÄR
+        switch (txt.getText().toLowerCase().trim()){
+            case "börja handla":
+                //TODO
+                System.out.println("Börja handla för fan");
+                break;
+            case "historik":
+                System.out.println("Historik för fan");
+                break;
+            case "logga in":
+                System.out.println("Logga in för fan");
+                break;
+            case "sök vara":
+                System.out.println("Sök för fan");
+                //TODO
+                break;
+            case "registrera konto":
+                System.out.println("Registrera ffs");
+                break;
+            case "verktyg":
+                System.out.println("Verktyg nu");
+                //TODO
+            default:
+                break;
+        }
     }
 
     private void updateFrameData() {
