@@ -8,6 +8,7 @@ package main.controllers.childControllers.navigation;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,10 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import main.Main;
 import main.controllers.MainController;
-import main.controllers.childControllers.CartController;
-import main.controllers.childControllers.CenterstageController;
-import main.controllers.childControllers.Controllable;
-import main.controllers.childControllers.SidebarController;
+import main.controllers.childControllers.*;
 
 /**
  *
@@ -30,8 +28,10 @@ public class NavController implements Initializable {
     @FXML GridPane gridMain;
 
     @FXML private StackPane cartPane;
+    @FXML private StackPane navHome;
 
     private CartController cartController;
+    private StartpageController startpageController;
 
 
     @Override
@@ -43,8 +43,9 @@ public class NavController implements Initializable {
         addListeners();
     }
 
-    public void injectControllers(CartController cartController){
+    public void injectControllers(StartpageController startpageController, CartController cartController){
         this.cartController = cartController;
+        this.startpageController = startpageController;
     }
 
     private void pressButton(){
@@ -54,5 +55,6 @@ public class NavController implements Initializable {
     private void addListeners(){
         //Need animation here
         cartPane.setOnMouseClicked(e -> cartController.setVisible(!cartController.isVisible()));
+        navHome.setOnMouseClicked(e -> startpageController.setVisible(true));
     }
 }

@@ -48,6 +48,10 @@ public class MainController implements Initializable{
     private NavController navController;
     @FXML
     private CartController cartController;
+    @FXML
+    private HistoryController historyController;
+    @FXML
+    private SearchController searchController;
 
     @FXML
     StackPane mainPane;
@@ -109,8 +113,9 @@ public class MainController implements Initializable{
     private void injectControllers(){
         userController.setParentPane(anchorUser);
         userStatusController.setUserController(userController);
-        userStatusController.addListener(centerstageController);
-        navController.injectControllers(cartController);
+        navController.injectControllers(centerstageController.getStartpageController(), cartController);
+        centerstageController.getStartpageController().
+                injectControllers(userController, historyController, searchController);
     }
 
 }

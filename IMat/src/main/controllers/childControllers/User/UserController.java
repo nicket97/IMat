@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -30,6 +32,7 @@ public class UserController implements Initializable{
     @FXML private TextField txtRegPassword;
     @FXML private TextField txtRegPasswordRepeat;
     @FXML private AnchorPane anchorRegister;
+    @FXML private AnchorPane anchorLogin;
 
 
     private AnchorPane anchorUser;
@@ -55,12 +58,14 @@ public class UserController implements Initializable{
         anchorUser.setVisible(value);
         anchorUser.setManaged(value);
         anchorRegister.setVisible(false);
+        if(value) txtUsername.requestFocus();
     }
 
     public void setRegisterVisible(boolean value){
         anchorUser.setVisible(value);
         anchorUser.setManaged(value);
         anchorRegister.setVisible(value);
+        if(value) txtRegEmail.requestFocus();
     }
     
     public void setParentPane(AnchorPane pane){
@@ -70,24 +75,12 @@ public class UserController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         currentUser = dataHandler.getUser();
+        addListerners();
     }
 
     @FXML
     private void btnLogin_onActionPerformed(javafx.event.ActionEvent e){
-            User loginUser = new User();
-            loginUser.setUserName(txtUsername.getText());
-            loginUser.setPassword(txtPassword.getText());
-
-            currentUser = userHandler.logIn(loginUser);
-
-            if(currentUser == null){
-                Alert error = new Alert(Alert.AlertType.ERROR);
-                error.setTitle("Fel");
-                error.setHeaderText("Fel användarnamn eller lösenord.");
-                error.showAndWait();
-            }else{
-                setLoginVisible(false);
-            }
+            login();
     }
 
     @FXML
@@ -97,6 +90,10 @@ public class UserController implements Initializable{
 
     @FXML
     private void btnRegisterNew_onActionPerformed(ActionEvent e){
+        regiserNew();
+    }
+
+    private void regiserNew(){
         if(checkEmail(txtRegEmail.getText()) && checkPass(txtRegPassword.getText(), txtRegPasswordRepeat.getText())){
             User newUser = userHandler.createNewUser(txtRegEmail.getText(), txtRegPassword.getText());
 
@@ -111,6 +108,23 @@ public class UserController implements Initializable{
             }
 
             userHandler.logIn(newUser);
+            setLoginVisible(false);
+        }
+    }
+
+    private void login(){
+        User loginUser = new User();
+        loginUser.setUserName(txtUsername.getText());
+        loginUser.setPassword(txtPassword.getText());
+
+        currentUser = userHandler.logIn(loginUser);
+
+        if(currentUser == null){
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Fel");
+            error.setHeaderText("Fel användarnamn eller lösenord.");
+            error.showAndWait();
+        }else{
             setLoginVisible(false);
         }
     }
@@ -158,5 +172,10 @@ public class UserController implements Initializable{
             txtRegPasswordRepeat.clear();
         }
         return valid;
+    }
+
+    private void addListerners(){
+        anchorLogin.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) login();});
+        anchorRegister.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) regiserNew();});
     }
 }

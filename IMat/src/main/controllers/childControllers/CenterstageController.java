@@ -16,7 +16,7 @@ import main.controllers.childControllers.User.UserStatusController;
  * @author Felix
  */
 
-public class CenterstageController implements Controllable, LoginStatusListener{
+public class CenterstageController implements Controllable{
 
     @FXML
     private AnchorPane centerstage;
@@ -34,8 +34,7 @@ public class CenterstageController implements Controllable, LoginStatusListener{
 
     }
 
-    @Override
-    public void loginStatusChanged(boolean value) {
-        startpageController.setLoginStatus(value);
+    public StartpageController getStartpageController(){
+        return startpageController;
     }
 }

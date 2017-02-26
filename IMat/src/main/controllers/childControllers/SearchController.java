@@ -31,6 +31,12 @@ public class SearchController implements Initializable {
         addListeners();
     }
 
+    public void focus(){
+        //TODO
+        //Animation here
+        txtSearch.requestFocus();
+    }
+
     @FXML
     private void btnSearch_onActionPerformed(ActionEvent e){
         startSearch();

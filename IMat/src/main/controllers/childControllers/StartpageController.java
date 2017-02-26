@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
  import java.util.ResourceBundle;
 import java.util.TreeMap;
+
+ import javafx.beans.value.ChangeListener;
  import javafx.fxml.FXML;
  import javafx.scene.Node;
  import javafx.scene.control.Label;
@@ -19,8 +21,10 @@ import java.util.TreeMap;
  import javafx.scene.input.MouseEvent;
  import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import main.backend.UserHandler;
+ import main.backend.CustomDataHandler;
+ import main.backend.UserHandler;
  import main.controllers.MainController;
+ import main.controllers.childControllers.User.UserController;
 
 /**
  *
@@ -66,7 +70,10 @@ public class StartpageController implements Controllable{
     private final DataPair btn3 = new DataPair(new DataNode("Sök vara ", "img3"), new DataNode("Sök vara ", "img3In"));
     private final DataPair btn4 = new DataPair(new DataNode("Registrera konto ", "img4"), new DataNode("Verktyg ", "img4In"));
     private final Map<Node, DataPair<DataNode>> btnDataMap = new HashMap(); 
-    
+
+    private UserController usrCtrl;
+    private HistoryController historyCtrl;
+    private SearchController srchCtrl;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,15 +87,26 @@ public class StartpageController implements Controllable{
             child.setOnMouseEntered(event -> setBtnHover(event));
             child.setOnMouseExited(event -> setBtnDefault(event));
             child.setOnMouseClicked(event -> setClicked(event));
-        }        
+        }
+
+        addListeners();
     }
     
     @Override
     public void setVisible(boolean value) {
+        startpage.setVisible(value);
+        startpage.setVisible(value);
 
+        historyCtrl.setVisible(false);
     }
-    
-    public void setLoginStatus(boolean value){
+
+    public void injectControllers(UserController userController, HistoryController hController, SearchController srchController){
+        usrCtrl = userController;
+        historyCtrl = hController;
+        srchCtrl = srchController;
+    }
+
+    private void setLoginStatus(boolean value){
        if(loginStatus != value){
            loginStatus = value;
            updateFrameData();
@@ -127,17 +145,16 @@ public class StartpageController implements Controllable{
                 System.out.println("Börja handla för fan");
                 break;
             case "historik":
-                System.out.println("Historik för fan");
+                historyCtrl.setVisible(true);
                 break;
             case "logga in":
-                System.out.println("Logga in för fan");
+                usrCtrl.setLoginVisible(true);
                 break;
             case "sök vara":
-                System.out.println("Sök för fan");
-                //TODO
+                srchCtrl.focus();
                 break;
             case "registrera konto":
-                System.out.println("Registrera ffs");
+                usrCtrl.setRegisterVisible(true);
                 break;
             case "verktyg":
                 System.out.println("Verktyg nu");
@@ -156,6 +173,11 @@ public class StartpageController implements Controllable{
             txt.setText(data.getTxt());
             img.setId(data.getImg());
         }
+    }
+
+    private void addListeners(){
+        UserHandler uh = CustomDataHandler.getInstance().getUserHandler();
+        uh.getLoggedInProperty().addListener((ChangeListener) -> setLoginStatus(uh.isLoggedIn()));
     }
         
     private class DataPair<D>{

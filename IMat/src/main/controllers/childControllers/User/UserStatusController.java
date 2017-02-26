@@ -3,21 +3,15 @@ package main.controllers.childControllers.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
+import javafx.scene.layout.Region;
 import main.backend.CustomDataHandler;
 import main.backend.UserHandler;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import main.controllers.childControllers.Controllable;
-import main.controllers.childControllers.LoginStatusListener;
 
 /**
  * Created by Pontus on 2017-02-20.
@@ -31,8 +25,7 @@ public class UserStatusController implements Initializable {
     @FXML AnchorPane paneLoggedOut;
     @FXML AnchorPane paneLoggedIn;
     @FXML Label textLoginStatus;
-    
-    private List<LoginStatusListener> listeners = new ArrayList<>();
+    @FXML Region imgUserSettings;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,10 +37,6 @@ public class UserStatusController implements Initializable {
 
     public void setUserController(UserController controller){
         userController = controller;
-    }
-
-    public void addListener(LoginStatusListener controller){
-        listeners.add(controller);
     }
     
     @FXML
@@ -66,20 +55,13 @@ public class UserStatusController implements Initializable {
         if(value){
             textLoginStatus.setText(userHandler.getUser().getUserName());
         }
-        notifyLoginStatusListeners(value);
     }
 
     private void addListeners(){
 
         //Lyssna efter ut- och inloggningar
         userHandler.getLoggedInProperty().addListener(x -> setLoggedIn(userHandler.isLoggedIn()));
-    }
-    
-    private void notifyLoginStatusListeners(boolean value){
-        if(!listeners.isEmpty()){
-        for(LoginStatusListener listener:listeners){
-            listener.loginStatusChanged(value);
-        }}
+        imgUserSettings.setOnMouseClicked(e -> userHandler.logOut());
     }
     
 }

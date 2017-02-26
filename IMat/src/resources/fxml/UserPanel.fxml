@@ -16,7 +16,7 @@
             <Button fx:id="btnClose" mnemonicParsing="false" onAction="#btnClose_onActionPerformed" styleClass="btnClose" stylesheets="@../css/ButtonSchemes.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
             <StackPane>
                <children>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
+                <AnchorPane fx:id="anchorLogin" minHeight="0.0" minWidth="0.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
                      <children>
                         <TextField fx:id="txtUsername" layoutX="120.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange e-postadress" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
                         <PasswordField fx:id="txtPassword" cache="true" layoutX="120.0" layoutY="260.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange lösenord" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
