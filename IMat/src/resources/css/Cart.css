@@ -36,19 +36,24 @@ and open the template in the editor.
 .txt{
     -fx-font-family: "Arial";
     -fx-font-weight: bold;
-    -fx-text-fill: #cfdee9;
+    -fx-text-fill: #cfdee9; 
     -fx-font-size: 1.5em;
+     
 }
 
 .background{
-    -fx-background-color: linear-gradient(to bottom, #91bfe0, #003459);
+    -fx-background-color: linear-gradient(from 0px 0px to 300px 500px, #91bfe0, #00a8e8, #91bfe0 );
 }
 .backgroundBorder{
-    -fx-background-color: linear-gradient(to bottom, #003459, #003459);
+    -fx-background-color: linear-gradient(to bottom, #003459, #00a8e8);
+    -fx-border-color: #00a8e8;
+    -fx-border-width: 0 0 1px 0;
 }
 
 #header{
     -fx-font-size: 4em;
-    -fx-text-fill: #003459;
-    -fx-background-color: #91bfe0;
+    -fx-text-fill: #cfdee9;
+    -fx-background-color: linear-gradient(to top, #003459, #00a8e8);
+    -fx-border-color: #00a8e8;
+    -fx-border-width: 1px 0;
 }
