@@ -5,32 +5,26 @@
  */
 package main.controllers;
 
-import fxComponents.SpinBox;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import main.ProductViewController;
 import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.User.UserController;
 import main.controllers.childControllers.User.UserStatusController;
 import main.controllers.childControllers.navigation.NavController;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
  *
@@ -113,7 +107,7 @@ public class MainController implements Initializable{
     private void injectControllers(){
         userController.setParentPane(anchorUser);
         userStatusController.setUserController(userController);
-        navController.injectControllers(centerstageController.getStartpageController(), cartController);
+        navController.injectControllers(centerstageController.getStartpageController(), cartController, new ProductViewController());
         centerstageController.getStartpageController().
                 injectControllers(userController, historyController, searchController);
     }
