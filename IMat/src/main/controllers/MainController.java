@@ -43,8 +43,6 @@ public class MainController implements Initializable{
     @FXML
     private CartController cartController;
     @FXML
-    private HistoryController historyController;
-    @FXML
     private SearchController searchController;
 
     @FXML
@@ -109,7 +107,7 @@ public class MainController implements Initializable{
         userStatusController.setUserController(userController);
         navController.injectControllers(centerstageController.getStartpageController(), cartController, new ProductViewController());
         centerstageController.getStartpageController().
-                injectControllers(userController, historyController, searchController);
+                injectControllers(userController, centerstageController.getHistoryController(), searchController);
     }
 
 }

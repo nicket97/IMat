@@ -23,6 +23,9 @@ public class CenterstageController implements Controllable{
     
     @FXML
     private StartpageController startpageController;
+
+    @FXML
+    private HistoryController historyController;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,5 +39,9 @@ public class CenterstageController implements Controllable{
 
     public StartpageController getStartpageController(){
         return startpageController;
+    }
+
+    public HistoryController getHistoryController(){
+        return historyController;
     }
 }

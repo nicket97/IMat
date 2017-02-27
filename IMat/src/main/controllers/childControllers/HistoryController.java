@@ -1,5 +1,6 @@
 package main.controllers.childControllers;
 
+import fxComponents.ListViewHistoryItem;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ public class HistoryController implements Initializable {
     @FXML Label labelTotal;
     @FXML Button btnAddAll;
     @FXML ListView<String> listDates;
-    @FXML ListView<String> listItems;
+    @FXML ListView<ShoppingItem> listItems;
     @FXML AnchorPane history;
     @FXML AnchorPane anchorHistoryDetails;
 
@@ -32,11 +33,13 @@ public class HistoryController implements Initializable {
         dataHandler = CustomDataHandler.getInstance();
 
         listDates.getSelectionModel().selectedItemProperty().addListener((ChangeListener) -> selectDate());
+        listItems.setCellFactory(x -> new ListViewHistoryItem());
     }
 
     public void setVisible(boolean value){
         history.setVisible(value);
         history.setManaged(value);
+        history.toFront();
 
         if(value)
             dataHandler.getOrders().stream().forEach(o -> listDates.getItems().add(o.getDate().toString()));
@@ -51,7 +54,7 @@ public class HistoryController implements Initializable {
                 .filter(o -> o.getDate().toString().equals(selected)).findFirst().get();
 
         listItems.getItems().clear();
-        selectedOrder.getItems().stream().forEach(i -> listItems.getItems().add(i.getProduct().getName()));
+        selectedOrder.getItems().stream().forEach(i -> listItems.getItems().add(i));
 
         double total = 0;
         for(ShoppingItem item : selectedOrder.getItems())
