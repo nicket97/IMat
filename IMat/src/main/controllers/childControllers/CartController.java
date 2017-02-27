@@ -67,6 +67,6 @@ public class CartController implements Initializable{
         else
             viewedItems.remove(item);
 
-        labelSum.setText(shoppingCart.getTotal() + " kr");
+        labelSum.setText(shoppingCart.getTotal() + " :-");
     }
 }
