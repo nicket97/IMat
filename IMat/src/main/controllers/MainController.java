@@ -19,7 +19,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.WindowEvent;
-import main.ProductViewController;
+import main.controllers.childControllers.ProductViewController;
 import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.User.UserController;

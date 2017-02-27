@@ -24,7 +24,7 @@ import se.chalmers.ait.dat215.project.Product;
  * @author Nicket
  */
 
-public class ProductView implements Initializable {
+public class ProductView extends AnchorPane implements Initializable {
     @FXML
     private Label labelProductName;
     @FXML
@@ -33,15 +33,16 @@ public class ProductView implements Initializable {
     private Label labelPrice;
     @FXML
     private AnchorPane productPane;
-
+    @FXML
     private SpinBox spinBox;
 
     private Product product;
+    
 
-
-    public ProductView(Product product, SpinBox spinBox) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resources/fxml/ProductView.fxml"));
+    public ProductView(Product product) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductView.fxml"));
         fxmlLoader.setController(this);
+        fxmlLoader.setRoot(this);
         try {
             fxmlLoader.load();
         } catch (Exception e) {
@@ -49,14 +50,11 @@ public class ProductView implements Initializable {
         }
 
         this.product = product;
-        imgProduct.setImage(IMatDataHandler.getInstance().getFXImage(product));
-        labelProductName.setText(product.getName());
-        labelPrice.setText((int) product.getPrice() + product.getUnit());
-        this.spinBox = spinBox;
+        
     }
 
-    public AnchorPane getPane () {
-        return productPane;
+    public ProductView getPane () {
+        return this;
     }
     /*public void ShowProducts(List<Product> toShowList){
     	for(Product p: toShowList){
@@ -68,7 +66,9 @@ public class ProductView implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+        imgProduct.setImage(IMatDataHandler.getInstance().getFXImage(product));
+        labelProductName.setText(product.getName());
+        labelPrice.setText((int) product.getPrice() + product.getUnit());
 	}
 
    

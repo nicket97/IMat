@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import main.Main;
-import main.ProductViewController;
+import main.controllers.childControllers.ProductViewController;
 import main.controllers.childControllers.*;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.ProductCategory;

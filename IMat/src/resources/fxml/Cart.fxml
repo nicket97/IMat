@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="cart" prefHeight="600.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.CartController">
+<AnchorPane id="AnchorPane" fx:id="cart" prefHeight="600.0" prefWidth="300.0" styleClass="frame" stylesheets="@../css/Cart.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.CartController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="borderFrame" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <ListView fx:id="listViewCartItems" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="300.0" styleClass="background" stylesheets="@../css/Cart.css" BorderPane.alignment="CENTER" />
+            <ListView fx:id="listViewCartItems" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="background" stylesheets="@../css/Cart.css" BorderPane.alignment="CENTER" />
          </center>
          <bottom>
-            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="300.0" styleClass="backgroundBorder" stylesheets="@../css/Cart.css" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="300.0" styleClass="backgroundBorder" stylesheets="@../css/Cart.css" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="80.0" layoutY="5.0" styleClass="txt" stylesheets="@../css/Cart.css" text="Summa:" AnchorPane.topAnchor="5.0">
                      <font>
@@ -32,7 +32,7 @@
             </AnchorPane>
          </bottom>
          <top>
-            <Label id="header" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="300.0" styleClass="txt" stylesheets="@../css/Cart.css" text="Kundvagn" BorderPane.alignment="CENTER">
+            <Label id="header" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="300.0" styleClass="txt" stylesheets="@../css/Cart.css" text="Kundvagn" BorderPane.alignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
