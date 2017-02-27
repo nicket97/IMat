@@ -35,7 +35,7 @@
       </AnchorPane>
       <BorderPane prefWidth="200.0" styleClass="listPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label fx:id="labelHeader" alignment="CENTER" styleClass="listHeader" stylesheets="@../css/MainFrameWork.css" text="Label" BorderPane.alignment="CENTER" />
+            <Label fx:id="labelHeader" alignment="CENTER" styleClass="listHeader" stylesheets="@../css/MainFrameWork.css" text="Historik" BorderPane.alignment="CENTER" />
          </top>
          <center>
             <VBox fx:id="listBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
