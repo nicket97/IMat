@@ -59,6 +59,11 @@ public class CartController implements Initializable{
         setVisible(true);
         List<ShoppingItem> viewedItems = listViewCartItems.getItems();
 
+        if(item == null){
+            viewedItems.clear();
+            return;
+        }
+
         System.out.println("Adding " + item.getProduct().getName());
 
         if(add) {

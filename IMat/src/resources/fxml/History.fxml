@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" fx:id="history" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1680.0" visible="true" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.HistoryController">
+<AnchorPane id="AnchorPane" fx:id="history" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1680.0" visible="false" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.HistoryController">
       <BorderPane prefWidth="200.0" styleClass="listPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label fx:id="labelHeader" alignment="CENTER" styleClass="listHeader" stylesheets="@../css/MainFrameWork.css" text="Label" BorderPane.alignment="CENTER" />
+            <Label fx:id="labelHeader" alignment="CENTER" styleClass="listHeader" stylesheets="@../css/MainFrameWork.css" text="Historik" BorderPane.alignment="CENTER" />
          </top>
          <center>
             <VBox fx:id="listBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
@@ -24,7 +24,7 @@
          <children>
             <VBox prefHeight="299.0" prefWidth="256.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="labelDate" prefHeight="80.0" text="Fredagen den 13 januari, 2017">
+                  <Label fx:id="labelDate" prefHeight="80.0">
                   </Label>
                   <ListView fx:id="listItems" prefHeight="598.0" prefWidth="1480.0" />
                   <AnchorPane prefHeight="80.0" prefWidth="1253.0">
