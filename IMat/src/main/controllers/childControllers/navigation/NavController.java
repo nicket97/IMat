@@ -57,6 +57,9 @@ public class NavController implements Initializable {
     private void addListeners(){
         //Need animation here
         cartPane.setOnMouseClicked(e -> cartController.setVisible(!cartController.isVisible()));
-        navHome.setOnMouseClicked(e -> startpageController.setVisible(true));
+        navHome.setOnMouseClicked(e -> {
+            startpageController.setVisible(true);
+            productViewController.setVisible(false);
+        });
     }
 }

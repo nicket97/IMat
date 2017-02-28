@@ -33,6 +33,8 @@ public class ProductViewController implements Initializable{
     private VBox listBox;
 
     public void displayProducts (List<Product> productList, String label) {
+        setVisible(true);
+
         if (productViewNodePane != null) {
             productViewNodePane.getChildren().clear();
         }
@@ -54,6 +56,14 @@ public class ProductViewController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         
         
+    }
+
+    public void setVisible(boolean value){
+        productView.setVisible(value);
+        productView.setManaged(value);
+
+        if(value)
+            productView.toFront();
     }
 
 }
