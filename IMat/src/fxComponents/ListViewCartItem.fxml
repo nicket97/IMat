@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="anchorItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="290.0" styleClass="cartItem" stylesheets="@../resources/css/SpinnerBox.css">
+      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="300.0" styleClass="cartItem" stylesheets="@../resources/css/SpinnerBox.css">
          <children>
             <Label fx:id="labelTitle" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="88.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk">
                <font>

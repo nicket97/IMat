@@ -110,7 +110,7 @@ public class MainController implements Initializable{
         userStatusController.setUserController(userController);
 
         navController.injectControllers(centerstageController.getStartpageController(), cartController,
-                centerstageController.getProductViewController(), bottomBarController);
+                centerstageController.getProductViewController(), bottomBarController, searchController);
 
         centerstageController.getStartpageController().
                 injectControllers(userController, centerstageController.getHistoryController(), searchController,
