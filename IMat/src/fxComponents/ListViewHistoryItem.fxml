@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane fx:id="paneItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="1480.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="paneItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="1480.0" spacing="200.0" styleClass="txtFlow" stylesheets="@../resources/css/TextFormat.css">
+      <AnchorPane prefHeight="40.0" prefWidth="1200.0" styleClass="txtProductView" stylesheets="@../resources/css/TextFormat.css">
          <children>
-            <Label fx:id="labelProduct" text="Mjölk" />
-            <Label fx:id="labelAmount" text="2" />
-            <Label fx:id="labelPriceEach" text="7.90:-" />
-            <Label fx:id="labelSum" text="7.90*2:-" />
-            <Label fx:id="labelAddToCart" text="Lägg till i kundvagn" />
+            <Label fx:id="labelAmount" layoutX="350.0" layoutY="2.0" text="2" AnchorPane.leftAnchor="350.0" />
+            <Label fx:id="labelPriceEach" layoutX="500.0" layoutY="2.0" text="7.90:-" />
+            <Label fx:id="labelSum" layoutX="700.0" layoutY="2.0" text="7.90*2:-" />
+            <Label fx:id="labelAddToCart" layoutX="842.0" layoutY="2.0" text="Lägg till i kundvagn" />
+            <Label fx:id="labelProduct" layoutX="50.0" layoutY="2.0" text="Mjölk" />
          </children>
-      </HBox>
+      </AnchorPane>
    </children>
 </Pane>

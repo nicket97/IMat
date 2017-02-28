@@ -15,7 +15,15 @@
                <children>
                   <Label id="twoPanelHeader" fx:id="labelDate" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Fredagen den 13 januari, 2017">
                   </Label>
-                  <ListView id="receiptBox" fx:id="listItems" prefHeight="598.0" prefWidth="1480.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" />
+               <AnchorPane prefHeight="51.0" prefWidth="1480.0" styleClass="txtProductView" stylesheets="@../css/TextFormat.css">
+                  <children>
+                     <Label layoutX="50.0" layoutY="7.0" text="Vara" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="7.0" />
+                     <Label layoutX="350.0" layoutY="6.0" text="Antal" AnchorPane.topAnchor="7.0" />
+                     <Label layoutX="500.0" layoutY="7.0" text="á pris" />
+                     <Label layoutX="700.0" layoutY="7.0" text="Summa" />
+                  </children>
+               </AnchorPane>
+                  <ListView id="receiptBox" fx:id="listItems" prefHeight="562.0" prefWidth="1480.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" />
                   <AnchorPane prefHeight="80.0" prefWidth="1253.0">
                      <children>
                         <Button fx:id="btnAddAll" layoutX="1235.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Lägg till allt" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="20.0" />

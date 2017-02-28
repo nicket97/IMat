@@ -61,8 +61,10 @@ public class ListViewHistoryItem extends ListCell<ShoppingItem> implements Initi
             return;
         }
 
+        double amount = item.getAmount();
+
         labelProduct.setText(item.getProduct().getName());
-        labelAmount.setText(String.valueOf(item.getAmount()));
+        labelAmount.setText((amount % 1) == 0 ? String.valueOf(((int)amount)) : String.valueOf(amount));
         labelPriceEach.setText(String.valueOf(item.getProduct().getPrice()));
         labelSum.setText(String.valueOf(item.getAmount()*item.getProduct().getPrice()));
 
