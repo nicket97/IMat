@@ -16,7 +16,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import main.backend.CustomDataHandler;
 import main.controllers.MainController;
-import main.controllers.childControllers.ProductViewController;
 import main.controllers.childControllers.*;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.ProductCategory;
@@ -44,20 +43,23 @@ public class NavController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
+        
         addListeners();
     }
 
     public void injectControllers(StartpageController startpageController,
                                   CartController cartController,
                                   ProductViewController productViewController,
-                                  BottomBarController bottomBarController){
+                                  BottomBarController bottomBarController,
+                                  SearchController searchController){
         this.cartController = cartController;
         this.startpageController = startpageController;
         this.prodCtrl = productViewController;
         bottomCtrl = bottomBarController;
-
+        searchController.setprodCtrl(prodCtrl);
         bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; displayCategory(displayedIndex);});
         bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; displayCategory(displayedIndex);});
+        
     }
 
     public void startShopping(){

@@ -7,7 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import main.backend.CustomDataHandler;
+import main.controllers.childControllers.navigation.BottomBarController;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ProductCategory;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.net.URL;
@@ -22,6 +24,10 @@ import java.util.concurrent.SynchronousQueue;
 public class SearchController implements Initializable {
     @FXML TextField txtSearch;
     @FXML Button btnSearch;
+    @FXML CenterstageController centerStageController;
+    
+    private ProductViewController prodCtrl;
+    private BottomBarController bottomCtrl;
 
     CustomDataHandler dataHandler;
 
@@ -62,6 +68,8 @@ public class SearchController implements Initializable {
         dataHandler.getDisplayedProducts().addAll(result);
 
         //Optional printing
+        prodCtrl.displayProducts(result, txtSearch.getText());
+        //bottomCtrl.setButtonsVisible(false, false);
         printSearchResult(result);
     }
 
@@ -87,5 +95,8 @@ public class SearchController implements Initializable {
                 System.out.println(p.getProductId() + " " + p.getName() + " " + p.getPrice() + "kr/" + p.getUnitSuffix()));
 
         System.out.println("---------------------------------------------");
+    }
+    public void setprodCtrl(ProductViewController p){
+    	prodCtrl = p;
     }
 }

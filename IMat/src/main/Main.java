@@ -25,6 +25,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+    	System.out.println(System.getProperty("user.home"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Main.fxml"));
         Parent root = loader.load();
 
@@ -45,6 +46,7 @@ public class Main extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+    	
         launch(args);
     }
 }

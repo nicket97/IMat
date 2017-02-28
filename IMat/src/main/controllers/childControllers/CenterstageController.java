@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import main.backend.UserHandler;
 import main.controllers.childControllers.User.UserStatusController;
+import main.controllers.childControllers.navigation.BottomBarController;
 /**
  *
  * @author Felix
@@ -26,6 +27,10 @@ public class CenterstageController implements Controllable{
     private HistoryController historyController;
     @FXML
     private ProductViewController productViewController;
+    @FXML
+    private SearchController searchController;
+    @FXML
+    private BottomBarController bottomBarController;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -47,5 +52,11 @@ public class CenterstageController implements Controllable{
     
     public ProductViewController getProductViewController(){
         return productViewController;
+    }
+    public SearchController getSearchController(){
+        return searchController;
+    }
+    public BottomBarController getBottomBarController(){
+        return bottomBarController;
     }
 }

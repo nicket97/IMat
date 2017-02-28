@@ -17,7 +17,7 @@ import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
- * Created by Tekniker on 2017-02-27.
+ * Created by Nicket on 2017-02-27.
  */
 public class ProductViewController implements Controllable{
     @FXML
