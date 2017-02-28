@@ -7,13 +7,13 @@
 
 <AnchorPane fx:id="bottomBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="80.0" minWidth="1120.0" prefHeight="80.0" prefWidth="1680.0" styleClass="navBorder" stylesheets="@../css/Navigation.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.navigation.BottomBarController">
    <children>
-      <Button fx:id="btnPrev" alignment="CENTER" layoutX="1275.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" stylesheets="@../css/Navigation.css" text="Föregående" AnchorPane.rightAnchor="265.0">
+      <Button fx:id="btnPrev" alignment="CENTER" layoutX="1275.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" stylesheets="@../css/Navigation.css" text="Föregående" visible="false" AnchorPane.rightAnchor="265.0">
          <styleClass>
             <String fx:value="directionButton" />
             <String fx:value="navButton" />
          </styleClass>
       </Button>
-      <Button fx:id="btnNext" alignment="CENTER" layoutX="1436.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" stylesheets="@../css/Navigation.css" text="Nästa" AnchorPane.rightAnchor="100.0">
+      <Button fx:id="btnNext" alignment="CENTER" layoutX="1436.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" stylesheets="@../css/Navigation.css" text="Nästa" visible="false" AnchorPane.rightAnchor="100.0">
          <styleClass>
             <String fx:value="directionButton" />
             <String fx:value="navButton" />

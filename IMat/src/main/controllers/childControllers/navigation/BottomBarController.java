@@ -25,7 +25,9 @@ public class BottomBarController implements Initializable {
 
     public void setButtonsVisible(boolean btnPrevVisible, boolean btnNextVisible){
         btnPrev.setVisible(btnPrevVisible);
+        btnPrev.setManaged(btnPrevVisible);
         btnNext.setVisible(btnNextVisible);
+        btnNext.setManaged(btnNextVisible);
     }
 
     public Button getBtnPrev(){
