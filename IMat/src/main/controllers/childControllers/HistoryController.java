@@ -11,6 +11,7 @@ import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 /**
@@ -27,13 +28,17 @@ public class HistoryController implements Initializable {
     @FXML AnchorPane anchorHistoryDetails;
 
     private CustomDataHandler dataHandler;
+    private SimpleDateFormat dateFormat;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
+        dateFormat = new SimpleDateFormat("dd MMMMMMMMM yyyy, HH:mm");
 
         listDates.getSelectionModel().selectedItemProperty().addListener((ChangeListener) -> selectDate());
         listItems.setCellFactory(x -> new ListViewHistoryItem());
+        btnAddAll.setOnMouseClicked(e -> listItems.getItems().stream().forEach(i ->
+                dataHandler.getShoppingCart().addItem(i)));
     }
 
     public void setVisible(boolean value){
@@ -42,7 +47,10 @@ public class HistoryController implements Initializable {
         history.toFront();
 
         if(value)
-            dataHandler.getOrders().stream().forEach(o -> listDates.getItems().add(o.getDate().toString()));
+            dataHandler.getOrders().stream().forEach(o -> listDates.getItems().add(dateFormat.format(o.getDate())));
+
+        if(listDates.getItems().size() > 0)
+            listDates.getSelectionModel().select(0);
     }
 
     private void selectDate(){
@@ -51,7 +59,7 @@ public class HistoryController implements Initializable {
         labelDate.setText(selected);
 
         Order selectedOrder = dataHandler.getOrders().stream()
-                .filter(o -> o.getDate().toString().equals(selected)).findFirst().get();
+                .filter(o -> dateFormat.format(o.getDate()).equals(selected)).findFirst().get();
 
         listItems.getItems().clear();
         selectedOrder.getItems().stream().forEach(i -> listItems.getItems().add(i));
