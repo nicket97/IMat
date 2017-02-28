@@ -66,7 +66,16 @@ public class CartController implements Initializable{
 
         System.out.println("Adding " + item.getProduct().getName());
 
-        if(add) {
+        //Den här if-satsen alltså hahahaha
+        if(viewedItems.stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName())).findAny().isPresent()) {
+            ShoppingItem existingItem =
+                    viewedItems.stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName()))
+                    .findAny().get();
+
+            existingItem.setAmount(existingItem.getAmount() + item.getAmount());
+
+            viewedItems.set(viewedItems.indexOf(existingItem), existingItem);
+        } else if(add) {
             viewedItems.add(item);
         }
         else
