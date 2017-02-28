@@ -101,7 +101,7 @@
                </GridPane>
             </children>
          </Pane>
-         <fx:include fx:id="bottomBorder" source="BottomBar.fxml" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <fx:include fx:id="bottomBar" source="BottomBar.fxml" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       </children>
    </GridPane>
     <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">

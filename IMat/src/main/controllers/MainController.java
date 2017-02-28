@@ -24,6 +24,7 @@ import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.User.UserController;
 import main.controllers.childControllers.User.UserStatusController;
+import main.controllers.childControllers.navigation.BottomBarController;
 import main.controllers.childControllers.navigation.NavController;
 
 /**
@@ -44,6 +45,8 @@ public class MainController implements Initializable{
     private CartController cartController;
     @FXML
     private SearchController searchController;
+    @FXML
+    private BottomBarController bottomBarController;
     
 
     @FXML
@@ -103,11 +106,15 @@ public class MainController implements Initializable{
 
     private void injectControllers(){
         userController.setParentPane(anchorUser);
+
         userStatusController.setUserController(userController);
-        navController.injectControllers(centerstageController.getStartpageController(), cartController, centerstageController.getProductViewController());
+
+        navController.injectControllers(centerstageController.getStartpageController(), cartController,
+                centerstageController.getProductViewController(), bottomBarController);
+
         centerstageController.getStartpageController().
                 injectControllers(userController, centerstageController.getHistoryController(), searchController,
-                        centerstageController.getProductViewController());
+                        navController);
     }
 
 }

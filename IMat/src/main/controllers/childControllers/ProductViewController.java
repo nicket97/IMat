@@ -3,6 +3,7 @@ package main.controllers.childControllers;
 import fxComponents.ProductViewNode;
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
+import main.controllers.childControllers.navigation.BottomBarController;
 import se.chalmers.ait.dat215.project.Product;
 
 import java.io.IOException;

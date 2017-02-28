@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import main.Main;
+import main.backend.CustomDataHandler;
 import main.controllers.childControllers.ProductViewController;
 import main.controllers.childControllers.*;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
@@ -30,32 +30,68 @@ public class NavController implements Initializable {
 
     private CartController cartController;
     private StartpageController startpageController;
-    private ProductViewController productViewController;
+    private ProductViewController prodCtrl;
+    private BottomBarController bottomCtrl;
+
+    private CustomDataHandler dataHandler;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        gridMain.getChildren().get(2).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.VEGETABLE_FRUIT), "Frukt & Grönt"));
-        gridMain.getChildren().get(3).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.BREAD), "Bröd"));
-        gridMain.getChildren().get(4).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.FLOUR_SUGAR_SALT), "Skafferi"));
-        gridMain.getChildren().get(5).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.DAIRIES), "Mejeri"));
-        gridMain.getChildren().get(6).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT), "Protein"));
-        gridMain.getChildren().get(7).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.POD), "Kolonial"));
+        dataHandler = CustomDataHandler.getInstance();
         addListeners();
     }
 
-    public void injectControllers(StartpageController startpageController, CartController cartController, ProductViewController productViewController){
+    public void injectControllers(StartpageController startpageController,
+                                  CartController cartController,
+                                  ProductViewController productViewController,
+                                  BottomBarController bottomBarController){
         this.cartController = cartController;
         this.startpageController = startpageController;
-        this.productViewController = productViewController;
+        this.prodCtrl = productViewController;
+        bottomCtrl = bottomBarController;
+    }
+
+    public void startShopping(){
+        prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.VEGETABLE_FRUIT), "Frukt & Grönt");
+        bottomCtrl.setButtonsVisible(false, true);
     }
 
     private void addListeners(){
+        gridMain.getChildren().get(2).setOnMouseClicked(e -> startShopping());
+
+        gridMain.getChildren().get(3).setOnMouseClicked(e -> {
+            prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.BREAD), "Bröd");
+            bottomCtrl.setButtonsVisible(true, true);
+        });
+
+        gridMain.getChildren().get(4).setOnMouseClicked(e -> {
+            prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.FLOUR_SUGAR_SALT), "Skafferi");
+            bottomCtrl.setButtonsVisible(true, true);
+        });
+
+        gridMain.getChildren().get(5).setOnMouseClicked(e -> {
+            prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.DAIRIES), "Mejeri");
+            bottomCtrl.setButtonsVisible(true, true);
+        });
+
+        gridMain.getChildren().get(6).setOnMouseClicked(e -> {
+            prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.MEAT), "Protein");
+            bottomCtrl.setButtonsVisible(true, true);
+        });
+
+        gridMain.getChildren().get(7).setOnMouseClicked(e -> {
+            prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.POD), "Kolonial");
+            bottomCtrl.setButtonsVisible(true, true);
+        });
+
+
         //Need animation here
         cartPane.setOnMouseClicked(e -> cartController.setVisible(!cartController.isVisible()));
         navHome.setOnMouseClicked(e -> {
             startpageController.setVisible(true);
-            productViewController.setVisible(false);
+            prodCtrl.setVisible(false);
+            bottomCtrl.setButtonsVisible(false, false);
         });
     }
 }
