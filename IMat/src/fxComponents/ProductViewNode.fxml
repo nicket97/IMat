@@ -6,8 +6,8 @@
 <?import fxComponents.*?>
 
 <fx:root fx:id="productPane" prefHeight="220.0" prefWidth="260.0" styleClass="productViewItem" stylesheets="@../resources/css/GridLayout.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-            <Label fx:id="labelProductName" id="labelProductHead" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="40.0" styleClass="txtProductViewItem" stylesheets="@../resources/css/TextFormat.css" text="Mjölk" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="40.0" />
+            <Label id="labelProductHead" fx:id="labelProductName" layoutX="125.0" layoutY="40.0" maxWidth="115.0" prefWidth="115.0" styleClass="txtProductViewItem" stylesheets="@../resources/css/TextFormat.css" text="Mjölk" wrapText="true" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="40.0" />
             <ImageView fx:id="imgProduct" fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-            <SpinBox fx:id="spinBox" layoutX="80.0" layoutY="200.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0"/>
-            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="160.0" styleClass="txtProductViewItem" stylesheets="@../resources/css/TextFormat.css" text="25kr" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="60.0" />
+            <SpinBox fx:id="spinBox" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="160.0" styleClass="txtProductViewItem" stylesheets="@../resources/css/TextFormat.css" text="25kr" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="10.0" />
 </fx:root>
