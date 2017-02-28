@@ -13,9 +13,9 @@
   <children>
   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="1480.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="760.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <content>
-                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                     <VBox maxHeight="758.0" maxWidth="1.7976931348623157E308" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css">
                         <children>
                         <FlowPane fx:id="productViewFlowPane">
                            <children>
@@ -29,7 +29,7 @@
                                     <Insets left="110.0" />
                                  </FlowPane.margin>
                                  <children>
-                                    <FlowPane fx:id="productViewNodePane" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <FlowPane fx:id="productViewNodePane" hgap="10.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>

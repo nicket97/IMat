@@ -33,6 +33,8 @@ public class ProductViewController implements Controllable{
     private VBox listBox;
 
     public void displayProducts (List<Product> productList, String label) {
+        setVisible(true);
+
         if (productViewNodePane != null) {
             productViewNodePane.getChildren().clear();
         }
@@ -56,14 +58,12 @@ public class ProductViewController implements Controllable{
         
     }
 
-    @Override
-    public void setVisible(boolean value) {
+    public void setVisible(boolean value){
         productView.setVisible(value);
         productView.setManaged(value);
-        
-        if(value){
+
+        if(value)
             productView.toFront();
-        }
     }
 
 }

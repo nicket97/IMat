@@ -45,8 +45,9 @@ and open the template in the editor.
 }
 
 .background{
-    -fx-background-color: linear-gradient(from 0px 0px to 300px 500px, #91bfe0, #00a8e8, #91bfe0 );
+    -fx-background-color: transparent;
     -fx-border-width: 0px 1px 0 1px;
+    -fx-background-color: linear-gradient(from 0px 0px to 300px 500px, #91bfe0, #00a8e8, #91bfe0 );
 }
 .background *.list-cell{
     -fx-background-color: transparent;

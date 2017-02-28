@@ -10,14 +10,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="300.0" styleClass="cartItem" stylesheets="@../resources/css/SpinnerBox.css">
+      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="300.0" styleClass="cartItem" stylesheets="@../resources/css/SpinnerBox.css">
          <children>
-            <Label fx:id="labelTitle" prefHeight="17.0" prefWidth="80.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk">
+            <Label fx:id="labelTitle" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="88.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk">
                <font>
                   <Font size="14.0" />
                </font>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
             </Label>
             <TextField id="txtSpinner" fx:id="txtAmount" alignment="CENTER_RIGHT" focusTraversable="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css" />
             <VBox prefHeight="40.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css">
@@ -29,7 +32,7 @@
                   <Insets />
                </HBox.margin>
             </VBox>
-            <Label fx:id="labelUnit" prefHeight="20.0" prefWidth="30.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="1L">
+            <Label fx:id="labelUnit" prefHeight="20.0" prefWidth="36.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="1L">
                <font>
                   <Font size="14.0" />
                </font>
@@ -41,7 +44,7 @@
                <tooltip>
                   <Tooltip text="Ta bort" />
                </tooltip></Label>
-            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="60.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="59.00:-">
+            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="41.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="59.00:-">
                <font>
                   <Font size="14.0" />
                </font>

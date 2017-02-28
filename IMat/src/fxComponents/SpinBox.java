@@ -39,6 +39,8 @@ public class SpinBox extends Pane implements Initializable {
     @FXML
     private StackPane addPane;
     
+    
+    private ProductViewNode parent;
     private int count = 1;
     
     public SpinBox() throws IOException{
@@ -89,8 +91,14 @@ public class SpinBox extends Pane implements Initializable {
         st.setOnFinished(e -> addPane.setDisable(false));
         st.play();
         
-        
-        
+       
+    }
+    
+    public void addListener(ProductViewNode parent){
+        this.parent = parent;
+    }
+    private void notifyParent(){
+        parent.addToCart(count);
     }
     
     @FXML
@@ -114,6 +122,9 @@ public class SpinBox extends Pane implements Initializable {
     private void addToCart(MouseEvent event) {
         addPane.setDisable(true);
         addToCartAnimation();
+        notifyParent();
+        count = 1;
+        updateTxtVal();
     }
 
     @Override
