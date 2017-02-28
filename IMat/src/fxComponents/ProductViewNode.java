@@ -1,4 +1,4 @@
-package main;/*
+package fxComponents;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import fxComponents.SpinBox;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +26,7 @@ import se.chalmers.ait.dat215.project.Product;
  * @author Nicket
  */
 
-public class ProductView extends AnchorPane implements Initializable {
+public class ProductViewNode extends AnchorPane implements Initializable {
     @FXML
     private Label labelProductName;
     @FXML
@@ -36,24 +38,24 @@ public class ProductView extends AnchorPane implements Initializable {
     @FXML
     private SpinBox spinBox;
 
-    private Product product;
-    
+    private final Product product;
+    private IMatDataHandler db = IMatDataHandler.getInstance();
 
-    public ProductView(Product product) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductView.fxml"));
-        fxmlLoader.setController(this);
-        fxmlLoader.setRoot(this);
-        try {
-            fxmlLoader.load();
-        } catch (Exception e) {
-            System.out.println("Detta gick inte");
-        }
-
+    public ProductViewNode(Product product) throws IOException{
         this.product = product;
         
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductViewNode.fxml"));
+        fxmlLoader.setController(this);
+        fxmlLoader.setRoot(this);
+        fxmlLoader.load();
+       
+        
+        imgProduct.setImage(IMatDataHandler.getInstance().getFXImage(product, 100, 100));
+        labelProductName.setText(product.getName());
+        labelPrice.setText((int) product.getPrice() + product.getUnit());
     }
 
-    public ProductView getPane () {
+    public ProductViewNode getPane () {
         return this;
     }
     /*public void ShowProducts(List<Product> toShowList){
@@ -66,9 +68,7 @@ public class ProductView extends AnchorPane implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-        imgProduct.setImage(IMatDataHandler.getInstance().getFXImage(product));
-        labelProductName.setText(product.getName());
-        labelPrice.setText((int) product.getPrice() + product.getUnit());
+        
 	}
 
    

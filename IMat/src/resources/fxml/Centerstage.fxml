@@ -9,6 +9,7 @@
          <children>
             <fx:include fx:id="history" source="History.fxml" />
             <fx:include fx:id="startpage" source="Startpage.fxml" />
+            <fx:include fx:id="productView" source="ProductView.fxml" />
          </children>
       </StackPane>
    </children>

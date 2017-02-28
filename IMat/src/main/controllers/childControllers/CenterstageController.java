@@ -20,12 +20,12 @@ public class CenterstageController implements Controllable{
 
     @FXML
     private AnchorPane centerstage;
-    
     @FXML
     private StartpageController startpageController;
-
     @FXML
     private HistoryController historyController;
+    @FXML
+    private ProductViewController productViewController;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,5 +43,9 @@ public class CenterstageController implements Controllable{
 
     public HistoryController getHistoryController(){
         return historyController;
+    }
+    
+    public ProductViewController getProductViewController(){
+        return productViewController;
     }
 }

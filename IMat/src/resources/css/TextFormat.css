@@ -20,3 +20,13 @@ and open the template in the editor.
     -fx-padding: 0px 10px;
     -fx-font-size: 2.5em;
 }
+
+.txtProductView{
+    -fx-text-fill: #00171F;
+    -fx-font-family: "Arial";
+    -fx-font-size: 2em;
+    -fx-font-weight: bold;
+    -fx-font-space: 2px;
+    -fzx: 60px;
+    
+}

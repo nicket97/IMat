@@ -1,36 +1,59 @@
 package main.controllers.childControllers;
 
-import fxComponents.*;
+import fxComponents.ProductViewNode;
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
-import main.ProductView;
 import se.chalmers.ait.dat215.project.Product;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
-import main.ProductView;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
  * Created by Tekniker on 2017-02-27.
  */
-public class ProductViewController {
+public class ProductViewController implements Initializable{
     @FXML
     private FlowPane productViewFlowPane;
+    @FXML
+    private AnchorPane productView;
+    @FXML
+    private Label subcatLabel;
+    @FXML
+    private FlowPane productViewNodePane;
+    @FXML
+    private Label labelHeader;
+    @FXML
+    private VBox listBox;
 
-    public void displayProducts (List<Product> productList) {
-        if (productViewFlowPane != null) {
-            productViewFlowPane.getChildren().clear();
+    public void displayProducts (List<Product> productList, String label) {
+        if (productViewNodePane != null) {
+            productViewNodePane.getChildren().clear();
         }
         for(int i = 0;i<productList.size();i++) {
             try {
-                ProductView test = new ProductView(productList.get(i));
-                productViewFlowPane.getChildren().add(test.getPane());
+                ProductViewNode node = new ProductViewNode(productList.get(i));
+                productViewNodePane.getChildren().add(node);
+                labelHeader.setText(label);
+                
             } catch (IOException e) {
-                System.out.println("Men för i helvete");
+                e.printStackTrace();
             }
 
         }
+        
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+        
     }
 
 }

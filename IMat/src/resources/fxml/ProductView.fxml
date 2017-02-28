@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="productView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="506.66667" minWidth="1120.0" prefHeight="760.0" prefWidth="1680.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.ProductViewController">
+  <children>
+  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="1480.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                     <VBox>
+                        <children>
+                        <FlowPane fx:id="productViewFlowPane">
+                           <children>
+                                 <Label fx:id="subcatLabel" prefHeight="41.0" prefWidth="343.0" styleClass="txtProductView" stylesheets="@../css/TextFormat.css" text="Fredagen den 13 januari, 2017">
+                                 <FlowPane.margin>
+                                    <Insets left="20.0" />
+                                 </FlowPane.margin>
+                              </Label>
+                              <AnchorPane prefHeight="200.0" prefWidth="1170.0">
+                                 <FlowPane.margin>
+                                    <Insets left="110.0" />
+                                 </FlowPane.margin>
+                                 <children>
+                                    <FlowPane fx:id="productViewNodePane" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="60.0" />
+                           </VBox.margin>
+                        </FlowPane>
+                        </children>
+                     </VBox>
+               </content>
+            </ScrollPane>
+         </children></AnchorPane>
+      <BorderPane prefWidth="200.0" styleClass="listPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Label fx:id="labelHeader" alignment="CENTER" styleClass="listHeader" stylesheets="@../css/MainFrameWork.css" text="Label" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <VBox fx:id="listBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
+               <effect>
+                  <DropShadow color="#282020" height="18.03" radius="9.2575" spread="0.36" />
+               </effect>
+            </VBox>
+         </center>
+      </BorderPane>
+  </children>
+</AnchorPane>

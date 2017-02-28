@@ -61,9 +61,9 @@ public class SpinBox extends Pane implements Initializable {
     
    
     
-    private synchronized void addToCartAnimation(){
-        Node checkMark = addPane.getChildren().get(0);
-        Node cart = addPane.getChildren().get(1);
+    private void addToCartAnimation(){
+        Node checkMark = addPane.getChildren().get(1);
+        Node cart = addPane.getChildren().get(0);
         
 /*        
         FadeTransition fadeCart = new FadeTransition(Duration.millis(200), cart);
@@ -86,8 +86,9 @@ public class SpinBox extends Pane implements Initializable {
         
         SequentialTransition st = new SequentialTransition(fillMark, pause, fadeMark);
         st.setInterpolator(Interpolator.LINEAR);
-        cart.setVisible(false);
+        st.setOnFinished(e -> addPane.setDisable(false));
         st.play();
+        
         
         
     }
@@ -110,12 +111,9 @@ public class SpinBox extends Pane implements Initializable {
     }
 
     @FXML
-    private synchronized void addToCart(MouseEvent event) {
+    private void addToCart(MouseEvent event) {
         addPane.setDisable(true);
-        System.out.print("Woho");
         addToCartAnimation();
-        addPane.setDisable(false);
-        
     }
 
     @Override
