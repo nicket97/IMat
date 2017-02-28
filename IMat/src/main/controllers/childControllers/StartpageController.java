@@ -95,9 +95,12 @@ public class StartpageController implements Controllable{
     @Override
     public void setVisible(boolean value) {
         startpage.setVisible(value);
-        startpage.setVisible(value);
+        startpage.setManaged(value);
+       
+        if(value){
+            startpage.toFront();
+        }
 
-        historyCtrl.setVisible(false);
     }
 
     public void injectControllers(UserController userController, HistoryController hController, SearchController srchController){

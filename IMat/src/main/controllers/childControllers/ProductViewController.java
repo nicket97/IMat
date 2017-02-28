@@ -18,7 +18,7 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
 /**
  * Created by Tekniker on 2017-02-27.
  */
-public class ProductViewController implements Initializable{
+public class ProductViewController implements Controllable{
     @FXML
     private FlowPane productViewFlowPane;
     @FXML
@@ -54,6 +54,16 @@ public class ProductViewController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         
         
+    }
+
+    @Override
+    public void setVisible(boolean value) {
+        productView.setVisible(value);
+        productView.setManaged(value);
+        
+        if(value){
+            productView.toFront();
+        }
     }
 
 }

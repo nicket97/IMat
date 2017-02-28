@@ -39,10 +39,11 @@ public class HistoryController implements Initializable {
     public void setVisible(boolean value){
         history.setVisible(value);
         history.setManaged(value);
-        history.toFront();
-
-        if(value)
+        
+        if(value){
+            history.toFront();
             dataHandler.getOrders().stream().forEach(o -> listDates.getItems().add(o.getDate().toString()));
+        }
     }
 
     private void selectDate(){

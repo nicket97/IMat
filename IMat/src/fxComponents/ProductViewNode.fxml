@@ -1,29 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.Font?>
 <?import fxComponents.*?>
 
-<fx:root fx:id="productPane" type="javafx.scene.layout.AnchorPane" prefHeight="250.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-         <Pane prefHeight="250.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-               <Label fx:id="labelProductName" layoutX="14.0" layoutY="107.0" prefHeight="28.0" prefWidth="92.0" text="Mjölk" />
-               <ImageView fx:id="imgProduct" fitHeight="100.0" fitWidth="100.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
-               <SpinBox fx:id="spinBox" layoutX="76.0" layoutY="196.0"> </SpinBox>
-            <Label fx:id="labelPrice" layoutX="7.0" layoutY="196.0" prefHeight="40.0" prefWidth="60.0" text="25kr" />
-            </children>
-         </Pane>
-   </children>
+<fx:root fx:id="productPane" prefHeight="250.0" prefWidth="250.0" styleClass="productViewItem" stylesheets="@../resources/css/GridLayout.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" >
+            <Label fx:id="labelProductName" layoutX="125.0" layoutY="36.0" styleClass="txtProductViewItem" stylesheets="@../resources/css/TextFormat.css" text="Mjölk" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="40.0" />
+            <ImageView fx:id="imgProduct" fitHeight="100.0" fitWidth="100.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+            <SpinBox fx:id="spinBox" layoutX="40.0" layoutY="200.0"></SpinBox>
+            <Label fx:id="labelPrice" layoutX="125.0" layoutY="127.0" styleClass="txtProductViewItem" stylesheets="@../resources/css/TextFormat.css" text="25kr" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="125.0" />
 </fx:root>

@@ -26,7 +26,11 @@ and open the template in the editor.
     -fx-font-family: "Arial";
     -fx-font-size: 2em;
     -fx-font-weight: bold;
-    -fx-font-space: 2px;
-    -fzx: 60px;
-    
+    -fx-font-space: 2px;    
+}
+
+.txtProductViewItem{
+    -fx-text-fill: #00171F;
+    -fx-font-family: "Arial";
+    -fx-font-size: 1.5em;
 }
