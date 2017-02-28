@@ -23,6 +23,7 @@ import javafx.scene.layout.Pane;
 import main.backend.CustomDataHandler;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
@@ -44,6 +45,7 @@ public class ProductViewNode extends AnchorPane implements Initializable {
 
     private final Product product;
     private IMatDataHandler db = IMatDataHandler.getInstance();
+    private ShoppingCart shoppingCart;
 
     public ProductViewNode(Product product) throws IOException{
         this.product = product;
@@ -57,18 +59,12 @@ public class ProductViewNode extends AnchorPane implements Initializable {
         imgProduct.setImage(db.getFXImage(product, 100, 100));
         labelProductName.setText(product.getName());
         labelPrice.setText((int) product.getPrice() + product.getUnit());
+
+        shoppingCart = db.getShoppingCart();
     }
     
     public void addToCart(int count){
-        List<ShoppingItem> cart = db.getShoppingCart().getItems();
-        for(ShoppingItem item: cart){
-            if(item.getProduct().getProductId() == product.getProductId()){
-                item.setAmount(item.getAmount() + count);
-                db.getShoppingCart().fireShoppingCartChanged(null, true);
-                return;
-            }
-        }
-        db.getShoppingCart().addProduct(product, count);
+        shoppingCart.addItem(new ShoppingItem(product, count));
     }
     
     /*public void ShowProducts(List<Product> toShowList){
@@ -80,8 +76,7 @@ public class ProductViewNode extends AnchorPane implements Initializable {
     }*/
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-            spinBox.addListener(this);
+		spinBox.getAddToCartButton().setOnMouseClicked(e -> {addToCart(spinBox.getCount()); spinBox.resetCount();});
 	}
 
    

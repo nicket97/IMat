@@ -93,12 +93,18 @@ public class SpinBox extends Pane implements Initializable {
         
        
     }
-    
-    public void addListener(ProductViewNode parent){
-        this.parent = parent;
+
+    public Pane getAddToCartButton(){
+        return addPane;
     }
-    private void notifyParent(){
-        parent.addToCart(count);
+
+    public int getCount(){
+        return count;
+    }
+
+    public void resetCount(){
+        count = 1;
+        updateTxtVal();
     }
     
     @FXML
@@ -122,9 +128,6 @@ public class SpinBox extends Pane implements Initializable {
     private void addToCart(MouseEvent event) {
         addPane.setDisable(true);
         addToCartAnimation();
-        notifyParent();
-        count = 1;
-        updateTxtVal();
     }
 
     @Override
