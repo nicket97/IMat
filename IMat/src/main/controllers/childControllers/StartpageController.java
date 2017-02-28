@@ -25,6 +25,8 @@ import javafx.scene.layout.FlowPane;
  import main.backend.UserHandler;
  import main.controllers.MainController;
  import main.controllers.childControllers.User.UserController;
+ import se.chalmers.ait.dat215.project.IMatDataHandler;
+ import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
  *
@@ -74,6 +76,7 @@ public class StartpageController implements Controllable{
     private UserController usrCtrl;
     private HistoryController historyCtrl;
     private SearchController srchCtrl;
+    private ProductViewController prodCtrl;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -103,10 +106,12 @@ public class StartpageController implements Controllable{
 
     }
 
-    public void injectControllers(UserController userController, HistoryController hController, SearchController srchController){
+    public void injectControllers(UserController userController, HistoryController hController,
+                                  SearchController srchController, ProductViewController pController){
         usrCtrl = userController;
         historyCtrl = hController;
         srchCtrl = srchController;
+        prodCtrl = pController;
     }
 
     private void setLoginStatus(boolean value){
@@ -144,8 +149,7 @@ public class StartpageController implements Controllable{
         //LÄGG TILL SKIT HÄR
         switch (txt.getText().toLowerCase().trim()){
             case "börja handla":
-                //TODO
-                System.out.println("Börja handla för fan");
+                prodCtrl.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.VEGETABLE_FRUIT), "Frukt & Grönt");
                 break;
             case "historik":
                 historyCtrl.setVisible(true);

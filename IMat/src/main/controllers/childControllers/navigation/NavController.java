@@ -35,16 +35,12 @@ public class NavController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        for(int i = 0; i < Main.NUMBER_OF_CATEGORIES; i++){
-            //gridMain.getChildren().get(i).setOnMouseClicked(e -> pressButton());
-        }
         gridMain.getChildren().get(2).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.VEGETABLE_FRUIT), "Frukt & Grönt"));
         gridMain.getChildren().get(3).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.BREAD), "Bröd"));
         gridMain.getChildren().get(4).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.FLOUR_SUGAR_SALT), "Skafferi"));
         gridMain.getChildren().get(5).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.DAIRIES), "Mejeri"));
         gridMain.getChildren().get(6).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT), "Protein"));
         gridMain.getChildren().get(7).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.POD), "Kolonial"));
-        //gridMain.getChildren().get(6).setOnMouseClicked(e -> productViewController.displayProducts(IMatDataHandler.getInstance().getProducts(ProductCategory.VEGETABLE_FRUIT)));
         addListeners();
     }
 

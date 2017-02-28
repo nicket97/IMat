@@ -73,8 +73,8 @@ public class CartController implements Initializable{
                     .findAny().get();
 
             existingItem.setAmount(existingItem.getAmount() + item.getAmount());
-
             viewedItems.set(viewedItems.indexOf(existingItem), existingItem);
+
         } else if(add) {
             viewedItems.add(item);
         }

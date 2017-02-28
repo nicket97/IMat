@@ -66,14 +66,7 @@ public class ProductViewNode extends AnchorPane implements Initializable {
     public void addToCart(int count){
         shoppingCart.addItem(new ShoppingItem(product, count));
     }
-    
-    /*public void ShowProducts(List<Product> toShowList){
-    	for(Product p: toShowList){
-    		labelProductName.setText(p.getName());
-    		labelPrice.setText(""+ p.getPrice() + " Kr");
-    		//imgProduct.setImage();
-    	}
-    }*/
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		spinBox.getAddToCartButton().setOnMouseClicked(e -> {addToCart(spinBox.getCount()); spinBox.resetCount();});
