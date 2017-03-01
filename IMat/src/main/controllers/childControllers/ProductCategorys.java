@@ -9,7 +9,7 @@ import se.chalmers.ait.dat215.project.ProductCategory;
 
 public class ProductCategorys {
 	static CustomDataHandler dataHandler = CustomDataHandler.getInstance();
-	public static final ProductCategory[] VEG = {
+	private static final ProductCategory[] VEG = {
 			ProductCategory.BERRY,
 			ProductCategory.CABBAGE,
 			ProductCategory.CITRUS_FRUIT,
@@ -19,11 +19,11 @@ public class ProductCategorys {
 			ProductCategory.MELONS,
 			ProductCategory.ROOT_VEGETABLE,
 			ProductCategory.VEGETABLE_FRUIT};
-	public static final ProductCategory[] PROTIN = {
+	private static final ProductCategory[] PROTIN = {
 			ProductCategory.FISH,
 			ProductCategory.MEAT
 	};
-	public static final ProductCategory[] KOLONIAL = {
+	private static final ProductCategory[] KOLONIAL = {
 			ProductCategory.COLD_DRINKS,
 			ProductCategory.NUTS_AND_SEEDS,
 			ProductCategory.PASTA,
@@ -32,13 +32,13 @@ public class ProductCategorys {
 			ProductCategory.SWEET,
 			ProductCategory.HOT_DRINKS
 	};
-	public static final ProductCategory[] PANTRY = {
+	private static final ProductCategory[] PANTRY = {
 			ProductCategory.FLOUR_SUGAR_SALT
 	};
-	public static final ProductCategory[] BREAD = {
+	private static final ProductCategory[] BREAD = {
 			ProductCategory.BREAD
 	};
-	public static final ProductCategory[] DAIRY = {
+	private static final ProductCategory[] DAIRY = {
 			ProductCategory.DAIRIES
 			
 	};
@@ -49,7 +49,49 @@ public class ProductCategorys {
 		for(ProductCategory p: VEG){
 			result.addAll(dataHandler.getProducts(p));
 		}
+		System.out.println(result.size());
 		return result;
 	}
+
+	public static List<Product> getProtin() {
+		List<Product> result = new ArrayList<>();
+		for(ProductCategory p: PROTIN){
+			result.addAll(dataHandler.getProducts(p));
+		}
+		return result;
+	}
+
+	public static List<Product> getKolonial() {
+		List<Product> result = new ArrayList<>();
+		for(ProductCategory p: KOLONIAL){
+			result.addAll(dataHandler.getProducts(p));
+		}
+		return result;
+	}
+
+	public static List<Product> getPantry() {
+		List<Product> result = new ArrayList<>();
+		for(ProductCategory p: PANTRY){
+			result.addAll(dataHandler.getProducts(p));
+		}
+		return result;
+	}
+
+	public static List<Product> getBread() {
+		List<Product> result = new ArrayList<>();
+		for(ProductCategory p: BREAD){
+			result.addAll(dataHandler.getProducts(p));
+		}
+		return result;
+	}
+
+	public static List<Product> getDairy() {
+		List<Product> result = new ArrayList<>();
+		for(ProductCategory p: DAIRY){
+			result.addAll(dataHandler.getProducts(p));
+		}
+		return result;
+	}
+	
 	
 }

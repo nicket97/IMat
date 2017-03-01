@@ -63,7 +63,7 @@ public class NavController implements Initializable {
     }
 
     public void startShopping(){
-        prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.VEGETABLE_FRUIT), "Frukt & Grönt");
+        prodCtrl.displayProducts((ProductCategorys.getVegetables()), "Frukt & Grönt");
         bottomCtrl.setButtonsVisible(false, true);
         displayedIndex = 2;
     }
@@ -93,23 +93,23 @@ public class NavController implements Initializable {
                 startShopping();
                 break;
             case 3:
-                prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.BREAD), "Bröd");
+                prodCtrl.displayProducts(ProductCategorys.getBread(), "Bröd");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 4:
-                prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.FLOUR_SUGAR_SALT), "Skafferi");
+                prodCtrl.displayProducts(ProductCategorys.getPantry(), "Skafferi");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 5:
-                prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.DAIRIES), "Mejeri");
+                prodCtrl.displayProducts(ProductCategorys.getDairy(), "Mejeri");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 6:
-                prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.MEAT), "Protein");
+                prodCtrl.displayProducts(ProductCategorys.getProtin(), "Protein");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 7:
-                prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.POD), "Kolonial");
+                prodCtrl.displayProducts(ProductCategorys.getKolonial(), "Kolonial");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 8:
