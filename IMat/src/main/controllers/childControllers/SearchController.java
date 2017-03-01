@@ -46,6 +46,7 @@ public class SearchController implements Initializable {
     @FXML
     private void btnSearch_onActionPerformed(ActionEvent e){
         startSearch();
+        txtSearch.setText("");
     }
 
     private void startSearch(){
@@ -75,7 +76,7 @@ public class SearchController implements Initializable {
         //Optional printing
         prodCtrl.displayProducts(result, txtSearch.getText());
         //bottomCtrl.setButtonsVisible(false, false);
-        printSearchResult(result);
+        //printSearchResult(result);
     }
 
     private List<Product> search(String search){
@@ -86,7 +87,10 @@ public class SearchController implements Initializable {
 
     private void addListeners(){
         dataHandler.getDisplayedProducts().addListener((ListChangeListener<? super Product>)  x -> System.out.println("List changed."));
-        txtSearch.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) startSearch();});
+        txtSearch.setOnKeyPressed(e -> {
+        	if(e.getCode() == KeyCode.ENTER){ startSearch();
+        	txtSearch.setText("");
+        }});
     }
 
     private void printSearchResult(List<Product> result){
