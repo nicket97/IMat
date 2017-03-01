@@ -51,7 +51,8 @@ public class CartController implements Initializable{
     }
 
     private void addListeners(){
-        shoppingCart.addShoppingCartListener(x -> updateChart(x.getShoppingItem(), x.isAddEvent()));
+        shoppingCart.addShoppingCartListener(x -> {updateChart(x.getShoppingItem(), x.isAddEvent());
+        });
         listViewCartItems.setCellFactory(x -> new ListViewCartItem(shoppingCart));
     }
 
@@ -79,8 +80,17 @@ public class CartController implements Initializable{
             viewedItems.add(item);
         }
         else
+        {
             viewedItems.remove(item);
-
-        labelSum.setText(shoppingCart.getTotal() + " :-");
+        }
+        this.displaySum();
+    }
+    public void displaySum(){
+    	List<ShoppingItem> viewedItems = listViewCartItems.getItems();
+        double sum = 0;
+        for(ShoppingItem i :viewedItems){
+        	sum += i.getAmount()*i.getProduct().getPrice();
+        }
+        labelSum.setText(sum + " :-");
     }
 }

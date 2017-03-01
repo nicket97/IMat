@@ -83,6 +83,7 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
 
         setGraphic(anchorItem);
         setText(null);
+        
     }
 
     private void addListeners() {
