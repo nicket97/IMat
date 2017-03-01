@@ -62,6 +62,11 @@ public class SearchController implements Initializable {
             dataHandler.placeOrder(true);
             return;
         }
+        if(txtSearch.getText().equalsIgnoreCase("test")){
+        	List<Product> result = dataHandler.getProducts();
+        	 prodCtrl.displayProducts(result, txtSearch.getText());
+        	return;
+        }
 
         List<Product> result = search(txtSearch.getText());
         dataHandler.getDisplayedProducts().clear();
