@@ -137,6 +137,7 @@ public class SpinBox extends Pane implements Initializable {
         decPane.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> decVal(event));
         decPane.setDisable(true);
         addPane.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> addToCart(event));
+        txtVal.focusedProperty().addListener(x -> count = (int)Math.round(Double.parseDouble(txtVal.getText())));
         
     }
 }

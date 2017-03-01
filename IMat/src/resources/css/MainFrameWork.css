@@ -50,8 +50,25 @@ and open the template in the editor.
 
 .listBox *.list-cell{
     -fx-background-color: transparent;
+
 }
 
+.listBox *.list-cell:hover{
+    -fx-border-color: #cfdee9;
+
+}
+.sideList{
+    -fx-border-color: #cfdee9;
+    -fx-border-width: 1px 0px 0px 0px;
+    -fx-background-color: transparent;
+
+}
+.sideList *.list-cell
+{
+    -fx-text-fill: #cfdee9;
+    -fx-font-family: "Arial";
+    -fx-border-width: 1px;
+}
 #receiptBox{
     -fx-border-width: 1px 0 0 0;
     -fx-border-color: #00171F;

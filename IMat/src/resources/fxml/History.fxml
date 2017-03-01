@@ -48,7 +48,7 @@
          <center>
             <VBox fx:id="listBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
                <children>
-                  <ListView fx:id="listDates" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" VBox.vgrow="ALWAYS" />
+                  <ListView fx:id="listDates" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="sideList" stylesheets="@../css/MainFrameWork.css" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
          </center>
