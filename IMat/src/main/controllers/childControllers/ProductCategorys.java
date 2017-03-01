@@ -6,7 +6,10 @@ import java.util.List;
 import main.backend.CustomDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
-
+/**
+*
+* @author Niclas
+*/
 public class ProductCategorys {
 	static CustomDataHandler dataHandler = CustomDataHandler.getInstance();
 	private static final ProductCategory[] VEG = {
