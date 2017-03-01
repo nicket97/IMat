@@ -65,7 +65,7 @@ public class NavController implements Initializable {
     public void startShopping(){
         prodCtrl.displayProducts(dataHandler.getProducts(ProductCategory.VEGETABLE_FRUIT), "Frukt & Grönt");
         bottomCtrl.setButtonsVisible(false, true);
-        displayedIndex = 1;
+        displayedIndex = 2;
     }
 
     private void addListeners(){
