@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="bottomBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="80.0" minWidth="1120.0" prefHeight="80.0" prefWidth="1680.0" styleClass="navBorder" stylesheets="@../css/Navigation.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.navigation.BottomBarController">
    <children>
-      <Button fx:id="btnPrev" alignment="CENTER" layoutX="1275.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" stylesheets="@../css/Navigation.css" text="Föregående" visible="false" AnchorPane.rightAnchor="265.0">
+      <Button fx:id="btnPrev" alignment="CENTER" layoutX="1275.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" stylesheets="@../css/Navigation.css" text="Föregående " visible="false" AnchorPane.rightAnchor="265.0">
          <styleClass>
             <String fx:value="directionButton" />
             <String fx:value="navButton" />
@@ -26,6 +26,7 @@
             <Tooltip text="Nästa Kategori" />
          </tooltip>
       </Button>
+      <Button fx:id="btnHelp" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Hjälp" AnchorPane.leftAnchor="100.0" />
    </children>
    <effect>
       <DropShadow color="#425361" height="56.34" offsetY="-3.0" radius="18.0325" width="17.79" />
