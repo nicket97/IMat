@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1680.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1680.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
 
-    fx:controller = "childControllers.KvittoController">
+    
     <children>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="1480.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <FlowPane fx:id="productViewFlowPane" prefHeight="760.0" prefWidth="1480.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                <ScrollPane fx:id="kvittoList" prefHeight="-Infinity" prefWidth="-Infinity">
+
+
+                <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Nästa" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="85.0" />
+                <Button fx:id="btnPrev" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Tillbaka" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="265.0" />
+                <Button fx:id="btnReturn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Fortsätt Handla" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="85.0" />
+
+
+                <Label fx:id="labelKvitto" layoutX="70" layoutY="70" prefWidth="600" prefHeight="80" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Kvitto"/>
+
+                <Group layoutX="70" layoutY="160" >
+                <ScrollPane fx:id="kvittoList" prefHeight="460.0" prefWidth="800.0">
                 </ScrollPane>
+                    <Label fx:id="totalLabel" layoutX="580" layoutY="400" styleClass="txtTotal" stylesheets="@../css/TextFormat.css" text="Totalt: " />
+
+                </Group>
 
             </children></AnchorPane>
         <BorderPane prefWidth="200.0" styleClass="listPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">

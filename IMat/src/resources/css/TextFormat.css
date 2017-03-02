@@ -56,3 +56,11 @@ and open the template in the editor.
     -fx-font-size: 1.5em;
 }
 
+.txtTotal {
+    -fx-text-fill: #00171F;
+    -fx-font-family: "Arial";
+    -fx-font-size: 1.6em;
+    -fx-font-space: 2px;
+    -fx-font-weight: 100;
+}
+
