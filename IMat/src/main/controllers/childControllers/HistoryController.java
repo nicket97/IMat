@@ -70,5 +70,4 @@ public class HistoryController implements Initializable {
 
         labelTotal.setText(String.valueOf(total));
     }
-
 }
