@@ -18,9 +18,14 @@ and open the template in the editor.
 }
 
 .txtForm:focused{
-    -fx-background-color: #cfdee9;
+    -fx-border-color: #91bfe0;
 }
-
+#txtFormCheckout{
+    -fx-prompt-text-fill: #a3a3a3;
+}
+#txtFormCheckout:focused{
+    -fx-border-color: #cfdee9;
+}
 .searchButton{
     -fx-background-color: #003459;
     -fx-background-insets: 0px;

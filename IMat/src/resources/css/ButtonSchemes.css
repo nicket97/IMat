@@ -8,3 +8,38 @@ and open the template in the editor.
     Author     : Felix
 */
 
+.radioButton{
+    -fx-background-image: url("../img/Icons/CheckButton.png");
+}
+.radioButton:hover{
+    -fx-background-image: url("../img/Icons/CheckButtonHover.png");
+}
+.radioButtonChecked{
+    -fx-background-image: url("../img/Icons/CheckButtonCheck.png");
+}
+.helpTooltip{
+    -fx-background-image: url("../img/Icons/Tooltip.png");
+}
+.helpTooltip:hover{
+    -fx-background-image: url("../img/Icons/TooltipHover.png");
+}
+.helpTooltip > .tooltip{
+    -fx-font-size: 10em;
+}
+.formButton{
+    -fx-background-insets: 0px;
+    -fx-background-color: #cfdee9;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-font-family: "Arial";
+    -fx-font-size: 1.5em;
+    -fx-text-fill: #00171F;
+    -fx-font-weight: bold;
+}
+.formButton:hover{
+    -fx-background-color: #00171F;
+    -fx-border-color: #cfdee9;
+    -fx-border-width: 2px;  
+    
+    -fx-text-fill: #cfdee9;
+}
