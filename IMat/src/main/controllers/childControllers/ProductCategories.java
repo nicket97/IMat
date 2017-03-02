@@ -10,7 +10,7 @@ import se.chalmers.ait.dat215.project.ProductCategory;
 *
 * @author Niclas
 */
-public class ProductCategorys {
+public class ProductCategories {
 	static CustomDataHandler dataHandler = CustomDataHandler.getInstance();
 	private static final ProductCategory[] VEG = {
 			ProductCategory.BERRY,
@@ -22,7 +22,7 @@ public class ProductCategorys {
 			ProductCategory.MELONS,
 			ProductCategory.ROOT_VEGETABLE,
 			ProductCategory.VEGETABLE_FRUIT};
-	private static final ProductCategory[] PROTIN = {
+	private static final ProductCategory[] PROTEIN = {
 			ProductCategory.FISH,
 			ProductCategory.MEAT
 	};
@@ -46,6 +46,24 @@ public class ProductCategorys {
 			
 	};
 	
+        public static ProductCategory[] getVeg(){
+            return VEG;
+        }
+        public static ProductCategory[] getProt(){
+            return PROTEIN;
+        }
+        public static ProductCategory[] getCol(){
+            return KOLONIAL;
+        }
+        public static ProductCategory[] getPtry(){
+            return PANTRY;
+        }
+        public static ProductCategory[] getBrd(){
+            return BREAD;
+        }
+        public static ProductCategory[] getDry(){
+            return DAIRY;
+        }
 	public static List<Product> getVegetables(){
 		
 		List<Product> result = new ArrayList<>();
@@ -56,9 +74,9 @@ public class ProductCategorys {
 		return result;
 	}
 
-	public static List<Product> getProtin() {
+	public static List<Product> getProtein() {
 		List<Product> result = new ArrayList<>();
-		for(ProductCategory p: PROTIN){
+		for(ProductCategory p: PROTEIN){
 			result.addAll(dataHandler.getProducts(p));
 		}
 		return result;

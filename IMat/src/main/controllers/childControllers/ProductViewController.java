@@ -1,6 +1,7 @@
 package main.controllers.childControllers;
 
 import fxComponents.ProductViewNode;
+import fxComponents.ProductViewSubCategory;
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
 import main.controllers.childControllers.navigation.BottomBarController;
@@ -8,20 +9,23 @@ import se.chalmers.ait.dat215.project.Product;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
  * Created by Nicket on 2017-02-27.
  */
 public class ProductViewController implements Controllable{
     @FXML
-    private FlowPane productViewFlowPane;
+    private VBox productViewFlowPane;
     @FXML
     private AnchorPane productView;
     @FXML
@@ -32,19 +36,40 @@ public class ProductViewController implements Controllable{
     private Label labelHeader;
     @FXML
     private VBox listBox;
-
+    
     public void displayProducts (List<Product> productList, String label) {
         setVisible(true);
 
-        if (productViewNodePane != null) {
-            productViewNodePane.getChildren().clear();
+        if (productViewFlowPane != null) {
+            productViewFlowPane.getChildren().clear();
+            listBox.getChildren().clear();      
         }
         for(int i = 0;i<productList.size();i++) {
             try {
-                ProductViewNode node = new ProductViewNode(productList.get(i));
-                productViewNodePane.getChildren().add(node);
+                ProductViewSubCategory searchResult = new ProductViewSubCategory(productList, label);
+                productViewFlowPane.getChildren().add(searchResult);
                 labelHeader.setText(label);
                 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        
+    }
+    public void displayProducts (ProductCategory[] section, String label) {
+        setVisible(true);
+
+        if (productViewFlowPane != null) {
+            productViewFlowPane.getChildren().clear();
+            listBox.getChildren().clear();
+        }
+        for(int i = 0;i<section.length;i++) {
+            try {
+                ProductViewSubCategory subSection = new ProductViewSubCategory(section[i], label);
+                productViewFlowPane.getChildren().add(subSection);
+                labelHeader.setText(label);
+                listBox.getChildren().add(createSubcategoryButton(label));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -66,5 +91,11 @@ public class ProductViewController implements Controllable{
         if(value)
             productView.toFront();
     }
-
+    
+    public Label createSubcategoryButton(String label){
+        Label category = new Label(label);
+        category.setAlignment(Pos.CENTER);
+        category.setPrefSize(160, 40);
+        return category;
+    }
 }

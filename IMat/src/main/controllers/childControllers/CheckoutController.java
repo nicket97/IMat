@@ -5,6 +5,8 @@
  */
 package main.controllers.childControllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -22,7 +24,7 @@ import javafx.scene.layout.VBox;
  *
  * @author Felix
  */
-public class CheckoutController {
+public class CheckoutController implements Controllable{
 
     @FXML
     private AnchorPane paneBtns;
@@ -118,5 +120,19 @@ public class CheckoutController {
     private Label labelHeader;
     @FXML
     private VBox listBox;
+    @FXML
+    private AnchorPane checkout;
+
+    @Override
+    public void setVisible(boolean value) {
+        checkout.setVisible(value);
+        checkout.setManaged(value);
+        checkout.toFront();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
     
 }

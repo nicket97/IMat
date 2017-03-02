@@ -34,6 +34,7 @@ public class NavController implements Initializable {
     private StartpageController startpageController;
     private ProductViewController prodCtrl;
     private BottomBarController bottomCtrl;
+    private CheckoutController checkoutController;
 
     private CustomDataHandler dataHandler;
 
@@ -48,13 +49,15 @@ public class NavController implements Initializable {
     }
 
     public void injectControllers(StartpageController startpageController,
-                                  CartController cartController,
-                                  ProductViewController productViewController,
-                                  BottomBarController bottomBarController,
-                                  SearchController searchController){
+        CartController cartController, 
+        ProductViewController productViewController,
+        CheckoutController checkoutController,
+        BottomBarController bottomBarController,
+        SearchController searchController){
         this.cartController = cartController;
         this.startpageController = startpageController;
         this.prodCtrl = productViewController;
+        this.checkoutController = checkoutController;
         bottomCtrl = bottomBarController;
         searchController.setprodCtrl(prodCtrl);
         bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; displayCategory(displayedIndex);});
@@ -63,7 +66,7 @@ public class NavController implements Initializable {
     }
 
     public void startShopping(){
-        prodCtrl.displayProducts((ProductCategorys.getVegetables()), "Frukt & Grönt");
+        prodCtrl.displayProducts((ProductCategories.getVeg()), "Frukt & Grönt");
         bottomCtrl.setButtonsVisible(false, true);
         displayedIndex = 2;
     }
@@ -93,31 +96,28 @@ public class NavController implements Initializable {
                 startShopping();
                 break;
             case 3:
-                prodCtrl.displayProducts(ProductCategorys.getBread(), "Bröd");
+                prodCtrl.displayProducts(ProductCategories.getBrd(), "Bröd");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 4:
-                prodCtrl.displayProducts(ProductCategorys.getPantry(), "Skafferi");
+                prodCtrl.displayProducts(ProductCategories.getPtry(), "Skafferi");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 5:
-                prodCtrl.displayProducts(ProductCategorys.getDairy(), "Mejeri");
+                prodCtrl.displayProducts(ProductCategories.getDry(), "Mejeri");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 6:
-                prodCtrl.displayProducts(ProductCategorys.getProtin(), "Protein");
+                prodCtrl.displayProducts(ProductCategories.getProt(), "Protein");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 7:
-                prodCtrl.displayProducts(ProductCategorys.getKolonial(), "Kolonial");
+                prodCtrl.displayProducts(ProductCategories.getCol(), "Kolonial");
                 bottomCtrl.setButtonsVisible(true, true);
                 break;
             case 8:
-                Alert fu = new Alert(Alert.AlertType.INFORMATION);
-                fu.setTitle("WOHOO");
-                fu.setHeaderText("Du har kommit till en kassa som inte finns!");
-                fu.setContentText("Sök på \"Order\" i sökfältet för att lägga en order direkt!");
-                fu.showAndWait();
+                checkoutController.setVisible(true);
+                bottomCtrl.setButtonsVisible(true, true); //Ändra om här kanske, disabla eller dölja?
                 break;
         }
 

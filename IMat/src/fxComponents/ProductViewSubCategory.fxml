@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+
+<fx:root id="productNodeFrame" fx:id="productViewFlowPane" styleClass="mainPane" stylesheets="@../resources/css/MainFrameWork.css" type="FlowPane" vgap="20.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+         <Label fx:id="subcatLabel" prefHeight="41.0" prefWidth="343.0" styleClass="txtProductView" stylesheets="@../resources/css/TextFormat.css" text="Fredagen den 13 januari, 2017">
+         <FlowPane.margin>
+            <Insets left="20.0" />
+         </FlowPane.margin>
+      </Label>
+      <FlowPane fx:id="productViewNodePane" hgap="10.0" prefWidth="1170.0" vgap="10.0">
+         <FlowPane.margin>
+            <Insets left="110.0" />
+         </FlowPane.margin>
+      </FlowPane>
+   </children>
+   <padding>
+      <Insets bottom="20.0" top="40.0" />
+   </padding>
+</fx:root>
