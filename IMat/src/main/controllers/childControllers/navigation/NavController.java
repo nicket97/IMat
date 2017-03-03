@@ -86,15 +86,27 @@ public class NavController implements Initializable {
             	System.out.println(gridMain.getChildren().get(index).getStyleClass().toString());
             	displayCategory(index);
             });
-        }
-
+        } 
+        
         //Need animation here
-        cartPane.setOnMouseClicked(e -> cartController.setVisible(!cartController.isVisible()));
+        cartPane.setOnMouseClicked(e -> {
+           
+            
+            cartController.setVisible(!cartController.isVisible());
+        });
+        
         navHome.setOnMouseClicked(e -> {
             startpageController.setVisible(true);
             prodCtrl.setVisible(false);
             bottomCtrl.setButtonsVisible(false, false);
         });
+    }
+    
+    public void setCartBtn(boolean value){
+         if(value)
+                cartPane.setId("navCartActive");
+            else
+                cartPane.setId("navCart");
     }
 
     private void displayCategory(int index){

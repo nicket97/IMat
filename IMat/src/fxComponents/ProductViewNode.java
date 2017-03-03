@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import fxComponents.SpinBox;
+import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -46,7 +47,8 @@ public class ProductViewNode extends AnchorPane implements Initializable {
     private final Product product;
     private IMatDataHandler db = IMatDataHandler.getInstance();
     private ShoppingCart shoppingCart;
-
+    private DecimalFormat df = new DecimalFormat("#.00");
+        
     public ProductViewNode(Product product) throws IOException{
         this.product = product;
         
@@ -58,7 +60,7 @@ public class ProductViewNode extends AnchorPane implements Initializable {
         
         imgProduct.setImage(db.getFXImage(product, 100, 100));
         labelProductName.setText(product.getName());
-        labelPrice.setText((double) product.getPrice() + product.getUnit());
+        labelPrice.setText(df.format(product.getPrice()) + product.getUnit());
 
         shoppingCart = db.getShoppingCart();
     }

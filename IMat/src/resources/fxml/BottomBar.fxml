@@ -26,7 +26,7 @@
             <Tooltip text="Nästa Kategori" />
          </tooltip>
       </Button>
-      <Button fx:id="btnHelp" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Hjälp" AnchorPane.leftAnchor="100.0" />
+      <Button fx:id="btnHelp" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Hjälp" AnchorPane.leftAnchor="30.0" />
    </children>
    <effect>
       <DropShadow color="#425361" height="56.34" offsetY="-3.0" radius="18.0325" width="17.79" />

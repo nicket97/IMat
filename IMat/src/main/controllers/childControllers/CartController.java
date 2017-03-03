@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import fxComponents.ListViewCartItem;
+import java.text.DecimalFormat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -18,6 +19,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import main.backend.CustomDataHandler;
 import main.controllers.MainController;
+import main.controllers.childControllers.navigation.NavController;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -32,18 +34,24 @@ public class CartController implements Initializable{
 
     @FXML private Pane cart;
 
+    private NavController nav;
     private ShoppingCart shoppingCart;
-
+    private DecimalFormat df = new DecimalFormat("#.00");
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         shoppingCart = CustomDataHandler.getInstance().getShoppingCart();
         addListeners();
     }
 
+    public void setNavStateListener(NavController nav){
+        this.nav = nav;
+    }
+    
     public void setVisible(boolean value){
         //Animation here
         cart.setVisible(value);
         cart.setManaged(value);
+        nav.setCartBtn(value);
     }
 
     public boolean isVisible(){
@@ -91,6 +99,11 @@ public class CartController implements Initializable{
         for(ShoppingItem i :viewedItems){
         	sum += i.getAmount()*i.getProduct().getPrice();
         }
-        labelSum.setText("Totalsumma " + sum + ":-");
+        labelSum.setText("Totalsumma " + df.format(sum) + ":-");
     }
+
+    public void injectControllers(NavController navController) {
+        nav = navController;
+    }
+    
 }
