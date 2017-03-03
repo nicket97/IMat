@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -33,6 +34,11 @@ public class UserController implements Initializable{
     @FXML private TextField txtRegPasswordRepeat;
     @FXML private AnchorPane anchorRegister;
     @FXML private AnchorPane anchorLogin;
+
+    //Error stuff
+    @FXML private Label labelErrorEmailAndPassword;
+    @FXML private Label labelErrorEmail;
+    @FXML private Label labelErrorPassword;
 
 
     private AnchorPane anchorUser;
@@ -125,11 +131,13 @@ public class UserController implements Initializable{
         currentUser = userHandler.logIn(loginUser);
 
         if(currentUser == null){
-            Alert error = new Alert(Alert.AlertType.ERROR);
-            error.setTitle("Fel");
-            error.setHeaderText("Fel användarnamn eller lösenord.");
-            error.showAndWait();
+            labelErrorEmailAndPassword.setVisible(true);
+            txtUsername.setId("txtError");
+            txtPassword.setId("txtError");
         }else{
+            txtUsername.setId("");
+            txtPassword.setId("");
+            labelErrorEmailAndPassword.setVisible(false);
             setLoginVisible(false);
         }
     }
@@ -182,5 +190,22 @@ public class UserController implements Initializable{
     private void addListerners(){
         anchorLogin.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) login();});
         anchorRegister.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) regiserNew();});
+        txtUsername.focusedProperty().addListener(x -> {
+            if(!txtUsername.isFocused()) {
+                labelErrorEmail.setVisible(txtUsername.getText().isEmpty());
+                txtUsername.setId(txtUsername.getText().isEmpty() ? "txtError" : "");
+            }
+        });
+        txtPassword.focusedProperty().addListener(x -> {
+            if(!txtPassword.isFocused()) {
+                if(txtPassword.getText().isEmpty()){
+                    labelErrorPassword.setVisible(true);
+                    txtPassword.setId("txtError");
+                }else {
+                    labelErrorPassword.setVisible(false);
+                    txtPassword.setId("");
+                }
+            }
+        });
     }
 }
