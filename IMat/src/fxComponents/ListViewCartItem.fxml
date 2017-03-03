@@ -17,7 +17,7 @@
                <tooltip>
                   <Tooltip text="Ta bort" />
                </tooltip></Label>
-            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="60.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="100.00:-">
+            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="65.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="000.00 kr">
                <font>
                   <Font size="14.0" />
                </font>

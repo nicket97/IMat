@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import fxComponents.ListViewCartItem;
+import java.text.DecimalFormat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -33,6 +34,7 @@ public class CartController implements Initializable{
     @FXML private Pane cart;
 
     private ShoppingCart shoppingCart;
+    private DecimalFormat df = new DecimalFormat("#.00");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -91,6 +93,6 @@ public class CartController implements Initializable{
         for(ShoppingItem i :viewedItems){
         	sum += i.getAmount()*i.getProduct().getPrice();
         }
-        labelSum.setText("Totalsumma " + sum + ":-");
+        labelSum.setText("Totalsumma " + df.format(sum) + ":-");
     }
 }

@@ -17,6 +17,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 /**
@@ -36,6 +37,7 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
     private ShoppingCart cart;
     private SimpleIntegerProperty amount = new SimpleIntegerProperty();
     private CartController cartController;
+    private DecimalFormat df = new DecimalFormat("#.00");
 
     public ListViewCartItem(ShoppingCart cart, CartController c){
     	cartController = c;
@@ -85,7 +87,7 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
         labelUnit.setText(item.getProduct().getUnitSuffix());
         amount.set((int)item.getAmount());
         txtAmount.setText(String.valueOf(amount.getValue()));
-        labelPrice.setText(String.valueOf(item.getProduct().getPrice()*item.getAmount()) + " kr");
+        labelPrice.setText(String.valueOf(df.format(item.getProduct().getPrice()*item.getAmount())) + " kr");
 
         setGraphic(anchorItem);
         setText(null);
