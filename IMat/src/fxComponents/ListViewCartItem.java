@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import main.controllers.childControllers.CartController;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -34,8 +35,10 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
 
     private ShoppingCart cart;
     private SimpleIntegerProperty amount = new SimpleIntegerProperty();
+    private CartController cartController;
 
-    public ListViewCartItem(ShoppingCart cart){
+    public ListViewCartItem(ShoppingCart cart, CartController c){
+    	cartController = c;
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListViewCartItem.fxml"));
 
@@ -64,6 +67,7 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
 
         if(item == null)
             empty = true;
+        
 
         setItem(item);
 
@@ -74,7 +78,9 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
             setGraphic(null);
             return;
         }
-
+        if(item.getAmount() > 99){
+        	item.setAmount(99);
+        }
         labelTitle.setText(item.getProduct().getName());
         labelUnit.setText(item.getProduct().getUnitSuffix());
         amount.set((int)item.getAmount());
@@ -90,10 +96,13 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
         labelInc.setOnMouseClicked(e -> {
             getItem().setAmount(getItem().getAmount() + 1);
             updateItem(getItem(), false);
+            cartController.displaySum();
+            
         });
 
         labelDec.setOnMouseClicked(e -> {
             if (amount.getValue() > 1){
+            	cartController.displaySum();
                 getItem().setAmount(getItem().getAmount() - 1);
                 updateItem(getItem(), false);
             }

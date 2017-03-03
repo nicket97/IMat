@@ -53,7 +53,7 @@ public class CartController implements Initializable{
     private void addListeners(){
         shoppingCart.addShoppingCartListener(x -> {updateChart(x.getShoppingItem(), x.isAddEvent());
         });
-        listViewCartItems.setCellFactory(x -> new ListViewCartItem(shoppingCart));
+        listViewCartItems.setCellFactory(x -> new ListViewCartItem(shoppingCart, this));
     }
 
     private void updateChart(ShoppingItem item, boolean add){
