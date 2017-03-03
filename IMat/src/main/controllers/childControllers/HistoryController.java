@@ -46,8 +46,10 @@ public class HistoryController implements Initializable {
         history.setManaged(value);
         history.toFront();
 
-        if(value)
+        if(value) {
+            listDates.getItems().clear();
             dataHandler.getOrders().stream().forEach(o -> listDates.getItems().add(dateFormat.format(o.getDate())));
+        }
 
         if(listDates.getItems().size() > 0)
             listDates.getSelectionModel().select(0);

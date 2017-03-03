@@ -58,7 +58,12 @@ public class UserController implements Initializable{
         anchorUser.setVisible(value);
         anchorUser.setManaged(value);
         anchorRegister.setVisible(false);
-        if(value) txtUsername.requestFocus();
+        if(value){
+            txtUsername.requestFocus();
+            txtPassword.clear();
+        }
+
+
     }
 
     public void setRegisterVisible(boolean value){

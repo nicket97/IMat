@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Pontus on 2017-02-18.
@@ -20,9 +21,7 @@ import java.util.List;
 public class CustomDataHandler extends BackendWrapper {
     private static CustomDataHandler instance = null;
 
-    private Customer currentCustomer;
     private UserHandler userHandler;
-
     private ObservableList<Product> displayedProducts;
 
     public static CustomDataHandler getInstance() {
@@ -103,7 +102,20 @@ public class CustomDataHandler extends BackendWrapper {
 
     @Override
     public List<Order> getOrders(){
-        return super.getOrders();
+        return super.getOrders().stream().filter(x ->
+                userHandler.getCustomerOrderDates().contains(
+                        x.getDate().toString())).collect(Collectors.toList());
     }
 
+    @Override
+    public Order placeOrder(){
+        return placeOrder(true);
+    }
+
+    @Override
+    public Order placeOrder(boolean emptyCart){
+        Order placedOrder = super.placeOrder(emptyCart);
+        getUserHandler().addOrderDate(placedOrder.getDate());
+        return placedOrder;
+    }
 }

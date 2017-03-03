@@ -1,4 +1,4 @@
-package main.controllers.childControllers;
+package main.controllers.childControllers.User;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
