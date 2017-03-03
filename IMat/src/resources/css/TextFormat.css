@@ -53,7 +53,7 @@ and open the template in the editor.
 
 .txtCheckoutForm{
     -fx-text-fill: #cfdee9;
-    -fx-font-size: 1.5em;
+    -fx-font-size: 1.4em;
 }
 
 #paymentMethodLabel{
@@ -72,3 +72,43 @@ and open the template in the editor.
     -fx-font-weight: 100;
 }
 
+.txtPages{
+    -fx-text-fill: #00171F;
+    -fx-font-family: "Arial";
+    -fx-font-size: 1.4em;
+    -fx-font-space: 2px;
+    -fx-font-weight: 100;
+}
+.txtPagesSection{
+    -fx-text-fill: #00171F;
+    -fx-font-family: "Arial";
+    -fx-font-size: 1.6em;
+    -fx-font-space: 2px;
+    -fx-font-weight: bold;
+    -fx-border-width: 1px 0 0 0 ;
+    -fx-border-color: #00171F;
+    -fx-padding: 15px 0 0 0;
+}
+.txtPagesHeader{
+    -fx-text-fill:#cfdee9;
+    -fx-font-family: "Arial";
+    -fx-font-size: 1.6em;
+    -fx-padding: 10px;
+    -fx-font-weight: bold;
+}
+
+.txtPagesSidebar{
+    -fx-text-fill: #cfdee9;
+    -fx-padding: 10px 0;
+    -fx-font-weight: bold;
+    -fx-border-width: 2px;
+    -fx-border-color: #cfdee9;
+}
+.txtPagesSidebar:hover{
+    -fx-background-color: #cfdee9;
+    -fx-text-fill:#00171F;
+}
+.txtPagesSidebar:focused{
+    -fx-background-color: #cfdee9;
+    -fx-text-fill:#00171F;
+}

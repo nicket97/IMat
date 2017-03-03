@@ -1,11 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
 
-<Pane fx:id="myPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../css/MainFrameWork.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label fx:id="labelTitle" layoutX="231.0" layoutY="30.0" text="MINA SIDOR" />
-   </children>
-</Pane>
+<AnchorPane id="AnchorPane" fx:id="myPage" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="800.0" visible="true" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+  <AnchorPane fx:id="anchorHistoryDetails" layoutX="200.0" minHeight="0.0" minWidth="0.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label id="twoPanelHeader" fx:id="labelDate" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Användaruppgifter">
+                  </Label>
+         <Label layoutX="178.0" layoutY="83.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Namn" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="80.0" />
+         <TextField layoutX="240.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="80.0" />
+         <TextField layoutX="389.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="80.0" />
+         <Label layoutY="126.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="E-postadress" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />
+         <Label layoutY="170.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Telefonnummer" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="180.0" />
+         <Label layoutX="121.0" layoutY="229.0" prefHeight="22.0" prefWidth="500.0" styleClass="txtPagesSection" stylesheets="@../css/TextFormat.css" text="Byt Lösenord" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="240.0" />
+         <Label layoutY="210.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Aktuellt lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="300.0" />
+         <Label layoutX="121.0" layoutY="324.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Nytt lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="350.0" />
+         <Label layoutY="250.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Repetera lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="400.0" />
+         <TextField layoutX="240.0" layoutY="118.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="130.0" />
+         <TextField layoutY="395.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="180.0" />
+            <Button fx:id="btnEdit" layoutX="405.0" layoutY="190.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="190.0" />
+         <TextField layoutY="295.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="300.0" />
+         <TextField layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="350.0" />
+         <TextField layoutY="345.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="400.0" />
+         <Label layoutX="239.0" layoutY="377.0" text="Ange ett lösenord med minst 6 tecken" AnchorPane.leftAnchor="239.0" />
+         <Label layoutX="238.0" layoutY="427.0" text="Skriv ditt nya lösenord igen" AnchorPane.leftAnchor="239.0" />
+         <Button fx:id="btnPwrd" layoutX="235.0" layoutY="471.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Byt Lösenord" />
+         </children>
+      </AnchorPane>
+      <BorderPane prefWidth="200.0" styleClass="listPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Label fx:id="labelHeader" alignment="CENTER" styleClass="txtPagesHeader" stylesheets="@../css/TextFormat.css" text="Mina sidor" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <VBox fx:id="listBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="listPane" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
+               <children>
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="180.0" stylesheets="@../css/TextFormat.css" text="Användaruppgifter" textAlignment="CENTER">
+                  <styleClass>
+                     <String fx:value="txtPages" />
+                     <String fx:value="txtPagesSidebar" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets top="20.0" />
+                  </VBox.margin>
+               </Label>
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="180.0" stylesheets="@../css/TextFormat.css" text="Betaluppgifter" textAlignment="CENTER">
+                  <styleClass>
+                     <String fx:value="txtPages" />
+                     <String fx:value="txtPagesSidebar" />
+                  </styleClass>
+               </Label>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+     <tabs>
+       <Tab text="Untitled Tab 1">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         </content>
+       </Tab>
+       <Tab text="Untitled Tab 2">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         </content>
+       </Tab>
+     </tabs>
+   </TabPane>
+</AnchorPane>
