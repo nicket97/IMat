@@ -76,6 +76,7 @@ public class MainController implements Initializable{
 
         //Give controllers their stuff
         injectControllers();
+        addListeners();
     }
 
     public void shutdown(WindowEvent e){
@@ -101,7 +102,12 @@ public class MainController implements Initializable{
     }
 
     private void addListeners(){
-
+        anchorUser.setOnMouseClicked(e -> {
+            if(false) {
+                userController.setLoginVisible(false);
+                userController.setRegisterVisible(false);
+            }
+        });
     }
 
     private void injectControllers(){
