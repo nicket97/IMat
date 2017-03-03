@@ -63,7 +63,15 @@ and open the template in the editor.
 
 .labelDelete{
     -fx-background-image: url("../img/Icons/Bin.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-padding: 5px;
+    -fx-cursor: hand;
 }
 .labelDelete:hover{
     -fx-background-image: url("../img/Icons/BinHover.png");
+
+    -fx-background-color: #003459;
+    -fx-background-radius: 5px;
+    
 }

@@ -58,7 +58,7 @@ public class ProductViewNode extends AnchorPane implements Initializable {
         
         imgProduct.setImage(db.getFXImage(product, 100, 100));
         labelProductName.setText(product.getName());
-        labelPrice.setText((int) product.getPrice() + product.getUnit());
+        labelPrice.setText((double) product.getPrice() + product.getUnit());
 
         shoppingCart = db.getShoppingCart();
     }

@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="cart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="400.0" styleClass="frame" stylesheets="@../css/Cart.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.CartController">
+<AnchorPane id="AnchorPane" fx:id="cart" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="400.0" styleClass="frame" stylesheets="@../css/Cart.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.CartController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="borderFrame" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <ListView fx:id="listViewCartItems" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="background" stylesheets="@../css/Cart.css" BorderPane.alignment="CENTER" />
+            <ListView fx:id="listViewCartItems" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="background" stylesheets="@../css/Cart.css" BorderPane.alignment="CENTER" />
          </center>
          <bottom>
             <AnchorPane styleClass="backgroundBorder" stylesheets="@../css/Cart.css" BorderPane.alignment="CENTER">
@@ -21,12 +21,12 @@
                   <Insets />
                </BorderPane.margin>
                <children>
-                  <Label fx:id="labelSum" alignment="CENTER" layoutX="199.0" layoutY="4.0" styleClass="txt" stylesheets="@../css/Cart.css" AnchorPane.bottomAnchor="60.0" AnchorPane.topAnchor="10.0">
+                  <Label fx:id="labelSum" alignment="CENTER" layoutX="199.0" layoutY="4.0" styleClass="txt" stylesheets="@../css/Cart.css" text="Totalsumma" AnchorPane.bottomAnchor="70.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnCheckout" alignment="CENTER" layoutX="119.0" layoutY="25.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnCart" stylesheets="@../css/Cart.css" text="Till Kassan" AnchorPane.bottomAnchor="0.0" />
+                  <Button fx:id="btnCheckout" alignment="CENTER" layoutX="99.0" layoutY="49.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="btnCart" stylesheets="@../css/Cart.css" text="Till Kassan" AnchorPane.bottomAnchor="0.0" />
                </children>
                <padding>
                   <Insets bottom="20.0" top="10.0" />

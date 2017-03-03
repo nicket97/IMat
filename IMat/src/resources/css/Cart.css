@@ -39,7 +39,7 @@ and open the template in the editor.
 .txt{
     -fx-font-family: "Arial";
     -fx-font-weight: bold;
-    -fx-text-fill: #cfdee9; 
+    -fx-text-fill: #00171F; 
     -fx-font-size: 1.5em;
      
 }
@@ -48,14 +48,19 @@ and open the template in the editor.
     -fx-border-width: 0px 1px 0 1px;
     -fx-background-color: linear-gradient(from 0px 0px to 300px 500px, #91bfe0, #00a8e8, #91bfe0 );
 }
+.background:focused{
+    -fx-box-border: none;
+    -fx-background-radius: 0px;
+    -fx-border-insets: 0;
+}
 .background *.list-cell{
     -fx-background-color: transparent;
     -fx-alignment: CENTER;
 }
 .backgroundBorder{
-    -fx-background-color: linear-gradient(to bottom, #003459, #00a8e8);
-    -fx-border-color: #00a8e8;
-    -fx-border-width: 0 0 1px 0;
+    -fx-background-color: linear-gradient(to bottom, #91bfe0, #00a8e8);
+    -fx-border-color: #003459;
+    -fx-border-width: 1px 0 1px 0;
     -fx-border-insets: 0px;
     -fx-border-radius: 0px;
     -fx-background-radius: 0px;
@@ -64,9 +69,9 @@ and open the template in the editor.
 
 #header{
     -fx-font-size: 3em;
-    -fx-text-fill: #00171f;
-    -fx-background-color: linear-gradient(to top, #003459, #00a8e8);
-    -fx-border-color: #00a8e8;
+    -fx-text-fill: #cfdee9;
+    -fx-background-color: linear-gradient(to top, #003459, #00171f);
+    -fx-border-color: #003459;
     -fx-border-width: 1px 0px 1px 0px;
     -fx-border-insets: 0px;
     -fx-border-radius: 0px;
@@ -80,7 +85,7 @@ and open the template in the editor.
     -fx-border-width: 1px;
 }
 
-.borderFrame{
+.borderFrame > *{
     -fx-border-insets: 0px;
     -fx-border-radius: 0px;
     -fx-background-radius: 0px;

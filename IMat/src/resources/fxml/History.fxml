@@ -26,8 +26,8 @@
                   <ListView id="receiptBox" fx:id="listItems" prefWidth="1480.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" />
                   <AnchorPane prefHeight="80.0" prefWidth="1253.0">
                      <children>
-                        <Button fx:id="btnAddAll" layoutX="1235.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Lägg till allt" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="20.0" />
-                     <TextFlow layoutX="979.0" layoutY="24.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" AnchorPane.rightAnchor="300.0">
+                        <Button fx:id="btnAddAll" layoutX="1235.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Lägg till allt" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="20.0" />
+                     <TextFlow layoutX="979.0" layoutY="24.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" AnchorPane.rightAnchor="600.0">
                         <children>
                               <Label text="Totalt: ">
                         </Label>

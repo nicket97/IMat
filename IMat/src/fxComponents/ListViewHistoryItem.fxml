@@ -6,13 +6,13 @@
 
 <Pane fx:id="paneItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="40.0" prefWidth="1200.0" styleClass="txtProductView" stylesheets="@../resources/css/TextFormat.css">
+      <AnchorPane prefHeight="40.0" prefWidth="1200.0" stylesheets="@../resources/css/TextFormat.css">
          <children>
-            <Label fx:id="labelAmount" layoutX="350.0" layoutY="2.0" text="2" AnchorPane.leftAnchor="350.0" />
-            <Label fx:id="labelPriceEach" layoutX="500.0" layoutY="2.0" text="7.90:-" />
-            <Label fx:id="labelSum" layoutX="700.0" layoutY="2.0" text="7.90*2:-" />
-            <Label fx:id="labelAddToCart" layoutX="842.0" layoutY="2.0" text="Lägg till i kundvagn" />
-            <Label fx:id="labelProduct" layoutX="50.0" layoutY="2.0" text="Mjölk" />
+            <Label fx:id="labelAmount" layoutX="350.0" layoutY="2.0" styleClass="txtFlow" stylesheets="@../resources/css/TextFormat.css" text="2" AnchorPane.leftAnchor="350.0" />
+            <Label fx:id="labelPriceEach" layoutX="500.0" layoutY="2.0" styleClass="txtFlow" stylesheets="@../resources/css/TextFormat.css" text="7.90:-" />
+            <Label fx:id="labelSum" layoutX="700.0" layoutY="2.0" styleClass="txtFlow" stylesheets="@../resources/css/TextFormat.css" text="7.90*2:-" />
+            <Label fx:id="labelAddToCart" layoutX="842.0" layoutY="2.0" styleClass="historyBtn" stylesheets="@../resources/css/ButtonSchemes.css" text="Lägg till i kundvagn" />
+            <Label fx:id="labelProduct" layoutX="50.0" layoutY="2.0" styleClass="txtFlow" stylesheets="@../resources/css/TextFormat.css" text="Mjölk" />
          </children>
       </AnchorPane>
    </children>

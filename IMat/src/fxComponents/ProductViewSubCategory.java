@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import main.backend.CustomDataHandler;
@@ -24,9 +25,9 @@ import se.chalmers.ait.dat215.project.ProductCategory;
  *
  * @author Felix
  */
-public class ProductViewSubCategory extends FlowPane implements Initializable{
+public class ProductViewSubCategory extends AnchorPane implements Initializable{
     @FXML
-    private FlowPane productViewFlowPane;
+    private AnchorPane productViewFlowPane;
     @FXML
     private Label subcatLabel;
     @FXML
