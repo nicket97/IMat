@@ -76,14 +76,10 @@ public class CheckoutController implements Controllable{
     private Label and;
     @FXML
     private Label labelTime;
-    @FXML
-    private DatePicker datePicker;
-    @FXML
-    private ChoiceBox<?> choiceTime;
-    @FXML
-    private TextArea txtInfo;
-    @FXML
-    private Label labelInfo;
+    @FXML private DatePicker datePicker;
+    @FXML private ChoiceBox<?> choiceTime;
+    @FXML private TextArea txtInfo;
+    @FXML private Label labelInfo;
     @FXML
     private AnchorPane payment;
     @FXML

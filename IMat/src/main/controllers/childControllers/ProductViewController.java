@@ -66,10 +66,10 @@ public class ProductViewController implements Controllable{
         }
         for(int i = 0;i<section.length;i++) {
             try {
-                ProductViewSubCategory subSection = new ProductViewSubCategory(section[i], label);
+                ProductViewSubCategory subSection = new ProductViewSubCategory(section[i]);
                 productViewFlowPane.getChildren().add(subSection);
                 labelHeader.setText(label);
-                listBox.getChildren().add(createSubcategoryButton(label));
+                listBox.getChildren().add(createSubcategoryButton(subSection.getSubCatLabel()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

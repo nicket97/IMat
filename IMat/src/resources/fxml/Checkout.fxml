@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="checkout" id="AnchorPane" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="506.66667" minWidth="1120.0" prefHeight="760.0" prefWidth="1680.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.CheckoutController">
+<AnchorPane id="AnchorPane" fx:id="checkout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="506.66667" minWidth="1120.0" prefHeight="760.0" prefWidth="1680.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.CheckoutController">
   <children>
       <AnchorPane fx:id="paneBtns" prefHeight="80.0" prefWidth="200.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
          <children>

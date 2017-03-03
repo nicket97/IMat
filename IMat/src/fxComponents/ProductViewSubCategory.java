@@ -33,15 +33,17 @@ public class ProductViewSubCategory extends FlowPane implements Initializable{
     
     private CustomDataHandler dh = CustomDataHandler.getInstance();
     private List<Product> products;
-    public ProductViewSubCategory(ProductCategory section, String header) throws IOException{
+
+    public ProductViewSubCategory(ProductCategory section) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductViewSubCategory.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         fxmlLoader.load();
         
-        subcatLabel.setText(header);
+
         products = dh.getProducts(section);
+        subcatLabel.setText(products.get(0).getCategory().toString());
         for(Product p : products){
             productViewNodePane.getChildren().add(new ProductViewNode(p));
         }
@@ -70,5 +72,8 @@ public class ProductViewSubCategory extends FlowPane implements Initializable{
     public void setFilter(boolean value){
         
     }
-    
+
+    public String getSubCatLabel(){
+        return subcatLabel.getText();
+    }
 }
