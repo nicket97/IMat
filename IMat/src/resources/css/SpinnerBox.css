@@ -56,7 +56,7 @@ and open the template in the editor.
 
 .cartItemLabel{
     -fx-font-family: "Arial";
-    -fx-font-size: 1em;
+    -fx-font-size: 1.2em;
     -fx-font-weight: bold;
     -fx-text-fill: #00171f;
 }

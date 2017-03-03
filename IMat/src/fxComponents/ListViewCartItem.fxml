@@ -6,45 +6,42 @@
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="270.0" styleClass="cartItem" stylesheets="@../resources/css/SpinnerBox.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="270.0" spacing="4.0" styleClass="cartItem" stylesheets="@../resources/css/SpinnerBox.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
          <children>
-            <Label fx:id="labelTitle" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="75.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-            </Label>
-            <TextField id="txtSpinner" fx:id="txtAmount" alignment="CENTER_RIGHT" focusTraversable="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css" />
-            <VBox prefHeight="40.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css">
-               <children>
-                  <Region id="incRegion" fx:id="regionInc" prefHeight="20.0" prefWidth="60.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
-                  <Region id="decRegion" fx:id="regionDec" prefHeight="20.0" prefWidth="60.0" style="-fx-background-image: ;" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
-               </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </VBox>
-            <Label fx:id="labelUnit" prefHeight="20.0" prefWidth="36.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="1L">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin>
-            </Label>
             <Label fx:id="labelDelete" prefHeight="20.0" prefWidth="20.0" styleClass="labelDelete" stylesheets="@../resources/css/SpinnerBox.css">
                <tooltip>
                   <Tooltip text="Ta bort" />
                </tooltip></Label>
-            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="41.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="59.00:-">
+            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="59.00:-">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelUnit" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="50.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Enhet">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <VBox alignment="CENTER">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label id="incRegion" fx:id="labelInc" prefHeight="40.0" prefWidth="40.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
+                        <TextField id="txtSpinner" fx:id="txtAmount" alignment="CENTER" focusTraversable="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css" />
+                        <Label id="decRegion" fx:id="labelDec" prefHeight="40.0" prefWidth="40.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="labelTitle" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="70.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk" textAlignment="RIGHT" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>

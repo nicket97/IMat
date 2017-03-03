@@ -7,21 +7,21 @@
 <?import javafx.scene.text.Font?>
 
 <fx:root type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-    <TextField id="txtSpinner" fx:id="txtVal" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="60.0" stylesheets="@../resources/css/SpinnerBox.css">
+    <TextField id="txtSpinner" fx:id="txtVal" alignment="CENTER" layoutX="40.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="60.0" stylesheets="@../resources/css/SpinnerBox.css">
       <font>
          <Font size="16.0" />
       </font></TextField>
-    <StackPane fx:id="incPane" layoutX="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css">
+    <StackPane fx:id="incPane" layoutX="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css">
         <children>
             <Region id="incRegion" prefHeight="200.0" prefWidth="200.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
         </children>
     </StackPane>
-    <StackPane fx:id="decPane" layoutX="60.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css">
+    <StackPane fx:id="decPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css">
        <children>
           <Region id="decRegion" prefHeight="200.0" prefWidth="200.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
        </children>
     </StackPane>
-    <StackPane fx:id="addPane" layoutX="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="60.0" stylesheets="@../resources/css/SpinnerBox.css">
+    <StackPane fx:id="addPane" layoutX="140.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="60.0" stylesheets="@../resources/css/SpinnerBox.css">
         <children>
          <Region id="addRegion" prefHeight="200.0" prefWidth="200.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
            <Region id="addedRegion" opacity="0.0" prefHeight="200.0" prefWidth="200.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />

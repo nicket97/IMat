@@ -41,83 +41,29 @@ public class CheckoutController implements Controllable{
     @FXML
     private AnchorPane customer;
     @FXML
-    private TextField txtFName;
-    @FXML
-    private Label labelFName;
-    @FXML
-    private TextField txtLName;
-    @FXML
-    private Label labelLName;
-    @FXML
-    private TextField txtMail;
-    @FXML
-    private Label labelMail;
-    @FXML
-    private TextField txtPhone;
-    @FXML
-    private Label labelPhone;
-    @FXML
     private AnchorPane delivery;
-    @FXML
-    private TextField txtAddress;
-    @FXML
-    private Label labelAddress;
-    @FXML
-    private TextField txtCity;
-    @FXML
-    private Label labelCity;
-    @FXML
-    private TextField txtPostal;
-    @FXML
-    private Label labelPostal;
-    @FXML
-    private Label labelDate;
-    @FXML
-    private Label and;
-    @FXML
-    private Label labelTime;
-    @FXML private DatePicker datePicker;
-    @FXML private ChoiceBox<?> choiceTime;
-    @FXML private TextArea txtInfo;
-    @FXML private Label labelInfo;
     @FXML
     private AnchorPane payment;
     @FXML
-    private StackPane radioBtnDoor;
-    @FXML
-    private StackPane radioBtnDebit;
-    @FXML
-    private StackPane radioBtnMail;
-    @FXML
-    private AnchorPane panePayChoice;
-    @FXML
-    private Label labelPayMethod;
-    @FXML
-    private AnchorPane paneDebit;
-    @FXML
-    private ComboBox<?> cbCard;
-    @FXML
-    private TextField txtCardNumber;
-    @FXML
-    private TextField txtMM;
-    @FXML
-    private TextField txtYY;
-    @FXML
-    private TextField txtCVV;
-    @FXML
-    private AnchorPane paneRest;
-    @FXML
-    private Button btnPay;
-    @FXML
     private AnchorPane receipt;
-    @FXML
-    private ListView<?> listReceipt;
     @FXML
     private Label labelHeader;
     @FXML
     private VBox listBox;
     @FXML
     private AnchorPane checkout;
+    
+    /* Controllers for different forms*/
+    @FXML
+    private CustomerController customerController;
+    @FXML
+    private DeliveryController deliveryController;
+    @FXML
+    private OrderController orderController;
+    @FXML
+    private PaymentController paymentController;
+    @FXML
+    private ReceiptController receiptController;
 
     @Override
     public void setVisible(boolean value) {

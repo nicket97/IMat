@@ -38,7 +38,8 @@ and open the template in the editor.
 #navFirst{
     -fx-border-width: 2px 1px 2px 2px;
     -fx-padding: 0 0 0 1px;
-    -fx-background-image: url("../img/Icons/HomeButton.png")
+    -fx-background-image: url("../img/Icons/HomeButton.png");
+    -fx-background-repeat: no-repeat;
 }
 #navFirst:hover{
     -fx-background-color: #00171f;

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 
 
-<StackPane fx:id="userStatus" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.UserStatusController">
+<StackPane fx:id="userStatus" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" AnchorPane.topAnchor="0.0" AnchorPane.rightAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.UserStatusController">
    <children>
       <AnchorPane fx:id="paneLoggedIn" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
          <children>
