@@ -1,0 +1,38 @@
+<AnchorPane fx:id="delivery" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="1480.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css">
+               <children>
+                  <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Leverans" />
+                  <HBox alignment="CENTER" layoutX="500.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="80.0">
+                     <children>
+                        <VBox alignment="CENTER" spacing="20.0">
+                           <children>
+                              <AnchorPane prefWidth="400.0" styleClass="formFrame" stylesheets="@../css/MainFrameWork.css">
+                                 <children>
+                                    <TextField fx:id="txtAddress" layoutX="96.0" prefWidth="200.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="40.0" />
+                                    <Label fx:id="labelAddress" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Adress *" textAlignment="RIGHT" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="40.0" />
+                                    <TextField fx:id="txtCity" layoutX="96.0" layoutY="60.0" prefWidth="200.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="90.0" />
+                                    <Label fx:id="labelCity" layoutX="27.0" layoutY="60.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Ort *" textAlignment="RIGHT" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="90.0" />
+                                    <TextField fx:id="txtPostal" layoutX="96.0" layoutY="120.0" prefWidth="100.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="140.0" />
+                                    <Label fx:id="labelPostal" layoutX="2.0" layoutY="120.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Postnr *" textAlignment="RIGHT" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="140.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefWidth="400.0" styleClass="formFrame" stylesheets="@../css/MainFrameWork.css">
+                                 <children>
+                                    <Label fx:id="labelDate" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Leverera den:" textAlignment="RIGHT" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="40.0" />
+                                    <Label fx:id="and" layoutX="297.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="och" textAlignment="RIGHT" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="40.0" />
+                                    <Label fx:id="labelTime" layoutX="2.0" layoutY="60.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="kom klockan:" textAlignment="RIGHT" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="90.0" />
+                                    <DatePicker fx:id="datePicker" layoutX="142.0" prefHeight="25.0" prefWidth="125.0" promptText="YYYY-DD-MM" showWeekNumbers="true" styleClass="datePicker" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="40.0" />
+                                    <ChoiceBox fx:id="choiceTime" layoutX="142.0" layoutY="60.0" prefHeight="25.0" prefWidth="125.0" styleClass="cbForms" stylesheets="@../css/TextFields.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="90.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefWidth="400.0" styleClass="formFrame" stylesheets="@../css/MainFrameWork.css">
+                                 <children>
+                                    <TextArea fx:id="txtInfo" prefHeight="80.0" prefWidth="200.0" styleClass="txtArea" stylesheets="@../css/TextFields.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="40.0" />
+                                    <Label fx:id="labelInfo" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="142.0" layoutY="89.0" maxWidth="-Infinity" prefHeight="80.0" prefWidth="107.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Något mer vi borde veta?" textAlignment="RIGHT" wrapText="true" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="40.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>

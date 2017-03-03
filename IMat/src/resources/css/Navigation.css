@@ -50,7 +50,7 @@ and open the template in the editor.
 
 
 .navDivider{
-    -fx-background-color: #00a8e8;
+    -fx-background-color: #fff;
 }
 
 #cartIcon{
@@ -90,4 +90,10 @@ and open the template in the editor.
     -fx-border-color: #00a8e8;
 
     -fx-text-fill: #00a8e8;
+}
+.navActive{
+	-fx-background-color: #00171f;
+    -fx-border-color: #cfdee9;
+    -fx-border-width: 3px;
+    -fx-text-fill: #cfdee9;
 }

@@ -11,6 +11,30 @@ import se.chalmers.ait.dat215.project.ProductCategory;
 * @author Niclas
 */
 public class ProductCategories {
+	static Object[][] prodNameList = {
+			{ProductCategory.BERRY,"Bär"},
+			{ProductCategory.CABBAGE,"Kål"},
+			{ProductCategory.CITRUS_FRUIT,"Citrus frukter"},
+			{ProductCategory.EXOTIC_FRUIT,"Exotiska frukter"},
+			{ProductCategory.FRUIT,"Frukt"},
+			{ProductCategory.HERB,"Örter"},
+			{ProductCategory.MELONS,"Meloner"},
+			{ProductCategory.ROOT_VEGETABLE,"Rotfrukter"},
+			{ProductCategory.VEGETABLE_FRUIT,"Grönsaker"},
+			{ProductCategory.FISH,"Fisk"},
+			{ProductCategory.MEAT,"Kött"},
+			{ProductCategory.COLD_DRINKS,"Kalla drycker"},
+			{ProductCategory.NUTS_AND_SEEDS,"Nötter"},
+			{ProductCategory.PASTA,"Pasta"},
+			{ProductCategory.POD,"Baljväxter"},
+			{ProductCategory.POTATO_RICE,"Potatis och Ris"},
+			{ProductCategory.SWEET,"Godis"},
+			{ProductCategory.HOT_DRINKS,"Varma drycker"},
+			{ProductCategory.FLOUR_SUGAR_SALT,"Bakning"},
+			{ProductCategory.BREAD,"Bröd"},
+			{ProductCategory.DAIRIES,"Mejeri"}
+			
+	};
 	static CustomDataHandler dataHandler = CustomDataHandler.getInstance();
 	private static final ProductCategory[] VEG = {
 			ProductCategory.BERRY,
@@ -114,6 +138,15 @@ public class ProductCategories {
 		return result;
 	}
 
-	
+	public static String getProdCatName(ProductCategory prod){
+		for(Object[] p : prodNameList){
+			if(p[0].equals(prod)){
+				return (String)p[1];
+			}
+		}
+		
+		return "";
+		
+	}
 	
 }

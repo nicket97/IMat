@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import main.backend.CustomDataHandler;
+import main.controllers.childControllers.ProductCategories;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
@@ -43,7 +44,7 @@ public class ProductViewSubCategory extends FlowPane implements Initializable{
         
 
         products = dh.getProducts(section);
-        subcatLabel.setText(products.get(0).getCategory().toString());
+        subcatLabel.setText(ProductCategories.getProdCatName(section));
         for(Product p : products){
             productViewNodePane.getChildren().add(new ProductViewNode(p));
         }
