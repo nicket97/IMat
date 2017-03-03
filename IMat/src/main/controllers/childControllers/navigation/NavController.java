@@ -77,6 +77,13 @@ public class NavController implements Initializable {
             //Endast för att lambda kräver det
             int index = i;
             gridMain.getChildren().get(i).setOnMouseClicked(e -> {
+            	for(Node n: gridMain.getChildren()){
+            		n.setStyle("");
+            		
+            	}
+            	//gridMain.getChildren().get(index).getStyleClass().add("navActive");
+            	gridMain.getChildren().get(index).setStyle("-fx-background-color: #00171f;-fx-border-color: #cfdee9;-fx-border-width: 3px;-fx-text-fill: #cfdee9;");
+            	System.out.println(gridMain.getChildren().get(index).getStyleClass().toString());
             	displayCategory(index);
             });
         }
@@ -91,13 +98,7 @@ public class NavController implements Initializable {
     }
 
     private void displayCategory(int index){
-    	for(Node n: gridMain.getChildren()){
-    		n.setStyle("");
-    		
-    	}
-    	//gridMain.getChildren().get(index).getStyleClass().add("navActive");
-    	gridMain.getChildren().get(index).setStyle("-fx-background-color: #00171f;-fx-border-color: #cfdee9;-fx-border-width: 3px;-fx-text-fill: #cfdee9;");
-    	System.out.println(gridMain.getChildren().get(index).getStyleClass().toString());
+    	
         switch (index){
             case 1:
                 break;
