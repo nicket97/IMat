@@ -91,6 +91,6 @@ public class CartController implements Initializable{
         for(ShoppingItem i :viewedItems){
         	sum += i.getAmount()*i.getProduct().getPrice();
         }
-        labelSum.setText(sum + " :-");
+        labelSum.setText("Totalsumma " + sum + ":-");
     }
 }

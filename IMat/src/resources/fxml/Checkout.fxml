@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="checkout" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="1280" prefWidth="1920.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.CheckoutController">
+<AnchorPane id="AnchorPane" fx:id="checkout" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="1280" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.CheckoutController">
   <children>
       <AnchorPane fx:id="paneBtns" prefHeight="80.0" prefWidth="200.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -31,10 +20,11 @@
       </AnchorPane>
       <StackPane fx:id="checkoutStack" layoutX="200.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-        
-<!-- 
-Här ska alla sidor läggas in
- -->  
+            <fx:include fx:id="receipt" source="Receipt.fxml" />
+            <fx:include fx:id="payment" source="Payment.fxml" />
+            <fx:include fx:id="delivery" source="Delivery.fxml" />
+            <fx:include fx:id="customer" source="Customer.fxml" />
+            <fx:include fx:id="order" source="Order.fxml" />
          </children>
       </StackPane>
       <BorderPane prefWidth="200.0" styleClass="listPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -42,14 +32,14 @@ Här ska alla sidor läggas in
             <Label fx:id="labelHeader" alignment="CENTER" styleClass="listHeader" stylesheets="@../css/MainFrameWork.css" text="Kassan" BorderPane.alignment="CENTER" />
          </top>
          <center>
-            <VBox fx:id="listBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
+            <VBox fx:id="listBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
                <effect>
                   <DropShadow color="#282020" height="18.03" radius="9.2575" spread="0.36" />
                </effect>
                <children>
                   <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Granska Beställning">
                      <VBox.margin>
-                        <Insets top="40.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
                   <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Kundinformation" />

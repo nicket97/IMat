@@ -29,8 +29,8 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
     @FXML private TextField txtAmount;
     @FXML private Label labelPrice;
     @FXML private Label labelDelete;
-    @FXML private Region regionInc;
-    @FXML private Region regionDec;
+    @FXML private Label labelInc;
+    @FXML private Label labelDec;
 
     private ShoppingCart cart;
     private SimpleIntegerProperty amount = new SimpleIntegerProperty();
@@ -82,7 +82,7 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
         labelUnit.setText(item.getProduct().getUnitSuffix());
         amount.set((int)item.getAmount());
         txtAmount.setText(String.valueOf(amount.getValue()));
-        labelPrice.setText(String.valueOf(item.getProduct().getPrice()*item.getAmount()) + ":-");
+        labelPrice.setText(String.valueOf(item.getProduct().getPrice()*item.getAmount()) + " kr");
 
         setGraphic(anchorItem);
         setText(null);
@@ -90,12 +90,12 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
     }
 
     private void addListeners() {
-        regionInc.setOnMouseClicked(e -> {
+        labelInc.setOnMouseClicked(e -> {
             getItem().setAmount(getItem().getAmount() + 1);
             updateItem(getItem(), false);
         });
 
-        regionDec.setOnMouseClicked(e -> {
+        labelDec.setOnMouseClicked(e -> {
             if (amount.getValue() > 1){
                 getItem().setAmount(getItem().getAmount() - 1);
                 updateItem(getItem(), false);

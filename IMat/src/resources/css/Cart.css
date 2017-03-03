@@ -45,12 +45,12 @@ and open the template in the editor.
 }
 
 .background{
-    -fx-background-color: transparent;
     -fx-border-width: 0px 1px 0 1px;
     -fx-background-color: linear-gradient(from 0px 0px to 300px 500px, #91bfe0, #00a8e8, #91bfe0 );
 }
 .background *.list-cell{
     -fx-background-color: transparent;
+    -fx-alignment: CENTER;
 }
 .backgroundBorder{
     -fx-background-color: linear-gradient(to bottom, #003459, #00a8e8);
@@ -63,8 +63,8 @@ and open the template in the editor.
 }
 
 #header{
-    -fx-font-size: 4em;
-    -fx-text-fill: #cfdee9;
+    -fx-font-size: 3em;
+    -fx-text-fill: #00171f;
     -fx-background-color: linear-gradient(to top, #003459, #00a8e8);
     -fx-border-color: #00a8e8;
     -fx-border-width: 1px 0px 1px 0px;
