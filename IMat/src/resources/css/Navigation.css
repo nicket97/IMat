@@ -59,6 +59,16 @@ and open the template in the editor.
 }
 #navCart{
     -fx-border-width: 2px;
+  
+}
+#navCartActive{
+    -fx-background-color: #00a8e8;
+    -fx-border-width: 2px;
+    -fx-border-color: #00171f;
+    
+}
+#navCartActive:hover{
+    -fx-border-color: #cfdee9;
 }
 
 .navDirection{
@@ -71,7 +81,7 @@ and open the template in the editor.
 
 .navBorder{
     -fx-background-color: #00171F;
-    -fx-border-color: #00a8e8 #00171F;
+    -fx-border-color: #00a8e8;
 }
 
 .directionButton{
@@ -93,7 +103,7 @@ and open the template in the editor.
     -fx-text-fill: #00a8e8;
 }
 .navActive{
-	-fx-background-color: #00171f;
+    -fx-background-color: #00171f;
     -fx-border-color: #cfdee9;
     -fx-border-width: 3px;
     -fx-text-fill: #cfdee9;

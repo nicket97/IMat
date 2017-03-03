@@ -18,7 +18,7 @@
       <center>
          <AnchorPane fx:id="centerStage" maxWidth="-Infinity" minWidth="1280.0" prefWidth="1920.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
             <children>
-               <fx:include fx:id="centerstage" source="Centerstage.fxml" />
+               <fx:include fx:id="centerstage" source="Centerstage.fxml" AnchorPane.bottomAnchor="0.0" />
                <fx:include fx:id="cart" source="Cart.fxml" AnchorPane.bottomAnchor="20.0" />
             </children>
          </AnchorPane>

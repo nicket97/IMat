@@ -8,7 +8,7 @@
 <fx:root id="productNodeFrame" fx:id="productViewFlowPane" prefWidth="1720.0" styleClass="mainPane" stylesheets="@../resources/css/MainFrameWork.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
          <Label fx:id="subcatLabel" layoutX="80.0" layoutY="41.0" prefHeight="41.0" prefWidth="343.0" styleClass="txtProductView" stylesheets="@../resources/css/TextFormat.css" text="Fredagen den 13 januari, 2017" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" />
-      <FlowPane fx:id="productViewNodePane" hgap="10.0" layoutX="375.0" layoutY="102.0" maxWidth="-Infinity" prefWidth="1560.0" vgap="10.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="420.0" AnchorPane.topAnchor="100.0">
+      <FlowPane fx:id="productViewNodePane" hgap="10.0" layoutX="375.0" layoutY="102.0" maxWidth="-Infinity" prefWidth="14.0" prefWrapLength="1180.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="420.0" AnchorPane.topAnchor="100.0">
          <padding>
             <Insets bottom="20.0" />
          </padding></FlowPane>
