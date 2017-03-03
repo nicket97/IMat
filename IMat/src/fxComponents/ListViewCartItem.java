@@ -64,6 +64,7 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
 
         if(item == null)
             empty = true;
+        
 
         setItem(item);
 
@@ -74,7 +75,9 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
             setGraphic(null);
             return;
         }
-
+        if(item.getAmount() > 99){
+        	item.setAmount(99);
+        }
         labelTitle.setText(item.getProduct().getName());
         labelUnit.setText(item.getProduct().getUnitSuffix());
         amount.set((int)item.getAmount());

@@ -45,7 +45,6 @@ public class NavController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
-        
         addListeners();
     }
 
@@ -71,8 +70,9 @@ public class NavController implements Initializable {
         bottomCtrl.setButtonsVisible(false, true);
         displayedIndex = 2;
     }
-
+    
     private void addListeners(){
+    	
         for(int i = 2; i <= 8; i++){
             //Endast för att lambda kräver det
             int index = i;
@@ -81,7 +81,7 @@ public class NavController implements Initializable {
             		n.setStyle("");
             		
             	}
-            	//gridMain.getChildren().get(index).getStyleClass().add("navActive");
+            	
             	gridMain.getChildren().get(index).setStyle("-fx-background-color: #00171f;-fx-border-color: #cfdee9;-fx-border-width: 3px;-fx-text-fill: #cfdee9;");
             	System.out.println(gridMain.getChildren().get(index).getStyleClass().toString());
             	displayCategory(index);
@@ -98,7 +98,6 @@ public class NavController implements Initializable {
     }
 
     private void displayCategory(int index){
-    	
         switch (index){
             case 1:
                 break;
