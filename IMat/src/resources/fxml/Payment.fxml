@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="payment" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="1480.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css">
+               <children>
+                  <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Betalning" />
+                  <HBox alignment="CENTER" layoutX="500.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="80.0">
+                     <children>
+                        <VBox alignment="CENTER" spacing="1.0">
+                           <children>
+                              <AnchorPane prefHeight="164.0" prefWidth="400.0" styleClass="formFrame" stylesheets="@../css/MainFrameWork.css">
+                                 <children>
+                                    <Label id="paymentMethodLabel" layoutX="28.0" layoutY="42.0" prefHeight="27.0" prefWidth="329.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Betala med:" textAlignment="RIGHT" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
+                                    <StackPane fx:id="radioBtnDoor" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="80.0">
+                                       <children>
+                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButtonChecked" stylesheets="@../css/ButtonSchemes.css" visible="false" />
+                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane fx:id="radioBtnDebit" layoutX="10.0" layoutY="10.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="100.0">
+                                       <children>
+                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButtonChecked" stylesheets="@../css/ButtonSchemes.css" visible="false" />
+                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane fx:id="radioBtnMail" layoutX="20.0" layoutY="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="120.0">
+                                       <children>
+                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButtonChecked" stylesheets="@../css/ButtonSchemes.css" visible="false" />
+                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
+                                       </children>
+                                    </StackPane>
+                                    <Label id="paymentMethod" layoutX="178.0" layoutY="80.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Betala vid leverans" AnchorPane.topAnchor="80.0" />
+                                    <Label id="paymentMethod" layoutX="178.0" layoutY="100.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Kredit-/Kontokort" AnchorPane.topAnchor="100.0" />
+                                    <Label id="paymentMethod" layoutX="178.0" layoutY="120.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Faktura" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="120.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="panePayChoice" prefHeight="170.0" prefWidth="400.0" styleClass="formFrame" stylesheets="@../css/MainFrameWork.css">
+                                 <children>
+                                    <Label fx:id="labelPayMethod" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="&quot;Betalmetod&quot;" textAlignment="RIGHT" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="20.0" />
+                                    <VBox alignment="TOP_CENTER" spacing="40.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <AnchorPane fx:id="paneDebit" visible="false">
+                                                   <children>
+                                                      <ComboBox fx:id="cbCard" layoutX="150.0" layoutY="2.0" prefWidth="125.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="0.0" />
+                                                      <TextField id="txtFormCheckout" fx:id="txtCardNumber" prefWidth="200.0" promptText="T.ex. 1234 5678 9123 4567" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="40.0" />
+                                                      <TextField id="txtFormCheckout" fx:id="txtMM" layoutX="150.0" layoutY="81.0" prefWidth="40.0" promptText="MM" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="80.0" />
+                                                      <TextField id="txtFormCheckout" fx:id="txtYY" layoutX="202.0" layoutY="80.0" prefWidth="40.0" promptText="YY" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="80.0" />
+                                                      <Label layoutX="192.0" layoutY="80.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="/" AnchorPane.leftAnchor="192.0" AnchorPane.topAnchor="80.0" />
+                                                      <TextField id="txtFormCheckout" fx:id="txtCVV" layoutX="150.0" layoutY="82.0" prefWidth="40.0" promptText="XXX" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.topAnchor="120.0" />
+                                                      <Label id="paymentMethod" layoutX="202.0" layoutY="90.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Korttyp" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="0.0" />
+                                                      <Label id="paymentMethod" layoutX="202.0" layoutY="90.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Kortnummer" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="40.0" />
+                                                      <Group layoutX="91.0" layoutY="120.0" AnchorPane.rightAnchor="270.0">
+                                                         <children>
+                                                            <Label id="paymentMethod" layoutX="-12.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="CVV" />
+                                                            <Label layoutX="17.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="10.0" prefWidth="10.0" styleClass="helpTooltip" stylesheets="@../css/ButtonSchemes.css">
+                                                               <font>
+                                                                  <Font size="1.0" />
+                                                               </font>
+                                                               <tooltip>
+                                                                  <Tooltip text="Tre sista siffrorna på baksidan av kortet" />
+                                                               </tooltip>
+                                                            </Label>
+                                                         </children>
+                                                      </Group>
+                                                      <Label id="paymentMethod" layoutX="202.0" layoutY="90.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Giltighetstid" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="80.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane fx:id="paneRest" prefHeight="100.0">
+                                                   <children>
+                                                      <Label layoutX="108.0" layoutY="60.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="&quot;Meddelande till kund&quot;" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </StackPane>
+                                          <Button fx:id="btnPay" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="formButton" stylesheets="@../css/ButtonSchemes.css" text="Beställ" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>

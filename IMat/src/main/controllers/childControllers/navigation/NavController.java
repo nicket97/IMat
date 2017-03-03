@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -75,7 +76,9 @@ public class NavController implements Initializable {
         for(int i = 2; i <= 8; i++){
             //Endast för att lambda kräver det
             int index = i;
-            gridMain.getChildren().get(i).setOnMouseClicked(e -> displayCategory(index));
+            gridMain.getChildren().get(i).setOnMouseClicked(e -> {
+            	displayCategory(index);
+            });
         }
 
         //Need animation here
@@ -88,7 +91,13 @@ public class NavController implements Initializable {
     }
 
     private void displayCategory(int index){
-
+    	for(Node n: gridMain.getChildren()){
+    		n.setStyle("");
+    		
+    	}
+    	//gridMain.getChildren().get(index).getStyleClass().add("navActive");
+    	gridMain.getChildren().get(index).setStyle("-fx-background-color: #00171f;-fx-border-color: #cfdee9;-fx-border-width: 3px;-fx-text-fill: #cfdee9;");
+    	System.out.println(gridMain.getChildren().get(index).getStyleClass().toString());
         switch (index){
             case 1:
                 break;
