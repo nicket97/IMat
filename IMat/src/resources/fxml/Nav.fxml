@@ -33,46 +33,14 @@
                   <Region id="cartIcon" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/Navigation.css" />
                </children>
             </StackPane>
-            <StackPane fx:id="navHome" prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <Label id="navFirst" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Hem" />
-               </children>
-            </StackPane>
-            <StackPane fx:id="navGreens" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Frukt &amp; Grönt" />
-               </children>
-            </StackPane>
-            <StackPane fx:id="navBread" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Bröd" />
-               </children>
-            </StackPane>
-            <StackPane fx:id="navPantry" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Skafferi" />
-               </children>
-            </StackPane>
-            <StackPane fx:id="navDairy" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Mejeri" />
-               </children>
-            </StackPane>
-            <StackPane fx:id="navProtein" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Protein" />
-               </children>
-            </StackPane>
-            <StackPane fx:id="navColonial" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Kolonial" />
-               </children>
-            </StackPane>
-            <StackPane fx:id="navCheckout" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="7">
-               <children>
-                  <Label id="navLast" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Kassa" />
-               </children>
-            </StackPane>
+            <Label id="navFirst" fx:id="navHome" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Hem" />
+            <Label fx:id="navGreens" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Frukt &amp; Grönt" GridPane.columnIndex="1" />
+            <Label fx:id="navBread" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Bröd" GridPane.columnIndex="2" />
+            <Label fx:id="navPantry" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Skafferi" GridPane.columnIndex="3" />
+            <Label fx:id="navDairy" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Mejeri" GridPane.columnIndex="4" />
+            <Label fx:id="navProtein" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Protein" GridPane.columnIndex="5" />
+            <Label fx:id="navColonial" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Kolonial" GridPane.columnIndex="6" />
+            <Label id="navLast" fx:id="navCheckout" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="navButton" stylesheets="@../css/Navigation.css" text="Kassa" GridPane.columnIndex="7" />
          </children>
       </GridPane>
    </children>

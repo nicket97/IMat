@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import main.backend.CustomDataHandler;
@@ -29,7 +31,7 @@ public class NavController implements Initializable {
     @FXML GridPane gridMain;
 
     @FXML private StackPane cartPane;
-    @FXML private StackPane navHome;
+    @FXML private Label navHome;
 
     private CartController cartController;
     private StartpageController startpageController;
@@ -40,11 +42,28 @@ public class NavController implements Initializable {
     private CustomDataHandler dataHandler;
 
     private int displayedIndex = 2;
+    @FXML
+    private AnchorPane nav;
+    @FXML
+    private Label navGreens;
+    @FXML
+    private Label navBread;
+    @FXML
+    private Label navPantry;
+    @FXML
+    private Label navDairy;
+    @FXML
+    private Label navProtein;
+    @FXML
+    private Label navColonial;
+    @FXML
+    private Label navCheckout;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
+        navHome.setId("navActive");
         addListeners();
     }
 
@@ -80,16 +99,12 @@ public class NavController implements Initializable {
             //Endast för att lambda kräver det
             int index = i;
             gridMain.getChildren().get(i).setOnMouseClicked(e -> {
-            	for(Node n: gridMain.getChildren()){
-            		n.setStyle("");
-            		
-            	}
-            	
-            	gridMain.getChildren().get(index).setStyle("-fx-background-color: #00171f;-fx-border-color: #cfdee9;-fx-border-width: 3px;-fx-text-fill: #cfdee9;");
-            	System.out.println(gridMain.getChildren().get(index).getStyleClass().toString());
+            	clearIds();            	
+            	gridMain.getChildren().get(index).setId("navActive");
             	displayCategory(index);
             });
         } 
+        
         
         //Need animation here
         cartPane.setOnMouseClicked(e -> {
@@ -98,6 +113,8 @@ public class NavController implements Initializable {
         
         navHome.setOnMouseClicked(e -> {
             startpageController.setVisible(true);
+            clearIds();
+            navHome.setId("navActive");
             prodCtrl.setVisible(false);
             bottomCtrl.setButtonsVisible(false, false);
             forceCart(false);
@@ -157,5 +174,10 @@ public class NavController implements Initializable {
         setCartBtn(value);
         cartController.setVisible(value);
         cartPane.setDisable(value);
+    }
+
+    private void clearIds() {
+        for(Node n: gridMain.getChildren())
+            n.setId(null);            	     
     }
 }

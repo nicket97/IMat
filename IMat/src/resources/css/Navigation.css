@@ -10,18 +10,18 @@ and open the template in the editor.
 
 .navButton{
     -fx-background-color: #00171F;
-    -fx-border-color: #00a8e8;
+    -fx-border-color: #cfdee9;
     -fx-border-width: 2px 1px 2px 1px;
 
     -fx-font-family: "Arial";
     -fx-font-size: 1.5em;
     -fx-font-weight: bold;
-    -fx-text-fill: #00a8e8;
+    -fx-text-fill: #cfdee9;
 }
 
 .navButton:hover{
     -fx-background-color: #00171f;
-    -fx-border-color: #cfdee9;
+    -fx-border-color: #00a8e8;
     -fx-border-width: 3px;
     -fx-text-fill: #cfdee9;
 }
@@ -31,22 +31,16 @@ and open the template in the editor.
 }
 #navLast:hover{
     -fx-background-color: #00171f;
-    -fx-border-color: #cfdee9;
     -fx-border-width: 3px;
     -fx-text-fill: #cfdee9;
 }
 #navFirst{
     -fx-border-width: 2px 1px 2px 2px;
     -fx-padding: 0 0 0 1px;
-    -fx-background-image: url("../img/Icons/HomeButton.png");
-    -fx-background-repeat: no-repeat;
 }
 #navFirst:hover{
     -fx-background-color: #00171f;
-    -fx-border-color: #cfdee9;
     -fx-border-width: 3px;
-    -fx-text-fill: #cfdee9;
-    -fx-background-image: url("../img/Icons/HomeButtonHover.png");
 }
 
 
@@ -102,9 +96,9 @@ and open the template in the editor.
 
     -fx-text-fill: #00a8e8;
 }
-.navActive{
+#navActive{
     -fx-background-color: #00171f;
-    -fx-border-color: #cfdee9;
+    -fx-border-color: #00a8e8;
     -fx-border-width: 3px;
-    -fx-text-fill: #cfdee9;
+    -fx-text-fill: #00a8e8;
 }
