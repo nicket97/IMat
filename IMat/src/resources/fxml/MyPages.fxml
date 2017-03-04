@@ -47,6 +47,42 @@
                <Button fx:id="btnUpdatePw" layoutX="235.0" layoutY="301.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Byt lösenord" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="315.0" />
             </children>
          </AnchorPane>
+         <AnchorPane fx:id="anchorPaymentDetails" minHeight="0.0" minWidth="0.0" prefHeight="440.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css">
+            <children>
+               <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Leverans och Betalning" />
+               <Label layoutY="126.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Adress och Postnr" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />
+               <Label layoutY="170.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Ort" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="180.0" />
+               <Label layoutX="220.0" layoutY="444.0" />
+               <Label layoutX="121.0" layoutY="229.0" prefHeight="22.0" prefWidth="500.0" styleClass="txtPagesSection" stylesheets="@../css/TextFormat.css" text="Betalning" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="260.0" />
+               <Label layoutY="210.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Önskat Betalsätt" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="320.0" />
+               <Group fx:id="delGroup" layoutX="240.0" layoutY="130.0">
+                  <children>
+                     <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                        <styleClass>
+                           <String fx:value="txtForm" />
+                           <String fx:value="txtFormDetails" />
+                        </styleClass>
+                     </TextField>
+                     <TextField layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" stylesheets="@../css/TextFields.css">
+                        <styleClass>
+                           <String fx:value="txtForm" />
+                           <String fx:value="txtFormDetails" />
+                        </styleClass>
+                     </TextField>
+                     <TextField layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                        <styleClass>
+                           <String fx:value="txtForm" />
+                           <String fx:value="txtFormDetails" />
+                        </styleClass>
+                     </TextField>
+                  </children>
+               </Group>
+               <Button fx:id="btnEditDelivery" layoutX="405.0" layoutY="202.5" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="205.0" />
+               <ChoiceBox fx:id="choicePayment" layoutX="240.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="cbForms" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="320.0" />
+               <Label id="txtPagesSectionTop" layoutX="60.0" layoutY="82.0" prefHeight="22.0" prefWidth="500.0" styleClass="txtPagesSection" stylesheets="@../css/TextFormat.css" text="Leverans" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="80.0" />
+               <Button fx:id="btnEditPayment" layoutX="405.0" layoutY="352.5" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Ändra" AnchorPane.topAnchor="345.0" />
+            </children>
+         </AnchorPane>
         <AnchorPane fx:id="anchorUserDetails" minHeight="0.0" minWidth="0.0" prefHeight="440.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css">
                <children>
                   <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Användaruppgifter">
@@ -85,42 +121,6 @@
                   <Button fx:id="btnEditUser" layoutX="405.0" layoutY="190.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="205.0" />
                </children>
             </AnchorPane>
-         <AnchorPane fx:id="anchorPaymentDetails" minHeight="0.0" minWidth="0.0" prefHeight="440.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" visible="false">
-            <children>
-               <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Leverans och Betalning" />
-               <Label layoutY="126.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Adress och Postnr" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />
-               <Label layoutY="170.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Ort" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="180.0" />
-               <Label layoutX="220.0" layoutY="444.0" />
-               <Label layoutX="121.0" layoutY="229.0" prefHeight="22.0" prefWidth="500.0" styleClass="txtPagesSection" stylesheets="@../css/TextFormat.css" text="Betalning" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="260.0" />
-               <Label layoutY="210.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Önskat Betalsätt" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="320.0" />
-               <Group fx:id="delGroup" layoutX="240.0" layoutY="130.0">
-                  <children>
-                     <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
-                        <styleClass>
-                           <String fx:value="txtForm" />
-                           <String fx:value="txtFormDetails" />
-                        </styleClass>
-                     </TextField>
-                     <TextField layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" stylesheets="@../css/TextFields.css">
-                        <styleClass>
-                           <String fx:value="txtForm" />
-                           <String fx:value="txtFormDetails" />
-                        </styleClass>
-                     </TextField>
-                     <TextField layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
-                        <styleClass>
-                           <String fx:value="txtForm" />
-                           <String fx:value="txtFormDetails" />
-                        </styleClass>
-                     </TextField>
-                  </children>
-               </Group>
-               <Button fx:id="btnEditDelivery" layoutX="405.0" layoutY="202.5" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="205.0" />
-               <ChoiceBox fx:id="choicePayment" layoutX="240.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="cbForms" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="320.0" />
-               <Label layoutX="60.0" layoutY="82.0" prefHeight="22.0" prefWidth="500.0" styleClass="txtPagesSection" stylesheets="@../css/TextFormat.css" text="Leverans" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="80.0" />
-               <Button fx:id="btnEditPayment" layoutX="405.0" layoutY="352.5" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Ändra" AnchorPane.topAnchor="345.0" />
-            </children>
-         </AnchorPane>
       </children>
    </StackPane>
    <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">

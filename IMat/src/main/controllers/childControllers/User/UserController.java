@@ -44,8 +44,6 @@ public class UserController implements Initializable{
 
 
     private StackPane anchorUser;
-    private HBox panePages;
-    private HBox paneLogin;
 
     private CustomDataHandler dataHandler;
     private UserHandler userHandler;
@@ -71,24 +69,23 @@ public class UserController implements Initializable{
     }
 
     public void setLoginVisible(boolean value) {
+        anchorUser.setVisible(value);
+        anchorUser.setManaged(value);
         setParentVisible(value);
-        paneLogin.toFront();
         anchorRegister.setVisible(false);
         if(value){
             txtUsername.requestFocus();
             txtPassword.clear();
-            anchorLogin.toFront();
         }
 
 
     }
-    public void injectControllers(MyPagesController myPagesController){
-        this.myPagesController = myPagesController;
-    }
+
 
     public void setRegisterVisible(boolean value){
+        anchorUser.setVisible(value);
+        anchorUser.setManaged(value);
         setParentVisible(value);
-        paneLogin.toFront();
         anchorRegister.setVisible(value);
         if(value) {
             anchorRegister.toFront();
@@ -97,11 +94,8 @@ public class UserController implements Initializable{
     }
     
     
-    // Also sets nodes of parent
     public void setParentPane(StackPane pane){
         anchorUser = pane;
-        paneLogin = (HBox) pane.getChildren().get(0);
-        panePages = (HBox) pane.getChildren().get(1);
     }
 
     @Override
@@ -156,8 +150,8 @@ public class UserController implements Initializable{
             txtUsername.setId("txtError");
             txtPassword.setId("txtError");
         }else{
-            txtUsername.setId("");
-            txtPassword.setId("");
+            txtUsername.setId(null);
+            txtPassword.setId(null);
             labelErrorEmailAndPassword.setVisible(false);
             setLoginVisible(false);
         }
@@ -233,7 +227,5 @@ public class UserController implements Initializable{
                 txtPassword.setId(null);
             
         });
-        /* myPagesController.getCloseBtn().setOnAction(e -> anchorUser.setVisible(false));
-        anchorUser.setOnMouseClicked(e -> anchorUser.setVisible(false)); */
     }
 }
