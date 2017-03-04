@@ -100,6 +100,7 @@ public class NavController implements Initializable {
             startpageController.setVisible(true);
             prodCtrl.setVisible(false);
             bottomCtrl.setButtonsVisible(false, false);
+            forceCart(false);
         });
     }
     
