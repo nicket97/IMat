@@ -39,16 +39,23 @@ public class ProductViewController implements Controllable{
     
     public void displayProducts (List<Product> productList, String label) {
         setVisible(true);
-
+        List<ProductCategory> usedCat = new ArrayList<>();
         if (productViewFlowPane != null) {
             productViewFlowPane.getChildren().clear();
             listBox.getChildren().clear();      
         }
         for(int i = 0;i<productList.size();i++) {
             try {
-                ProductViewSubCategory searchResult = new ProductViewSubCategory(productList, label);
-                productViewFlowPane.getChildren().add(searchResult);
-                labelHeader.setText(label);
+            	if(!usedCat.contains(productList.get(i).getCategory())){
+            		ProductViewSubCategory searchResult = new ProductViewSubCategory(productList, label);
+            		productViewFlowPane.getChildren().add(searchResult);
+            		labelHeader.setText(label);
+            		usedCat.add(productList.get(i).getCategory());
+            		System.out.println(usedCat.toString());
+            	}
+                
+                
+                
                 
             } catch (IOException e) {
                 e.printStackTrace();
