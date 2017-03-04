@@ -114,6 +114,7 @@ public class MainController implements Initializable{
 
     private void injectControllers(){
         userController.setParentPane(anchorUser);
+        myPagesController.setParentPane(anchorUser);
 
         userStatusController.setUserController(userController);
 

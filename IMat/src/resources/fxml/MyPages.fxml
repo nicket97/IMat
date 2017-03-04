@@ -7,6 +7,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -22,24 +23,24 @@
                <Label styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Aktuellt lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />
                <Label styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Nytt lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="180.0" />
                <Label styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Repetera lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="230.0" />
-               <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="130.0">
+               <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="130.0">
                   <styleClass>
                      <String fx:value="txtForm" />
                      <String fx:value="txtFormDetails" />
                   </styleClass>
-               </TextField>
-               <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="180.0">
+               </PasswordField>
+               <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="180.0">
                   <styleClass>
                      <String fx:value="txtForm" />
                      <String fx:value="txtFormDetails" />
                   </styleClass>
-               </TextField>
-               <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="230.0">
+               </PasswordField>
+               <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="230.0">
                   <styleClass>
                      <String fx:value="txtForm" />
                      <String fx:value="txtFormDetails" />
                   </styleClass>
-               </TextField>
+               </PasswordField>
                <Label layoutX="240.0" layoutY="205.0" text="Ange ett lösenord med minst 6 tecken" AnchorPane.leftAnchor="239.0" />
                <Label layoutX="243.0" layoutY="255.0" text="Skriv ditt nya lösenord igen" AnchorPane.leftAnchor="239.0" AnchorPane.topAnchor="255.0" />
                <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Sekretess" />
@@ -55,21 +56,21 @@
                <Label layoutX="220.0" layoutY="444.0" />
                <Label layoutX="121.0" layoutY="229.0" prefHeight="22.0" prefWidth="500.0" styleClass="txtPagesSection" stylesheets="@../css/TextFormat.css" text="Betalning" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="260.0" />
                <Label layoutY="210.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Önskat Betalsätt" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="320.0" />
-               <Group fx:id="delGroup" layoutX="240.0" layoutY="130.0">
+               <Group fx:id="delGroup" disable="true" layoutX="240.0" layoutY="130.0">
                   <children>
-                     <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                     <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" stylesheets="@../css/TextFields.css">
+                     <TextField layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="75.0" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                     <TextField layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
@@ -78,7 +79,7 @@
                   </children>
                </Group>
                <Button fx:id="btnEditDelivery" layoutX="405.0" layoutY="202.5" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="205.0" />
-               <ChoiceBox fx:id="choicePayment" layoutX="240.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" styleClass="cbForms" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="320.0" />
+               <ChoiceBox fx:id="choicePayment" disable="true" layoutX="240.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="150.0" styleClass="cbForms" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="320.0" />
                <Label id="txtPagesSectionTop" layoutX="60.0" layoutY="82.0" prefHeight="22.0" prefWidth="500.0" styleClass="txtPagesSection" stylesheets="@../css/TextFormat.css" text="Leverans" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="80.0" />
                <Button fx:id="btnEditPayment" layoutX="405.0" layoutY="352.5" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Ändra" AnchorPane.topAnchor="345.0" />
             </children>
@@ -88,27 +89,27 @@
                   <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Användaruppgifter">
                   </Label>
                <Label layoutX="178.0" layoutY="83.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Namn" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="80.0" />
-               <Group fx:id="usrGroup" layoutX="240.0" layoutY="80.0">
+               <Group fx:id="usrGroup" disable="true" layoutX="240.0" layoutY="80.0">
                   <children>
-                     <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                     <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="Förnamn" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                     <TextField layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="-Infinity" prefWidth="150.0" promptText="Efternamn" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                     <TextField layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                     <TextField layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
@@ -119,6 +120,7 @@
                <Label layoutY="126.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="E-postadress" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />
                <Label layoutY="170.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Telefonnummer" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="180.0" />
                   <Button fx:id="btnEditUser" layoutX="405.0" layoutY="190.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="205.0" />
+               <Label layoutX="241.0" layoutY="205.0" text="Används vid leverans" />
                </children>
             </AnchorPane>
       </children>
@@ -126,7 +128,7 @@
    <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
       <children>
          <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="500.0" styleClass="txtPagesSection" stylesheets="@../css/TextFormat.css" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="0.0" />
-         <CheckBox fx:id="cBoxInfo" layoutX="39.0" mnemonicParsing="false" selected="true" styleClass="cBox" stylesheets="@../css/TextFields.css" text="Använd denna information vid nästa köp " AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="10.0" />
+         <CheckBox fx:id="cBoxInfo" layoutX="39.0" mnemonicParsing="false" selected="true" styleClass="cBox" stylesheets="@../css/TextFields.css" text="Använd denna information vid framtida köp " AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="10.0" />
          <Button fx:id="saveChanges" layoutX="200.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Spara ändringar" AnchorPane.bottomAnchor="20.0" />
       </children>
    </AnchorPane>
@@ -169,5 +171,5 @@
          <Button fx:id="btnLogout" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="btnLogout" stylesheets="@../css/ButtonSchemes.css" text="Logga Ut" BorderPane.alignment="CENTER" />
       </bottom>
       </BorderPane>
-   <Button fx:id="btnClose" mnemonicParsing="false" onAction="#btnClose_onActionPerformed" styleClass="btnClose" stylesheets="@../css/ModalPanels.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <Button fx:id="btnClose" mnemonicParsing="false" styleClass="btnClose" stylesheets="@../css/ModalPanels.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 </AnchorPane>

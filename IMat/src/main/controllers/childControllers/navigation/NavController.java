@@ -68,6 +68,9 @@ public class NavController implements Initializable {
     public void startShopping(){
         prodCtrl.displayProducts((ProductCategories.getVeg()), "Frukt & Grönt");
         bottomCtrl.setButtonsVisible(false, true);
+        setCartBtn(true);
+        cartController.setVisible(true);
+        cartPane.setDisable(true);
         displayedIndex = 2;
     }
     
@@ -90,8 +93,6 @@ public class NavController implements Initializable {
         
         //Need animation here
         cartPane.setOnMouseClicked(e -> {
-           
-            
             cartController.setVisible(!cartController.isVisible());
         });
         
@@ -119,30 +120,41 @@ public class NavController implements Initializable {
             case 3:
                 prodCtrl.displayProducts(ProductCategories.getBrd(), "Bröd");
                 bottomCtrl.setButtonsVisible(true, true);
+                forceCart(true);
                 break;
             case 4:
                 prodCtrl.displayProducts(ProductCategories.getPtry(), "Skafferi");
                 bottomCtrl.setButtonsVisible(true, true);
+                forceCart(true);
                 break;
             case 5:
                 prodCtrl.displayProducts(ProductCategories.getDry(), "Mejeri");
                 bottomCtrl.setButtonsVisible(true, true);
+                forceCart(true);
                 break;
             case 6:
                 prodCtrl.displayProducts(ProductCategories.getProt(), "Protein");
                 bottomCtrl.setButtonsVisible(true, true);
+                forceCart(true);
                 break;
             case 7:
                 prodCtrl.displayProducts(ProductCategories.getCol(), "Kolonial");
                 bottomCtrl.setButtonsVisible(true, true);
+                forceCart(true);
                 break;
             case 8:
                 checkoutController.setVisible(true);
                 bottomCtrl.setButtonsVisible(true, true); //Ändra om här kanske, disabla eller dölja?
+                forceCart(false);
                 break;
         }
-
+    
         displayedIndex = index;
         System.out.println("Index: " + index);
+    }
+    private void forceCart(boolean value){
+        setCartBtn(value);
+        cartController.setVisible(value);
+        cartPane.setDisable(value);
     }
 }

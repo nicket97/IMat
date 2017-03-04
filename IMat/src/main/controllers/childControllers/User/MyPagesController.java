@@ -71,11 +71,12 @@ public class MyPagesController implements Controllable{
     private Group usrGroup;
     @FXML
     private Group delGroup;
-    
-    
-    UserHandler uh = CustomDataHandler.getInstance().getUserHandler();
     @FXML
     private Button btnClose;
+    
+    private UserHandler uh = CustomDataHandler.getInstance().getUserHandler();
+    private StackPane parent;
+    
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -91,8 +92,8 @@ public class MyPagesController implements Controllable{
     public void setVisible(boolean value) {
         
     }
-    public Button getCloseBtn(){
-        return btnClose;
+    public void setParentPane(StackPane anchorUser) {
+       parent = anchorUser;
     }
     
     private void addListeners(){
@@ -100,9 +101,9 @@ public class MyPagesController implements Controllable{
         navPay.setOnMouseClicked(e -> showPaymentDetails());
         navPwrd.setOnMouseClicked(e -> showPasswordSettings());
         btnLogout.setOnAction(e -> uh.logOut());
-        btnEditUser.setOnAction(e -> usrGroup.setDisable(!usrGroup.isDisabled()));
-        btnEditPayment.setOnAction(e -> choicePayment.setDisable(!choicePayment.isDisabled()));
-        btnEditDelivery.setOnAction(e -> delGroup.setDisable(!delGroup.isDisabled()));
+        btnEditUser.setOnAction(e -> setUserFields(!usrGroup.isDisabled()));
+        btnEditPayment.setOnAction(e -> setPaymentFields(!choicePayment.isDisabled()));
+        btnEditDelivery.setOnAction(e -> setDelFields(!delGroup.isDisabled()));
         /** Implement this
         btnSaveChanges.setOnAction(e -> )
         * */
@@ -125,8 +126,6 @@ public class MyPagesController implements Controllable{
         navUsr.setId("navActive");
         anchorUserDetails.toFront();
     }
-
-
     
     private void clearIds(){
         navPwrd.setId(null);
@@ -134,7 +133,31 @@ public class MyPagesController implements Controllable{
         navUsr.setId(null);
     }
 
-    @FXML
-    private void btnClose_onActionPerformed(ActionEvent event) {
+    private void setUserFields(boolean b) {
+        usrGroup.setDisable(b);
+        btnEditUser.setText(getBtnString(b));
     }
+
+    private void setPaymentFields(boolean b) {
+        choicePayment.setDisable(b);
+        if(b)
+            btnEditPayment.setText("Spara");
+        else
+            btnEditPayment.setText("Ändra");
+    }
+
+    private void setDelFields(boolean b) {
+        delGroup.setDisable(b);
+        btnEditDelivery.setText(getBtnString(b));
+    }
+
+    private String getBtnString(boolean b) {
+        if(b)
+            return "Redigera";
+        else
+            return "Spara";
+    }
+
+    
+
 }

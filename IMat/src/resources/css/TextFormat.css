@@ -116,3 +116,11 @@ and open the template in the editor.
     -fx-background-color: #cfdee9;
     -fx-text-fill:#00171F;
 }
+
+#navActive{
+    -fx-border-color: #00a8e8;
+    -fx-text-fill: #00a8e8;
+}
+#navActive:hover{
+    -fx-background-color: #00171f;
+}
