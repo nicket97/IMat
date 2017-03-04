@@ -23,6 +23,7 @@ public class CustomDataHandler extends BackendWrapper {
 
     private UserHandler userHandler;
     private ObservableList<Product> displayedProducts;
+    private static final String[] paymentOptions = {"Välj betalmetod", "Vid leverans", "Kredit-/Kontokort", "Faktura"};
 
     public static CustomDataHandler getInstance() {
         if (instance == null)
@@ -39,7 +40,9 @@ public class CustomDataHandler extends BackendWrapper {
             getShoppingCart().getItems().clear();
         }
     }
-
+    public String[] getPaymentOptions(){
+        return paymentOptions;
+    }
     public UserHandler getUserHandler() {
         if (userHandler == null)
             userHandler = new UserHandler(getUser(), getCustomer(), imatDirectory());

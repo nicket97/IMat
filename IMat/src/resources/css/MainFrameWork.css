@@ -30,9 +30,9 @@ and open the template in the editor.
 
 .listPane{
     -fx-background-color: #00171F;
-    -fx-border-color: #cfdee9;
+    -fx-border-color:#cfdee9;
     -fx-border-width: 1px;
-    -fx-effect: dropshadow(three-pass-box, #00171fA0, 20, 0.1, 3, 0);
+    -fx-effect: dropshadow(one-pass-box, #003459, 3, 0.5, 3, 0);
 }
 
 .listHeader{
@@ -111,4 +111,9 @@ and open the template in the editor.
     -fx-padding: 0;
     -fx-margin: 0;
     
+}
+
+.navPane{
+    -fx-border-width: 1px 0;
+    -fx-effect: none;
 }

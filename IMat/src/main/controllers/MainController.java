@@ -22,6 +22,7 @@ import javafx.stage.WindowEvent;
 import main.controllers.childControllers.ProductViewController;
 import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
+import main.controllers.childControllers.User.MyPagesController;
 import main.controllers.childControllers.User.UserController;
 import main.controllers.childControllers.User.UserStatusController;
 import main.controllers.childControllers.navigation.BottomBarController;
@@ -47,12 +48,13 @@ public class MainController implements Initializable{
     private SearchController searchController;
     @FXML
     private BottomBarController bottomBarController;
-    
+    @FXML
+    private MyPagesController myPagesController;
 
     @FXML
     StackPane mainPane;
     
-    @FXML AnchorPane anchorUser;
+    @FXML StackPane anchorUser;
 
     private CustomDataHandler dataHandler;
     @FXML
@@ -112,6 +114,7 @@ public class MainController implements Initializable{
 
     private void injectControllers(){
         userController.setParentPane(anchorUser);
+        userController.injectControllers(myPagesController);
 
         userStatusController.setUserController(userController);
 
@@ -123,6 +126,7 @@ public class MainController implements Initializable{
                         navController);
         
         cartController.injectControllers(navController);
+        
     }
 
 }

@@ -35,7 +35,7 @@
                   </viewport>
                </ImageView>
                <fx:include fx:id="userStatus" source="UserStatusPanel.fxml" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               <fx:include fx:id="nav" source="Nav.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.leftAnchor="200.0" />
+               <fx:include fx:id="nav" source="Nav.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="20.0" />
                <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                   <children>
                      <fx:include fx:id="search" source="SearchField.fxml" />
@@ -48,19 +48,28 @@
          <fx:include fx:id="bottomBar" minHeight="80.0" prefHeight="80.0" source="BottomBar.fxml" />
       </bottom>
    </BorderPane>
-    <AnchorPane fx:id="anchorUser" prefHeight="1080.0" prefWidth="1920.0" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
-        <children>
-            <HBox alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
+   <StackPane fx:id="anchorUser" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
+      <children>
+         <HBox fx:id="paneLogin" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" StackPane.alignment="CENTER">
+            <children>
+               <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                            <fx:include fx:id="user" source="UserPanel.fxml" />
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+            <HBox fx:id="panePages" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
                 <children>
                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
                         <children>
-                            <fx:include fx:id="user" source="UserPanel.fxml" />
+                     <fx:include fx:id="myPages" source="MyPages.fxml" />
                         </children>
                     </VBox>
                 </children>
             </HBox>
-        </children>
-    </AnchorPane>
+      </children>
+   </StackPane>
    <Pane fx:id="Mallar" disable="true" visible="false">
       <children>
          <GridPane fx:id="DONOTREMOVE" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="1080.0" prefWidth="1920.0" visible="false">

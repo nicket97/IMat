@@ -21,6 +21,8 @@ import se.chalmers.ait.dat215.project.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 
 /**
  * Created by pontu on 2017-02-15.
@@ -41,12 +43,15 @@ public class UserController implements Initializable{
     @FXML private Label labelErrorPassword;
 
 
-    private AnchorPane anchorUser;
+    private StackPane anchorUser;
+    private HBox panePages;
+    private HBox paneLogin;
 
     private CustomDataHandler dataHandler;
     private UserHandler userHandler;
     private User currentUser;
     private Customer currentCustomer;
+    private MyPagesController myPagesController;
 
     private Stage userStage;
     private Scene loginScene;
@@ -59,28 +64,44 @@ public class UserController implements Initializable{
         currentUser = dataHandler.getUser();
         currentCustomer = dataHandler.getCustomer();
     }
-
-    public void setLoginVisible(boolean value) {
+    
+    public void setParentVisible(boolean value){
         anchorUser.setVisible(value);
         anchorUser.setManaged(value);
+    }
+
+    public void setLoginVisible(boolean value) {
+        setParentVisible(value);
+        paneLogin.toFront();
         anchorRegister.setVisible(false);
         if(value){
             txtUsername.requestFocus();
             txtPassword.clear();
+            anchorLogin.toFront();
         }
 
 
     }
+    public void injectControllers(MyPagesController myPagesController){
+        this.myPagesController = myPagesController;
+    }
 
     public void setRegisterVisible(boolean value){
-        anchorUser.setVisible(value);
-        anchorUser.setManaged(value);
+        setParentVisible(value);
+        paneLogin.toFront();
         anchorRegister.setVisible(value);
-        if(value) txtRegEmail.requestFocus();
+        if(value) {
+            anchorRegister.toFront();
+            txtRegEmail.requestFocus();
+        }
     }
     
-    public void setParentPane(AnchorPane pane){
+    
+    // Also sets nodes of parent
+    public void setParentPane(StackPane pane){
         anchorUser = pane;
+        paneLogin = (HBox) pane.getChildren().get(0);
+        panePages = (HBox) pane.getChildren().get(1);
     }
 
     @Override
@@ -101,10 +122,10 @@ public class UserController implements Initializable{
 
     @FXML
     private void btnRegisterNew_onActionPerformed(ActionEvent e){
-        regiserNew();
+        registerNew();
     }
 
-    private void regiserNew(){
+    private void registerNew(){
         if(checkEmail(txtRegEmail.getText()) && checkPass(txtRegPassword.getText(), txtRegPasswordRepeat.getText())){
             User newUser = userHandler.createNewUser(txtRegEmail.getText(), txtRegPassword.getText());
 
@@ -189,12 +210,14 @@ public class UserController implements Initializable{
 
     private void addListerners(){
         anchorLogin.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) login();});
-        anchorRegister.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) regiserNew();});
+        anchorRegister.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) registerNew();});
         txtUsername.focusedProperty().addListener(x -> {
             if(!txtUsername.isFocused()) {
                 labelErrorEmail.setVisible(txtUsername.getText().isEmpty());
-                txtUsername.setId(txtUsername.getText().isEmpty() ? "txtError" : "");
+                txtUsername.setId(txtUsername.getText().isEmpty() ? "txtError" : null);
             }
+            else
+                txtUsername.setId(null);
         });
         txtPassword.focusedProperty().addListener(x -> {
             if(!txtPassword.isFocused()) {
@@ -203,9 +226,14 @@ public class UserController implements Initializable{
                     txtPassword.setId("txtError");
                 }else {
                     labelErrorPassword.setVisible(false);
-                    txtPassword.setId("");
+                    txtPassword.setId(null);
                 }
             }
+            else
+                txtPassword.setId(null);
+            
         });
+        /* myPagesController.getCloseBtn().setOnAction(e -> anchorUser.setVisible(false));
+        anchorUser.setOnMouseClicked(e -> anchorUser.setVisible(false)); */
     }
 }

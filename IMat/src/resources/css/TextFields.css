@@ -20,7 +20,12 @@ and open the template in the editor.
 .txtForm:focused{
     -fx-border-color: #91bfe0;
 }
-
+.txtFormDetails:disabled{
+    -fx-border-color:transparent;
+    -fx-background-color: transparent;
+    -fx-text-fill: #00171F;
+    -fx-prompt-text-fill: #00171F;
+}
 .labelError{
     -fx-text-fill: #ff0000;
     -fx-font-family: "Arial";
@@ -72,3 +77,45 @@ and open the template in the editor.
     -fx-text-fill: #00171F;
 }
 
+.cbForms{
+    -fx-box-border: 0;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-background-color: #cfdee9;
+    -fx-border-color: #00171F;
+    -fx-text-fill: #00171F;
+}
+.cbForms:focused{
+    -fx-border-color: #00171F;
+}
+.cbForms > .open-button > .arrow{
+    -fx-background-color: #00171F;
+}
+.cbForms:disabled{
+    -fx-border-color: transparent
+}
+.cbForms:disabled > .open-button > .arrow{
+    -fx-background-color: transparent;
+}
+.cBox{
+    -fx-text-fill: #00171F;
+    -fx-font-family: "Arial";
+    -fx-font-size: 1.2em;
+
+}
+.cBox > .box{
+    -fx-box-border: 0;
+    -fx-border-insets: 0;
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+    -fx-background-position: center;
+    -fx-background-image: url("../img/Icons/CheckBox.png");
+}
+.cBox:hover > .box{
+    -fx-background-image: url("../img/Icons/CheckBoxHover.png");
+}
+
+.cBox:selected > .box > .mark{
+    -fx-shape: "M11.49,13.2a1,1,0,0,1-.69-.28L7,9.32A1,1,0,1,1,8.43,7.88l3.06,2.94,6.81-6.54a1,1,0,1,1,1.38,1.44l-7.51,7.2A1,1,0,0,1,11.49,13.2Z";
+    -fx-background-color: #00a8e8;
+}

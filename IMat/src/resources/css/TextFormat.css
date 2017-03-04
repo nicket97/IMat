@@ -89,10 +89,14 @@ and open the template in the editor.
     -fx-border-color: #00171F;
     -fx-padding: 15px 0 0 0;
 }
+#txtPagesSectionTop{
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
 .txtPagesHeader{
     -fx-text-fill:#cfdee9;
     -fx-font-family: "Arial";
-    -fx-font-size: 1.6em;
+    -fx-font-size: 2em;
     -fx-padding: 10px;
     -fx-font-weight: bold;
 }
