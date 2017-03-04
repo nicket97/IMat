@@ -72,7 +72,6 @@ public class SearchController implements Initializable {
         List<Product> result = search(txtSearch.getText());
         dataHandler.getDisplayedProducts().clear();
         dataHandler.getDisplayedProducts().addAll(result);
-
         //Optional printing
         prodCtrl.displayProducts(result, txtSearch.getText());
         //bottomCtrl.setButtonsVisible(false, false);
