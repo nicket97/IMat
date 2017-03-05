@@ -52,7 +52,10 @@ public class DeliveryController implements Controllable {
 
     @Override
     public void setVisible(boolean value) {
-        
+        System.out.println("Nu vill jag visas");
+        delivery.setVisible(value);
+        delivery.setManaged(value);
+        delivery.toFront();
     }
 
     @Override

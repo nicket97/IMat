@@ -24,7 +24,9 @@ public class OrderController implements Controllable {
 
     @Override
     public void setVisible(boolean value) {
-     
+        order.setVisible(value);
+        order.setManaged(value);
+        order.toFront();
     }
 
     @Override
