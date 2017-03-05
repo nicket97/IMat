@@ -169,6 +169,10 @@ public class UserHandler {
         return false;
     }
 
+    public void saveCurrentCustomer(){
+        saveCustomer(currentCustomer);
+    }
+
     private Customer getCustomerFromUser(User user) {
         Optional<String> maybeCustomer = customerLines.stream().filter(x -> x.contains(user.getUserName())).findFirst();
         if(maybeCustomer.isPresent()) {

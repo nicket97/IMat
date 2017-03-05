@@ -24,37 +24,82 @@ import se.chalmers.ait.dat215.project.User;
 public class MyPagesController implements Controllable {
 
     Label labelTitle;
-    @FXML private AnchorPane myPages;
-    @FXML private StackPane stackPages;
-    @FXML private AnchorPane anchorUserDetails;
-    @FXML private Button btnEditUser;
-    @FXML private AnchorPane anchorPaymentDetails;
-    @FXML private Button btnEditDelivery;
-    @FXML private Button btnEditPayment;
-    @FXML private AnchorPane anchorPwrd;
-    @FXML private Button btnUpdatePw;
-    @FXML private CheckBox cBoxInfo;
-    @FXML private Button saveChanges;
-    @FXML private BorderPane navPane;
-    @FXML private Label labelHeader;
-    @FXML private VBox listBox;
-    @FXML private ChoiceBox<String> choicePayment;
-    @FXML private Label navUsr;
-    @FXML private Label navPay;
-    @FXML private Label navPwrd;
-    @FXML private Button btnLogout;
-    @FXML private Group usrGroup;
-    @FXML private Group delGroup;
-    @FXML private Button btnClose;
+    @FXML
+    private AnchorPane myPages;
+    @FXML
+    private StackPane stackPages;
+    @FXML
+    private AnchorPane anchorUserDetails;
+    @FXML
+    private Button btnEditUser;
+    @FXML
+    private AnchorPane anchorPaymentDetails;
+    @FXML
+    private Button btnEditDelivery;
+    @FXML
+    private Button btnEditPayment;
+    @FXML
+    private AnchorPane anchorPwrd;
+    @FXML
+    private Button btnUpdatePw;
+    @FXML
+    private CheckBox cBoxInfo;
+    @FXML
+    private Button saveChanges;
+    @FXML
+    private BorderPane navPane;
+    @FXML
+    private Label labelHeader;
+    @FXML
+    private VBox listBox;
+    @FXML
+    private ChoiceBox<String> choicePayment;
+    @FXML
+    private Label navUsr;
+    @FXML
+    private Label navPay;
+    @FXML
+    private Label navPwrd;
+    @FXML
+    private Button btnLogout;
+    @FXML
+    private Group usrGroup;
+    @FXML
+    private Group delGroup;
+    @FXML
+    private Button btnClose;
 
-    @FXML private TextField txtFirstname;
-    @FXML private TextField txtLastname;
-    @FXML private SpemTextfield txtEmail;
-    @FXML private SpemTextfield txtPhone;
+    @FXML
+    private TextField txtFirstname;
+    @FXML
+    private TextField txtLastname;
+    @FXML
+    private SpemTextfield txtEmail;
+    @FXML
+    private SpemTextfield txtPhone;
+    @FXML
+    private TextField txtAddress;
+    @FXML
+    private SpemTextfield txtPostcode;
+    @FXML
+    private TextField txtPostaddress;
+    @FXML
+    private SpemTextfield txtPasswordOld;
+    @FXML
+    private SpemTextfield txtPassword;
+    @FXML
+    private SpemTextfield txtPasswordSnd;
+    @FXML
+    private Label labelPwSuccess;
+    @FXML
+    private Label labelPassPrompt;
+    @FXML
+    private Label labelPassSndPrompt;
 
     private UserHandler uh = CustomDataHandler.getInstance().getUserHandler();
     private StackPane parent;
 
+    private String newPassword = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -72,23 +117,23 @@ public class MyPagesController implements Controllable {
         myPages.setVisible(value);
         myPages.setManaged(value);
 
-        if(value) {
+        if (value) {
             parent.setVisible(value);
             parent.setManaged(value);
             //Hehe
             myPages.getParent().getParent().toFront();
             loadUser();
-        }else
+        } else
             myPages.getParent().getParent().toBack();
     }
 
-    public void close(){
+    public void close() {
         parent.setVisible(false);
         parent.setManaged(false);
         myPages.getParent().getParent().toBack();
     }
 
-    public boolean isVisible(){
+    public boolean isVisible() {
         return myPages.isVisible();
     }
 
@@ -100,42 +145,107 @@ public class MyPagesController implements Controllable {
         navUsr.setOnMouseClicked(e -> showUserDetails());
         navPay.setOnMouseClicked(e -> showPaymentDetails());
         navPwrd.setOnMouseClicked(e -> showPasswordSettings());
-        btnLogout.setOnAction(e -> {uh.logOut();close();});
-        btnEditUser.setOnAction(e -> {if(usrGroup.isDisabled() || (txtEmail.isValid() && txtPhone.isValid()))setUserFields(!usrGroup.isDisabled());});
+        btnLogout.setOnAction(e -> {
+            uh.logOut();
+            close();
+        });
+        btnEditUser.setOnAction(e -> {
+            txtEmail.validate();
+            txtPhone.validate();
+            if (usrGroup.isDisabled() || (txtEmail.isValid() && txtPhone.isValid()))
+                setUserFields(!usrGroup.isDisabled());
+        });
         btnEditPayment.setOnAction(e -> setPaymentFields(!choicePayment.isDisabled()));
-        btnEditDelivery.setOnAction(e -> setDelFields(!delGroup.isDisabled()));
+        btnEditDelivery.setOnAction(e ->{
+            txtPostcode.validate();
+            if(delGroup.isDisabled() || isAllDeliveryValid()) setDelFields(!delGroup.isDisabled());
+        });
+
         btnClose.setOnMouseClicked(e -> close());
+        btnUpdatePw.setOnAction(x -> updatePassword());
+        saveChanges.setOnAction(x -> saveChanges());
     }
 
-    private void addValidators(){
+    private void addValidators() {
         txtEmail.setOnValidation(x -> {
             boolean valid = true;
-            if(!txtEmail.getText().contains("@") || !txtEmail.getText().contains(".")){
+            if (!txtEmail.getText().contains("@") || !txtEmail.getText().contains(".")) {
                 txtEmail.setErrorText("Felaktig e-postadress!");
                 valid = false;
             }
-            if(valid && !uh.getCustomer().getEmail().equals(txtEmail.getText()) && uh.emailExists(txtEmail.getText())){
+            if (valid && !uh.getCustomer().getEmail().equals(txtEmail.getText()) && uh.emailExists(txtEmail.getText())) {
                 txtEmail.setErrorText("E-postadressen finns redan!");
                 valid = false;
             }
             txtEmail.setValid(valid);
+
+            btnEditUser.setDisable(!isAllUserValid());
         });
 
-        txtPhone.setOnValidation(x -> txtPhone.setValid(txtPhone.getText().matches("[0-9]+") || txtPhone.getText().isEmpty()));
+        txtPhone.setOnValidation(x -> {
+            txtPhone.setValid(txtPhone.getText().matches("[0-9]+") || txtPhone.getText().isEmpty());
+            btnEditUser.setDisable(!isAllUserValid());
+        });
+
+        txtPostcode.setOnValidation(x -> {
+            txtPostcode.setValid(txtPostcode.getText().isEmpty() || (txtPostcode.getText().trim().length() == 6 && txtPostcode.getText().matches("[0-9]+")));
+            btnEditDelivery.setDisable(!isAllDeliveryValid());
+        });
+
+        txtPasswordOld.setOnValidation(x -> {
+            boolean valid = txtPasswordOld.getText().isEmpty() || txtPasswordOld.getText().equals(uh.getUser().getPassword());
+            txtPasswordOld.setValid(valid);
+            btnUpdatePw.setDisable(!isAllPassValid());
+        });
+
+        txtPassword.setOnValidation(x -> {
+            boolean valid = txtPassword.getText().isEmpty() || txtPassword.getText().length() >= 6;
+            txtPassword.setValid(valid);
+            btnUpdatePw.setDisable(!isAllPassValid());
+            labelPassPrompt.setVisible(valid);
+        });
+
+        txtPasswordSnd.setOnValidation(x -> {
+            boolean valid = txtPasswordSnd.getText().equals(txtPassword.getText());
+            txtPasswordSnd.setValid(valid);
+            btnUpdatePw.setDisable(!isAllPassValid());
+            labelPassSndPrompt.setVisible(valid);
+        });
     }
 
-    private void loadUser(){
+    private void loadUser() {
         Customer currCust = uh.getCustomer();
-        User currUser = uh.getUser();
         txtFirstname.setText(currCust.getFirstName());
         txtLastname.setText(currCust.getLastName());
         txtEmail.setText(currCust.getEmail());
         txtPhone.setText(currCust.getPhoneNumber());
+        txtAddress.setText(currCust.getAddress());
+        txtPostcode.setText(currCust.getPostCode());
+        txtPostaddress.setText(currCust.getPostAddress());
+    }
+
+    private void saveChanges(){
+        Customer currCust = uh.getCustomer();
+        User currUser = uh.getUser();
+
+        currUser.setUserName(txtEmail.getText());
+        if(newPassword != null) currUser.setPassword(newPassword);
+        currCust.setEmail(txtEmail.getText());
+        currCust.setFirstName(txtFirstname.getText());
+        currCust.setLastName(txtLastname.getText());
+        currCust.setAddress(txtAddress.getText());
+        currCust.setPostCode(txtPostcode.getText());
+        currCust.setPostAddress(txtPostaddress.getText());
+        currCust.setPhoneNumber(txtPhone.getText());
+
+        uh.saveCurrentCustomer();
+
     }
 
     private void showPasswordSettings() {
         clearIds();
         navPwrd.setId("navActive");
+        labelPwSuccess.setVisible(false);
         anchorPwrd.toFront();
     }
 
@@ -182,5 +292,44 @@ public class MyPagesController implements Controllable {
             return "Spara";
     }
 
+    private void updatePassword() {
+        newPassword = txtPassword.getText();
+
+        txtPasswordOld.clearText();
+        txtPassword.clearText();
+        txtPasswordSnd.clearText();
+        labelPwSuccess.setVisible(true);
+    }
+
+    //Bästa metodnamnet nånsin
+    private boolean isAllPassValid() {
+        return txtPasswordOld.isValid() && txtPassword.isValid() && txtPasswordSnd.isValid() &&
+                !txtPassword.getText().isEmpty() && !txtPasswordOld.getText().isEmpty()
+                && !txtPasswordSnd.getText().isEmpty();
+    }
+
+    private boolean isAllUserValid(){
+        return txtEmail.isValid() && txtPhone.isValid();
+    }
+
+    private boolean isAllDeliveryValid(){
+        return txtPostcode.isValid();
+    }
+
+/*
+private SpemTextfield txtEmail;
+    @FXML
+    private SpemTextfield txtPhone;
+
+    @FXML
+    private SpemTextfield txtPostcode;
+
+    @FXML
+    private SpemTextfield txtPasswordOld;
+    @FXML
+    private SpemTextfield txtPassword;
+    @FXML
+    private SpemTextfield txtPasswordSnd;
+ */
 
 }
