@@ -41,6 +41,8 @@ public class UserHandler {
         return currentUser;
     }
 
+    public Customer getCustomer() {return currentCustomer;}
+
     public User createNewUser(String email, String password) {
         User newUser = new User();
         newUser.setUserName(email);
@@ -50,7 +52,7 @@ public class UserHandler {
         if (email.isEmpty() || password.isEmpty())
             return new User(); //Return empty user = not logged in
 
-        if (emailExists(newUser)) {
+        if (emailExists(newUser.getUserName())) {
             System.out.println("User already exists!");
             return null;
         }
@@ -141,7 +143,7 @@ public class UserHandler {
         return false;
     }
 
-    private boolean emailExists(User user) {
+    public boolean emailExists(String email) {
         List<String> emails = new ArrayList<>();
 
         try {
@@ -160,7 +162,7 @@ public class UserHandler {
         }
 
         for (String s : emails) {
-            if (s.split("\\s+")[0].equals(user.getUserName()))
+            if (s.split("\\s+")[0].equals(email))
                 return true;
         }
 

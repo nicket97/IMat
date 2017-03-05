@@ -71,13 +71,17 @@ public class ProductViewController implements Controllable{
         
         // Array with +1 length for setting 0 as starting point and also getting full height of nodes
         double[] scrollIndex = new double[section.length + 1];
+        double[] offset = new double[section.length + 1];
+        
         for(int i = 0;i<section.length;i++) {
             try {
                 ProductViewSubCategory subSection = new ProductViewSubCategory(section[i]);
                 productViewFlowPane.getChildren().add(subSection);
                 
                 // Add each height to their respective index, starting from 1 to max, adding each previous height.
-                scrollIndex[i+1] = scrollIndex[i] + productViewFlowPane.getChildren().get(i).getBoundsInLocal().getHeight();
+                scrollIndex[i+1] = scrollIndex[i] + productViewFlowPane.getChildren().get(i).getBoundsInParent().getHeight();
+                offset[i] = offset[i] + scrollIndex[i]/(scrollIndex.length - 4) ;
+                System.out.println(subSection.getBoundsInParent().getWidth());
                 labelHeader.setText(label);
                 listBox.getChildren().add(createSubcategoryButton(subSection.getSubCatLabel()));
 
@@ -89,15 +93,16 @@ public class ProductViewController implements Controllable{
         
         
         double scrollPaneLength = scrollIndex[scrollIndex.length-1];
+        double pxEqu = 1/scrollPaneLength;
         // Generate theoretical offset, based on the amount of elements and the loss of element height.
-        double offset = scrollIndex[1]/(scrollIndex.length - 3) ;
+        
        
         // Loop through each list-category, adding a listener with their index + offset divided by the whole window.
         // The interval needed is 0 - 1, problem is that 1 pane is "lost" as Vvalue = 1 is bottom of scrollbar at bottom
         // and Vvalue = 0 is the top of the scrollbar at the top.
         for(int index = 0; index < listBox.getChildren().size(); index++){
             int i = index;
-            listBox.getChildren().get(i).setOnMouseClicked(e -> scrollPane.setVvalue((scrollIndex[i] + offset * (i))/ scrollPaneLength));
+            listBox.getChildren().get(i).setOnMouseClicked(e -> scrollPane.setVvalue((scrollIndex[i] + offset[i])*pxEqu));
         }
         
     }

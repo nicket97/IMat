@@ -24,11 +24,14 @@ public class ReceiptController implements Controllable {
 
     @Override
     public void setVisible(boolean value) {
-
+        receipt.setVisible(value);
+        receipt.setManaged(value);
+        receipt.toFront();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        listReceipt.getItems();
 
     }
     

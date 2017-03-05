@@ -39,7 +39,9 @@ public class CustomerController implements Controllable {
 
     @Override
     public void setVisible(boolean value) {
-   
+        customer.setVisible(value);
+        customer.setManaged(value);
+        customer.toFront();
     }
 
     @Override

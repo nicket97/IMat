@@ -24,6 +24,7 @@ import javafx.scene.layout.FlowPane;
  import main.backend.CustomDataHandler;
  import main.backend.UserHandler;
  import main.controllers.MainController;
+ import main.controllers.childControllers.User.MyPagesController;
  import main.controllers.childControllers.User.UserController;
  import main.controllers.childControllers.navigation.NavController;
  import se.chalmers.ait.dat215.project.IMatDataHandler;
@@ -71,7 +72,7 @@ public class StartpageController implements Controllable{
     private final DataPair btn1 = new DataPair(new DataNode("Börja Handla ", "img1"), new DataNode("Börja Handla ", "img1In"));
     private final DataPair btn2 = new DataPair(new DataNode("Logga in ", "img2"), new DataNode("Historik ", "img2In"));
     private final DataPair btn3 = new DataPair(new DataNode("Sök vara ", "img3"), new DataNode("Sök vara ", "img3In"));
-    private final DataPair btn4 = new DataPair(new DataNode("Registrera konto ", "img4"), new DataNode("Verktyg ", "img4In"));
+    private final DataPair btn4 = new DataPair(new DataNode("Registrera konto ", "img4"), new DataNode("Mina sidor ", "img4In"));
     private final Map<Node, DataPair<DataNode>> btnDataMap = new HashMap(); 
 
     private UserController usrCtrl;
@@ -164,9 +165,9 @@ public class StartpageController implements Controllable{
             case "registrera konto":
                 usrCtrl.setRegisterVisible(true);
                 break;
-            case "verktyg":
-                System.out.println("Verktyg nu");
-                //TODO
+            case "mina sidor":
+                usrCtrl.setMyPagesVisible(true);
+                break;
             default:
                 break;
         }

@@ -52,7 +52,9 @@ public class PaymentController implements Controllable {
 
     @Override
     public void setVisible(boolean value) {
-   
+        payment.setVisible(value);
+        payment.setManaged(value);
+        payment.toFront();
     }
 
     @Override

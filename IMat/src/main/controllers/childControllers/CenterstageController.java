@@ -32,8 +32,6 @@ public class CenterstageController implements Controllable{
     private BottomBarController bottomBarController;
     @FXML
     private CheckoutController checkoutController;
-    @FXML
-    private MyPagesController myPagesController;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
