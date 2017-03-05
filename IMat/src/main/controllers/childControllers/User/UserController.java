@@ -1,5 +1,6 @@
 package main.controllers.childControllers.User;
 
+import fxComponents.SpemTextfield;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -29,13 +30,13 @@ import javafx.scene.layout.StackPane;
  */
 public class UserController implements Initializable{
     
-    @FXML private TextField txtUsername;
-    @FXML private TextField txtPassword;
-    @FXML private TextField txtRegEmail;
-    @FXML private TextField txtRegPassword;
-    @FXML private TextField txtRegPasswordRepeat;
+    @FXML private SpemTextfield txtUsername;
+    @FXML private SpemTextfield txtPassword;
     @FXML private AnchorPane anchorRegister;
     @FXML private AnchorPane anchorLogin;
+    @FXML private SpemTextfield txtRegEmail;
+    @FXML private SpemTextfield txtRegPassword;
+    @FXML private SpemTextfield txtRegPasswordSnd;
 
     //Error stuff
     @FXML private Label labelErrorEmailAndPassword;
@@ -74,11 +75,9 @@ public class UserController implements Initializable{
         setParentVisible(value);
         anchorRegister.setVisible(false);
         if(value){
-            txtUsername.requestFocus();
-            txtPassword.clear();
+            txtUsername.getTxtField().requestFocus();
+            txtPassword.getTxtField().clear();
         }
-
-
     }
 
 
@@ -89,7 +88,7 @@ public class UserController implements Initializable{
         anchorRegister.setVisible(value);
         if(value) {
             anchorRegister.toFront();
-            txtRegEmail.requestFocus();
+            txtRegEmail.getTxtField().requestFocus();
         }
     }
     
@@ -120,18 +119,8 @@ public class UserController implements Initializable{
     }
 
     private void registerNew(){
-        if(checkEmail(txtRegEmail.getText()) && checkPass(txtRegPassword.getText(), txtRegPasswordRepeat.getText())){
+        if(txtRegEmail.getValid() && txtRegPassword.getValid() && txtRegPasswordSnd.getValid()){
             User newUser = userHandler.createNewUser(txtRegEmail.getText(), txtRegPassword.getText());
-
-            if(newUser == null){
-                Alert error = new Alert(Alert.AlertType.ERROR);
-                error.setTitle("Fel");
-                error.setHeaderText("E-postadressen finns redan!");
-                error.showAndWait();
-
-                txtRegEmail.clear();
-                return;
-            }
 
             userHandler.logIn(newUser);
             setLoginVisible(false);
@@ -145,16 +134,10 @@ public class UserController implements Initializable{
 
         currentUser = userHandler.logIn(loginUser);
 
-        if(currentUser == null){
-            labelErrorEmailAndPassword.setVisible(true);
-            txtUsername.setId("txtError");
-            txtPassword.setId("txtError");
-        }else{
-            txtUsername.setId(null);
-            txtPassword.setId(null);
-            labelErrorEmailAndPassword.setVisible(false);
-            setLoginVisible(false);
-        }
+        txtUsername.setRed(currentUser == null);
+        txtPassword.setRed(currentUser == null);
+        labelErrorEmailAndPassword.setVisible(currentUser == null);
+        if(currentUser != null) setLoginVisible(false);
     }
 
     @FXML
@@ -179,53 +162,41 @@ public class UserController implements Initializable{
             error.showAndWait();
 
             //Gör röd
-            txtRegEmail.clear();
-            txtRegEmail.requestFocus();
+       //     txtRegEmail.clear();
+        //    txtRegEmail.requestFocus();
         }
 
-        return valid;
-    }
-
-    private boolean checkPass(String passwordFst, String passwordSnd){
-        boolean valid = passwordFst.equals(passwordSnd);
-        if(!valid){
-            Alert error = new Alert(Alert.AlertType.ERROR);
-            error.setTitle("Felaktig data");
-            error.setHeaderText("Dina lösenord matchar inte!");
-            error.showAndWait();
-
-            //Gör röd
-            txtRegPassword.clear();
-            txtRegPassword.requestFocus();
-            txtRegPasswordRepeat.clear();
-        }
         return valid;
     }
 
     private void addListerners(){
         anchorLogin.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) login();});
         anchorRegister.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) registerNew();});
-        txtUsername.focusedProperty().addListener(x -> {
-            if(!txtUsername.isFocused()) {
-                labelErrorEmail.setVisible(txtUsername.getText().isEmpty());
-                txtUsername.setId(txtUsername.getText().isEmpty() ? "txtError" : null);
+
+        txtUsername.setOnValidation(x -> txtUsername.setValid(!txtUsername.getText().isEmpty()));
+        txtPassword.setOnValidation(x -> txtPassword.setValid(!txtPassword.getText().isEmpty()));
+
+        txtRegEmail.setOnValidation(x -> {
+            boolean valid = true;
+            if(!txtRegEmail.getText().contains("@") || !txtRegEmail.getText().contains(".")){
+                txtRegEmail.setErrorText("Felaktig e-postadress!");
+                valid = false;
             }
-            else
-                txtUsername.setId(null);
+            if(valid && userHandler.emailExists(txtRegEmail.getText())){
+                txtRegEmail.setErrorText("E-postadressen finns redan!");
+                valid = false;
+            }
+            txtRegEmail.setValid(valid);
         });
-        txtPassword.focusedProperty().addListener(x -> {
-            if(!txtPassword.isFocused()) {
-                if(txtPassword.getText().isEmpty()){
-                    labelErrorPassword.setVisible(true);
-                    txtPassword.setId("txtError");
-                }else {
-                    labelErrorPassword.setVisible(false);
-                    txtPassword.setId(null);
-                }
-            }
-            else
-                txtPassword.setId(null);
-            
+
+        txtRegPassword.setOnValidation(x -> {
+            if(txtRegPassword.getText().length() < 6) txtRegPassword.setValid(false);
+            else txtRegPassword.setValid(true);
+        });
+
+        txtRegPasswordSnd.setOnValidation(x -> {
+            if(!txtRegPasswordSnd.getText().equals(txtRegPassword.getText())) txtRegPasswordSnd.setValid(false);
+            else txtRegPasswordSnd.setValid(true);
         });
     }
 }
