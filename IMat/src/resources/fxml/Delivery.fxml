@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import fxComponents.SpemTextfield?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="delivery" minHeight="0.0" minWidth="0.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.DeliveryController" >
+<AnchorPane fx:id="delivery" minHeight="0.0" minWidth="0.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.checkout.DeliveryController">
                <children>
                   <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Leverans" />
                   <HBox alignment="CENTER" layoutX="500.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="80.0">
@@ -22,8 +23,8 @@
                                     <Label fx:id="labelAddress" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Adress *" textAlignment="RIGHT" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="40.0" />
                                     <TextField fx:id="txtCity" layoutX="96.0" layoutY="60.0" prefWidth="200.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="90.0" />
                                     <Label fx:id="labelCity" layoutX="27.0" layoutY="60.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Ort *" textAlignment="RIGHT" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="90.0" />
-                                    <TextField fx:id="txtPostal" layoutX="96.0" layoutY="120.0" prefWidth="100.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="140.0" />
                                     <Label fx:id="labelPostal" layoutX="2.0" layoutY="120.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Postnr *" textAlignment="RIGHT" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="140.0" />
+                        <SpemTextfield fx:id="txtPostal" errorText="Felaktigt postnr" layoutX="151.0" layoutY="140.0" promtText="Fem siffror" text="" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefWidth="400.0" styleClass="formFrame" stylesheets="@../css/MainFrameWork.css">

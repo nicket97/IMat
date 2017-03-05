@@ -27,7 +27,7 @@ public class BottomBarController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         btnHelp.setOnAction(x -> {
             Alert closeAlert = new Alert(Alert.AlertType.INFORMATION);
-            closeAlert.setTitle("Hjälp");
+            closeAlert.setTitle("Hjälp ska vara här");
             closeAlert.setHeaderText("Men hur svårt kan det vara egentligen..?");
 
             closeAlert.showAndWait();

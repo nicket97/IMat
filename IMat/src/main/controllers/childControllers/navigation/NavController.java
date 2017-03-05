@@ -8,20 +8,16 @@ package main.controllers.childControllers.navigation;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import main.backend.CustomDataHandler;
-import main.controllers.MainController;
 import main.controllers.childControllers.*;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.ProductCategory;
+import main.controllers.childControllers.checkout.CheckoutController;
 
 /**
  *
