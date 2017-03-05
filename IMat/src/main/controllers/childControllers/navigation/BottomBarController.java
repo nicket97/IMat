@@ -3,11 +3,15 @@ package main.controllers.childControllers.navigation;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import main.controllers.childControllers.ProductView;
 import main.controllers.childControllers.ProductViewController;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -17,10 +21,17 @@ public class BottomBarController implements Initializable {
 
     @FXML private Button btnPrev;
     @FXML private Button btnNext;
+    @FXML private Button btnHelp;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        btnHelp.setOnAction(x -> {
+            Alert closeAlert = new Alert(Alert.AlertType.INFORMATION);
+            closeAlert.setTitle("Hjälp");
+            closeAlert.setHeaderText("Men hur svårt kan det vara egentligen..?");
 
+            closeAlert.showAndWait();
+        });
     }
 
     public void setButtonsVisible(boolean btnPrevVisible, boolean btnNextVisible){
