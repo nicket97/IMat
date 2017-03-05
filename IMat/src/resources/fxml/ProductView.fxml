@@ -11,7 +11,7 @@
   <children>
   <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" minViewportHeight="506.66667" minViewportWidth="986.66667" prefHeight="760.0" prefViewportHeight="760.0" prefViewportWidth="1920.0" prefWidth="1720.0" styleClass="scrollPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" minViewportHeight="506.66667" minViewportWidth="986.66667" prefHeight="760.0" prefViewportHeight="760.0" prefViewportWidth="1720.0" prefWidth="1720.0" styleClass="scrollPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <content>
                      <VBox fx:id="productViewFlowPane" maxHeight="758.0" maxWidth="1.7976931348623157E308" minWidth="520.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" />
                </content>
