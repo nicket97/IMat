@@ -15,8 +15,11 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.SortedMap;
 import java.util.concurrent.SynchronousQueue;
+import main.DataPair;
 
 /**
  * Created by Pontus on 2017-02-22.
@@ -26,7 +29,7 @@ public class SearchController implements Initializable {
     @FXML Button btnSearch;
     @FXML CenterstageController centerStageController;
     
-    private ProductViewController prodCtrl;
+    private SearchViewController searchCtrl;
     private BottomBarController bottomCtrl;
 
     CustomDataHandler dataHandler;
@@ -63,27 +66,52 @@ public class SearchController implements Initializable {
             dataHandler.placeOrder(true);
             return;
         }
-        if(txtSearch.getText().equalsIgnoreCase("test")){
+       /* if(txtSearch.getText().equalsIgnoreCase("test")){
         	List<Product> result = dataHandler.getProducts();
-        	 prodCtrl.displayProducts(result, txtSearch.getText());
+        	searchCtrl.displayProducts(result, txtSearch.getText());
         	return;
-        }
+        }*/
 
         List<Product> result = search(txtSearch.getText());
+        List<DataPair<ProductCategory, List<Product>>> sortedResults = sortResults(result);
         dataHandler.getDisplayedProducts().clear();
         dataHandler.getDisplayedProducts().addAll(result);
         //Optional printing
-        prodCtrl.displayProducts(result, txtSearch.getText());
+        searchCtrl.displayProducts(sortedResults, txtSearch.getText());
         //bottomCtrl.setButtonsVisible(false, false);
         //printSearchResult(result);
     }
-
+    
     private List<Product> search(String search){
         //Add more search logic here
 
         return dataHandler.findProducts(search);
     }
-
+    private List<DataPair<ProductCategory, List<Product>>> sortResults(List<Product> result) {
+        List<ProductCategory> usedCategories = new ArrayList<>();
+        for(Product p: result){
+            if(!usedCategories.contains(p.getCategory())){
+                usedCategories.add(p.getCategory());
+            }
+        }
+        List<DataPair<ProductCategory, List<Product>>> sortedResults = new ArrayList<>();
+        int index = 0;
+        for(ProductCategory pc : usedCategories){
+            DataPair<ProductCategory, List<Product>> section = new DataPair<>(pc, new ArrayList<>());
+            
+            for(int k = index; k < result.size(); k++ ){
+                if(result.get(k).getCategory().equals(pc))
+                    section.getRight().add(result.get(k));
+                else{
+                    index = k;
+                    break;
+                }
+            }
+            sortedResults.add(section);
+        }
+        
+        return sortedResults;
+    }
     private void addListeners(){
         dataHandler.getDisplayedProducts().addListener((ListChangeListener<? super Product>)  x -> System.out.println("List changed."));
         txtSearch.setOnKeyPressed(e -> {
@@ -104,7 +132,9 @@ public class SearchController implements Initializable {
 
         System.out.println("---------------------------------------------");
     }
-    public void setprodCtrl(ProductViewController p){
-    	prodCtrl = p;
+    public void setSearchCtrl(SearchViewController p){
+    	searchCtrl = p;
     }
+    
+   
 }

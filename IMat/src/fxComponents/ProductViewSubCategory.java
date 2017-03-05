@@ -59,7 +59,7 @@ public class ProductViewSubCategory extends AnchorPane implements Initializable{
         fxmlLoader.setController(this);
         fxmlLoader.load();
         
-        subcatLabel.setText(header);
+        subcatLabel.setText(ProductCategories.getProdCatName(result.get(0).getCategory()));
         for(Product p : result){
             productViewNodePane.getChildren().add(new ProductViewNode(p));
         }

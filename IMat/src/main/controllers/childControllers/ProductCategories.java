@@ -12,26 +12,26 @@ import se.chalmers.ait.dat215.project.ProductCategory;
 */
 public class ProductCategories {
 	static Object[][] prodNameList = {
-			{ProductCategory.BERRY,"Bär"},
-			{ProductCategory.CABBAGE,"Kål"},
+			{ProductCategory.BERRY,"BÃ¤r"},
+			{ProductCategory.CABBAGE,"KÃ¥l"},
 			{ProductCategory.CITRUS_FRUIT,"Citrus frukter"},
 			{ProductCategory.EXOTIC_FRUIT,"Exotiska frukter"},
 			{ProductCategory.FRUIT,"Frukt"},
-			{ProductCategory.HERB,"Ärter"},
+			{ProductCategory.HERB,"Ã–rter"},
 			{ProductCategory.MELONS,"Meloner"},
 			{ProductCategory.ROOT_VEGETABLE,"Rotfrukter"},
-			{ProductCategory.VEGETABLE_FRUIT,"Grönsaker"},
+			{ProductCategory.VEGETABLE_FRUIT,"GrÃ¶nsaker"},
 			{ProductCategory.FISH,"Fisk"},
-			{ProductCategory.MEAT,"Kött"},
+			{ProductCategory.MEAT,"KÃ¶tt"},
 			{ProductCategory.COLD_DRINKS,"Kalla drycker"},
-			{ProductCategory.NUTS_AND_SEEDS,"Nötter"},
+			{ProductCategory.NUTS_AND_SEEDS,"NÃ¶tter"},
 			{ProductCategory.PASTA,"Pasta"},
-			{ProductCategory.POD,"Baljväxter"},
+			{ProductCategory.POD,"BaljvÃ¤xter"},
 			{ProductCategory.POTATO_RICE,"Potatis och Ris"},
 			{ProductCategory.SWEET,"Godis"},
 			{ProductCategory.HOT_DRINKS,"Varma drycker"},
 			{ProductCategory.FLOUR_SUGAR_SALT,"Bakning"},
-			{ProductCategory.BREAD,"Bröd"},
+			{ProductCategory.BREAD,"BrÃ¶d"},
 			{ProductCategory.DAIRIES,"Mejeri"}
 			
 	};

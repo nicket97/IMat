@@ -66,7 +66,7 @@ public class SpemTextfield extends AnchorPane implements Initializable {
 
     public void setValid(boolean isValid){
         if(isValid) {
-            txtField.setId("");
+            txtField.setId(null);
         }else
             txtField.setId("txtError");
 
@@ -77,7 +77,7 @@ public class SpemTextfield extends AnchorPane implements Initializable {
 
     public void setRed(boolean isRed){
         if(!isRed) {
-            txtField.setId("");
+            txtField.setId(null);
         }else
             txtField.setId("txtError");
     }

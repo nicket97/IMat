@@ -14,8 +14,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.WindowEvent;
@@ -50,6 +52,7 @@ public class MainController implements Initializable{
     @FXML
     private MyPagesController myPagesController;
 
+
     @FXML
     StackPane mainPane;
     
@@ -57,19 +60,17 @@ public class MainController implements Initializable{
 
     private CustomDataHandler dataHandler;
     @FXML
-    private Pane leftBorder;
-    @FXML
-    private Pane rightBorder;
-    @FXML
     private AnchorPane centerStage;
-    @FXML
-    private Pane topBorder;
-    @FXML
-    private Pane bottomBorder;
     @FXML
     private Pane Mallar;
     @FXML
     private GridPane DONOTREMOVE;
+    @FXML
+    private HBox panePages;
+    @FXML
+    private HBox paneLogin;
+    @FXML
+    private ImageView imgHome;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -118,7 +119,8 @@ public class MainController implements Initializable{
         userStatusController.injectControllers(userController);
 
         navController.injectControllers(centerstageController.getStartpageController(), cartController,
-                centerstageController.getProductViewController(), centerstageController.getCheckoutController(), bottomBarController, searchController);
+                centerstageController.getProductViewController(), centerstageController.getCheckoutController(), bottomBarController, searchController, 
+                centerstageController.getSearchViewController());
 
         centerstageController.getStartpageController().
                 injectControllers(userController, centerstageController.getHistoryController(), searchController,

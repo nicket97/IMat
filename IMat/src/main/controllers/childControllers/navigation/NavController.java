@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -38,6 +39,7 @@ public class NavController implements Initializable {
     private ProductViewController prodCtrl;
     private BottomBarController bottomCtrl;
     private CheckoutController checkoutController;
+    private SearchViewController searchCtrl;
 
     private CustomDataHandler dataHandler;
 
@@ -59,7 +61,8 @@ public class NavController implements Initializable {
     @FXML
     private Label navCheckout;
 
-
+    private ImageView imgHome;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
@@ -72,16 +75,20 @@ public class NavController implements Initializable {
         ProductViewController productViewController,
         CheckoutController checkoutController,
         BottomBarController bottomBarController,
-        SearchController searchController){
-        this.cartController = cartController;
-        this.startpageController = startpageController;
-        this.prodCtrl = productViewController;
-        this.checkoutController = checkoutController;
-        bottomCtrl = bottomBarController;
-        searchController.setprodCtrl(prodCtrl);
-        bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; displayCategory(displayedIndex);});
-        bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; displayCategory(displayedIndex);});
-        
+        SearchController searchController,
+        SearchViewController searchViewController){
+            this.cartController = cartController;
+            this.startpageController = startpageController;
+            this.prodCtrl = productViewController;
+            this.checkoutController = checkoutController;
+            this.searchCtrl = searchViewController;
+            bottomCtrl = bottomBarController;
+            searchController.setSearchCtrl(searchCtrl);
+            bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; displayCategory(displayedIndex);});
+            bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; displayCategory(displayedIndex);});
+            imgHome = (ImageView) nav.getParent().getChildrenUnmodifiable().get(4);
+            setHomeHatch();
+            
     }
 
     public void startShopping(){
@@ -110,6 +117,8 @@ public class NavController implements Initializable {
         cartPane.setOnMouseClicked(e -> {
             cartController.setVisible(!cartController.isVisible());
         });
+        
+        
         
         navHome.setOnMouseClicked(e -> {
             startpageController.setVisible(true);
@@ -179,5 +188,17 @@ public class NavController implements Initializable {
     private void clearIds() {
         for(Node n: gridMain.getChildren())
             n.setId(null);            	     
+    }
+
+    private void setHomeHatch() {
+        imgHome.setOnMouseClicked(e -> {
+            startpageController.setVisible(true);
+            clearIds();
+            navHome.setId("navActive");
+            prodCtrl.setVisible(false);
+            bottomCtrl.setButtonsVisible(false, false);
+            forceCart(false);
+        });
+        imgHome.setStyle("-fx-cursor: hand;");
     }
 }

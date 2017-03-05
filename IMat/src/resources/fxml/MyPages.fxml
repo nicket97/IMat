@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import fxComponents.SpemTextfield?>
+<?import fxComponents.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
@@ -104,8 +104,8 @@
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <SpemTextfield fx:id="txtEmail" errorText="Felaktig e-postadress" layoutY="51.0" text="" />
-                     <SpemTextfield fx:id="txtPhone" errorText="Felaktigt nr" layoutY="99.0" text="" />
+                     <SpemTextfield fx:id="txtEmail" errorText="Felaktig e-postadress" layoutY="50.0" text="" />
+                     <SpemTextfield fx:id="txtPhone" errorText="Felaktigt nr" layoutY="100.0" text="" />
                   </children>
                </Group>
                <Label layoutY="126.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="E-postadress" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />

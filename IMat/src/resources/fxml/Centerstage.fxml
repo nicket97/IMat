@@ -7,6 +7,7 @@
    <children>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <fx:include fx:id="searchView" source="SearchView.fxml" />
             <fx:include fx:id="checkout" source="Checkout.fxml" />
             <fx:include fx:id="history" source="History.fxml" />
             <fx:include fx:id="productView" source="ProductView.fxml" />

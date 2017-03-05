@@ -32,6 +32,8 @@ public class CenterstageController implements Controllable{
     private BottomBarController bottomBarController;
     @FXML
     private CheckoutController checkoutController;
+    @FXML
+    private SearchViewController searchViewController;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,5 +64,8 @@ public class CenterstageController implements Controllable{
     }
     public CheckoutController getCheckoutController(){
         return checkoutController;
+    }
+    public SearchViewController getSearchViewController(){
+        return searchViewController;
     }
 }

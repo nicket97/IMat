@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -28,7 +29,7 @@
             <children>
                <ImageView fitHeight="240.0" fitWidth="1920.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <image>
-                     <Image url="@../img/Img/Background-Area.jpg" />
+                     <Image url="@../img/Img/BackgroundArea2.jpg" />
                   </image>
                   <viewport>
                      <Rectangle2D height="200.0" width="1920.0" />
@@ -36,11 +37,22 @@
                </ImageView>
                <fx:include fx:id="userStatus" source="UserStatusPanel.fxml" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                <fx:include fx:id="nav" source="Nav.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="20.0" />
-               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <HBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="1920.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                   <children>
                      <fx:include fx:id="search" source="SearchField.fxml" />
                   </children>
                </HBox>
+               <ImageView fx:id="imgHome" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0">
+                  <image>
+                     <Image url="@../img/Logo/iMatLogo3.png" />
+                  </image>
+                  <viewport>
+                     <Rectangle2D height="150.0" width="200.0" />
+                  </viewport>
+                  <effect>
+                     <DropShadow blurType="ONE_PASS_BOX" color="#00a8e8" offsetX="2.0" offsetY="1.0" radius="8.5175" width="15.07" />
+                  </effect>
+               </ImageView>
             </children>
          </AnchorPane>
       </top>
