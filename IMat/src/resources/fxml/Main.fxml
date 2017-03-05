@@ -59,7 +59,7 @@
                </VBox>
             </children>
          </HBox>
-            <HBox fx:id="panePages" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
+            <HBox fx:id="panePages" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0" visible="false">
                 <children>
                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
                         <children>
