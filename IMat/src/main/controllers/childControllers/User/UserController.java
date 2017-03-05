@@ -150,9 +150,15 @@ public class UserController implements Initializable{
     }
 
     private void addListerners(){
-        anchorLogin.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) login();});
-        anchorRegister.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) registerNew();});
-
+        anchorLogin.setOnKeyPressed(e -> {
+        	if(e.getCode() == KeyCode.ENTER) login();
+        	if(e.getCode() == KeyCode.ESCAPE) setLoginVisible(false);
+        });
+        anchorRegister.setOnKeyPressed(e -> {
+        	if(e.getCode() == KeyCode.ENTER) registerNew();
+        	if(e.getCode() == KeyCode.ESCAPE) setLoginVisible(false);
+        });
+        
         txtUsername.setOnValidation(x -> txtUsername.setValid(!txtUsername.getText().isEmpty()));
         txtPassword.setOnValidation(x -> txtPassword.setValid(!txtPassword.getText().isEmpty()));
 

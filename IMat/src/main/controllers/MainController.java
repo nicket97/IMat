@@ -16,6 +16,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.WindowEvent;
@@ -70,6 +71,10 @@ public class MainController implements Initializable{
     private Pane Mallar;
     @FXML
     private GridPane DONOTREMOVE;
+    @FXML
+    private HBox paneLogin;
+    @FXML
+    private HBox panePages;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -108,6 +113,15 @@ public class MainController implements Initializable{
                 userController.setLoginVisible(false);
                 userController.setRegisterVisible(false);
             }
+        });
+        mainPane.setOnMouseClicked(e -> {
+        	System.out.println(e.getTarget().toString());
+        	if(e.getTarget().equals(paneLogin)){
+        	userController.setLoginVisible(false);
+            userController.setRegisterVisible(false);}
+        	if(e.getTarget().equals(panePages)){
+        		myPagesController.close();
+        	}
         });
     }
 

@@ -176,4 +176,9 @@ public class NavController implements Initializable {
         for(Node n: gridMain.getChildren())
             n.setId(null);            	     
     }
+    public void toCheckOut(){
+    	checkoutController.setVisible(true);
+        bottomCtrl.setButtonsVisible(true, true); //Ändra om här kanske, disabla eller dölja?
+        forceCart(false);
+    }
 }
