@@ -101,8 +101,9 @@ public class ProductViewController implements Controllable{
         for(int i = 0; i < scrollValues.length; i++){
         	scrollValues[i] = ((scrollIndex[i] + offset[i])*pxEqu);
         }
-       scrollValues[0] = 0;
+       
        scrollValues[scrollValues.length-2] = 1.0;
+       scrollValues[0] = 0;
        //// Loop through each list-category, adding a listener with their index + offset divided by the whole window.
         // The interval needed is 0 - 1, problem is that 1 pane is "lost" as Vvalue = 1 is bottom of scrollbar at bottom
         // and Vvalue = 0 is the top of the scrollbar at the top.
