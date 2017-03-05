@@ -6,14 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.backend.CustomDataHandler;
 import main.backend.UserHandler;
@@ -22,7 +17,7 @@ import se.chalmers.ait.dat215.project.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.scene.layout.HBox;
+
 import javafx.scene.layout.StackPane;
 
 /**
@@ -37,6 +32,7 @@ public class UserController implements Initializable{
     @FXML private SpemTextfield txtRegEmail;
     @FXML private SpemTextfield txtRegPassword;
     @FXML private SpemTextfield txtRegPasswordSnd;
+    @FXML private AnchorPane user;
 
     //Error stuff
     @FXML private Label labelErrorEmailAndPassword;
@@ -70,10 +66,10 @@ public class UserController implements Initializable{
     }
 
     public void setLoginVisible(boolean value) {
-        anchorUser.setVisible(value);
-        anchorUser.setManaged(value);
         setParentVisible(value);
         anchorRegister.setVisible(false);
+        anchorLogin.setVisible(value);
+        myPagesController.setVisible(false);
         if(value){
             txtUsername.getTxtField().requestFocus();
             txtPassword.getTxtField().clear();
@@ -82,17 +78,25 @@ public class UserController implements Initializable{
 
 
     public void setRegisterVisible(boolean value){
-        anchorUser.setVisible(value);
-        anchorUser.setManaged(value);
         setParentVisible(value);
         anchorRegister.setVisible(value);
+        myPagesController.setVisible(false);
         if(value) {
             anchorRegister.toFront();
             txtRegEmail.getTxtField().requestFocus();
         }
     }
-    
-    
+
+    public void setMyPagesVisible(boolean value){
+        anchorRegister.setVisible(false);
+        anchorLogin.setVisible(false);
+        myPagesController.setVisible(value);
+    }
+
+    public void injectControllers(MyPagesController myPagesCtrl){
+        myPagesController = myPagesCtrl;
+    }
+
     public void setParentPane(StackPane pane){
         anchorUser = pane;
     }
@@ -119,7 +123,7 @@ public class UserController implements Initializable{
     }
 
     private void registerNew(){
-        if(txtRegEmail.getValid() && txtRegPassword.getValid() && txtRegPasswordSnd.getValid()){
+        if(txtRegEmail.isValid() && txtRegPassword.isValid() && txtRegPasswordSnd.isValid()){
             User newUser = userHandler.createNewUser(txtRegEmail.getText(), txtRegPassword.getText());
 
             userHandler.logIn(newUser);
@@ -143,30 +147,6 @@ public class UserController implements Initializable{
     @FXML
     private void btnClose_onActionPerformed(javafx.event.ActionEvent e){
         setLoginVisible(false);
-    }
-
-    private void showError(){
-        Alert error = new Alert(Alert.AlertType.ERROR);
-        error.setTitle("Fel");
-        error.setHeaderText("Ajdå!");
-        error.setContentText("Någonting gick väldigt fel. Vi ber om ursäkt för detta!");
-        error.showAndWait();
-    }
-
-    private boolean checkEmail(String email){
-        boolean valid = email.contains("@") && email.contains(".");
-        if (!valid){
-            Alert error = new Alert(Alert.AlertType.ERROR);
-            error.setTitle("Felaktig data");
-            error.setHeaderText("Ogiltig e-postadress");
-            error.showAndWait();
-
-            //Gör röd
-       //     txtRegEmail.clear();
-        //    txtRegEmail.requestFocus();
-        }
-
-        return valid;
     }
 
     private void addListerners(){

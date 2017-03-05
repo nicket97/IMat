@@ -18,8 +18,8 @@ import javafx.scene.layout.StackPane;
  */
 public class UserStatusController implements Initializable {
 
-    UserController userController;
-    UserHandler userHandler;
+    private UserController userController;
+    private UserHandler userHandler;
 
     @FXML StackPane userStatus;
     @FXML AnchorPane paneLoggedOut;
@@ -35,7 +35,7 @@ public class UserStatusController implements Initializable {
         addListeners();
     }
 
-    public void setUserController(UserController controller){
+    public void injectControllers(UserController controller){
         userController = controller;
     }
     
@@ -61,7 +61,7 @@ public class UserStatusController implements Initializable {
 
         //Lyssna efter ut- och inloggningar
         userHandler.getLoggedInProperty().addListener(x -> setLoggedIn(userHandler.isLoggedIn()));
-        imgUserSettings.setOnMouseClicked(e -> userHandler.logOut());
+        imgUserSettings.setOnMouseClicked(e -> userController.setMyPagesVisible(true));
     }
     
 }

@@ -60,7 +60,7 @@ public class SpemTextfield extends AnchorPane implements Initializable {
         return txtField.getPromptText();
     }
 
-    public boolean getValid(){
+    public boolean isValid(){
         return valid;
     }
 

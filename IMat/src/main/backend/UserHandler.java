@@ -41,6 +41,8 @@ public class UserHandler {
         return currentUser;
     }
 
+    public Customer getCustomer() {return currentCustomer;}
+
     public User createNewUser(String email, String password) {
         User newUser = new User();
         newUser.setUserName(email);

@@ -19,7 +19,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.WindowEvent;
-import main.controllers.childControllers.ProductViewController;
 import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.User.MyPagesController;
@@ -116,7 +115,7 @@ public class MainController implements Initializable{
         userController.setParentPane(anchorUser);
         myPagesController.setParentPane(anchorUser);
 
-        userStatusController.setUserController(userController);
+        userStatusController.injectControllers(userController);
 
         navController.injectControllers(centerstageController.getStartpageController(), cartController,
                 centerstageController.getProductViewController(), centerstageController.getCheckoutController(), bottomBarController, searchController);
@@ -126,7 +125,7 @@ public class MainController implements Initializable{
                         navController);
         
         cartController.injectControllers(navController);
-        
+        userController.injectControllers(myPagesController);
     }
 
 }

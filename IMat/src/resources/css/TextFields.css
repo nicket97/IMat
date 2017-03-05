@@ -19,6 +19,12 @@ and open the template in the editor.
     -fx-font-size: 1.2em;
 }
 
+.txtForm:disabled, .cbForms .label{
+    -fx-border-color: transparent;
+    -fx-text-fill: #00171F;
+    -fx-opacity: 1;
+}
+
 .txtForm:focused{
     -fx-border-color: #91bfe0;
 }

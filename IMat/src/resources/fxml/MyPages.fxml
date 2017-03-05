@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import fxComponents.SpemTextfield?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="myPages" fx:id="myPage" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="800.0" visible="true" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.MyPagesController">
+<AnchorPane id="myPages" fx:id="myPages" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="800.0" visible="true" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.MyPagesController">
    <StackPane fx:id="stackPages" layoutX="200.0">
       <children>
          <AnchorPane fx:id="anchorPwrd" minHeight="0.0" minWidth="0.0" prefHeight="440.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css">
@@ -91,35 +92,25 @@
                <Label layoutX="178.0" layoutY="83.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Namn" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="80.0" />
                <Group fx:id="usrGroup" disable="true" layoutX="240.0" layoutY="80.0">
                   <children>
-                     <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="Förnamn" stylesheets="@../css/TextFields.css">
+                     <TextField fx:id="txtFirstname" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="Förnamn" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="-Infinity" prefWidth="150.0" promptText="Efternamn" stylesheets="@../css/TextFields.css">
+                     <TextField fx:id="txtLastname" layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="-Infinity" prefWidth="150.0" promptText="Efternamn" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css">
-                        <styleClass>
-                           <String fx:value="txtForm" />
-                           <String fx:value="txtFormDetails" />
-                        </styleClass>
-                     </TextField>
-                     <TextField layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css">
-                        <styleClass>
-                           <String fx:value="txtForm" />
-                           <String fx:value="txtFormDetails" />
-                        </styleClass>
-                     </TextField>
+                     <SpemTextfield fx:id="txtEmail" errorText="Felaktig e-postadress" layoutY="51.0" text="" />
+                     <SpemTextfield fx:id="txtPhone" errorText="Felaktigt nr" layoutY="99.0" text="" />
                   </children>
                </Group>
                <Label layoutY="126.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="E-postadress" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />
                <Label layoutY="170.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Telefonnummer" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="180.0" />
-                  <Button fx:id="btnEditUser" layoutX="405.0" layoutY="190.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="205.0" />
+                  <Button fx:id="btnEditUser" layoutX="400.0" layoutY="221.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="221.0" />
                <Label layoutX="241.0" layoutY="205.0" text="Används vid leverans" />
                </children>
             </AnchorPane>

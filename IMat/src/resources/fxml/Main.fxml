@@ -50,6 +50,15 @@
    </BorderPane>
    <StackPane fx:id="anchorUser" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
       <children>
+            <HBox fx:id="panePages" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
+                <children>
+                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
+                        <children>
+                     <fx:include fx:id="myPages" source="MyPages.fxml" />
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
          <HBox fx:id="paneLogin" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" StackPane.alignment="CENTER">
             <children>
                <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="440.0">
@@ -59,15 +68,6 @@
                </VBox>
             </children>
          </HBox>
-            <HBox fx:id="panePages" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0" visible="false">
-                <children>
-                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
-                        <children>
-                     <fx:include fx:id="myPages" source="MyPages.fxml" />
-                        </children>
-                    </VBox>
-                </children>
-            </HBox>
       </children>
    </StackPane>
    <Pane fx:id="Mallar" disable="true" visible="false">
