@@ -3,8 +3,6 @@
 <?import fxComponents.SpemTextfield?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -17,21 +15,6 @@
             <Button fx:id="btnClose" mnemonicParsing="false" onAction="#btnClose_onActionPerformed" styleClass="btnClose" stylesheets="@../css/ButtonSchemes.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
             <StackPane>
                <children>
-                <AnchorPane fx:id="anchorLogin" minHeight="0.0" minWidth="0.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
-                     <children>
-                        <TextField fx:id="txtUsername" layoutX="120.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange e-postadress" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
-                        <PasswordField fx:id="txtPassword" cache="true" layoutX="120.0" layoutY="260.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="200.0" promptText="Ange lösenord" styleClass="txtForm" stylesheets="@../css/TextFields.css" />
-                        <Button fx:id="btnLogin" layoutX="139.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnLogin_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Logga In" />
-                        <Label layoutX="120.0" layoutY="180.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" text="E-post" />
-                        <Label layoutX="120.0" layoutY="240.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" text="Lösenord" />
-                        <Label alignment="CENTER" layoutX="137.0" layoutY="380.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" text="Inte redan kund? Bli kund idag!" />
-                        <Button fx:id="btnLoginRegister" layoutX="140.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnRegister_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera dig" />
-                        <Label alignment="CENTER" layoutX="126.5" layoutY="60.0" styleClass="labelHeader" stylesheets="@../css/ModalPanels.css" text="Logga In" />
-                        <Label fx:id="labelErrorEmailAndPassword" layoutX="137.0" layoutY="163.0" styleClass="labelError" stylesheets="@../css/TextFields.css" text="Fel e-postadress eller lösenord!" visible="false" />
-                        <Label fx:id="labelErrorEmail" layoutX="206.0" layoutY="232.0" prefHeight="17.0" prefWidth="147.0" styleClass="labelError" stylesheets="@../css/TextFields.css" text="E-postadress saknas!" textAlignment="RIGHT" visible="false" />
-                        <Label fx:id="labelErrorPassword" layoutX="222.0" layoutY="290.0" prefHeight="17.0" prefWidth="98.0" styleClass="labelError" stylesheets="@../css/TextFields.css" text="Lösenord saknas!" textAlignment="RIGHT" visible="false" />
-                     </children>
-                  </AnchorPane>
                   <AnchorPane fx:id="anchorRegister" prefHeight="536.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" StackPane.alignment="CENTER">
                      <children>
                         <Label alignment="CENTER" layoutX="90.0" layoutY="60.0" styleClass="labelHeader" stylesheets="@../css/ModalPanels.css" text="Registrering">
@@ -46,6 +29,19 @@
                         <SpemTextfield fx:id="txtRegEmail" errorText="Felaktig e-postadress" layoutX="120.0" layoutY="197.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange din e-postadress" text="" />
                         <SpemTextfield fx:id="txtRegPassword" errorText="Lösenord för kort" layoutX="120.0" layoutY="257.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange lösenord" text="" />
                         <SpemTextfield fx:id="txtRegPasswordSnd" errorText="Lösenorden matchar inte!" layoutX="120.0" layoutY="317.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange ditt lösenord igen" text="" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane fx:id="anchorLogin" minHeight="0.0" minWidth="0.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
+                     <children>
+                        <Button fx:id="btnLogin" layoutX="139.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnLogin_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Logga In" />
+                        <Label layoutX="120.0" layoutY="180.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" text="E-post" />
+                        <Label layoutX="120.0" layoutY="240.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" text="Lösenord" />
+                        <Label alignment="CENTER" layoutX="137.0" layoutY="380.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" text="Inte redan kund? Bli kund idag!" />
+                        <Button fx:id="btnLoginRegister" layoutX="140.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnRegister_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera dig" />
+                        <Label alignment="CENTER" layoutX="126.5" layoutY="60.0" styleClass="labelHeader" stylesheets="@../css/ModalPanels.css" text="Logga In" />
+                        <Label fx:id="labelErrorEmailAndPassword" layoutX="137.0" layoutY="163.0" styleClass="labelError" stylesheets="@../css/TextFields.css" text="Fel e-postadress eller lösenord!" visible="false" />
+                        <SpemTextfield fx:id="txtUsername" errorText="E-postadress saknas!" layoutX="117.0" layoutY="197.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange e-postadress" text="" />
+                        <SpemTextfield fx:id="txtPassword" errorText="Lösenord saknas!" layoutX="117.0" layoutY="259.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange lösenord" text="" />
                      </children>
                   </AnchorPane>
                </children>

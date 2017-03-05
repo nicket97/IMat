@@ -30,8 +30,8 @@ import javafx.scene.layout.StackPane;
  */
 public class UserController implements Initializable{
     
-    @FXML private TextField txtUsername;
-    @FXML private TextField txtPassword;
+    @FXML private SpemTextfield txtUsername;
+    @FXML private SpemTextfield txtPassword;
     @FXML private AnchorPane anchorRegister;
     @FXML private AnchorPane anchorLogin;
     @FXML private SpemTextfield txtRegEmail;
@@ -75,8 +75,8 @@ public class UserController implements Initializable{
         setParentVisible(value);
         anchorRegister.setVisible(false);
         if(value){
-            txtUsername.requestFocus();
-            txtPassword.clear();
+            txtUsername.getTxtField().requestFocus();
+            txtPassword.getTxtField().clear();
         }
     }
 
@@ -134,16 +134,10 @@ public class UserController implements Initializable{
 
         currentUser = userHandler.logIn(loginUser);
 
-        if(currentUser == null){
-            labelErrorEmailAndPassword.setVisible(true);
-            txtUsername.setId("txtError");
-            txtPassword.setId("txtError");
-        }else{
-            txtUsername.setId(null);
-            txtPassword.setId(null);
-            labelErrorEmailAndPassword.setVisible(false);
-            setLoginVisible(false);
-        }
+        txtUsername.setRed(currentUser == null);
+        txtPassword.setRed(currentUser == null);
+        labelErrorEmailAndPassword.setVisible(currentUser == null);
+        if(currentUser != null) setLoginVisible(false);
     }
 
     @FXML
@@ -179,28 +173,8 @@ public class UserController implements Initializable{
         anchorLogin.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) login();});
         anchorRegister.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) registerNew();});
 
-        txtUsername.focusedProperty().addListener(x -> {
-            if(!txtUsername.isFocused()) {
-                labelErrorEmail.setVisible(txtUsername.getText().isEmpty());
-                txtUsername.setId(txtUsername.getText().isEmpty() ? "txtError" : null);
-            }
-            else
-                txtUsername.setId(null);
-        });
-        txtPassword.focusedProperty().addListener(x -> {
-            if(!txtPassword.isFocused()) {
-                if(txtPassword.getText().isEmpty()){
-                    labelErrorPassword.setVisible(true);
-                    txtPassword.setId("txtError");
-                }else {
-                    labelErrorPassword.setVisible(false);
-                    txtPassword.setId(null);
-                }
-            }
-            else
-                txtPassword.setId(null);
-            
-        });
+        txtUsername.setOnValidation(x -> txtUsername.setValid(!txtUsername.getText().isEmpty()));
+        txtPassword.setOnValidation(x -> txtPassword.setValid(!txtPassword.getText().isEmpty()));
 
         txtRegEmail.setOnValidation(x -> {
             boolean valid = true;
