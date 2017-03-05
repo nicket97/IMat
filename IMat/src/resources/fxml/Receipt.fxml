@@ -23,7 +23,7 @@
                                     <Label prefHeight="27.0" prefWidth="1300.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Nedan finner du kvittot för din beställning. En kopia har även skickats till din e-postadress." wrapText="true" />
                                     <ListView fx:id="listReceipt" />
                                     <Label styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Vi kommer leverera dina varor den &quot;Datum och Tid&quot;" wrapText="true" />
-                                    <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="formButton" stylesheets="@../css/ButtonSchemes.css" text="Till Startsidan" />
+                                    <Button fx:id="btnDone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="formButton" stylesheets="@../css/ButtonSchemes.css" text="Till Startsidan" />
                                  </children>
                                  <styleClass>
                                     <String fx:value="background" />

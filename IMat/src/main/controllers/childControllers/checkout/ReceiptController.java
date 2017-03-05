@@ -7,7 +7,9 @@ package main.controllers.childControllers.checkout;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import main.controllers.childControllers.Controllable;
@@ -22,7 +24,10 @@ public class ReceiptController implements Controllable {
     private AnchorPane receipt;
     @FXML
     private ListView<?> listReceipt;
+    @FXML
+    private Button btnDone;
 
+    
     @Override
     public void setVisible(boolean value) {
         receipt.setVisible(value);
@@ -33,7 +38,12 @@ public class ReceiptController implements Controllable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listReceipt.getItems();
-
+        addListeners();
+    }
+    public void addListeners(){
+    	btnDone.setOnAction(e ->{
+    		// lägg till logik
+    	});
     }
     
 }

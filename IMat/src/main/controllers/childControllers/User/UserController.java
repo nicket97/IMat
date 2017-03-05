@@ -25,19 +25,30 @@ import javafx.scene.layout.StackPane;
  */
 public class UserController implements Initializable{
     
-    @FXML private SpemTextfield txtUsername;
-    @FXML private SpemTextfield txtPassword;
-    @FXML private AnchorPane anchorRegister;
-    @FXML private AnchorPane anchorLogin;
-    @FXML private SpemTextfield txtRegEmail;
-    @FXML private SpemTextfield txtRegPassword;
-    @FXML private SpemTextfield txtRegPasswordSnd;
-    @FXML private AnchorPane user;
+    @FXML 
+    private SpemTextfield txtUsername;
+    @FXML 
+    private SpemTextfield txtPassword;
+    @FXML 
+    private AnchorPane anchorRegister;
+    @FXML 
+    private AnchorPane anchorLogin;
+    @FXML 
+    private SpemTextfield txtRegEmail;
+    @FXML 
+    private SpemTextfield txtRegPassword;
+    @FXML 
+    private SpemTextfield txtRegPasswordSnd;
+    @FXML 
+    private AnchorPane user;
 
     //Error stuff
-    @FXML private Label labelErrorEmailAndPassword;
-    @FXML private Label labelErrorEmail;
-    @FXML private Label labelErrorPassword;
+    @FXML 
+    private Label labelErrorEmailAndPassword;
+    @FXML 
+    private Label labelErrorEmail;
+    @FXML 
+    private Label labelErrorPassword;
 
 
     private StackPane anchorUser;
@@ -184,5 +195,8 @@ public class UserController implements Initializable{
             if(!txtRegPasswordSnd.getText().equals(txtRegPassword.getText())) txtRegPasswordSnd.setValid(false);
             else txtRegPasswordSnd.setValid(true);
         });
+    }
+    public UserHandler getUserHandler(){
+    	return userHandler;
     }
 }

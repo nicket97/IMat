@@ -24,10 +24,13 @@ import main.controllers.childControllers.checkout.CheckoutController;
  * @author Felix
  */
 public class NavController implements Initializable {
-    @FXML GridPane gridMain;
+    @FXML 
+    GridPane gridMain;
 
-    @FXML private StackPane cartPane;
-    @FXML private Label navHome;
+    @FXML 
+    private StackPane cartPane;
+    @FXML 
+    private Label navHome;
 
     private CartController cartController;
     private StartpageController startpageController;

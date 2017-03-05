@@ -119,7 +119,10 @@ public class StartpageController implements Controllable{
     private void setLoginStatus(boolean value){
        if(loginStatus != value){
            loginStatus = value;
+           txtWelcome.setText("Välkommen " + usrCtrl.getUserHandler().getCustomer().getFirstName()
+        		   + " " + usrCtrl.getUserHandler().getCustomer().getLastName());
            updateFrameData();
+           
        }
     }
     

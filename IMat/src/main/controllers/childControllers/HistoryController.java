@@ -19,13 +19,20 @@ import java.util.ResourceBundle;
  */
 public class HistoryController implements Initializable {
 
-    @FXML Label labelDate;
-    @FXML Label labelTotal;
-    @FXML Button btnAddAll;
-    @FXML ListView<String> listDates;
-    @FXML ListView<ShoppingItem> listItems;
-    @FXML AnchorPane history;
-    @FXML AnchorPane anchorHistoryDetails;
+    @FXML 
+    Label labelDate;
+    @FXML 
+    Label labelTotal;
+    @FXML 
+    Button btnAddAll;
+    @FXML 
+    ListView<String> listDates;
+    @FXML 
+    ListView<ShoppingItem> listItems;
+    @FXML 
+    AnchorPane history;
+    @FXML 
+    AnchorPane anchorHistoryDetails;
 
     private CustomDataHandler dataHandler;
     private SimpleDateFormat dateFormat;

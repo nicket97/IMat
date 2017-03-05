@@ -30,9 +30,12 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  */
 public class CartController implements Initializable{
 
-    @FXML ListView listViewCartItems;
-    @FXML Label labelSum;
-    @FXML Button btnCheckout;
+    @FXML 
+    ListView listViewCartItems;
+    @FXML 
+    Label labelSum;
+    @FXML 
+    Button btnCheckout;
     
     @FXML private Pane cart;
 
