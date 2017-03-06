@@ -2,7 +2,6 @@
 
 <?import fxComponents.SpemTextfield?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -16,14 +15,14 @@
                            <children>
                               <AnchorPane prefWidth="400.0" styleClass="formFrame" stylesheets="@../css/MainFrameWork.css">
                                  <children>
-                                    <TextField fx:id="txtFName" layoutY="310.0" prefWidth="200.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="40.0" />
                                     <Label fx:id="labelFName" layoutX="158.0" layoutY="337.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Förnamn *" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="40.0" />
-                                    <TextField fx:id="txtLName" layoutY="364.0" prefWidth="200.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="90.0" />
                                     <Label fx:id="labelLName" layoutX="153.0" layoutY="391.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Efternamn *" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="90.0" />
                                     <Label fx:id="labelMail" layoutX="143.0" layoutY="445.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="E-postadress *" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="140.0" />
-                                    <TextField fx:id="txtPhone" layoutY="472.0" prefWidth="200.0" styleClass="txtForm" stylesheets="@../css/TextFields.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="190.0" />
                                     <Label fx:id="labelPhone" layoutX="164.0" layoutY="499.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Telefon *" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="190.0" />
+                        <SpemTextfield fx:id="txtFName" errorText="Förnamn saknas!" layoutX="151.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="" />
+                        <SpemTextfield fx:id="txtLName" errorText="Efternamn saknas" layoutX="151.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="" />
                         <SpemTextfield fx:id="txtMail" errorText="Felaktig e-postadress" layoutX="151.0" layoutY="140.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="" />
+                        <SpemTextfield fx:id="txtPhone" errorText="Ogiltigt telefonnummer" layoutX="151.0" layoutY="190.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="" />
                                  </children>
                               </AnchorPane>
                            </children>
