@@ -82,6 +82,10 @@ public class SpemTextfield extends AnchorPane implements Initializable {
             txtField.setId("txtError");
     }
 
+    public void clearText(){
+        txtField.clear();
+    }
+
     public TextField getTxtField(){
         return txtField;
     }

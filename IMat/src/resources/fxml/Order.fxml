@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="order" minHeight="0.0" minWidth="0.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.OrderController">
+<AnchorPane fx:id="order" minHeight="0.0" minWidth="0.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.checkout.OrderController">
                <children>
                   <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Granska Din Beställning" />
                   <VBox layoutX="-1.0" prefHeight="760.0" prefWidth="1280.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="80.0">

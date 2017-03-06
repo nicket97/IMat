@@ -23,6 +23,7 @@ and open the template in the editor.
     -fx-border-color: transparent;
     -fx-text-fill: #00171F;
     -fx-opacity: 1;
+    -fx-prompt-text-fill: #00171F60;
 }
 
 .txtForm:focused{
@@ -32,7 +33,7 @@ and open the template in the editor.
     -fx-border-color:transparent;
     -fx-background-color: transparent;
     -fx-text-fill: #00171F;
-    -fx-prompt-text-fill: #00171F;
+    -fx-prompt-text-fill: #00171F60;
     -fx-opacity: 1.0;
 }
 .labelError{

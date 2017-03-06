@@ -8,7 +8,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -24,29 +23,15 @@
                <Label styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Aktuellt lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />
                <Label styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Nytt lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="180.0" />
                <Label styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Repetera lösenord" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="230.0" />
-               <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="130.0">
-                  <styleClass>
-                     <String fx:value="txtForm" />
-                     <String fx:value="txtFormDetails" />
-                  </styleClass>
-               </PasswordField>
-               <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="180.0">
-                  <styleClass>
-                     <String fx:value="txtForm" />
-                     <String fx:value="txtFormDetails" />
-                  </styleClass>
-               </PasswordField>
-               <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="230.0">
-                  <styleClass>
-                     <String fx:value="txtForm" />
-                     <String fx:value="txtFormDetails" />
-                  </styleClass>
-               </PasswordField>
-               <Label layoutX="240.0" layoutY="205.0" text="Ange ett lösenord med minst 6 tecken" AnchorPane.leftAnchor="239.0" />
-               <Label layoutX="243.0" layoutY="255.0" text="Skriv ditt nya lösenord igen" AnchorPane.leftAnchor="239.0" AnchorPane.topAnchor="255.0" />
+               <Label fx:id="labelPassPrompt" layoutX="240.0" layoutY="205.0" text="Ange ett lösenord med minst 6 tecken" AnchorPane.leftAnchor="239.0" />
+               <Label fx:id="labelPassSndPrompt" layoutX="243.0" layoutY="255.0" text="Skriv ditt nya lösenord igen" AnchorPane.leftAnchor="239.0" AnchorPane.topAnchor="255.0" />
                <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Sekretess" />
-               <Label layoutX="178.0" layoutY="83.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="80.0" />
-               <Button fx:id="btnUpdatePw" layoutX="235.0" layoutY="301.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Byt lösenord" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="315.0" />
+               <Label fx:id="labelErrorPw" layoutX="239.0" layoutY="81.0" prefHeight="20.0" prefWidth="150.0" styleClass="labelError" stylesheets="@../css/TextFields.css" text="Jag vill ha chokladbollar" visible="false" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="81.0" />
+               <Button fx:id="btnUpdatePw" disable="true" layoutX="235.0" layoutY="301.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Byt lösenord" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="315.0" />
+               <SpemTextfield fx:id="txtPasswordOld" errorText="Fel lösenord!" layoutX="240.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Ange lösenord" text="" />
+               <SpemTextfield fx:id="txtPassword" errorText="För kort lösenord!" layoutX="239.0" layoutY="180.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Ange nytt lösenord" text="" />
+               <SpemTextfield fx:id="txtPasswordSnd" errorText="Lösenorden matchar inte!" layoutX="240.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Nytt lösenord igen" text="" />
+               <Label fx:id="labelPwSuccess" layoutX="191.0" layoutY="364.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Lösenord uppdaterat!" visible="false" />
             </children>
          </AnchorPane>
          <AnchorPane fx:id="anchorPaymentDetails" minHeight="0.0" minWidth="0.0" prefHeight="440.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css">
@@ -59,24 +44,19 @@
                <Label layoutY="210.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="Önskat Betalsätt" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="320.0" />
                <Group fx:id="delGroup" disable="true" layoutX="240.0" layoutY="130.0">
                   <children>
-                     <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css">
+                     <TextField fx:id="txtAddress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="Ange adress" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutX="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="75.0" stylesheets="@../css/TextFields.css">
+                     <TextField fx:id="txtPostaddress" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="Ange ort" stylesheets="@../css/TextFields.css">
                         <styleClass>
                            <String fx:value="txtForm" />
                            <String fx:value="txtFormDetails" />
                         </styleClass>
                      </TextField>
-                     <TextField layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" stylesheets="@../css/TextFields.css">
-                        <styleClass>
-                           <String fx:value="txtForm" />
-                           <String fx:value="txtFormDetails" />
-                        </styleClass>
-                     </TextField>
+                     <SpemTextfield fx:id="txtPostcode" errorText="Felaktigt postnr" layoutX="158.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="109.0" promtText="6 siffror" text="" />
                   </children>
                </Group>
                <Button fx:id="btnEditDelivery" layoutX="405.0" layoutY="202.5" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Redigera" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="205.0" />
@@ -106,6 +86,8 @@
                      </TextField>
                      <SpemTextfield fx:id="txtEmail" errorText="Felaktig e-postadress" layoutY="50.0" text="" />
                      <SpemTextfield fx:id="txtPhone" errorText="Felaktigt nr" layoutY="100.0" text="" />
+                     <SpemTextfield fx:id="txtEmail" errorText="Felaktig e-postadress" layoutY="51.0" text="" />
+                     <SpemTextfield fx:id="txtPhone" errorText="Felaktigt nr" layoutY="99.0" promtText="Ange telefonnr" text="" />
                   </children>
                </Group>
                <Label layoutY="126.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="E-postadress" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />

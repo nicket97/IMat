@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import main.controllers.childControllers.User.MyPagesController;
+import main.controllers.childControllers.checkout.CheckoutController;
 import main.controllers.childControllers.navigation.BottomBarController;
 /**
  *

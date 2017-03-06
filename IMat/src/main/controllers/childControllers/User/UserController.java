@@ -25,19 +25,30 @@ import javafx.scene.layout.StackPane;
  */
 public class UserController implements Initializable{
     
-    @FXML private SpemTextfield txtUsername;
-    @FXML private SpemTextfield txtPassword;
-    @FXML private AnchorPane anchorRegister;
-    @FXML private AnchorPane anchorLogin;
-    @FXML private SpemTextfield txtRegEmail;
-    @FXML private SpemTextfield txtRegPassword;
-    @FXML private SpemTextfield txtRegPasswordSnd;
-    @FXML private AnchorPane user;
+    @FXML 
+    private SpemTextfield txtUsername;
+    @FXML 
+    private SpemTextfield txtPassword;
+    @FXML 
+    private AnchorPane anchorRegister;
+    @FXML 
+    private AnchorPane anchorLogin;
+    @FXML 
+    private SpemTextfield txtRegEmail;
+    @FXML 
+    private SpemTextfield txtRegPassword;
+    @FXML 
+    private SpemTextfield txtRegPasswordSnd;
+    @FXML 
+    private AnchorPane user;
 
     //Error stuff
-    @FXML private Label labelErrorEmailAndPassword;
-    @FXML private Label labelErrorEmail;
-    @FXML private Label labelErrorPassword;
+    @FXML 
+    private Label labelErrorEmailAndPassword;
+    @FXML 
+    private Label labelErrorEmail;
+    @FXML 
+    private Label labelErrorPassword;
 
 
     private StackPane anchorUser;
@@ -150,9 +161,15 @@ public class UserController implements Initializable{
     }
 
     private void addListerners(){
-        anchorLogin.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) login();});
-        anchorRegister.setOnKeyPressed(e -> {if(e.getCode() == KeyCode.ENTER) registerNew();});
-
+        anchorLogin.setOnKeyPressed(e -> {
+        	if(e.getCode() == KeyCode.ENTER) login();
+        	if(e.getCode() == KeyCode.ESCAPE) setLoginVisible(false);
+        });
+        anchorRegister.setOnKeyPressed(e -> {
+        	if(e.getCode() == KeyCode.ENTER) registerNew();
+        	if(e.getCode() == KeyCode.ESCAPE) setLoginVisible(false);
+        });
+        
         txtUsername.setOnValidation(x -> txtUsername.setValid(!txtUsername.getText().isEmpty()));
         txtPassword.setOnValidation(x -> txtPassword.setValid(!txtPassword.getText().isEmpty()));
 
@@ -178,5 +195,8 @@ public class UserController implements Initializable{
             if(!txtRegPasswordSnd.getText().equals(txtRegPassword.getText())) txtRegPasswordSnd.setValid(false);
             else txtRegPasswordSnd.setValid(true);
         });
+    }
+    public UserHandler getUserHandler(){
+    	return userHandler;
     }
 }

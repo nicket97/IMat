@@ -8,31 +8,30 @@ package main.controllers.childControllers.navigation;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import main.backend.CustomDataHandler;
-import main.controllers.MainController;
 import main.controllers.childControllers.*;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.ProductCategory;
+import main.controllers.childControllers.checkout.CheckoutController;
 
 /**
  *
  * @author Felix
  */
 public class NavController implements Initializable {
-    @FXML GridPane gridMain;
+    @FXML 
+    GridPane gridMain;
 
-    @FXML private StackPane cartPane;
-    @FXML private Label navHome;
+    @FXML 
+    private StackPane cartPane;
+    @FXML 
+    private Label navHome;
 
     private CartController cartController;
     private StartpageController startpageController;
@@ -84,8 +83,10 @@ public class NavController implements Initializable {
             this.searchCtrl = searchViewController;
             bottomCtrl = bottomBarController;
             searchController.setSearchCtrl(searchCtrl);
-            bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; displayCategory(displayedIndex);});
-            bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; displayCategory(displayedIndex);});
+            bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; displayCategory(displayedIndex); clearIds(); 
+                gridMain.getChildren().get(displayedIndex).setId("navActive");});
+            bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; displayCategory(displayedIndex);clearIds(); 
+                gridMain.getChildren().get(displayedIndex).setId("navActive");});
             imgHome = (ImageView) nav.getParent().getChildrenUnmodifiable().get(4);
             setHomeHatch();
             
@@ -98,6 +99,8 @@ public class NavController implements Initializable {
         cartController.setVisible(true);
         cartPane.setDisable(true);
         displayedIndex = 2;
+        clearIds();
+        gridMain.getChildren().get(displayedIndex).setId("navActive");
     }
     
     private void addListeners(){
@@ -146,7 +149,7 @@ public class NavController implements Initializable {
                 break;
             case 3:
                 prodCtrl.displayProducts(ProductCategories.getBrd(), "Bröd");
-                bottomCtrl.setButtonsVisible(true, true);
+                bottomCtrl.setButtonsVisible(true, true);          
                 forceCart(true);
                 break;
             case 4:
@@ -171,7 +174,7 @@ public class NavController implements Initializable {
                 break;
             case 8:
                 checkoutController.setVisible(true);
-                bottomCtrl.setButtonsVisible(true, true); //Ändra om här kanske, disabla eller dölja?
+                bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
                 forceCart(false);
                 break;
         }
@@ -189,7 +192,6 @@ public class NavController implements Initializable {
         for(Node n: gridMain.getChildren())
             n.setId(null);            	     
     }
-
     private void setHomeHatch() {
         imgHome.setOnMouseClicked(e -> {
             startpageController.setVisible(true);
@@ -200,5 +202,10 @@ public class NavController implements Initializable {
             forceCart(false);
         });
         imgHome.setStyle("-fx-cursor: hand;");
+    }    
+    public void toCheckOut(){
+    	checkoutController.setVisible(true);
+        bottomCtrl.setButtonsVisible(true, true); //Ändra om här kanske, disabla eller dölja?
+        forceCart(false);
     }
 }

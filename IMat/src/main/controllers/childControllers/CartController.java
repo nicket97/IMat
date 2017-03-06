@@ -14,6 +14,7 @@ import fxComponents.ListViewCartItem;
 import java.text.DecimalFormat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
@@ -29,9 +30,13 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  */
 public class CartController implements Initializable{
 
-    @FXML ListView listViewCartItems;
-    @FXML Label labelSum;
-
+    @FXML 
+    ListView listViewCartItems;
+    @FXML 
+    Label labelSum;
+    @FXML 
+    Button btnCheckout;
+    
     @FXML private Pane cart;
 
     private NavController nav;
@@ -62,6 +67,9 @@ public class CartController implements Initializable{
         shoppingCart.addShoppingCartListener(x -> {updateChart(x.getShoppingItem(), x.isAddEvent());
         });
         listViewCartItems.setCellFactory(x -> new ListViewCartItem(shoppingCart, this));
+        btnCheckout.setOnAction(e -> {
+        	nav.toCheckOut();
+        });
     }
 
     private void updateChart(ShoppingItem item, boolean add){
@@ -105,5 +113,6 @@ public class CartController implements Initializable{
     public void injectControllers(NavController navController) {
         nav = navController;
     }
+    
     
 }

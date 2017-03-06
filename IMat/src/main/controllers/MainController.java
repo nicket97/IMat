@@ -110,6 +110,15 @@ public class MainController implements Initializable{
                 userController.setRegisterVisible(false);
             }
         });
+        mainPane.setOnMouseClicked(e -> {
+        	System.out.println(e.getTarget().toString());
+        	if(e.getTarget().equals(paneLogin)){
+        	userController.setLoginVisible(false);
+            userController.setRegisterVisible(false);}
+        	if(e.getTarget().equals(panePages)){
+        		myPagesController.close();
+        	}
+        });
     }
 
     private void injectControllers(){
