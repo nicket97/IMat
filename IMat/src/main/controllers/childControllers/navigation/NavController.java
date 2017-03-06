@@ -177,6 +177,7 @@ public class NavController implements Initializable {
                 checkoutController.setVisible(true);
                 bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
                 forceCart(false);
+                cartController.setVisible(false);
                 break;
         }
     
@@ -185,7 +186,7 @@ public class NavController implements Initializable {
     }
     private void forceCart(boolean value){
         setCartBtn(value);
-        cartController.setVisible(value);
+        cartController.setVisibleOnAdd(value);
         cartPane.setDisable(value);
     }
 
@@ -208,6 +209,7 @@ public class NavController implements Initializable {
     	checkoutController.setVisible(true);
         bottomCtrl.setButtonsVisible(true, true); //Ändra om här kanske, disabla eller dölja?
         forceCart(false);
+        cartController.setVisibleOnAdd(false);
     }
 
 }
