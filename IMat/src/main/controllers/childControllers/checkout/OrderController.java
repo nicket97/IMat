@@ -68,6 +68,9 @@ public class OrderController implements Controllable {
         dataHandler = CustomDataHandler.getInstance();
         ordinaryTitle = labelGranska.getText();
         shoppingCart = CustomDataHandler.getInstance().getShoppingCart();
+        orderList.setMouseTransparent( true );
+        orderList.setFocusTraversable( false );
+
         addListeners();
     }
     

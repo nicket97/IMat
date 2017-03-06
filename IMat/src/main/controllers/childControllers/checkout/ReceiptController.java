@@ -50,6 +50,7 @@ public class ReceiptController implements Initializable {
     public void displayReceipt(Order order, LocalDate date, String time){
     	this.order = order;
     	listReceipt.getItems().addAll(order.getItems());
+    	
         DateTimeFormatter dFormat = DateTimeFormatter.ofPattern("dd MMMM");
 
         labelOrderTime.setText("Vi kommer att leverera dina varor den " + date.format(dFormat) + " klockan " + time + ".");
