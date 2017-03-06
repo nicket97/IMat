@@ -4,14 +4,20 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="order" minHeight="0.0" minWidth="0.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.checkout.OrderController">
                <children>
                   <Label id="twoPanelHeader" fx:id="labelGranska" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Granska din beställning" />
-                  <VBox layoutX="-1.0" prefHeight="760.0" prefWidth="1280.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="80.0">
+                  <VBox layoutX="-1.0" prefHeight="688.0" prefWidth="1280.0" AnchorPane.bottomAnchor="152.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="80.0">
                      <children>
-                        <ListView fx:id="orderList" prefHeight="200.0" prefWidth="200.0" styleClass="listBox" stylesheets="@../css/listViewItems.css" />
+                        <ListView fx:id="orderList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="listBox" />
                      </children>
                   </VBox>
+      <Label fx:id="labelSum" alignment="CENTER" layoutX="978.0" layoutY="358.0" prefHeight="840.0" prefWidth="253.0" styleClass="txt" stylesheets="@../css/Cart.css" text="Totalsumma" AnchorPane.bottomAnchor="-278.0" AnchorPane.topAnchor="358.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children>
 </AnchorPane>

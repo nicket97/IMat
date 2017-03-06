@@ -26,7 +26,8 @@
                        <Button fx:id="btnClose" mnemonicParsing="false" styleClass="btnClose" stylesheets="@../css/ModalPanels.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <TextFlow layoutX="25.0" layoutY="97.0" prefHeight="325.0" prefWidth="535.0">
                       <children>
-                          <Text fx:id="textHelp" text="Heyoo"/>
+                          <Label fx:id="labelKontakt" text="Kontakt: "/>
+                          <Text fx:id="textHelp" text="Har du några synpunkter eller frågor hjälper vi dig gärna. Kontakta oss på mejladressen imatsupport@dat216.se"/>
                       </children>
                   </TextFlow>
                        </children>
