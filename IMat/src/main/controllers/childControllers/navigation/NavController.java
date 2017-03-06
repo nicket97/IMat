@@ -32,7 +32,8 @@ public class NavController implements Initializable {
     private StackPane cartPane;
     @FXML 
     private Label navHome;
-
+    
+    private CenterstageController centerstageController;
     private CartController cartController;
     private StartpageController startpageController;
     private ProductViewController prodCtrl;
@@ -69,26 +70,23 @@ public class NavController implements Initializable {
         addListeners();
     }
 
-    public void injectControllers(StartpageController startpageController,
-        CartController cartController, 
-        ProductViewController productViewController,
-        CheckoutController checkoutController,
-        BottomBarController bottomBarController,
-        SearchController searchController,
-        SearchViewController searchViewController){
+    public void injectControllers(CenterstageController centerstageController, 
+        CartController cartController, SearchController searchController, BottomBarController btmBarCtrl){
             this.cartController = cartController;
-            this.startpageController = startpageController;
-            this.prodCtrl = productViewController;
-            this.checkoutController = checkoutController;
-            this.searchCtrl = searchViewController;
-            bottomCtrl = bottomBarController;
-            searchController.setSearchCtrl(searchCtrl);
+            this.startpageController = centerstageController.getStartpageController();
+            this.prodCtrl = centerstageController.getProductViewController();
+            this.checkoutController = centerstageController.getCheckoutController();
+            this.searchCtrl = centerstageController.getSearchViewController();
+            bottomCtrl = btmBarCtrl;
+            searchController.setControllers(searchCtrl, bottomCtrl);
+            
             bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; displayCategory(displayedIndex); clearIds(); 
-                gridMain.getChildren().get(displayedIndex).setId("navActive");});
+                gridMain.getChildren().get(displayedIndex).setId("navActive"); forceCart(true);});
             bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; displayCategory(displayedIndex);clearIds(); 
-                gridMain.getChildren().get(displayedIndex).setId("navActive");});
+                gridMain.getChildren().get(displayedIndex).setId("navActive"); forceCart(true);});
             imgHome = (ImageView) nav.getParent().getChildrenUnmodifiable().get(4);
             setHomeHatch();
+            searchCtrl.getBackButton().setOnAction(e -> {searchCtrl.moveBack(); bottomCtrl.setButtonsVisible(searchCtrl.getReturnValues()[0], searchCtrl.getReturnValues()[1]);});
             
     }
 
@@ -101,6 +99,7 @@ public class NavController implements Initializable {
         displayedIndex = 2;
         clearIds();
         gridMain.getChildren().get(displayedIndex).setId("navActive");
+        forceCart(true);
     }
     
     private void addListeners(){
@@ -210,4 +209,5 @@ public class NavController implements Initializable {
         bottomCtrl.setButtonsVisible(true, true); //Ändra om här kanske, disabla eller dölja?
         forceCart(false);
     }
+
 }

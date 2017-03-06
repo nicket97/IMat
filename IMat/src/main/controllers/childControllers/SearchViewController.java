@@ -42,6 +42,9 @@ public class SearchViewController implements Controllable{
     @FXML
     private Label labelResult;
     
+
+    private boolean[] btnNavRtrnValues = new boolean[2];
+    
     public void displayProducts (List<DataPair<ProductCategory, List<Product>>> sortedResults, String label) {
         setVisible(true);
         if (productViewFlowPane != null) {
@@ -76,6 +79,13 @@ public class SearchViewController implements Controllable{
             listBox.getChildren().get(k).setOnMouseClicked(e -> scrollPane.setVvalue((scrollIndex[k] + offset[k])/scrollIndex[scrollIndex.length-1]));
         }
         
+    }
+    public void setReturnValues(boolean prev, boolean next){
+        btnNavRtrnValues[0] = prev;
+        btnNavRtrnValues[1] = next;
+    }
+    public boolean[] getReturnValues(){
+        return btnNavRtrnValues;
     }
 /*    public void displayProducts (ProductCategory[] section, String label) {
         setVisible(true);
@@ -145,10 +155,13 @@ public class SearchViewController implements Controllable{
         return category;
     }
 
-    private void moveBack() {
+    public void moveBack() {
         searchView.setVisible(false);
         searchView.toBack();
     }
     
+    public Button getBackButton(){
+        return btnBack;
+    }
     
 }

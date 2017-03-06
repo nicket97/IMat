@@ -31,7 +31,6 @@ public class SearchController implements Initializable {
     
     private SearchViewController searchCtrl;
     private BottomBarController bottomCtrl;
-
     CustomDataHandler dataHandler;
 
     @Override
@@ -78,7 +77,9 @@ public class SearchController implements Initializable {
         dataHandler.getDisplayedProducts().addAll(result);
         //Optional printing
         searchCtrl.displayProducts(sortedResults, txtSearch.getText());
-        //bottomCtrl.setButtonsVisible(false, false);
+        //Fulhack, jag vet #ThuGLife4Sho
+        searchCtrl.setReturnValues(bottomCtrl.getBtnPrev().isVisible(), bottomCtrl.getBtnNext().isVisible());
+        bottomCtrl.setButtonsVisible(false, false);
         //printSearchResult(result);
     }
     
@@ -132,8 +133,9 @@ public class SearchController implements Initializable {
 
         System.out.println("---------------------------------------------");
     }
-    public void setSearchCtrl(SearchViewController p){
-    	searchCtrl = p;
+    public void setControllers(SearchViewController sv, BottomBarController bb){
+        searchCtrl = sv;
+        bottomCtrl = bb;
     }
     
    

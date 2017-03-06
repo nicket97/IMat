@@ -68,4 +68,8 @@ public class CenterstageController implements Controllable{
     public SearchViewController getSearchViewController(){
         return searchViewController;
     }
+    
+    public AnchorPane getCenterstage(){
+        return centerstage;
+    }
 }
