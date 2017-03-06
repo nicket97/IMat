@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -17,18 +18,18 @@ import java.util.ResourceBundle;
 /**
  * Created by Pontus on 2017-03-05.
  */
-public class SpemTextfield extends AnchorPane implements Initializable {
-    @FXML protected TextField txtField;
+public class SpemPasswordfield extends AnchorPane implements Initializable {
+    @FXML protected PasswordField txtField;
     @FXML protected Label labelError;
 
     private EventHandler<? super ActionEvent> validationHandler;
     private List<EventHandler<? super ActionEvent>> validationHandlers;
     private boolean valid = true;
 
-    public SpemTextfield() throws Exception{
+    public SpemPasswordfield() throws Exception{
         super();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpemTextfield.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpemPasswordfield.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

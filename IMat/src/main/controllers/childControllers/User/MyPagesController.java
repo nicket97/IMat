@@ -1,5 +1,6 @@
 package main.controllers.childControllers.User;
 
+import fxComponents.SpemPasswordfield;
 import fxComponents.SpemTextfield;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -84,11 +85,11 @@ public class MyPagesController implements Controllable {
     @FXML
     private TextField txtPostaddress;
     @FXML
-    private SpemTextfield txtPasswordOld;
+    private SpemPasswordfield txtPasswordOld;
     @FXML
-    private SpemTextfield txtPassword;
+    private SpemPasswordfield txtPassword;
     @FXML
-    private SpemTextfield txtPasswordSnd;
+    private SpemPasswordfield txtPasswordSnd;
     @FXML
     private Label labelPwSuccess;
     @FXML

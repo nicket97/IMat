@@ -2,7 +2,10 @@ package main.controllers.childControllers;
 
 import fxComponents.ProductViewNode;
 import fxComponents.ProductViewSubCategory;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.layout.FlowPane;
 import main.controllers.childControllers.navigation.BottomBarController;
 import se.chalmers.ait.dat215.project.Product;
@@ -37,6 +40,8 @@ public class ProductViewController implements Controllable{
     private ScrollPane scrollPane;
     
     public void displayProducts (List<Product> productList, String label) {
+        productView.getScene().setCursor(Cursor.WAIT);
+
         setVisible(true);
         List<ProductCategory> usedCat = new ArrayList<>();
         if (productViewFlowPane != null) {
@@ -58,9 +63,13 @@ public class ProductViewController implements Controllable{
             }
 
         }
+
+        productView.getScene().setCursor(Cursor.DEFAULT);
         
     }
     public void displayProducts (ProductCategory[] section, String label) {
+        Platform.runLater(() -> productView.getScene().setCursor(Cursor.WAIT));
+
         setVisible(true);
 
         if (productViewFlowPane != null) {
@@ -114,7 +123,8 @@ public class ProductViewController implements Controllable{
             
             listBox.getChildren().get(i).setOnMouseClicked(e -> scrollPane.setVvalue(scrollValues[i]));
         }
-        
+
+        Platform.runLater(() -> productView.getScene().setCursor(Cursor.DEFAULT));
     }
 
     @Override

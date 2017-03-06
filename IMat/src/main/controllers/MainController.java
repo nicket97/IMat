@@ -10,6 +10,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
@@ -101,6 +102,11 @@ public class MainController implements Initializable{
         //Automatic log out
         dataHandler.getUserHandler().logOut();
         dataHandler.shutDown();
+    }
+
+    //USE WITH CAUTION
+    public void requestStartPage(){
+        navController.displayStartPage();
     }
 
     private void addListeners(){

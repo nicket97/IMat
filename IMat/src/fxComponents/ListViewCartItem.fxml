@@ -17,12 +17,12 @@
                <tooltip>
                   <Tooltip text="Ta bort" />
                </tooltip></Label>
-            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="65.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="000.00 kr">
+            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="67.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="000.00 kr">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="labelUnit" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="35.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="förp">
+            <Label fx:id="labelUnit" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="31.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="förp">
                <font>
                   <Font size="14.0" />
                </font>
@@ -41,7 +41,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Label fx:id="labelTitle" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="85.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk" textAlignment="RIGHT" wrapText="true">
+            <Label fx:id="labelTitle" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="100.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk" textAlignment="RIGHT" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>

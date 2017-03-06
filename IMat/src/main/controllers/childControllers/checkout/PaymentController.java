@@ -14,7 +14,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.backend.CustomDataHandler;
 import main.controllers.childControllers.Controllable;
+import se.chalmers.ait.dat215.project.Order;
 
 /**
  *
@@ -51,16 +53,30 @@ public class PaymentController implements Controllable {
     @FXML
     private Button btnPay;
 
+    private Order order = null;
+    private CustomDataHandler dataHandler;
+
     @Override
     public void setVisible(boolean value) {
         payment.setVisible(value);
         payment.setManaged(value);
         payment.toFront();
+
+        //Just for testing, delete this when you want
+        btnPay.setDisable(false);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       
+       dataHandler = CustomDataHandler.getInstance();
+        btnPay.setOnAction(x -> {
+            order = dataHandler.placeOrder(true);
+            btnPay.setDisable(true);
+        });
+    }
+
+    public Order getOrder(){
+        return order;
     }
     
 }

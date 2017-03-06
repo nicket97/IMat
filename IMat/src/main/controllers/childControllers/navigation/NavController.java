@@ -123,14 +123,7 @@ public class NavController implements Initializable {
         
         
         
-        navHome.setOnMouseClicked(e -> {
-            startpageController.setVisible(true);
-            clearIds();
-            navHome.setId("navActive");
-            prodCtrl.setVisible(false);
-            bottomCtrl.setButtonsVisible(false, false);
-            forceCart(false);
-        });
+        navHome.setOnMouseClicked(e -> displayStartPage());
     }
     
     public void setCartBtn(boolean value){
@@ -138,6 +131,15 @@ public class NavController implements Initializable {
                 cartPane.setId("navCartActive");
             else
                 cartPane.setId("navCart");
+    }
+
+    public void displayStartPage(){
+        startpageController.setVisible(true);
+        clearIds();
+        navHome.setId("navActive");
+        prodCtrl.setVisible(false);
+        bottomCtrl.setButtonsVisible(false, false);
+        forceCart(false);
     }
 
     private void displayCategory(int index){

@@ -23,6 +23,8 @@ public class Main extends Application {
 
     public static final int NUMBER_OF_CATEGORIES = 7;
 
+    private static MainController mCtrl;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
     	System.out.println(System.getProperty("user.home"));
@@ -37,6 +39,8 @@ public class Main extends Application {
         primaryStage.setMinWidth(1280);
         primaryStage.setMaximized(true);
 
+        mCtrl = loader.getController();
+
         //Add listener for closing the stage
         primaryStage.setOnCloseRequest(windowEvent -> loader.<MainController>getController().shutdown(windowEvent));
         primaryStage.show();
@@ -48,5 +52,10 @@ public class Main extends Application {
     public static void main(String[] args) {
     	
         launch(args);
+    }
+
+    public static void requestStartpage(){
+        //The most terrible way of solving problems ever :D
+        mCtrl.requestStartPage();
     }
 }

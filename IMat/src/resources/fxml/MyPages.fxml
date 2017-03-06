@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import fxComponents.SpemPasswordfield?>
 <AnchorPane id="myPages" fx:id="myPages" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="800.0" visible="true" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.MyPagesController">
    <StackPane fx:id="stackPages" layoutX="200.0">
       <children>
@@ -28,9 +29,9 @@
                <Label id="twoPanelHeader" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Sekretess" />
                <Label fx:id="labelErrorPw" layoutX="239.0" layoutY="81.0" prefHeight="20.0" prefWidth="150.0" styleClass="labelError" stylesheets="@../css/TextFields.css" text="Jag vill ha chokladbollar" visible="false" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="81.0" />
                <Button fx:id="btnUpdatePw" disable="true" layoutX="235.0" layoutY="301.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Byt lösenord" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="315.0" />
-               <SpemTextfield fx:id="txtPasswordOld" errorText="Fel lösenord!" layoutX="240.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Ange lösenord" text="" />
-               <SpemTextfield fx:id="txtPassword" errorText="För kort lösenord!" layoutX="239.0" layoutY="180.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Ange nytt lösenord" text="" />
-               <SpemTextfield fx:id="txtPasswordSnd" errorText="Lösenorden matchar inte!" layoutX="240.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Nytt lösenord igen" text="" />
+               <SpemPasswordfield fx:id="txtPasswordOld" errorText="Fel lösenord!" layoutX="240.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Ange lösenord" text="" />
+               <SpemPasswordfield fx:id="txtPassword" errorText="För kort lösenord!" layoutX="239.0" layoutY="180.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Ange nytt lösenord" text="" />
+               <SpemPasswordfield fx:id="txtPasswordSnd" errorText="Lösenorden matchar inte!" layoutX="240.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" promtText="Nytt lösenord igen" text="" />
                <Label fx:id="labelPwSuccess" layoutX="191.0" layoutY="364.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Lösenord uppdaterat!" visible="false" />
             </children>
          </AnchorPane>
