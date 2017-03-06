@@ -29,12 +29,11 @@ public class BottomBarController implements Initializable {
     @FXML private Button btnNext;
     @FXML private Button btnHelp;
 
-    @FXML
-    private HelpController helpController;
+    @FXML private HelpController helpController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        btnHelp.setOnAction(x -> helpController.setVisible(true));
+        btnHelp.setOnAction(e -> helpController.setHelpVisible(true));
     }
 
     public void setButtonsVisible(boolean btnPrevVisible, boolean btnNextVisible){
@@ -55,4 +54,9 @@ public class BottomBarController implements Initializable {
     public Button getBtnHelp() {
         return btnHelp;
     }
+
+    public HelpController getHelpController() {
+        return helpController;
+    }
+
 }

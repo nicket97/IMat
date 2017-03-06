@@ -29,7 +29,7 @@ public class HistoryController implements Initializable {
     ListView<String> listDates;
     @FXML 
     ListView<ShoppingItem> listItems;
-    @FXML 
+    @FXML
     AnchorPane history;
     @FXML 
     AnchorPane anchorHistoryDetails;
