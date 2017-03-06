@@ -169,8 +169,11 @@ public class UserController implements Initializable{
         	if(e.getCode() == KeyCode.ENTER) registerNew();
         	if(e.getCode() == KeyCode.ESCAPE) setLoginVisible(false);
         });
-        
-        txtUsername.setOnValidation(x -> txtUsername.setValid(!txtUsername.getText().isEmpty()));
+
+        txtUsername.getTxtField().textProperty().addListener(x ->
+                txtUsername.setValid(!txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()));
+        txtPassword.getTxtField().textProperty().addListener(x ->
+                txtUsername.setValid(!(txtUsername.getText().isEmpty() && !txtPassword.getText().isEmpty())));
         txtPassword.setOnValidation(x -> txtPassword.setValid(!txtPassword.getText().isEmpty()));
 
         txtRegEmail.setOnValidation(x -> {

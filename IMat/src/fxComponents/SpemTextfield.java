@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -20,6 +22,7 @@ public class SpemTextfield extends AnchorPane implements Initializable {
     @FXML protected Label labelError;
 
     private EventHandler<? super ActionEvent> validationHandler;
+    private List<EventHandler<? super ActionEvent>> validationHandlers;
     private boolean valid = true;
 
     public SpemTextfield() throws Exception{
@@ -30,6 +33,8 @@ public class SpemTextfield extends AnchorPane implements Initializable {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         fxmlLoader.load();
+
+        validationHandlers = new ArrayList<>();
     }
 
     public String getErrorText(){
@@ -41,7 +46,7 @@ public class SpemTextfield extends AnchorPane implements Initializable {
     }
 
     public void setOnValidation(EventHandler<? super ActionEvent> value){
-        this.validationHandler = value;
+        validationHandlers.add(value);
     }
 
     public String getText(){
@@ -102,6 +107,7 @@ public class SpemTextfield extends AnchorPane implements Initializable {
     }
 
     public void validate(){
-       validationHandler.handle(new ActionEvent(this, txtField));
+        for(EventHandler<? super ActionEvent> handler : validationHandlers)
+            handler.handle(new ActionEvent(this, txtField));
     }
 }

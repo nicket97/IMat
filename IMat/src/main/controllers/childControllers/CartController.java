@@ -73,13 +73,14 @@ public class CartController implements Initializable{
     }
 
     private void updateChart(ShoppingItem item, boolean add){
-        setVisible(true);
         List<ShoppingItem> viewedItems = listViewCartItems.getItems();
 
         if(item == null){
             viewedItems.clear();
             return;
         }
+
+        setVisible(true);
 
         System.out.println("Adding " + item.getProduct().getName());
 
@@ -101,6 +102,7 @@ public class CartController implements Initializable{
         }
         this.displaySum();
     }
+
     public void displaySum(){
     	List<ShoppingItem> viewedItems = listViewCartItems.getItems();
         double sum = 0;

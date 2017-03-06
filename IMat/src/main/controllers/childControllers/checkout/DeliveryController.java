@@ -69,6 +69,14 @@ public class DeliveryController implements Controllable {
         loadDefaults();
     }
 
+    public String getTime(){
+        return choiceTime.getSelectionModel().getSelectedItem();
+    }
+
+    public LocalDate getDate(){
+        return datePicker.getValue();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userHandler = CustomDataHandler.getInstance().getUserHandler();

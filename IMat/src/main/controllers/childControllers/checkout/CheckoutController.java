@@ -74,6 +74,8 @@ public class CheckoutController implements Controllable {
         checkout.setManaged(value);
         if(value) checkout.toFront();
         else checkout.toBack();
+
+        openPage(0);
     }
 
     @Override
@@ -107,10 +109,13 @@ public class CheckoutController implements Controllable {
                 break;
             case 4:
                 receiptController.setVisible(true);
+                receiptController.displayReceipt(paymentController.getOrder(), deliveryController.getDate(), deliveryController.getTime());
                 break;
             default:
                 break;
         }
+
+        this.index = index;
 
         btnPrev.setDisable(index == 0);
         btnNext.setDisable(index == 4);

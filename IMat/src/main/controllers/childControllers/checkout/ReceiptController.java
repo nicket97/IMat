@@ -6,44 +6,63 @@
 package main.controllers.childControllers.checkout;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import com.sun.org.apache.xml.internal.security.Init;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
+import main.Main;
+import main.backend.CustomDataHandler;
+import main.controllers.MainController;
 import main.controllers.childControllers.Controllable;
+import se.chalmers.ait.dat215.project.Order;
 
 /**
  *
  * @author Felix
  */
-public class ReceiptController implements Controllable {
+public class ReceiptController implements Initializable {
 
     @FXML
     private AnchorPane receipt;
     @FXML
-    private ListView<?> listReceipt;
+    private ListView<String> listReceipt;
     @FXML
     private Button btnDone;
+    @FXML private Label labelOrderTime;
 
-    
-    @Override
     public void setVisible(boolean value) {
         receipt.setVisible(value);
         receipt.setManaged(value);
         receipt.toFront();
     }
 
+    public void displayReceipt(Order order, LocalDate date, String time){
+        DateTimeFormatter dFormat = DateTimeFormatter.ofPattern("dd MMMM");
+
+        labelOrderTime.setText("Vi kommer att leverera dina varor den " + date.format(dFormat) + " klockan " + time + ".");
+
+        if(order != null)
+        order.getItems().stream().forEach(i -> listReceipt.getItems().add(
+                i.getProduct().getName() + " " + i.getAmount() + " Hej, jag är ett väldigt ovackert kvitto!"));
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        listReceipt.getItems();
         addListeners();
     }
+
     public void addListeners(){
-    	btnDone.setOnAction(e ->{
-    		// l�gg till logik
-    	});
+
+        //Living on the edge here
+    	btnDone.setOnAction(e -> Main.requestStartpage());
     }
     
 }
