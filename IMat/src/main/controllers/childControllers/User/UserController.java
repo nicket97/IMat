@@ -1,5 +1,6 @@
 package main.controllers.childControllers.User;
 
+import fxComponents.SpemPasswordfield;
 import fxComponents.SpemTextfield;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,7 +29,7 @@ public class UserController implements Initializable{
     @FXML 
     private SpemTextfield txtUsername;
     @FXML 
-    private SpemTextfield txtPassword;
+    private SpemPasswordfield txtPassword;
     @FXML 
     private AnchorPane anchorRegister;
     @FXML 
@@ -36,9 +37,9 @@ public class UserController implements Initializable{
     @FXML 
     private SpemTextfield txtRegEmail;
     @FXML 
-    private SpemTextfield txtRegPassword;
+    private SpemPasswordfield txtRegPassword;
     @FXML 
-    private SpemTextfield txtRegPasswordSnd;
+    private SpemPasswordfield txtRegPasswordSnd;
     @FXML 
     private AnchorPane user;
 

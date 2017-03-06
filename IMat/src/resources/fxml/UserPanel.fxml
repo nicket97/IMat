@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import fxComponents.SpemPasswordfield?>
 <AnchorPane id="AnchorPane" fx:id="user" prefHeight="540.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.UserController">
    <children>
       <VBox alignment="TOP_RIGHT" prefHeight="540.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -27,8 +28,8 @@
                         <Label layoutX="120.0" layoutY="300.0" styleClass="txtLabel" stylesheets="@../css/ModalPanels.css" text="Repetera lösenord" />
                         <Button fx:id="btnRegRegister" layoutX="140.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnRegisterNew_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera dig" />
                         <SpemTextfield fx:id="txtRegEmail" errorText="Felaktig e-postadress" layoutX="120.0" layoutY="197.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange din e-postadress" text="" />
-                        <SpemTextfield fx:id="txtRegPassword" errorText="Lösenord för kort" layoutX="120.0" layoutY="257.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange lösenord" text="" />
-                        <SpemTextfield fx:id="txtRegPasswordSnd" errorText="Lösenorden matchar inte!" layoutX="120.0" layoutY="317.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange ditt lösenord igen" text="" />
+                        <SpemPasswordfield fx:id="txtRegPassword" errorText="Lösenord för kort" layoutX="120.0" layoutY="257.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange lösenord" text="" />
+                        <SpemPasswordfield fx:id="txtRegPasswordSnd" errorText="Lösenorden matchar inte!" layoutX="120.0" layoutY="317.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange ditt lösenord igen" text="" />
                      </children>
                   </AnchorPane>
                 <AnchorPane fx:id="anchorLogin" minHeight="0.0" minWidth="0.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
@@ -41,7 +42,7 @@
                         <Label alignment="CENTER" layoutX="126.5" layoutY="60.0" styleClass="labelHeader" stylesheets="@../css/ModalPanels.css" text="Logga In" />
                         <Label fx:id="labelErrorEmailAndPassword" layoutX="137.0" layoutY="163.0" styleClass="labelError" stylesheets="@../css/TextFields.css" text="Fel e-postadress eller lösenord!" visible="false" />
                         <SpemTextfield fx:id="txtUsername" errorText="E-postadress saknas!" layoutX="117.0" layoutY="197.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange e-postadress" text="" />
-                        <SpemTextfield fx:id="txtPassword" errorText="Lösenord saknas!" layoutX="117.0" layoutY="259.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange lösenord" text="" />
+                        <SpemPasswordfield fx:id="txtPassword" errorText="Lösenord saknas!" layoutX="117.0" layoutY="259.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" promtText="Ange lösenord" text="" />
                      </children>
                   </AnchorPane>
                </children>
