@@ -54,6 +54,17 @@ public class CartController implements Initializable{
     
     public void setVisible(boolean value){
         //Animation here
+    	 listViewCartItems.getItems().clear();
+         for(int i = 0; i < shoppingCart.getItems().size(); i++){
+        	 listViewCartItems.getItems().add(shoppingCart.getItems().get(i));
+         }
+        cart.setVisible(value);
+        cart.setManaged(value);
+        nav.setCartBtn(value);
+    }
+    //fulhack för uppdatering
+    public void setVisibleOnAdd(boolean value){
+        //Animation here
         cart.setVisible(value);
         cart.setManaged(value);
         nav.setCartBtn(value);
@@ -80,7 +91,7 @@ public class CartController implements Initializable{
             return;
         }
 
-        setVisible(true);
+        setVisibleOnAdd(true);
 
         System.out.println("Adding " + item.getProduct().getName());
 
@@ -101,6 +112,7 @@ public class CartController implements Initializable{
             viewedItems.remove(item);
         }
         this.displaySum();
+        
     }
 
     public void displaySum(){

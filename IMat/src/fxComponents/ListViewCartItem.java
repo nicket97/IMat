@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import main.controllers.childControllers.CartController;
+import main.controllers.childControllers.checkout.OrderController;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -53,6 +54,7 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
 
         this.cart = cart;
     }
+   
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -104,9 +106,9 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
 
         labelDec.setOnMouseClicked(e -> {
             if (amount.getValue() > 1){
-            	cartController.displaySum();
                 getItem().setAmount(getItem().getAmount() - 1);
                 updateItem(getItem(), false);
+                cartController.displaySum();
             }
         });
 

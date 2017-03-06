@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorItem" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="270.0" spacing="4.0" styleClass="cartItem" stylesheets="@../resources/css/SpinnerBox.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <Label fx:id="labelDelete" prefHeight="20.0" prefWidth="20.0" styleClass="labelDelete" stylesheets="@../resources/css/SpinnerBox.css">
+               <tooltip>
+                  <Tooltip text="Ta bort" />
+               </tooltip></Label>
+            <Label fx:id="labelPrice" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="80.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="000.00 kr">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelUnit" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="40.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="förp">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Pane prefHeight="200.0" prefWidth="50.0" />
+            <VBox alignment="CENTER">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label id="incRegion" fx:id="labelInc" prefHeight="40.0" prefWidth="40.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
+                        <TextField id="txtSpinner" fx:id="txtAmount" alignment="CENTER" focusTraversable="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@../resources/css/SpinnerBox.css" />
+                        <Label id="decRegion" fx:id="labelDec" prefHeight="40.0" prefWidth="40.0" styleClass="spinnerBtn" stylesheets="@../resources/css/SpinnerBox.css" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="500.0" />
+            <Label fx:id="labelTitle" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="100.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
