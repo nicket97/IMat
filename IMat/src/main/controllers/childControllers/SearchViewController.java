@@ -12,6 +12,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javax.naming.directory.SearchResult;
+
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -55,12 +58,17 @@ public class SearchViewController implements Controllable{
         double[] scrollIndex = new double[sortedResults.size() + 1];
         double[] offset = new double[sortedResults.size() + 1];
         int i = 0;
+        if(sortedResults.size() == 0){
+        	labelResult.setText("Det finns inga produkter som matchar din sökning på: " + label);
+        }
+        else{
         labelResult.setText("SÃ¶kresultat fÃ¶r: " + label);
+        }
         for(DataPair<ProductCategory, List<Product>> dp : sortedResults) {
             try {
                 ProductViewSubCategory searchResult = new ProductViewSubCategory(dp.getRight(), dp.getLeft().toString());
                 productViewFlowPane.getChildren().add(searchResult);
-            
+                
                 listBox.getChildren().add(createSubcategoryButton(ProductCategories.getProdCatName(dp.getLeft())));
                 
                 // Add each height to their respective index, starting from 1 to max, adding each previous height.
