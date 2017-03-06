@@ -31,11 +31,11 @@ public class DeliveryController implements Controllable {
     @FXML
     private AnchorPane delivery;
     @FXML
-    private TextField txtAddress;
+    private SpemTextfield txtAddress;
     @FXML
     private Label labelAddress;
     @FXML
-    private TextField txtCity;
+    private SpemTextfield txtCity;
     @FXML
     private Label labelCity;
     @FXML
@@ -81,12 +81,23 @@ public class DeliveryController implements Controllable {
     public void initialize(URL location, ResourceBundle resources) {
         userHandler = CustomDataHandler.getInstance().getUserHandler();
 
+        txtAddress.setOnValidation(x -> txtAddress.setValid(!txtAddress.getText().isEmpty()));
+        txtCity.setOnValidation(x -> txtCity.setValid(!txtCity.getText().isEmpty()));
         txtPostal.setOnValidation(x -> txtPostal.setValid(txtPostal.getText().length() == 5));
+
         choiceTime.getItems().addAll(pickupHours);
         choiceTime.getSelectionModel().select(4);
 
         //Default to tomorrow
         datePicker.setValue(LocalDate.now().plusDays(1));
+    }
+
+    public boolean validate(){
+        txtAddress.validate();
+        txtCity.validate();
+        txtPostal.validate();
+
+        return txtAddress.isValid() && txtCity.isValid() && txtPostal.isValid();
     }
 
     private void loadDefaults(){
