@@ -63,10 +63,6 @@ public class OrderController implements Controllable {
     	return order.isVisible() && order.isManaged();
     }
 
-    public boolean validate(){
-        return dataHandler.getShoppingCart().getItems().size() > 0;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();

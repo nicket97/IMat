@@ -21,7 +21,7 @@
                               <VBox alignment="TOP_CENTER" spacing="10.0" stylesheets="@../css/MainFrameWork.css">
                                  <children>
                                     <Label prefHeight="27.0" prefWidth="1300.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Nedan finner du kvittot för din beställning. En kopia har även skickats till din e-postadress." wrapText="true" />
-                                    <ListView fx:id="listReceipt" />
+                                    <ListView fx:id="listReceipt" styleClass="label" />
                                     <Label fx:id="labelOrderTime" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Vi kommer leverera dina varor den" wrapText="true" />
                                     <Button fx:id="btnDone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="formButton" stylesheets="@../css/ButtonSchemes.css" text="Till Startsidan" />
                                  </children>

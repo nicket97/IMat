@@ -65,7 +65,6 @@ public class CheckoutController implements Controllable {
     private PaymentController paymentController;
     @FXML
     private ReceiptController receiptController;
-    @FXML private Label labelError;
 
     private int index = 0;
 
@@ -88,50 +87,38 @@ public class CheckoutController implements Controllable {
             child.setOnMouseClicked(event -> openPage(index));
         }
 
-        btnNext.setOnAction(x -> openPage(index + 1));
-        btnPrev.setOnAction(x -> openPage(index - 1));
+        btnNext.setOnAction(x -> {index++; openPage(index); });
+        btnPrev.setOnAction(x -> {index--; openPage(index); });
         btnReturn.setOnAction(x -> setVisible(false));
     }
 
     //Sidebar-navigation
     private void openPage(int index){
-
         switch (index){
             case 0:
-                labelError.setVisible(!orderController.validate());
                 orderController.setVisible(true);
                 break;
             case 1:
-                labelError.setVisible(!orderController.validate());
-                if(!labelError.isVisible()) customerController.setVisible(true);
+                customerController.setVisible(true);
                 break;
             case 2:
-                labelError.setVisible(!customerController.validate());
-                if(!labelError.isVisible()) deliveryController.setVisible(true);
+                deliveryController.setVisible(true);
                 break;
             case 3:
-                labelError.setVisible(!deliveryController.validate());
-                if(!labelError.isVisible()) paymentController.setVisible(true);
+                paymentController.setVisible(true);
                 break;
             case 4:
-                labelError.setVisible(!paymentController.validate());
-                if(!labelError.isVisible()) {
-                    receiptController.setVisible(true);
-                    receiptController.displayReceipt(paymentController.getOrder(), deliveryController.getDate(), deliveryController.getTime());
-                }
+                receiptController.setVisible(true);
+                receiptController.displayReceipt(paymentController.getOrder(), deliveryController.getDate(), deliveryController.getTime());
                 break;
             default:
                 break;
         }
 
-        if(!labelError.isVisible()) {
-            btnPrev.setDisable(index == 0);
-            btnNext.setDisable(index == 4);
-        }
+        this.index = index;
 
-        if(!labelError.isVisible()) this.index = index;
-
-        System.out.println(index);
+        btnPrev.setDisable(index == 0);
+        btnNext.setDisable(index == 4);
     }
 
     public CustomerController getCustomerController() {

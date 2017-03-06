@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import fxComponents.ListViewReceiptItem;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,17 +23,18 @@ import main.backend.CustomDataHandler;
 import main.controllers.MainController;
 import main.controllers.childControllers.Controllable;
 import se.chalmers.ait.dat215.project.Order;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
  * @author Felix
  */
 public class ReceiptController implements Initializable {
-
+	public Order order;
     @FXML
     private AnchorPane receipt;
     @FXML
-    private ListView<String> listReceipt;
+    private ListView listReceipt;
     @FXML
     private Button btnDone;
     @FXML private Label labelOrderTime;
@@ -41,25 +43,29 @@ public class ReceiptController implements Initializable {
         receipt.setVisible(value);
         receipt.setManaged(value);
         receipt.toFront();
+        
     }
+    
 
     public void displayReceipt(Order order, LocalDate date, String time){
+    	this.order = order;
+    	listReceipt.getItems().addAll(order.getItems());
         DateTimeFormatter dFormat = DateTimeFormatter.ofPattern("dd MMMM");
 
         labelOrderTime.setText("Vi kommer att leverera dina varor den " + date.format(dFormat) + " klockan " + time + ".");
+        listReceipt.setStyle("-fx-font-size: 2em;");
 
-        if(order != null)
-        order.getItems().stream().forEach(i -> listReceipt.getItems().add(
-                i.getProduct().getName() + " " + i.getAmount() + " Hej, jag är ett väldigt ovackert kvitto!"));
+        
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addListeners();
+        
     }
 
     public void addListeners(){
-
+    	listReceipt.setCellFactory(e -> new ListViewReceiptItem(this.order, this));
         //Living on the edge here
     	btnDone.setOnAction(e -> Main.requestStartpage());
     }
