@@ -2,11 +2,17 @@ package main.controllers.childControllers.navigation;
 
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
+import main.controllers.childControllers.CenterstageController;
+import main.controllers.childControllers.HelpController;
 import main.controllers.childControllers.ProductView;
 import main.controllers.childControllers.ProductViewController;
 
@@ -23,15 +29,12 @@ public class BottomBarController implements Initializable {
     @FXML private Button btnNext;
     @FXML private Button btnHelp;
 
+    @FXML
+    private HelpController helpController;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        btnHelp.setOnAction(x -> {
-            Alert closeAlert = new Alert(Alert.AlertType.INFORMATION);
-            closeAlert.setTitle("Hjälp ska vara här");
-            closeAlert.setHeaderText("Men hur svårt kan det vara egentligen..?");
-
-            closeAlert.showAndWait();
-        });
+        btnHelp.setOnAction(x -> helpController.setVisible(true));
     }
 
     public void setButtonsVisible(boolean btnPrevVisible, boolean btnNextVisible){
@@ -47,5 +50,9 @@ public class BottomBarController implements Initializable {
 
     public Button getBtnNext(){
         return btnNext;
+    }
+
+    public Button getBtnHelp() {
+        return btnHelp;
     }
 }
