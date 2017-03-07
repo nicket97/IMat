@@ -32,7 +32,7 @@ public class SearchController implements Initializable {
     private SearchViewController searchCtrl;
     private BottomBarController bottomCtrl;
     CustomDataHandler dataHandler;
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
