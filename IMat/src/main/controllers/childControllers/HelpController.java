@@ -26,6 +26,8 @@ public class HelpController implements Initializable {
     @FXML
     private AnchorPane help;
     @FXML
+    private AnchorPane navigationAnchor, kontaktAnchor;
+    @FXML
     private Label labelKontakt;
     @FXML
     private Text textHelp;
@@ -49,7 +51,7 @@ public class HelpController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnClose.setOnAction( e-> close());
         buttonBack.setOnAction( e-> close());
-        sidebarNavigation.setOnMouseClicked(e -> initText());
+        initSidebarNav();
         initText();
     }
 
@@ -75,11 +77,29 @@ public class HelpController implements Initializable {
         parent = anchorUser;
     }
 
+    public void initSidebarNav(){
+        sidebarNavigation.setOnMouseClicked(e -> {
+            clearIds();
+            navigationAnchor.toFront();
+            sidebarNavigation.setId("navActive");
+        });
+        sidebarKontakt.setOnMouseClicked(e-> {
+            clearIds();
+            kontaktAnchor.toFront();
+            sidebarKontakt.setId("navActive");
+        });
+    }
+
+    private void clearIds() {
+        sidebarKontakt.setId(null);
+        sidebarNavigation.setId(null);
+    }
+
     public void initText(){
-        textNavigation.setText("\nNavigera mellan olika kategorier av varor genom navigationspanelen längst upp på sidan. Du kan även röra dig genom hela butiken steg för steg genom att trycka på nästa-knappen längst ned till höger på sidan.\n" +
+        textNavigation.setText("\n\nNavigera mellan olika kategorier av varor genom navigationspanelen längst upp på sidan." + "\nDu kan även röra dig genom hela butiken steg för steg genom att trycka på nästa-knappen längst ned till höger på sidan.\n" +
                 "När du valt en kategori kan du navigera genom underkategorier I panelen till vänster eller bara scrolla genom kategorin för att få en överblick över allt som finns.\n" +
                 "Använd sökrutan längst upp på sidan för att söka på en sorts vara du letar efter.\n" +
                 "När du hittat en vara du vill köpa justerar du hur stor mängd av varan du vill ha med hjälp av plusknappen och minusknappen under bilden på varan. När du är nöjd lägger du till den I varukorgen genom att klicka på varukorgsikonen.");
-        textKontakt.setText("\nHar du några synpunkter eller frågor om något vill vi jättegärna att du kontaktar oss. Skriv till oss på imatsupport@dat216.se.");
+        textKontakt.setText("\n\nHar du några synpunkter eller frågor om något vill vi jättegärna att du kontaktar oss. Skriv till oss på imatsupport@dat216.se.");
     }
 }

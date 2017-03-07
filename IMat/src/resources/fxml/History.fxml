@@ -31,7 +31,7 @@
                         <children>
                               <Label text="Totalt: ">
                         </Label>
-                              <Label fx:id="labelTotal" text="40.80 kr">
+                              <Label fx:id="labelTotal">
                         </Label>
                         </children>
                      </TextFlow>
