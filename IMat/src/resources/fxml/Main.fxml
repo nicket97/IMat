@@ -62,7 +62,7 @@
    </BorderPane>
    <StackPane fx:id="anchorUser" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
       <children>
-         <HBox fx:id="pane" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
+         <HBox fx:id="paneHelp" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
                 <children>
                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
                         <children>

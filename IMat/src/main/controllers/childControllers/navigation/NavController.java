@@ -71,7 +71,7 @@ public class NavController implements Initializable {
     }
 
     public void injectControllers(CenterstageController centerstageController, 
-        CartController cartController, SearchController searchController, BottomBarController btmBarCtrl){
+        CartController cartController, SearchController searchController, BottomBarController btmBarCtrl, HelpController helpCtrl){
             this.cartController = cartController;
             this.startpageController = centerstageController.getStartpageController();
             this.prodCtrl = centerstageController.getProductViewController();
@@ -80,22 +80,21 @@ public class NavController implements Initializable {
             bottomCtrl = btmBarCtrl;
             searchController.setControllers(searchCtrl, bottomCtrl);
             
-            bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; displayCategory(displayedIndex); clearIds(); 
-                gridMain.getChildren().get(displayedIndex).setId("navActive"); forceCart(true);});
-            bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; displayCategory(displayedIndex);clearIds(); 
-                gridMain.getChildren().get(displayedIndex).setId("navActive"); forceCart(true);});
+            bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; clearIds(); displayCategory(displayedIndex); 
+                gridMain.getChildren().get(displayedIndex).setId("navActive");});
+            bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; clearIds(); displayCategory(displayedIndex); 
+                gridMain.getChildren().get(displayedIndex).setId("navActive");});
+            bottomCtrl.setHelpController(helpCtrl);
             imgHome = (ImageView) nav.getParent().getChildrenUnmodifiable().get(4);
             setHomeHatch();
-            searchCtrl.getBackButton().setOnAction(e -> {searchCtrl.moveBack(); bottomCtrl.setButtonsVisible(searchCtrl.getReturnValues()[0], searchCtrl.getReturnValues()[1]);});
+            searchCtrl.getBackButton().setOnAction(e -> {searchCtrl.moveBack(); forceCart(displayedIndex < 8 && displayedIndex > 1); bottomCtrl.setButtonsVisible(searchCtrl.getReturnValues()[0], searchCtrl.getReturnValues()[1]);});
             
     }
 
     public void startShopping(){
         prodCtrl.displayProducts((ProductCategories.getVeg()), "Frukt & Grönt");
         bottomCtrl.setButtonsVisible(false, true);
-        setCartBtn(true);
-        cartController.setVisible(true);
-        cartPane.setDisable(true);
+        //cartController.setVisible(true);
         displayedIndex = 2;
         clearIds();
         gridMain.getChildren().get(displayedIndex).setId("navActive");
@@ -126,10 +125,11 @@ public class NavController implements Initializable {
     }
     
     public void setCartBtn(boolean value){
-         if(value)
-                cartPane.setId("navCartActive");
-            else
-                cartPane.setId("navCart");
+
+        if(value)
+            cartPane.setId("navCartActive");
+        else
+            cartPane.setId("navCart");
     }
 
     public void displayStartPage(){
@@ -177,7 +177,6 @@ public class NavController implements Initializable {
                 checkoutController.setVisible(true);
                 bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
                 forceCart(false);
-                cartController.setVisible(false);
                 break;
         }
     
@@ -185,9 +184,10 @@ public class NavController implements Initializable {
         System.out.println("Index: " + index);
     }
     private void forceCart(boolean value){
-        setCartBtn(value);
         cartController.setVisibleOnAdd(value);
         cartPane.setDisable(value);
+        cartController.setVisible(value);
+        setCartBtn(value);
     }
 
     private void clearIds() {
@@ -207,7 +207,7 @@ public class NavController implements Initializable {
     }    
     public void toCheckOut(){
     	checkoutController.setVisible(true);
-        bottomCtrl.setButtonsVisible(true, true); //Ändra om här kanske, disabla eller dölja?
+        bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
         forceCart(false);
         cartController.setVisibleOnAdd(false);
     }

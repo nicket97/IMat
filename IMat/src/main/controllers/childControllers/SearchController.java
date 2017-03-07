@@ -27,12 +27,12 @@ import main.DataPair;
 public class SearchController implements Initializable {
     @FXML TextField txtSearch;
     @FXML Button btnSearch;
-    @FXML CenterstageController centerStageController;
+    @FXML CenterstageController centerstageController;
     
     private SearchViewController searchCtrl;
     private BottomBarController bottomCtrl;
     CustomDataHandler dataHandler;
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();

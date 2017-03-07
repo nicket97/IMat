@@ -49,7 +49,6 @@ public class ProductViewSubCategory extends AnchorPane implements Initializable{
         for(Product p : products){
             productViewNodePane.getChildren().add(new ProductViewNode(p));
         }
-        productViewNodePane.getChildren().add(new Label("break"));
     }
     
     public ProductViewSubCategory(List<Product> result, String header) throws IOException{
@@ -74,8 +73,15 @@ public class ProductViewSubCategory extends AnchorPane implements Initializable{
     public void setFilter(boolean value){
         
     }
-
+    /**public FlowPane getProdNodePane(){
+        return productViewNodePane;
+    }*/
     public String getSubCatLabel(){
         return subcatLabel.getText();
+    }
+
+    public void setWrappWidth(double d) {
+        productViewNodePane.setPrefWidth(d);
+        productViewNodePane.setPrefWrapLength(d);
     }
 }

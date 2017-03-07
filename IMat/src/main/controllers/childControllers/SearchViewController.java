@@ -47,7 +47,12 @@ public class SearchViewController implements Controllable{
     
 
     private boolean[] btnNavRtrnValues = new boolean[2];
+    private int OFFSET = 420 + 280;
+    private List<ProductViewSubCategory> nodes = new ArrayList<>();
     
+    public void addListener(ProductViewSubCategory node){
+        nodes.add(node);
+    }
     public void displayProducts (List<DataPair<ProductCategory, List<Product>>> sortedResults, String label) {
         setVisible(true);
         if (productViewFlowPane != null) {
@@ -68,7 +73,8 @@ public class SearchViewController implements Controllable{
             try {
                 ProductViewSubCategory searchResult = new ProductViewSubCategory(dp.getRight(), dp.getLeft().toString());
                 productViewFlowPane.getChildren().add(searchResult);
-                
+                searchResult.setWrappWidth(searchView.getWidth() - OFFSET);
+                nodes.add(searchResult);
                 listBox.getChildren().add(createSubcategoryButton(ProductCategories.getProdCatName(dp.getLeft())));
                 
                 // Add each height to their respective index, starting from 1 to max, adding each previous height.
@@ -145,7 +151,7 @@ public class SearchViewController implements Controllable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         btnBack.setOnAction(e -> moveBack());
-        
+        searchView.widthProperty().addListener(e -> resizeNodes());
     }
 
     public void setVisible(boolean value){
@@ -172,4 +178,9 @@ public class SearchViewController implements Controllable{
         return btnBack;
     }
     
+    private void resizeNodes() {
+        for(ProductViewSubCategory node: nodes){
+            node.setWrappWidth(searchView.getWidth() - OFFSET);
+        }
+    }
 }

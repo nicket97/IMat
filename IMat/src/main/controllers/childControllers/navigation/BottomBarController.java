@@ -33,7 +33,7 @@ public class BottomBarController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        btnHelp.setOnAction( e-> helpController.setHelpVisible(true));
+
     }
 
     public void setButtonsVisible(boolean btnPrevVisible, boolean btnNextVisible){
@@ -57,6 +57,11 @@ public class BottomBarController implements Initializable {
 
     public HelpController getHelpController() {
         return helpController;
+    }
+    
+    public void setHelpController(HelpController helpCtrl){
+        helpController = helpCtrl;
+        btnHelp.setOnAction(e -> helpController.setVisible(true));
     }
     
     

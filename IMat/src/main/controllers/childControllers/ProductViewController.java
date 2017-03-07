@@ -39,6 +39,13 @@ public class ProductViewController implements Controllable{
     @FXML
     private ScrollPane scrollPane;
     
+    private int OFFSET = 420 + 280;
+    private List<ProductViewSubCategory> nodes = new ArrayList<>();
+    
+    public void addListener(ProductViewSubCategory node){
+        nodes.add(node);
+    }
+    
     public void displayProducts (List<Product> productList, String label) {
         productView.getScene().setCursor(Cursor.WAIT);
 
@@ -61,9 +68,9 @@ public class ProductViewController implements Controllable{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+            
         }
-
+        
         productView.getScene().setCursor(Cursor.DEFAULT);
         
     }
@@ -90,7 +97,8 @@ public class ProductViewController implements Controllable{
                 // Add each height to their respective index, starting from 1 to max, adding each previous height.
                 scrollIndex[i+1] = scrollIndex[i] + productViewFlowPane.getChildren().get(i).getBoundsInParent().getHeight();
                 offset[i] = offset[i] + scrollIndex[i]/(scrollIndex.length - 4) ;
-                
+                subSection.setWrappWidth(productView.getWidth() - OFFSET);
+                nodes.add(subSection);
                 //System.out.println(subSection.getBoundsInParent().getWidth());
                 
                 labelHeader.setText(label);
@@ -129,7 +137,7 @@ public class ProductViewController implements Controllable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        productView.widthProperty().addListener(e -> resizeNodes());
         
     }
 
@@ -146,5 +154,11 @@ public class ProductViewController implements Controllable{
         category.setAlignment(Pos.CENTER);
         category.setPrefSize(160, 40);
         return category;
+    }
+
+    private void resizeNodes() {
+        for(ProductViewSubCategory node: nodes){
+            node.setWrappWidth(productView.getWidth() - OFFSET);
+        }
     }
 }
