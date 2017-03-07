@@ -16,20 +16,31 @@
    <children>
        <StackPane layoutX="200.0" prefHeight="472.0" prefWidth="600.0">
            <children>
-               <AnchorPane prefHeight="509.0" prefWidth="549.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
+               <AnchorPane fx:id="navigation" prefHeight="509.0" prefWidth="549.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
                    <children>
                        <Label layoutX="25.0" layoutY="20.0" prefHeight="80.0" prefWidth="455.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Vad kan vi stå till tjänst med?">
                      <font>
                         <Font size="19.0" />
                      </font></Label>
-                       <Button fx:id="btnClose" mnemonicParsing="false" styleClass="btnClose" stylesheets="@../css/ModalPanels.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <TextFlow layoutX="25.0" layoutY="97.0" prefHeight="325.0" prefWidth="535.0">
+                       <TextFlow fx:id="flowKontakt" layoutX="25.0" layoutY="97.0" prefHeight="325.0" prefWidth="535.0">
+                           <children>
+                               <Label fx:id="labelKontakt" text="Kontakt" underline="true">
+                                   <font>
+                                       <Font size="23.0" />
+                                   </font></Label>
+                               <Text fx:id="textKontakt">
+                                   <font>
+                                       <Font size="17.0" />
+                                   </font></Text>
+                           </children>
+                       </TextFlow>
+                       <TextFlow fx:id="flowNavigation" layoutX="25.0" layoutY="97.0" prefHeight="325.0" prefWidth="535.0">
                       <children>
-                          <Label fx:id="labelKontakt" text="Kontakt\n" underline="true" wrapText="true">
+                          <Label fx:id="labelNavigation" text="Navigation" underline="true" wrapText="true">
                            <font>
                               <Font size="23.0" />
                            </font></Label>
-                          <Text fx:id="textHelp" text="Har du några synpunkter eller frågor hjälper vi dig gärna. Kontakta oss på mejladressen imatsupport@dat216.se">
+                          <Text fx:id="textNavigation">
                            <font>
                               <Font size="17.0" />
                            </font></Text>
@@ -37,7 +48,15 @@
                   </TextFlow>
                        </children>
                </AnchorPane>
-   
+               <AnchorPane fx:id="kontakt" prefHeight="509.0" prefWidth="549.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
+                   <children>
+                       <Label layoutX="25.0" layoutY="20.0" prefHeight="80.0" prefWidth="455.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Vad kan vi stå till tjänst med?">
+                           <font>
+                               <Font size="19.0" />
+                           </font></Label>
+                     <Button fx:id="btnClose" layoutX="572.0" layoutY="1.0" mnemonicParsing="false" styleClass="btnClose" stylesheets="@../css/ModalPanels.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="1.0" />
+                   </children>
+               </AnchorPane>
            </children>
        </StackPane>
        <BorderPane fx:id="navPane" prefHeight="472.0" prefWidth="200.0" styleClass="listPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -47,7 +66,16 @@
            <center>
                <VBox fx:id="listBox" alignment="TOP_CENTER" prefHeight="358.0" prefWidth="198.0" spacing="20.0" stylesheets="@../css/MainFrameWork.css" BorderPane.alignment="CENTER">
                    <children>
-                       <Label fx:id="navUsr" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="180.0" stylesheets="@../css/TextFormat.css" text="Nånting?" textAlignment="CENTER">
+                       <Label fx:id="sidebarNavigation" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="180.0" stylesheets="@../css/TextFormat.css" text="Navigation" textAlignment="CENTER">
+                           <styleClass>
+                               <String fx:value="txtPages" />
+                               <String fx:value="txtPagesSidebar" />
+                           </styleClass>
+                           <VBox.margin>
+                               <Insets top="20.0" />
+                           </VBox.margin>
+                       </Label>
+                       <Label fx:id="sidebarKontakt" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="180.0" stylesheets="@../css/TextFormat.css" text="Kontakt" textAlignment="CENTER">
                            <styleClass>
                                <String fx:value="txtPages" />
                                <String fx:value="txtPagesSidebar" />
