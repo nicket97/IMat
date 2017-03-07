@@ -44,7 +44,7 @@
                </children>
             </VBox>
             <Pane prefHeight="200.0" prefWidth="500.0" />
-            <Label fx:id="labelTitle" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="100.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk" wrapText="true">
+            <Label fx:id="labelTitle" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="158.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="Mjölk" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
