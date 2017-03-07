@@ -13,10 +13,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" fx:id="help" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="800.0" stylesheets="@../css/MainFrameWork.css" visible="true" AnchorPane.bottomAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.HelpController">
+<AnchorPane id="AnchorPane" fx:id="help" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="800.0" stylesheets="@../css/MainFrameWork.css" visible="false" AnchorPane.bottomAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.HelpController">
    <children>
        <StackPane layoutX="200.0" prefHeight="472.0" prefWidth="600.0">
            <children>
