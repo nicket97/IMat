@@ -49,6 +49,7 @@ public class HelpController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        help.setVisible(false);
         btnClose.setOnAction( e-> close());
         buttonBack.setOnAction( e-> close());
         initSidebarNav();

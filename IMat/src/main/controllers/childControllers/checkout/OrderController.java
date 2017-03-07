@@ -76,7 +76,7 @@ public class OrderController implements Controllable {
     
     private void addListeners(){
     	
-    	 orderList.setCellFactory(x -> new ListViewOrderItem(shoppingCart, this));
+    	orderList.setCellFactory(x -> new ListViewOrderItem(shoppingCart, this));
         
     }
     public void displaySum(){
