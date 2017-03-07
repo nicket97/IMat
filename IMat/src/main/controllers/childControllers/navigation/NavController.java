@@ -71,7 +71,7 @@ public class NavController implements Initializable {
     }
 
     public void injectControllers(CenterstageController centerstageController, 
-        CartController cartController, SearchController searchController, BottomBarController btmBarCtrl){
+        CartController cartController, SearchController searchController, BottomBarController btmBarCtrl, HelpController helpCtrl){
             this.cartController = cartController;
             this.startpageController = centerstageController.getStartpageController();
             this.prodCtrl = centerstageController.getProductViewController();
@@ -84,6 +84,7 @@ public class NavController implements Initializable {
                 gridMain.getChildren().get(displayedIndex).setId("navActive");});
             bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; clearIds(); displayCategory(displayedIndex); 
                 gridMain.getChildren().get(displayedIndex).setId("navActive");});
+            bottomCtrl.setHelpController(helpCtrl);
             imgHome = (ImageView) nav.getParent().getChildrenUnmodifiable().get(4);
             setHomeHatch();
             searchCtrl.getBackButton().setOnAction(e -> {searchCtrl.moveBack(); forceCart(displayedIndex < 8 && displayedIndex > 1); bottomCtrl.setButtonsVisible(searchCtrl.getReturnValues()[0], searchCtrl.getReturnValues()[1]);});

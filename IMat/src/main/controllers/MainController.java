@@ -52,7 +52,8 @@ public class MainController implements Initializable{
     private BottomBarController bottomBarController;
     @FXML
     private MyPagesController myPagesController;
-
+    @FXML
+    private HelpController helpController;
 
     @FXML
     StackPane mainPane;
@@ -71,12 +72,13 @@ public class MainController implements Initializable{
     @FXML
     private HBox paneLogin;
     @FXML
+    private HBox paneHelp;
+    @FXML
     private ImageView imgHome;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
-
         //Give controllers their stuff
         injectControllers();
         addListeners();
@@ -122,19 +124,23 @@ public class MainController implements Initializable{
         	if(e.getTarget().equals(paneLogin)){
         	userController.setLoginVisible(false);
             userController.setRegisterVisible(false);}
-        	if(e.getTarget().equals(panePages)){
+                else if(e.getTarget().equals(panePages)){
         		myPagesController.close();
         	}
+                else if(e.getTarget().equals(paneHelp)){
+                    helpController.close();
+                }
         });
     }
 
     private void injectControllers(){
         userController.setParentPane(anchorUser);
         myPagesController.setParentPane(anchorUser);
+        helpController.setParentPane(anchorUser);
 
         userStatusController.injectControllers(userController);
 
-        navController.injectControllers(centerstageController, cartController, searchController, bottomBarController);
+        navController.injectControllers(centerstageController, cartController, searchController, bottomBarController, helpController);
 
         centerstageController.getStartpageController().
                 injectControllers(userController, centerstageController.getHistoryController(), searchController,
@@ -142,6 +148,7 @@ public class MainController implements Initializable{
         
         cartController.injectControllers(navController);
         userController.injectControllers(myPagesController);
+        
     }
     
 
