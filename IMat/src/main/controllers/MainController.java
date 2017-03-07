@@ -109,6 +109,7 @@ public class MainController implements Initializable{
         navController.displayStartPage();
     }
 
+
     private void addListeners(){
         anchorUser.setOnMouseClicked(e -> {
             if(false) {
@@ -142,5 +143,6 @@ public class MainController implements Initializable{
         cartController.injectControllers(navController);
         userController.injectControllers(myPagesController);
     }
+    
 
 }

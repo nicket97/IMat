@@ -7,6 +7,8 @@ package main;
  */
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -38,7 +40,8 @@ public class Main extends Application {
         primaryStage.setMinHeight(720);
         primaryStage.setMinWidth(1280);
         primaryStage.setMaximized(true);
-
+        
+        
         mCtrl = loader.getController();
 
         //Add listener for closing the stage

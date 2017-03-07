@@ -67,7 +67,6 @@ public class CartController implements Initializable{
         //Animation here
         cart.setVisible(value);
         cart.setManaged(value);
-        nav.setCartBtn(value);
     }
 
     public boolean isVisible(){
