@@ -62,7 +62,7 @@ public class CartController implements Initializable{
         cart.setManaged(value);
         nav.setCartBtn(value);
     }
-    //fulhack för uppdatering
+    //fulhack fÃ¶r uppdatering
     public void setVisibleOnAdd(boolean value){
         //Animation here
         cart.setVisible(value);

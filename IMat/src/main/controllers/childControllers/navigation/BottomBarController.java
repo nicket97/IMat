@@ -29,7 +29,7 @@ public class BottomBarController implements Initializable {
     @FXML private Button btnNext;
     @FXML private Button btnHelp;
 
-    @FXML private HelpController helpController;
+    private HelpController helpController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -58,5 +58,6 @@ public class BottomBarController implements Initializable {
     public HelpController getHelpController() {
         return helpController;
     }
-
+    
+    
 }

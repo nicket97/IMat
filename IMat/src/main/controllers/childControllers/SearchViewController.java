@@ -59,7 +59,7 @@ public class SearchViewController implements Controllable{
         double[] offset = new double[sortedResults.size() + 1];
         int i = 0;
         if(sortedResults.size() == 0){
-        	labelResult.setText("Det finns inga produkter som matchar din s�kning p�: " + label);
+        	labelResult.setText("Det finns inga produkter som matchar din sökning för: " + label);
         }
         else{
         labelResult.setText("Sökresultat för: " + label);

@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import fxComponents.SpemPasswordfield?>
 <AnchorPane id="myPages" fx:id="myPages" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="800.0" visible="true" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.MyPagesController">
    <StackPane fx:id="stackPages" layoutX="200.0">
       <children>
@@ -86,9 +85,7 @@
                         </styleClass>
                      </TextField>
                      <SpemTextfield fx:id="txtEmail" errorText="Felaktig e-postadress" layoutY="50.0" text="" />
-                     <SpemTextfield fx:id="txtPhone" errorText="Felaktigt nr" layoutY="100.0" text="" />
-                     <SpemTextfield fx:id="txtEmail" errorText="Felaktig e-postadress" layoutY="51.0" text="" />
-                     <SpemTextfield fx:id="txtPhone" errorText="Felaktigt nr" layoutY="99.0" promtText="Ange telefonnr" text="" />
+                     <SpemTextfield fx:id="txtPhone" errorText="Felaktigt nr" layoutY="100.0" promtText="Ange telefonnr" text="" />
                   </children>
                </Group>
                <Label layoutY="126.0" styleClass="txtPages" stylesheets="@../css/TextFormat.css" text="E-postadress" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="130.0" />
