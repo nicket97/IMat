@@ -79,7 +79,8 @@ public class NavController implements Initializable {
             this.searchCtrl = centerstageController.getSearchViewController();
             bottomCtrl = btmBarCtrl;
             searchController.setControllers(searchCtrl, bottomCtrl);
-            
+            checkoutController.getReturnButton().setOnAction(e -> { checkoutController.setVisible(false); 
+                displayedIndex--; clearIds(); forceCart(true); displayCategory(displayedIndex); gridMain.getChildren().get(displayedIndex).setId("navActive");});
             bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; clearIds(); displayCategory(displayedIndex); 
                 gridMain.getChildren().get(displayedIndex).setId("navActive");});
             bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; clearIds(); displayCategory(displayedIndex); 
@@ -210,6 +211,9 @@ public class NavController implements Initializable {
         bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
         forceCart(false);
         cartController.setVisibleOnAdd(false);
+        displayedIndex = 8;
+        clearIds();
+        gridMain.getChildren().get(8).setId("navActive");
     }
 
 }

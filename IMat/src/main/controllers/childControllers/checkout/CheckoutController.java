@@ -89,7 +89,6 @@ public class CheckoutController implements Controllable {
 
         btnNext.setOnAction(x -> {index++; openPage(index); });
         btnPrev.setOnAction(x -> {index--; openPage(index); });
-        btnReturn.setOnAction(x -> setVisible(false));
     }
 
     //Sidebar-navigation
@@ -139,5 +138,9 @@ public class CheckoutController implements Controllable {
 
     public ReceiptController getReceiptController() {
         return receiptController;
+    }
+    
+    public Button getReturnButton(){
+        return btnReturn;
     }
 }
