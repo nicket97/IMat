@@ -64,17 +64,19 @@ public class PaymentController implements Controllable {
 	    private CustomDataHandler dataHandler;
 	    private boolean ordered = false;
 
-	    @Override
-	    public void setVisible(boolean value) {
-	        payment.setVisible(value);
-	        payment.setManaged(value);
-                 if(value)
-	        payment.toFront();
-                else
-                payment.toBack();
-	        //Just for testing, delete this when you want
-	        btnPay.setDisable(false);
-	    }
+    @Override
+    public void setVisible(boolean value) {
+        payment.setVisible(value);
+        payment.setManaged(value);
+        payment.toFront();
+        btnPay.setOnAction(x -> {
+              order = dataHandler.placeOrder(true);
+              btnPay.setDisable(true);
+              ordered = true;
+          });
+        //Just for testing, delete this when you want
+        btnPay.setDisable(false);
+    }
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
