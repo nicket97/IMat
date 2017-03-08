@@ -91,7 +91,7 @@ public class CheckoutController implements Controllable {
             child.setOnMouseClicked(event -> openPage(index));
         }
         
-        paymentController.getBtnPay().
+        paymentController.getBtnPay();
         btnNext.setOnAction(x -> {index++; openPage(index); });
         btnPrev.setOnAction(x -> {index--; openPage(index); });
     }
