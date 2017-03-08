@@ -91,9 +91,9 @@ public class CheckoutController implements Controllable {
             child.setOnMouseClicked(event -> openPage(index));
         }
         
-        paymentController.getPayBtn().setOnAction(e -> {openPage(index + 1); paymentController.placeOrder();});
-        btnNext.setOnAction(x -> {openPage(index+1); });
-        btnPrev.setOnAction(x -> {openPage(index+1); });
+        paymentController.getPayBtn().setOnAction(e -> {paymentController.placeOrder(); openPage(4);});
+        btnNext.setOnAction(x -> openPage(index+1));
+        btnPrev.setOnAction(x -> openPage(index-1));
     }
     
     //Sidebar-navigation
@@ -130,7 +130,7 @@ public class CheckoutController implements Controllable {
 
         if(!labelError.isVisible()) {
             btnPrev.setDisable(index == 0);
-            btnNext.setDisable(index == 3);
+            btnNext.setDisable(index >= 3);
         }
         else
             btnNext.setDisable(true);

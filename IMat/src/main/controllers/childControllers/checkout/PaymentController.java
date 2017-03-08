@@ -7,6 +7,8 @@ package main.controllers.childControllers.checkout;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -19,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import main.backend.CustomDataHandler;
+import main.backend.UserHandler;
 import main.controllers.childControllers.Controllable;
 import se.chalmers.ait.dat215.project.Order;
 
@@ -74,16 +77,17 @@ public class PaymentController implements Controllable {
         payment.setVisible(value);
         payment.setManaged(value);
         payment.toFront();
-        
-        //Just for testing, delete this when you want
-        btnPay.setDisable(false);
+
+        UserHandler uh = dataHandler.getUserHandler();
+        if(uh.getCustomerPayment() != null)
+            selectPaymentOption(uh.getCustomerPayment().ordinal());
     }
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
             dataHandler = CustomDataHandler.getInstance();
             for(Node radioBtn : radioGroup.getChildren()){
-                radioBtn.setOnMouseClicked(e -> {setActive(e); showPaymentOption();});
+                radioBtn.setOnMouseClicked(e -> selectPaymentOption(radioGroup.getChildren().indexOf(e.getSource())));
             }
             cbCard.getItems().addAll(DEBIT_CARDS);
             cbCard.setValue("Välj korttyp");
@@ -98,6 +102,7 @@ public class PaymentController implements Controllable {
         public Button getPayBtn(){
             return btnPay;
         }
+
         public boolean validate(){
             return ordered;
         }
@@ -105,28 +110,13 @@ public class PaymentController implements Controllable {
         public Order getOrder(){
             return order;
         }
-	   
-    private void setActive(MouseEvent e) {
-        Node radioBtn = (Node) e.getSource();
-        clearIds();
-        radioBtn.setId("radioButtonChecked");
-    }
 
-    private void clearIds() {
-        for( Node radioBtn : radioGroup.getChildren()){
-            radioBtn.setId(null);
-        }
-    }
+    private void selectPaymentOption(int index){
+        panePayChoice.setVisible(true);
+        btnPay.setDisable(false);
+        radioGroup.getChildren().get(index).setId("radioButtonChecked");
+        radioGroup.getChildren().stream().filter(x -> radioGroup.getChildren().indexOf(x) != index).forEach(x -> x.setId(null));
 
-    private void showPaymentOption() {
-        int index = 0;
-        for(int i = 0; i < radioGroup.getChildren().size(); i++){
-            if(radioGroup.getChildren().get(i).getId()==null)
-            continue;
-            index = i;
-            panePayChoice.setVisible(true);
-            break;
-        }
         switch(index){
             case 0:
                 paneRest.toFront();
@@ -142,10 +132,11 @@ public class PaymentController implements Controllable {
             case 2:
                 paneRest.toFront();
                 labelPayMethod.setText("Faktura");
-                labelRest.setText("Tack, en faktura kommer att ges i samband med leverans?!");
+                labelRest.setText("Tack, en faktura kommer att skickas hem till dig inom kort.");
                 setPane(true);
         }
     }
+
     private void setPane(boolean value){
         paneRest.setVisible(value);
         paneRest.setManaged(value);

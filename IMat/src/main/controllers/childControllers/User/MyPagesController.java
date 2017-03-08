@@ -189,7 +189,7 @@ public class MyPagesController implements Controllable {
         });
 
         txtPostcode.setOnValidation(x -> {
-            txtPostcode.setValid(txtPostcode.getText().isEmpty() || (txtPostcode.getText().trim().length() == 6 && txtPostcode.getText().matches("[0-9]+")));
+            txtPostcode.setValid(txtPostcode.getText().isEmpty() || (txtPostcode.getText().trim().length() == 5 && txtPostcode.getText().matches("[0-9]+")));
             btnEditDelivery.setDisable(!isAllDeliveryValid());
         });
 
@@ -306,7 +306,7 @@ public class MyPagesController implements Controllable {
 
     private void setPaymentFields(boolean b) {
         choicePayment.setDisable(b);
-        if (b)
+        if (!b)
             btnEditPayment.setText("Spara");
         else
             btnEditPayment.setText("Ändra");
