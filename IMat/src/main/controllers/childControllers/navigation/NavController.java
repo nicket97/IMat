@@ -198,6 +198,9 @@ public class NavController implements Initializable {
         cartController.setVisible(value);
         setCartBtn(value);
     }
+    public int getIndex(){
+    	return displayedIndex;
+    }
 
     private void clearIds() {
         for(Node n: gridMain.getChildren())

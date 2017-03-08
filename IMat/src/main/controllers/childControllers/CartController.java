@@ -83,7 +83,8 @@ public class CartController implements Initializable{
     }
 
     private void updateChart(ShoppingItem item, boolean add){
-        List<ShoppingItem> viewedItems = listViewCartItems.getItems();
+        if(nav.getIndex() != 8){
+    	List<ShoppingItem> viewedItems = listViewCartItems.getItems();
 
         if(item == null){
             viewedItems.clear();
@@ -111,7 +112,15 @@ public class CartController implements Initializable{
             viewedItems.remove(item);
         }
         this.displaySum();
+        }
         
+        else{
+        	listViewCartItems.getItems().clear();
+	        for(int i = 0; i < shoppingCart.getItems().size(); i++){
+	        	listViewCartItems.getItems().add(shoppingCart.getItems().get(i));
+	        }
+	        this.displaySum();
+        }
     }
 
     public void displaySum(){

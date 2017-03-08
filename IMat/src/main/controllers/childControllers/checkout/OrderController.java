@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import main.backend.CustomDataHandler;
 import main.controllers.childControllers.Controllable;
 import se.chalmers.ait.dat215.project.ShoppingCart;
@@ -30,7 +31,8 @@ public class OrderController implements Controllable {
     private AnchorPane order;
     @FXML
     private ListView orderList;
-
+    @FXML
+    private VBox orderVBox;
 
     @FXML 
     private Label labelGranska;
@@ -70,14 +72,22 @@ public class OrderController implements Controllable {
         dataHandler = CustomDataHandler.getInstance();
         ordinaryTitle = labelGranska.getText();
         shoppingCart = CustomDataHandler.getInstance().getShoppingCart();
-        orderList.setMouseTransparent( true );
-        orderList.setFocusTraversable( false );
-
+        //orderList.setMouseTransparent( true );
+        //orderList.setFocusTraversable( false );
+        //orderList.getChildrenUnmodifiable().get(0).setFocusTraversable(true);
+        //orderVBox.setManaged(true);
+        
         addListeners();
     }
     
     private void addListeners(){
-    	
+    	shoppingCart.addShoppingCartListener(e -> {
+    		 orderList.getItems().clear();
+    	        for(int i = 0; i < shoppingCart.getItems().size(); i++){
+    	        	orderList.getItems().add(shoppingCart.getItems().get(i));
+    	        }
+    	        this.displaySum();
+    	});
     	orderList.setCellFactory(x -> new ListViewOrderItem(shoppingCart, this));
         
     }
