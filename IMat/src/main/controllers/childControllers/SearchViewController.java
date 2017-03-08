@@ -93,6 +93,7 @@ public class SearchViewController implements Controllable{
             listBox.getChildren().get(k).setOnMouseClicked(e -> scrollPane.setVvalue((scrollIndex[k] + offset[k])/scrollIndex[scrollIndex.length-1]));
         }
         
+        
     }
     public void setReturnValues(boolean prev, boolean next){
         btnNavRtrnValues[0] = prev;
@@ -162,6 +163,13 @@ public class SearchViewController implements Controllable{
             searchView.toFront();
     }
     
+    public boolean isVisible(){
+        return searchView.isVisible();
+    }
+    
+    public AnchorPane getSearchView(){
+        return searchView;
+    }
     public Label createSubcategoryButton(String label){
         Label category = new Label(label);
         category.setAlignment(Pos.CENTER);

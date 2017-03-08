@@ -7,6 +7,7 @@ package main.controllers.childControllers.navigation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.Observable;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,7 +44,7 @@ public class NavController implements Initializable {
 
     private CustomDataHandler dataHandler;
 
-    private int displayedIndex = 2;
+    private int displayedIndex = 1;
     @FXML
     private AnchorPane nav;
     @FXML
@@ -62,6 +63,8 @@ public class NavController implements Initializable {
     private Label navCheckout;
 
     private ImageView imgHome;
+   
+    private navigationSearchState searchState;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,14 +80,19 @@ public class NavController implements Initializable {
             this.prodCtrl = centerstageController.getProductViewController();
             this.checkoutController = centerstageController.getCheckoutController();
             this.searchCtrl = centerstageController.getSearchViewController();
+            
             bottomCtrl = btmBarCtrl;
             searchController.setControllers(searchCtrl, bottomCtrl);
+            searchCtrl.getSearchView().visibleProperty().addListener(e -> setSearchView());
+            
             checkoutController.getReturnButton().setOnAction(e -> { checkoutController.setVisible(false); 
                 displayedIndex--; clearIds(); forceCart(true); displayCategory(displayedIndex); gridMain.getChildren().get(displayedIndex).setId("navActive");});
             bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; clearIds(); displayCategory(displayedIndex); 
                 gridMain.getChildren().get(displayedIndex).setId("navActive");});
+            
             bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; clearIds(); displayCategory(displayedIndex); 
                 gridMain.getChildren().get(displayedIndex).setId("navActive");});
+            
             bottomCtrl.setHelpController(helpCtrl);
             imgHome = (ImageView) nav.getParent().getChildrenUnmodifiable().get(4);
             setHomeHatch();
@@ -216,4 +224,32 @@ public class NavController implements Initializable {
         gridMain.getChildren().get(8).setId("navActive");
     }
 
+    private void setSearchView() {
+        if(searchCtrl.getSearchView().isVisible()){
+            searchState = new navigationSearchState(displayedIndex, cartController.isVisible());
+            clearIds();
+            forceCart(true);
+        }
+        else{
+            gridMain.getChildren().get(searchState.getIndex()).setId("navActive");
+            forceCart(searchState.getCartState());
+        }
+    }
+    
+    private class navigationSearchState{
+        private int currentIndex;
+        private boolean currentCartState;
+        
+        public navigationSearchState(int currentIndex, boolean currentCartState){
+            this.currentIndex = currentIndex;
+            this.currentCartState = currentCartState;
+        }
+        
+        public int getIndex(){
+            return currentIndex;
+        }
+        public boolean getCartState(){
+        return currentCartState;
+        }
+    }
 }
