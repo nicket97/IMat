@@ -91,7 +91,7 @@ public class CheckoutController implements Controllable {
             child.setOnMouseClicked(event -> openPage(index));
         }
         
-        paymentController.getPayBtn().setOnAction(e -> {openPage(index + 1);});
+        paymentController.getPayBtn().setOnAction(e -> {openPage(index + 1); paymentController.placeOrder();});
         btnNext.setOnAction(x -> {openPage(index+1); });
         btnPrev.setOnAction(x -> {openPage(index+1); });
     }
@@ -132,6 +132,8 @@ public class CheckoutController implements Controllable {
             btnPrev.setDisable(index == 0);
             btnNext.setDisable(index == 3);
         }
+        else
+            btnNext.setDisable(true);
 
         if(!labelError.isVisible()) this.index = index;
 
