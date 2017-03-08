@@ -61,7 +61,7 @@ public class UserStatusController implements Initializable {
 
         //Lyssna efter ut- och inloggningar
         userHandler.getLoggedInProperty().addListener(x -> setLoggedIn(userHandler.isLoggedIn()));
-        imgUserSettings.setOnMouseClicked(e -> userController.setMyPagesVisible(true));
+        paneLoggedIn.setOnMouseClicked(e -> userController.setMyPagesVisible(true));
     }
     
 }
