@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -38,7 +39,7 @@ public class PaymentController implements Controllable {
 	    @FXML
 	    private AnchorPane paneDebit;
 	    @FXML
-	    private ComboBox<?> cbCard;
+	    private ChoiceBox<String> cbCard;
 	    @FXML
 	    private TextField txtCardNumber;
 	    @FXML
@@ -59,6 +60,10 @@ public class PaymentController implements Controllable {
             private Label radioDebit;
             @FXML
             private Label radioCheck;
+            @FXML
+            private Label labelRest;
+            
+            private static final String[] DEBIT_CARDS = {"MasterCard", "Visa"};
 
 	    private Order order = null;
 	    private CustomDataHandler dataHandler;
@@ -69,11 +74,7 @@ public class PaymentController implements Controllable {
         payment.setVisible(value);
         payment.setManaged(value);
         payment.toFront();
-        btnPay.setOnAction(x -> {
-              order = dataHandler.placeOrder(true);
-              btnPay.setDisable(true);
-              ordered = true;
-          });
+        
         //Just for testing, delete this when you want
         btnPay.setDisable(false);
     }
@@ -81,9 +82,11 @@ public class PaymentController implements Controllable {
         @Override
         public void initialize(URL location, ResourceBundle resources) {
             dataHandler = CustomDataHandler.getInstance();
-        for(Node radioBtn : radioGroup.getChildren()){
-            radioBtn.setOnMouseClicked(e -> setActive(e));
-        }
+            for(Node radioBtn : radioGroup.getChildren()){
+                radioBtn.setOnMouseClicked(e -> {setActive(e); showPaymentOption();});
+            }
+            cbCard.getItems().addAll(DEBIT_CARDS);
+            cbCard.setValue("Välj korttyp");
         }
         
         public void placeOrder(){
@@ -114,6 +117,45 @@ public class PaymentController implements Controllable {
             radioBtn.setId(null);
         }
     }
+
+    private void showPaymentOption() {
+        int index = 0;
+        for(int i = 0; i < radioGroup.getChildren().size(); i++){
+            if(radioGroup.getChildren().get(i).getId()==null)
+            continue;
+            index = i;
+            panePayChoice.setVisible(true);
+            break;
+        }
+        switch(index){
+            case 0:
+                paneRest.toFront();
+                labelPayMethod.setText("Betala vid leverans");
+                labelRest.setText("Tack, då löser vi betalningen vid leverans!");
+                setPane(true);
+                break;
+            case 1:
+                paneDebit.toFront();
+                labelPayMethod.setText("Kredit-/Kontokort");
+                setPane(false);
+                break;
+            case 2:
+                paneRest.toFront();
+                labelPayMethod.setText("Faktura");
+                labelRest.setText("Tack, en faktura kommer att ges i samband med leverans?!");
+                setPane(true);
+        }
+    }
+    private void setPane(boolean value){
+        paneRest.setVisible(value);
+        paneRest.setManaged(value);
+        
+        paneDebit.setVisible(!value);
+        paneDebit.setManaged(!value);
+        
+    }
+
+    
 
     
 }
