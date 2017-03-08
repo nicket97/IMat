@@ -45,8 +45,7 @@ public class ReceiptController implements Initializable {
         if(value)
             receipt.toFront();
         else
-            receipt.toBack();
-        
+            receipt.toBack();      
     }
     
 

@@ -32,12 +32,6 @@ public class PaymentController implements Controllable {
 	    @FXML
 	    private AnchorPane payment;
 	    @FXML
-	    private StackPane radioBtnDoor;
-	    @FXML
-	    private StackPane radioBtnDebit;
-	    @FXML
-	    private StackPane radioBtnMail;
-	    @FXML
 	    private AnchorPane panePayChoice;
 	    @FXML
 	    private Label labelPayMethod;
@@ -57,45 +51,56 @@ public class PaymentController implements Controllable {
 	    private AnchorPane paneRest;
 	    @FXML
 	    private Button btnPay;
+            @FXML
+            private Group radioGroup;
+            @FXML
+            private Label radioDel;
+            @FXML
+            private Label radioDebit;
+            @FXML
+            private Label radioCheck;
 
 	    private Order order = null;
 	    private CustomDataHandler dataHandler;
 	    private boolean ordered = false;
-		private Group radioGroup;
 
 	    @Override
 	    public void setVisible(boolean value) {
 	        payment.setVisible(value);
 	        payment.setManaged(value);
+                 if(value)
 	        payment.toFront();
-
+                else
+                payment.toBack();
 	        //Just for testing, delete this when you want
 	        btnPay.setDisable(false);
 	    }
 
-	    @Override
-	    public void initialize(URL location, ResourceBundle resources) {
-	       dataHandler = CustomDataHandler.getInstance();
-	        btnPay.setOnAction(x -> {
-	            order = dataHandler.placeOrder(true);
-	            btnPay.setDisable(true);
-	            ordered = true;
-	        });
-	    }
+        @Override
+        public void initialize(URL location, ResourceBundle resources) {
+            dataHandler = CustomDataHandler.getInstance();
+        for(Node radioBtn : radioGroup.getChildren()){
+            radioBtn.setOnMouseClicked(e -> setActive(e));
+        }
+        }
+        
+        public void placeOrder(){
+            order = dataHandler.placeOrder(true);
+            btnPay.setDisable(true);
+            ordered = true;
+            setVisible(false);
+        }
+        public Button getPayBtn(){
+            return btnPay;
+        }
+        public boolean validate(){
+            return ordered;
+        }
 
-	    public boolean validate(){
-	        return ordered;
-	    }
-
-	    public Order getOrder(){
-	        return order;
-	    }
-	    
-	
-    
-
-
-
+        public Order getOrder(){
+            return order;
+        }
+	   
     private void setActive(MouseEvent e) {
         Node radioBtn = (Node) e.getSource();
         clearIds();
@@ -107,10 +112,6 @@ public class PaymentController implements Controllable {
             radioBtn.setId(null);
         }
     }
-
-	public Object getBtnPay() {
-		return btnPay;
-	}
 
     
 }
