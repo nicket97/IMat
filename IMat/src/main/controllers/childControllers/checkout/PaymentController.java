@@ -8,6 +8,7 @@ package main.controllers.childControllers.checkout;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import fxComponents.SpemTextfield;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -44,13 +45,13 @@ public class PaymentController implements Controllable {
 	    @FXML
 	    private ChoiceBox<String> cbCard;
 	    @FXML
-	    private TextField txtCardNumber;
+	    private SpemTextfield txtCardNumber;
 	    @FXML
-	    private TextField txtMM;
+	    private SpemTextfield txtMM;
 	    @FXML
-	    private TextField txtYY;
+	    private SpemTextfield txtYY;
 	    @FXML
-	    private TextField txtCVV;
+	    private SpemTextfield txtCVV;
 	    @FXML
 	    private AnchorPane paneRest;
 	    @FXML

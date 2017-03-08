@@ -57,11 +57,11 @@ public class SpemTextfield extends AnchorPane implements Initializable {
         txtField.setText(text);
     }
 
-    public void setPromtText(String promtText){
-        txtField.setPromptText(promtText);
+    public void setPromptText(String promptText){
+        txtField.setPromptText(promptText);
     }
 
-    public String getPromtText(){
+    public String getPromptText(){
         return txtField.getPromptText();
     }
 
