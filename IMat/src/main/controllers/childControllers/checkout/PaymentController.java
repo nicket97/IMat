@@ -52,8 +52,6 @@ public class PaymentController implements Controllable {
 	    private SpemTextfield txtCVV;
 	    @FXML
 	    private AnchorPane paneRest;
-	    @FXML
-	    private Button btnPay;
             @FXML
             private Group radioGroup;
             @FXML
@@ -108,12 +106,8 @@ public class PaymentController implements Controllable {
                 return;
 
             order = dataHandler.placeOrder(true);
-            btnPay.setDisable(true);
             ordered = true;
             setVisible(false);
-        }
-        public Button getPayBtn(){
-            return btnPay;
         }
 
         public boolean validate(){
@@ -126,7 +120,6 @@ public class PaymentController implements Controllable {
 
     private void selectPaymentOption(int index){
         panePayChoice.setVisible(true);
-        btnPay.setDisable(false);
         radioGroup.getChildren().get(index).setId("radioButtonChecked");
         radioGroup.getChildren().stream().filter(x -> radioGroup.getChildren().indexOf(x) != index).forEach(x -> x.setId(null));
 

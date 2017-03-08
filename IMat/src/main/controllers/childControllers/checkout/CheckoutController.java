@@ -90,14 +90,16 @@ public class CheckoutController implements Controllable {
             int index = i;
             child.setOnMouseClicked(event -> openPage(index));
         }
-        
-        paymentController.getPayBtn().setOnAction(e -> {paymentController.placeOrder(); openPage(4);});
+
         btnNext.setOnAction(x -> openPage(index+1));
         btnPrev.setOnAction(x -> openPage(index-1));
     }
     
     //Sidebar-navigation
     private void openPage(int index){
+        //Quick fix
+        if(this.index == 4)
+            return;
 
         switch (index){
             case 0:
@@ -118,6 +120,7 @@ public class CheckoutController implements Controllable {
                 
                 break;
             case 4:
+                paymentController.placeOrder();
                 labelError.setVisible(!paymentController.validate());
                 if(!labelError.isVisible()) {
                     receiptController.setVisible(true);
@@ -129,13 +132,16 @@ public class CheckoutController implements Controllable {
         }
 
         if(!labelError.isVisible()) {
-            btnPrev.setDisable(index == 0);
-            btnNext.setDisable(index >= 3);
+            btnPrev.setDisable(index == 0 || index == 4);
+            btnNext.setDisable(index >= 4);
         }
-        else
-            btnNext.setDisable(true);
 
         if(!labelError.isVisible()) this.index = index;
+
+        if(this.index == 3)
+            btnNext.setText("Beställ");
+        else
+            btnNext.setText("Nästa");
 
         System.out.println(index);
     }

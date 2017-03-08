@@ -75,7 +75,6 @@
                                                 </AnchorPane>
                                              </children>
                                           </StackPane>
-                                          <Button fx:id="btnPay" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="formButton" stylesheets="@../css/ButtonSchemes.css" text="Beställ" />
                                        </children>
                                     </VBox>
                                  </children>

@@ -60,7 +60,7 @@ public class CustomerController implements Controllable {
 
         userHandler = CustomDataHandler.getInstance().getUserHandler();
         txtMail.setOnValidation(x -> txtMail.setValid(txtMail.getText().contains("@") && txtMail.getText().contains(".")
-                && !txtFName.getText().isEmpty()));
+                && !txtMail.getText().isEmpty()));
 
                 txtPhone.setOnValidation(x -> txtPhone.setValid(txtPhone.getText().matches("[0-9]+") && !txtPhone.getText().isEmpty()));
                 txtFName.setOnValidation(x -> txtFName.setValid(!txtFName.getText().isEmpty()));
