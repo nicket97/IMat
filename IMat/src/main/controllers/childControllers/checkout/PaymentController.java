@@ -34,10 +34,8 @@ public class PaymentController implements Controllable {
 	 * and open the template in the editor.
 	 */
 
-	    @FXML
-	    private AnchorPane payment;
-	    @FXML
-	    private AnchorPane panePayChoice;
+	    @FXML private AnchorPane payment;
+	    @FXML private AnchorPane panePayChoice;
 	    @FXML
 	    private Label labelPayMethod;
 	    @FXML
@@ -92,9 +90,23 @@ public class PaymentController implements Controllable {
             }
             cbCard.getItems().addAll(DEBIT_CARDS);
             cbCard.setValue("Välj korttyp");
+            setValidations();
         }
         
         public void placeOrder(){
+            if(labelPayMethod.getText().equals("Kredit-/Kontokort")){
+                txtCardNumber.validate();
+                txtYY.validate();
+                txtMM.validate();
+                txtCVV.validate();
+
+                if(!txtCardNumber.isValid() || !txtCVV.isValid() || !txtMM.isValid() || !txtYY.isValid() || cbCard.getSelectionModel().isEmpty())
+                    return;
+            }
+
+            if(!panePayChoice.isVisible())
+                return;
+
             order = dataHandler.placeOrder(true);
             btnPay.setDisable(true);
             ordered = true;
@@ -138,13 +150,26 @@ public class PaymentController implements Controllable {
         }
     }
 
+    private void setValidations(){
+        txtCardNumber.setOnValidation(x -> txtCardNumber.setValid(!txtCardNumber.getText().isEmpty() &&
+        txtCardNumber.getText().matches("[0-9]+") && txtCardNumber.getText().length() == 16));
+
+        txtCVV.setOnValidation(x -> txtCVV.setValid(!txtCVV.getText().isEmpty() &&
+                txtCVV.getText().matches("[0-9]+")&& txtCVV.getText().length() == 3));
+
+        txtMM.setOnValidation(x -> txtMM.setValid(!txtMM.getText().isEmpty() &&
+                txtMM.getText().matches("[0-9]+")&& txtMM.getText().length() == 2));
+
+        txtYY.setOnValidation(x -> txtYY.setValid(!txtYY.getText().isEmpty() &&
+                txtYY.getText().matches("[0-9]+")&& txtYY.getText().length() == 2));
+    }
+
     private void setPane(boolean value){
         paneRest.setVisible(value);
         paneRest.setManaged(value);
         
         paneDebit.setVisible(!value);
         paneDebit.setManaged(!value);
-        
     }
 
     
