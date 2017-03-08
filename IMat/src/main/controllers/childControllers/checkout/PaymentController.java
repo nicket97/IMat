@@ -67,12 +67,10 @@ public class PaymentController implements Controllable {
     public void setVisible(boolean value) {
         payment.setVisible(value);
         payment.setManaged(value);
-        payment.toFront();
-        btnPay.setOnAction(x -> {
-              order = dataHandler.placeOrder(true);
-              btnPay.setDisable(true);
- -            ordered = true;
-          });
+        if(value)
+            payment.toFront();
+        else
+            payment.toBack();
         //Just for testing, delete this when you want
         btnPay.setDisable(false);
     }
@@ -87,6 +85,7 @@ public class PaymentController implements Controllable {
             order = dataHandler.placeOrder(true);
             btnPay.setDisable(true);
             ordered = true;
+            setVisible(false);
         });
         for(Node radioBtn : radioGroup.getChildren()){
             radioBtn.setOnMouseClicked(e -> setActive(e));

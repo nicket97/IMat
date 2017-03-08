@@ -42,7 +42,10 @@ public class ReceiptController implements Initializable {
     public void setVisible(boolean value) {
         receipt.setVisible(value);
         receipt.setManaged(value);
-        receipt.toFront();
+        if(value)
+            receipt.toFront();
+        else
+            receipt.toBack();
         
     }
     
