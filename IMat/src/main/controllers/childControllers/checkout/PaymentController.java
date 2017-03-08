@@ -8,10 +8,13 @@ package main.controllers.childControllers.checkout;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import main.backend.CustomDataHandler;
@@ -26,12 +29,6 @@ public class PaymentController implements Controllable {
 
     @FXML
     private AnchorPane payment;
-    @FXML
-    private StackPane radioBtnDoor;
-    @FXML
-    private StackPane radioBtnDebit;
-    @FXML
-    private StackPane radioBtnMail;
     @FXML
     private AnchorPane panePayChoice;
     @FXML
@@ -52,9 +49,18 @@ public class PaymentController implements Controllable {
     private AnchorPane paneRest;
     @FXML
     private Button btnPay;
+    @FXML
+    private Group radioGroup;
+    @FXML
+    private Label radioDel;
+    @FXML
+    private Label radioDebit;
+    @FXML
+    private Label radioCheck;
 
     private Order order = null;
     private CustomDataHandler dataHandler;
+    
 
     @Override
     public void setVisible(boolean value) {
@@ -73,10 +79,26 @@ public class PaymentController implements Controllable {
             order = dataHandler.placeOrder(true);
             btnPay.setDisable(true);
         });
+        for(Node radioBtn : radioGroup.getChildren()){
+            radioBtn.setOnMouseClicked(e -> setActive(e));
+        }
     }
 
     public Order getOrder(){
         return order;
     }
+
+    private void setActive(MouseEvent e) {
+        Node radioBtn = (Node) e.getSource();
+        clearIds();
+        radioBtn.setId("radioButtonChecked");
+    }
+
+    private void clearIds() {
+        for( Node radioBtn : radioGroup.getChildren()){
+            radioBtn.setId(null);
+        }
+    }
+
     
 }

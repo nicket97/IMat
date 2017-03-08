@@ -16,7 +16,7 @@ and open the template in the editor.
 .radioButton:hover{
     -fx-background-image: url("../img/Icons/CheckButtonHover.png");
 }
-.radioButtonChecked{
+#radioButtonChecked{
     -fx-background-image: url("../img/Icons/CheckButtonCheck.png");
 }
 .helpTooltip{

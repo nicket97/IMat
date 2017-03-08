@@ -22,24 +22,13 @@
                               <AnchorPane prefHeight="164.0" prefWidth="400.0" styleClass="formFrame" stylesheets="@../css/MainFrameWork.css">
                                  <children>
                                     <Label id="paymentMethodLabel" layoutX="28.0" layoutY="42.0" prefHeight="27.0" prefWidth="329.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Betala med:" textAlignment="RIGHT" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
-                                    <StackPane fx:id="radioBtnDoor" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="80.0">
-                                       <children>
-                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButtonChecked" stylesheets="@../css/ButtonSchemes.css" visible="false" />
-                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
-                                       </children>
-                                    </StackPane>
-                                    <StackPane fx:id="radioBtnDebit" layoutX="10.0" layoutY="10.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="100.0">
-                                       <children>
-                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButtonChecked" stylesheets="@../css/ButtonSchemes.css" visible="false" />
-                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
-                                       </children>
-                                    </StackPane>
-                                    <StackPane fx:id="radioBtnMail" layoutX="20.0" layoutY="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="120.0">
-                                       <children>
-                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButtonChecked" stylesheets="@../css/ButtonSchemes.css" visible="false" />
-                                          <Label prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
-                                       </children>
-                                    </StackPane>
+                        <Group fx:id="radioGroup" layoutX="151.0" layoutY="81.0">
+                           <children>
+                                          <Label fx:id="radioDel" prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
+                                          <Label fx:id="radioDebit" layoutY="20.0" prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
+                                          <Label fx:id="radioCheck" layoutY="41.0" prefHeight="20.0" prefWidth="20.0" styleClass="radioButton" stylesheets="@../css/ButtonSchemes.css" />
+                           </children>
+                        </Group>
                                     <Label id="paymentMethod" layoutX="178.0" layoutY="80.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Betala vid leverans" AnchorPane.topAnchor="80.0" />
                                     <Label id="paymentMethod" layoutX="178.0" layoutY="100.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Kredit-/Kontokort" AnchorPane.topAnchor="100.0" />
                                     <Label id="paymentMethod" layoutX="178.0" layoutY="120.0" styleClass="txtCheckoutForm" stylesheets="@../css/TextFormat.css" text="Faktura" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="120.0" />
