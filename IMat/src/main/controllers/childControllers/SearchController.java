@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.SortedMap;
 import java.util.concurrent.SynchronousQueue;
+import javafx.scene.layout.AnchorPane;
 import main.DataPair;
 
 /**
@@ -28,7 +29,7 @@ public class SearchController implements Initializable {
     @FXML TextField txtSearch;
     @FXML Button btnSearch;
     @FXML CenterstageController centerstageController;
-    
+    @FXML AnchorPane search;
     private SearchViewController searchCtrl;
     private BottomBarController bottomCtrl;
     CustomDataHandler dataHandler;
@@ -119,6 +120,11 @@ public class SearchController implements Initializable {
         	if(e.getCode() == KeyCode.ENTER){ startSearch();
         	txtSearch.setText("");
         }});
+        txtSearch.focusedProperty().addListener(e -> 
+        {if(txtSearch.isFocused())
+            search.setId("searchBar");
+        else
+            search.setId(null);});
     }
 
     private void printSearchResult(List<Product> result){

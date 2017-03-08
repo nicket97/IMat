@@ -17,6 +17,7 @@ and open the template in the editor.
     -fx-font-size: 1.5em;
     -fx-font-weight: bold;
     -fx-text-fill: #cfdee9;
+    -fx-cursor: hand;
 }
 
 .navButton:hover{
