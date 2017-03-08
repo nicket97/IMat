@@ -223,6 +223,20 @@ public class MyPagesController implements Controllable {
         txtAddress.setText(currCust.getAddress());
         txtPostcode.setText(currCust.getPostCode());
         txtPostaddress.setText(currCust.getPostAddress());
+        if(uh.getCustomerPayment() != null){
+            switch (uh.getCustomerPayment()){
+                case CASH:
+                    choicePayment.setValue("Vid leverans");
+                    break;
+                case CREDIT_CARD:
+                    choicePayment.setValue("Kredit-/Kontokort");
+                    break;
+                case INVOICE:
+                    choicePayment.setValue("Faktura");
+                    break;
+            }
+        }
+
     }
 
     private void saveChanges(){
@@ -238,9 +252,26 @@ public class MyPagesController implements Controllable {
         currCust.setPostCode(txtPostcode.getText());
         currCust.setPostAddress(txtPostaddress.getText());
         currCust.setPhoneNumber(txtPhone.getText());
-
+        savePayment();
         uh.saveCurrentCustomer();
 
+    }
+
+    private void savePayment(){
+        if(choicePayment.getValue() == null)
+            return;
+
+        switch(choicePayment.getValue()){
+            case "Vid leverans":
+                uh.setCustomerPayment(UserHandler.Payments.CASH);
+                break;
+            case "Kredit-/Kontokort":
+                uh.setCustomerPayment(UserHandler.Payments.CREDIT_CARD);
+                break;
+            case "Faktura":
+                uh.setCustomerPayment(UserHandler.Payments.INVOICE);
+                break;
+        }
     }
 
     private void showPasswordSettings() {

@@ -17,11 +17,14 @@ import java.util.stream.Stream;
  * Created by Pontus on 2017-02-18.
  */
 public class UserHandler {
-    User currentUser;
-    Customer currentCustomer;
-    String iMatDir;
-    List<String> customerLines;
-    String customerOrderDates;
+    public enum Payments {CASH, CREDIT_CARD, INVOICE}
+
+    private User currentUser;
+    private Customer currentCustomer;
+    private String iMatDir;
+    private List<String> customerLines;
+    private String customerOrderDates;
+    private Payments customerPayment;
 
     private BooleanProperty loggedInProperty = new SimpleBooleanProperty(false);
 
@@ -173,6 +176,14 @@ public class UserHandler {
         saveCustomer(currentCustomer);
     }
 
+    public void setCustomerPayment(Payments payment){
+        this.customerPayment = payment;
+    }
+
+    public Payments getCustomerPayment(){
+        return customerPayment;
+    }
+
     private Customer getCustomerFromUser(User user) {
         Optional<String> maybeCustomer = customerLines.stream().filter(x -> x.contains(user.getUserName())).findFirst();
         if(maybeCustomer.isPresent()) {
@@ -202,12 +213,18 @@ public class UserHandler {
                         break;
                     case 8:
                         customerOrderDates = properties[i];
+                        break;
+                    case 9:
+                        if(!properties[i].isEmpty())
+                            customerPayment = Payments.valueOf(properties[i]);
+                        else
+                            customerPayment = null;
+                        break;
                 }
             }
         }
 
         currentCustomer.setEmail(currentUser.getUserName());
-
 
         return currentCustomer;
     }
@@ -222,6 +239,7 @@ public class UserHandler {
         customer.setPostAddress("");
         customer.setPostCode("");
         customerOrderDates = "";
+        customerPayment = null;
     }
 
     private void saveCustomer(Customer customer) {
@@ -242,6 +260,7 @@ public class UserHandler {
                     customer.getPostCode() + ";" +
                     customer.getPostAddress() + ";" +
                     customerOrderDates + ";" +
+                    (customerPayment == null ? "" : customerPayment.name()) + ";" +
                     "end";
 
             boolean addNew = true;
