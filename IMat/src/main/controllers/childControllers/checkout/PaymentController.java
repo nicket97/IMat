@@ -21,47 +21,48 @@ import main.backend.CustomDataHandler;
 import main.controllers.childControllers.Controllable;
 import se.chalmers.ait.dat215.project.Order;
 
-/**
- *
- * @author Felix
- */
+
 public class PaymentController implements Controllable {
+	/*
+	 * To change this license header, choose License Headers in Project Properties.
+	 * To change this template file, choose Tools | Templates
+	 * and open the template in the editor.
+	 */
 
-    @FXML
-    private AnchorPane payment;
-    @FXML
-    private AnchorPane panePayChoice;
-    @FXML
-    private Label labelPayMethod;
-    @FXML
-    private AnchorPane paneDebit;
-    @FXML
-    private ComboBox<?> cbCard;
-    @FXML
-    private TextField txtCardNumber;
-    @FXML
-    private TextField txtMM;
-    @FXML
-    private TextField txtYY;
-    @FXML
-    private TextField txtCVV;
-    @FXML
-    private AnchorPane paneRest;
-    @FXML
-    private Button btnPay;
-    @FXML
-    private Group radioGroup;
-    @FXML
-    private Label radioDel;
-    @FXML
-    private Label radioDebit;
-    @FXML
-    private Label radioCheck;
+	    @FXML
+	    private AnchorPane payment;
+	    @FXML
+	    private AnchorPane panePayChoice;
+	    @FXML
+	    private Label labelPayMethod;
+	    @FXML
+	    private AnchorPane paneDebit;
+	    @FXML
+	    private ComboBox<?> cbCard;
+	    @FXML
+	    private TextField txtCardNumber;
+	    @FXML
+	    private TextField txtMM;
+	    @FXML
+	    private TextField txtYY;
+	    @FXML
+	    private TextField txtCVV;
+	    @FXML
+	    private AnchorPane paneRest;
+	    @FXML
+	    private Button btnPay;
+            @FXML
+            private Group radioGroup;
+            @FXML
+            private Label radioDel;
+            @FXML
+            private Label radioDebit;
+            @FXML
+            private Label radioCheck;
 
-    private Order order = null;
-    private CustomDataHandler dataHandler;
-    private boolean ordered = false;
-
+	    private Order order = null;
+	    private CustomDataHandler dataHandler;
+	    private boolean ordered = false;
 
     @Override
     public void setVisible(boolean value) {
@@ -76,27 +77,32 @@ public class PaymentController implements Controllable {
         //Just for testing, delete this when you want
         btnPay.setDisable(false);
     }
-    public boolean validate(){
-    	return ordered;
-    }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-       dataHandler = CustomDataHandler.getInstance();
-        btnPay.setOnAction(x -> {
-            order = dataHandler.placeOrder(true);
-            btnPay.setDisable(true);
-            ordered = true;
-        });
+        @Override
+        public void initialize(URL location, ResourceBundle resources) {
+            dataHandler = CustomDataHandler.getInstance();
         for(Node radioBtn : radioGroup.getChildren()){
             radioBtn.setOnMouseClicked(e -> setActive(e));
         }
-    }
+        }
+        
+        public void placeOrder(){
+            order = dataHandler.placeOrder(true);
+            btnPay.setDisable(true);
+            ordered = true;
+            setVisible(false);
+        }
+        public Button getPayBtn(){
+            return btnPay;
+        }
+        public boolean validate(){
+            return ordered;
+        }
 
-    public Order getOrder(){
-        return order;
-    }
-
+        public Order getOrder(){
+            return order;
+        }
+	   
     private void setActive(MouseEvent e) {
         Node radioBtn = (Node) e.getSource();
         clearIds();

@@ -70,7 +70,7 @@ public class CheckoutController implements Controllable {
     @FXML private Label labelError;
 
     private int index = 0;
-	private Object dataHandler;
+    private Object dataHandler;
 
     @Override
     public void setVisible(boolean value) {
@@ -90,9 +90,10 @@ public class CheckoutController implements Controllable {
             int index = i;
             child.setOnMouseClicked(event -> openPage(index));
         }
-
-        btnNext.setOnAction(x -> {index++; openPage(index); });
-        btnPrev.setOnAction(x -> {index--; openPage(index); });
+        
+        paymentController.getPayBtn().setOnAction(e -> {openPage(index + 1);});
+        btnNext.setOnAction(x -> {openPage(index+1); });
+        btnPrev.setOnAction(x -> {openPage(index+1); });
     }
     
     //Sidebar-navigation
@@ -114,6 +115,7 @@ public class CheckoutController implements Controllable {
             case 3:
                 labelError.setVisible(!deliveryController.validate());
                 if(!labelError.isVisible()) paymentController.setVisible(true);
+                
                 break;
             case 4:
                 labelError.setVisible(!paymentController.validate());
@@ -128,7 +130,7 @@ public class CheckoutController implements Controllable {
 
         if(!labelError.isVisible()) {
             btnPrev.setDisable(index == 0);
-            btnNext.setDisable(index == 4);
+            btnNext.setDisable(index == 3);
         }
 
         if(!labelError.isVisible()) this.index = index;
