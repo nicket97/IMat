@@ -23,15 +23,15 @@ import se.chalmers.ait.dat215.project.Customer;
  * @author Felix
  */
 public class CustomerController implements Controllable {
-
+	
     @FXML
     private AnchorPane customer;
     @FXML
-    private TextField txtFName;
+    private SpemTextfield txtFName;
     @FXML
     private Label labelFName;
     @FXML
-    private TextField txtLName;
+    private SpemTextfield txtLName;
     @FXML
     private Label labelLName;
     @FXML
@@ -39,7 +39,7 @@ public class CustomerController implements Controllable {
     @FXML
     private Label labelMail;
     @FXML
-    private TextField txtPhone;
+    private SpemTextfield txtPhone;
     @FXML
     private Label labelPhone;
 
@@ -59,7 +59,26 @@ public class CustomerController implements Controllable {
         txtMail.setOnValidation(x -> txtMail.setValid(txtMail.getText().contains("@") && txtMail.getText().contains(".")));
 
         userHandler = CustomDataHandler.getInstance().getUserHandler();
-    }
+        txtMail.setOnValidation(x -> txtMail.setValid(txtMail.getText().contains("@") && txtMail.getText().contains(".")
+                && !txtFName.getText().isEmpty()));
+
+                txtPhone.setOnValidation(x -> txtPhone.setValid(txtPhone.getText().matches("[0-9]+") && !txtPhone.getText().isEmpty()));
+                txtFName.setOnValidation(x -> txtFName.setValid(!txtFName.getText().isEmpty()));
+                txtLName.setOnValidation(x -> txtLName.setValid(!txtLName.getText().isEmpty()));
+
+                userHandler = CustomDataHandler.getInstance().getUserHandler();
+            }
+
+
+            public boolean validate(){
+                txtMail.validate();
+                txtPhone.validate();
+                txtFName.validate();
+                txtLName.validate();
+
+                return txtFName.isValid() && txtLName.isValid() && txtMail.isValid() && txtPhone.isValid();
+            }
+    
 
     private void loadDefaults(){
         Customer currCustomer = userHandler.getCustomer();
@@ -68,5 +87,6 @@ public class CustomerController implements Controllable {
         txtMail.setText(currCustomer.getEmail());
         txtPhone.setText(currCustomer.getPhoneNumber());
     }
+    
     
 }

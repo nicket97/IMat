@@ -30,6 +30,8 @@ public class OrderController implements Controllable {
     private AnchorPane order;
     @FXML
     private ListView orderList;
+
+
     @FXML 
     private Label labelGranska;
     @FXML
@@ -86,6 +88,9 @@ public class OrderController implements Controllable {
         	sum += i.getAmount()*i.getProduct().getPrice();
         }
         labelSum.setText("Totalsumma " + df.format(sum) + ":-");
+    }
+    public boolean validate(){
+        return dataHandler.getShoppingCart().getItems().size() > 0;
     }
     
 }

@@ -9,7 +9,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import fxComponents.SpemTextfield;
+import fxComponents.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -28,34 +28,34 @@ import se.chalmers.ait.dat215.project.Customer;
  */
 public class DeliveryController implements Controllable {
 
-    @FXML
-    private AnchorPane delivery;
-    @FXML
-    private TextField txtAddress;
-    @FXML
-    private Label labelAddress;
-    @FXML
-    private TextField txtCity;
-    @FXML
-    private Label labelCity;
-    @FXML
-    private SpemTextfield txtPostal;
-    @FXML
-    private Label labelPostal;
-    @FXML
-    private Label labelDate;
-    @FXML
-    private Label and;
-    @FXML
-    private Label labelTime;
-    @FXML
-    private DatePicker datePicker;
-    @FXML
-    private ChoiceBox<String> choiceTime;
-    @FXML
-    private TextArea txtInfo;
-    @FXML
-    private Label labelInfo;
+		@FXML
+	    private AnchorPane delivery;
+	    @FXML
+	    private SpemTextfield txtAddress;
+	    @FXML
+	    private Label labelAddress;
+	    @FXML
+	    private SpemTextfield txtCity;
+	    @FXML
+	    private Label labelCity;
+	    @FXML
+	    private SpemTextfield txtPostal;
+	    @FXML
+	    private Label labelPostal;
+	    @FXML
+	    private Label labelDate;
+	    @FXML
+	    private Label and;
+	    @FXML
+	    private Label labelTime;
+	    @FXML
+	    private DatePicker datePicker;
+	    @FXML
+	    private ChoiceBox<String> choiceTime;
+	    @FXML
+	    private TextArea txtInfo;
+	    @FXML
+	    private Label labelInfo;
 
     private UserHandler userHandler;
 
@@ -79,14 +79,25 @@ public class DeliveryController implements Controllable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        userHandler = CustomDataHandler.getInstance().getUserHandler();
+    	userHandler = CustomDataHandler.getInstance().getUserHandler();
 
+        txtAddress.setOnValidation(x -> txtAddress.setValid(!txtAddress.getText().isEmpty()));
+        txtCity.setOnValidation(x -> txtCity.setValid(!txtCity.getText().isEmpty()));
         txtPostal.setOnValidation(x -> txtPostal.setValid(txtPostal.getText().length() == 5));
+
         choiceTime.getItems().addAll(pickupHours);
         choiceTime.getSelectionModel().select(4);
 
         //Default to tomorrow
         datePicker.setValue(LocalDate.now().plusDays(1));
+    }
+
+    public boolean validate(){
+        txtAddress.validate();
+        txtCity.validate();
+        txtPostal.validate();
+
+        return txtAddress.isValid() && txtCity.isValid() && txtPostal.isValid();
     }
 
     private void loadDefaults(){

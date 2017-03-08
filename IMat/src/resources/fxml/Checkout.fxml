@@ -8,16 +8,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import fxComponents.*?>
 
 <AnchorPane id="AnchorPane" fx:id="checkout" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="1280" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.checkout.CheckoutController">
   <children>
-      <AnchorPane fx:id="paneBtns" prefHeight="80.0" prefWidth="200.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Nästa" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="90.0" />
-            <Button fx:id="btnPrev" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Tillbaka" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="270.0" />
-            <Button fx:id="btnReturn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Fortsätt Handla" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="20.0" />
-         </children>
-      </AnchorPane>
+      
       <StackPane fx:id="checkoutStack" layoutX="200.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <fx:include fx:id="receipt" source="Receipt.fxml" />
@@ -50,5 +45,13 @@
             </VBox>
          </center>
       </BorderPane>
+      <AnchorPane fx:id="paneBtns" prefHeight="80.0" prefWidth="200.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Nästa" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="90.0" />
+            <Button fx:id="btnPrev" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Tillbaka" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="270.0" />
+            <Button fx:id="btnReturn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ModalPanels.css" text="Fortsätt Handla" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="20.0" />
+			<Label fx:id="labelError" layoutX="1470.0" prefHeight="17.0" prefWidth="200.0" styleClass="labelError" stylesheets="@../css/TextFields.css" text="Ordna alla fel innan du går vidare!" visible="false" />
+         </children>
+      </AnchorPane>
   </children>
 </AnchorPane>

@@ -15,6 +15,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import main.backend.BackendWrapper;
+import main.backend.CustomDataHandler;
 import main.controllers.childControllers.Controllable;
 
 /**
@@ -68,6 +70,7 @@ public class CheckoutController implements Controllable {
     @FXML private Label labelError;
 
     private int index = 0;
+	private Object dataHandler;
 
     @Override
     public void setVisible(boolean value) {
@@ -81,7 +84,7 @@ public class CheckoutController implements Controllable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+    	CustomDataHandler.getInstance();
         for(int i = 0; i < 5; i++){
             Node child = listBox.getChildren().get(i);
             int index = i;
@@ -156,4 +159,5 @@ public class CheckoutController implements Controllable {
     public Button getReturnButton(){
         return btnReturn;
     }
+    
 }

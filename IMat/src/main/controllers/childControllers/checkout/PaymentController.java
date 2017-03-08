@@ -55,6 +55,7 @@ public class PaymentController implements Controllable {
 
     private Order order = null;
     private CustomDataHandler dataHandler;
+    private boolean ordered = false;
 
     @Override
     public void setVisible(boolean value) {
@@ -64,6 +65,9 @@ public class PaymentController implements Controllable {
 
         //Just for testing, delete this when you want
         btnPay.setDisable(false);
+    }
+    public boolean validate(){
+    	return ordered;
     }
 
     @Override
