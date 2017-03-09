@@ -16,7 +16,7 @@ public class ProductCategories {
 			{ProductCategory.CABBAGE,"Kål"},
 			{ProductCategory.CITRUS_FRUIT,"Citrus frukter"},
 			{ProductCategory.EXOTIC_FRUIT,"Exotiska frukter"},
-			{ProductCategory.FRUIT,"Frukt"},
+			{ProductCategory.FRUIT,"Stenfukt"},
 			{ProductCategory.HERB,"Örter"},
 			{ProductCategory.MELONS,"Meloner"},
 			{ProductCategory.ROOT_VEGETABLE,"Rotfrukter"},
