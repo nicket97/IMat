@@ -7,6 +7,7 @@ package main.controllers.childControllers.navigation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.beans.Observable;
 
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.checkout.CheckoutController;
@@ -66,6 +68,11 @@ public class NavController implements Initializable {
    
     private navigationSearchState searchState;
     
+    // Animation for section change
+    private FadeTransition stageFadeIn; 
+    private FadeTransition stageFadeOut;
+    
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
@@ -75,6 +82,7 @@ public class NavController implements Initializable {
 
     public void injectControllers(CenterstageController centerstageController, 
         CartController cartController, SearchController searchController, BottomBarController btmBarCtrl, HelpController helpCtrl){
+            this.centerstageController = centerstageController;
             this.cartController = cartController;
             this.startpageController = centerstageController.getStartpageController();
             this.prodCtrl = centerstageController.getProductViewController();
@@ -86,18 +94,18 @@ public class NavController implements Initializable {
             searchCtrl.getSearchView().visibleProperty().addListener(e -> setSearchView());
             
             checkoutController.getReturnButton().setOnAction(e -> { checkoutController.setVisible(false); 
-                displayedIndex--; clearIds(); forceCart(true); displayCategory(displayedIndex); gridMain.getChildren().get(displayedIndex).setId("navActive");});
-            bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; clearIds(); displayCategory(displayedIndex); 
-                gridMain.getChildren().get(displayedIndex).setId("navActive");});
+                displayedIndex--; clearIds(); gridMain.getChildren().get(displayedIndex).setId("navActive"); playAnimation(true);});
+            bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; clearIds();
+                gridMain.getChildren().get(displayedIndex).setId("navActive"); playAnimation(true);});
             
-            bottomCtrl.getBtnPrev().setOnAction(x -> {displayedIndex--; clearIds(); displayCategory(displayedIndex); 
-                gridMain.getChildren().get(displayedIndex).setId("navActive");});
+            bottomCtrl.getBtnPrev().setOnAction(x -> { displayedIndex--; clearIds();
+                gridMain.getChildren().get(displayedIndex).setId("navActive"); playAnimation(true);});
             
             bottomCtrl.setHelpController(helpCtrl);
             imgHome = (ImageView) nav.getParent().getChildrenUnmodifiable().get(4);
             setHomeHatch();
             searchCtrl.getBackButton().setOnAction(e -> {searchCtrl.moveBack(); forceCart(displayedIndex < 8 && displayedIndex > 1); bottomCtrl.setButtonsVisible(searchCtrl.getReturnValues()[0], searchCtrl.getReturnValues()[1]);});
-            
+            setFadeAnimations();
     }
 
     public void startShopping(){
@@ -118,7 +126,9 @@ public class NavController implements Initializable {
             gridMain.getChildren().get(i).setOnMouseClicked(e -> {
             	clearIds();            	
             	gridMain.getChildren().get(index).setId("navActive");
-            	displayCategory(index);
+            	displayedIndex = index;
+                
+                playAnimation(true);
             });
         } 
         
@@ -130,7 +140,7 @@ public class NavController implements Initializable {
         
         
         
-        navHome.setOnMouseClicked(e -> displayStartPage());
+        navHome.setOnMouseClicked(e -> {displayedIndex = 1; playAnimation(true);});
     }
     
     public void setCartBtn(boolean value){
@@ -153,6 +163,7 @@ public class NavController implements Initializable {
     private void displayCategory(int index){
         switch (index){
             case 1:
+                displayStartPage();
                 break;
             case 2:
                 startShopping();
@@ -160,36 +171,36 @@ public class NavController implements Initializable {
             case 3:
                 prodCtrl.displayProducts(ProductCategories.getBrd(), "Bröd");
                 bottomCtrl.setButtonsVisible(true, true);          
-                forceCart(true);
+                //forceCart(true);
                 break;
             case 4:
                 prodCtrl.displayProducts(ProductCategories.getPtry(), "Skafferi");
                 bottomCtrl.setButtonsVisible(true, true);
-                forceCart(true);
+                //forceCart(true);
                 break;
             case 5:
                 prodCtrl.displayProducts(ProductCategories.getDry(), "Mejeri");
                 bottomCtrl.setButtonsVisible(true, true);
-                forceCart(true);
+                //forceCart(true);
                 break;
             case 6:
                 prodCtrl.displayProducts(ProductCategories.getProt(), "Protein");
                 bottomCtrl.setButtonsVisible(true, true);
-                forceCart(true);
+                //forceCart(true);
                 break;
             case 7:
                 prodCtrl.displayProducts(ProductCategories.getCol(), "Kolonial");
                 bottomCtrl.setButtonsVisible(true, true);
-                forceCart(true);
+                //forceCart(true);
                 break;
             case 8:
                 checkoutController.setVisible(true);
                 bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
-                forceCart(false);
+                //forceCart(false);
                 break;
         }
     
-        displayedIndex = index;
+        
         System.out.println("Index: " + index);
     }
     private void forceCart(boolean value){
@@ -238,7 +249,35 @@ public class NavController implements Initializable {
             forceCart(searchState.getCartState());
         }
     }
-    
+
+    public void playAnimation(boolean value) {
+        if(value)
+            stageFadeIn.setOnFinished(e -> {displayCategory(displayedIndex); stageFadeOut.play();});
+        else
+            stageFadeIn.setOnFinished(e -> stageFadeOut.play());
+        stageFadeIn.play();
+        
+        if(value){
+            if(displayedIndex < 8 && displayedIndex > 1)
+             forceCart(true);
+            else
+             forceCart(false);
+        }
+    }
+
+    private void setFadeAnimations() {
+       stageFadeIn = new FadeTransition(Duration.millis(500), centerstageController.getCenterstage());
+       stageFadeIn.setFromValue(1.0);
+       stageFadeIn.setToValue(0.0);
+       stageFadeIn.setCycleCount(1);
+       stageFadeIn.setAutoReverse(true);
+       
+       stageFadeOut = new FadeTransition(Duration.millis(500), centerstageController.getCenterstage());
+       stageFadeOut.setFromValue(0.0);
+       stageFadeOut.setToValue(1.0);
+       stageFadeOut.setCycleCount(1);
+    }
+
     private class navigationSearchState{
         private int currentIndex;
         private boolean currentCartState;
@@ -255,4 +294,5 @@ public class NavController implements Initializable {
         return currentCartState;
         }
     }
+
 }

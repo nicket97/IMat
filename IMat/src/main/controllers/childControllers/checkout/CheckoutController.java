@@ -108,15 +108,24 @@ public class CheckoutController implements Controllable {
                 break;
             case 1:
                 labelError.setVisible(!orderController.validate());
-                if(!labelError.isVisible()) customerController.setVisible(true);
+                if(!labelError.isVisible()){
+                    customerController.setVisible(true);
+                    listBox.getChildren().get(index).setDisable(false);
+                }
                 break;
             case 2:
                 labelError.setVisible(!customerController.validate());
-                if(!labelError.isVisible()) deliveryController.setVisible(true);
+                if(!labelError.isVisible()){
+                    deliveryController.setVisible(true);
+                    listBox.getChildren().get(index).setDisable(false);
+                }
                 break;
             case 3:
                 labelError.setVisible(!deliveryController.validate());
-                if(!labelError.isVisible()) paymentController.setVisible(true);
+                if(!labelError.isVisible()){
+                    paymentController.setVisible(true);
+                    listBox.getChildren().get(index).setDisable(false);
+                }
                 
                 break;
             case 4:
@@ -125,6 +134,10 @@ public class CheckoutController implements Controllable {
                 if(!labelError.isVisible()) {
                     receiptController.setVisible(true);
                     receiptController.displayReceipt(paymentController.getOrder(), deliveryController.getDate(), deliveryController.getTime());
+                    for(Node c : listBox.getChildren()){
+                        c.setDisable(true);
+                    }
+                    listBox.getChildren().get(index).setDisable(false);
                 }
                 break;
             default:

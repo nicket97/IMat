@@ -154,6 +154,7 @@ public class StartpageController implements Controllable{
         //LÄGG TILL SKIT HÄR
         switch (txt.getText().toLowerCase().trim()){
             case "börja handla":
+                navController.playAnimation(true);
                 navController.startShopping();
                 break;
             case "historik":

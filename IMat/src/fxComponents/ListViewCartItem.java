@@ -90,7 +90,13 @@ public class ListViewCartItem extends ListCell<ShoppingItem> implements Initiali
         amount.set((int)item.getAmount());
         txtAmount.setText(String.valueOf(amount.getValue()));
         labelPrice.setText(String.valueOf(df.format(item.getProduct().getPrice()*item.getAmount())) + " kr");
-
+        
+        if(amount.get() < 2)
+            labelDec.setDisable(true);
+        
+        else
+            labelDec.setDisable(false);
+        
         setGraphic(anchorItem);
         setText(null);
         

@@ -40,15 +40,11 @@
                   <DropShadow color="#282020" height="18.03" radius="9.2575" spread="0.36" />
                </effect>
                <children>
-                  <Label fx:id="labelGranska" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Granska Beställning">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="labelKundinformation" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Kundinformation" />
-                  <Label fx:id="labelLeverans" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Leverans" />
-                  <Label fx:id="labelBetalning" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Betalning" />
-                  <Label fx:id="labelKvitto" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Kvitto" />
+                  <Label fx:id="labelGranska" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Granska Beställning" />
+                  <Label fx:id="labelKundinformation" disable="true" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Kundinformation" />
+                  <Label fx:id="labelLeverans" disable="true" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Leverans" />
+                  <Label fx:id="labelBetalning" disable="true" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Betalning" />
+                  <Label fx:id="labelKvitto" disable="true" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" styleClass="txtCheckout" stylesheets="@../css/TextFormat.css" text="Kvitto" />
                </children>
             </VBox>
          </center>

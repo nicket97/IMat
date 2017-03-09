@@ -17,6 +17,7 @@ and open the template in the editor.
     -fx-font-size: 1.5em;
     -fx-text-fill: #cfdee9;
     -fx-font-weight: bold;
+    -fx-cursor: hand;
 }
 .btnCart:hover{
     -fx-background-color: #00171f;
@@ -31,6 +32,7 @@ and open the template in the editor.
     -fx-border-width: 2px;  
     
     -fx-text-fill: #cfdee9;
+    
 }
 .btnCart:pressed{
     -fx-border-width: 1px;

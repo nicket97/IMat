@@ -46,6 +46,7 @@ and open the template in the editor.
     -fx-font-family: "Arial";
     -fx-font-size: 1.5em;
     -fx-font-weight: bold;
+    -fx-cursor: hand;
 }
 .username:hover{
     -fx-background-color: #5cc7f0;
@@ -60,7 +61,7 @@ and open the template in the editor.
     -fx-border-color: #5cc7f0;
     -fx-border-width: 2px 1px 2px 2px;
         
-    
+    -fx-cursor: hand;
 }
 
 #settingsIcon:hover{

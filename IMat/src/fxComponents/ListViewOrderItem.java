@@ -33,6 +33,7 @@ public class ListViewOrderItem extends ListCell<ShoppingItem> implements Initial
     private OrderController orderController;
     private DecimalFormat df = new DecimalFormat("#.00");
 
+    private int count = 0;
     
     public ListViewOrderItem(ShoppingCart cart, OrderController c){
     	orderController = c;
@@ -57,6 +58,11 @@ public class ListViewOrderItem extends ListCell<ShoppingItem> implements Initial
     public SimpleIntegerProperty getAmountProperty(){
         return amount;
     }
+    
+    private void updateTxtVal(){
+        txtAmount.setText("" + count);
+        
+    }
 
     @Override
     protected void updateItem(ShoppingItem item, boolean empty){
@@ -77,13 +83,20 @@ public class ListViewOrderItem extends ListCell<ShoppingItem> implements Initial
         }
         if(item.getAmount() > 99){
         	item.setAmount(99);
+                count = 99;
+                
         }
         labelTitle.setText(item.getProduct().getName());
         labelUnit.setText(item.getProduct().getUnitSuffix());
         amount.set((int)item.getAmount());
         txtAmount.setText(String.valueOf(amount.getValue()));
         labelPrice.setText(String.valueOf(df.format(item.getProduct().getPrice()*item.getAmount())) + " kr");
-
+        if(amount.get() < 2)
+            labelDec.setDisable(true);
+        
+        else
+            labelDec.setDisable(false);
+       
         setGraphic(anchorItem);
         setText(null);
         
@@ -103,7 +116,7 @@ public class ListViewOrderItem extends ListCell<ShoppingItem> implements Initial
                 orderController.displaySum();
             }
         });
-
+        
         labelDelete.setOnMouseClicked(e -> {cart.removeItem(getItem()); setItem(null);});
     }
 }

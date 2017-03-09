@@ -12,6 +12,7 @@ and open the template in the editor.
 }
 .radioButton{
     -fx-background-image: url("../img/Icons/CheckButton.png");
+    -fx-cursor: hand;
 }
 .radioButton:hover{
     -fx-background-image: url("../img/Icons/CheckButtonHover.png");
@@ -37,6 +38,7 @@ and open the template in the editor.
     -fx-font-size: 1.5em;
     -fx-text-fill: #00171F;
     -fx-font-weight: bold;
+    -fx-cursor: hand;
 }
 .formButton:hover{
     -fx-background-color: #00171F;
@@ -54,6 +56,7 @@ and open the template in the editor.
     -fx-border-width: 2px;
     -fx-border-color: #00171F;
     -fx-padding: 3px;
+    -fx-curor: hand;
 }
 .historyBtn:hover{
     -fx-background-color: #cfdee9;

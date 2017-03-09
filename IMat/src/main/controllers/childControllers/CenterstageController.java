@@ -7,8 +7,10 @@ package main.controllers.childControllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import main.controllers.childControllers.checkout.CheckoutController;
 import main.controllers.childControllers.navigation.BottomBarController;
 /**
@@ -35,9 +37,11 @@ public class CenterstageController implements Controllable{
     @FXML
     private SearchViewController searchViewController;
     
+    
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        
     }
 
     @Override
@@ -71,4 +75,8 @@ public class CenterstageController implements Controllable{
     public AnchorPane getCenterstage(){
         return centerstage;
     }
+    
+    
+    
+    
 }
