@@ -124,3 +124,10 @@ and open the template in the editor.
 #navActive:hover{
     -fx-background-color: #00171f;
 }
+
+.listBox > .txtCheckout{
+    -fx-cursor: hand;
+}
+.listBox > .txtCheckout:disabled{
+    -fx-cursor: default;
+}

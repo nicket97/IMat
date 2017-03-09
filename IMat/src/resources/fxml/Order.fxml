@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,10 +10,14 @@
 <AnchorPane fx:id="order" minHeight="0.0" minWidth="0.0" styleClass="mainPane" stylesheets="@../css/MainFrameWork.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.checkout.OrderController">
                <children>
                   <Label id="twoPanelHeader" fx:id="labelGranska" prefHeight="80.0" styleClass="txtFlow" stylesheets="@../css/TextFormat.css" text="Granska din beställning" />
-                  <VBox fx:id="orderVBox" layoutX="-1.0" prefHeight="688.0" prefWidth="1280.0" AnchorPane.bottomAnchor="152.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="80.0">
+                  <VBox fx:id="orderVBox" layoutX="-1.0" prefHeight="688.0" prefWidth="1280.0" stylesheets="@../css/MainFrameWork.css" AnchorPane.bottomAnchor="152.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
                      <children>
-                        <ListView fx:id="orderList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="listBox" />
+                        <ListView fx:id="orderList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="listBox" stylesheets="@../css/MainFrameWork.css" />
                      </children>
+         <styleClass>
+            <String fx:value="listBox" />
+            <String fx:value="orderList" />
+         </styleClass>
                   </VBox>
       <Label fx:id="labelSum" alignment="CENTER" layoutX="1005.0" layoutY="792.0" prefHeight="35.0" prefWidth="253.0" styleClass="txt" stylesheets="@../css/Cart.css" text="Totalsumma" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="240.0">
                      <font>
