@@ -22,7 +22,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="labelUnit" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="31.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="förp">
+            <Label fx:id="labelUnit" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="40.0" styleClass="cartItemLabel" stylesheets="@../resources/css/SpinnerBox.css" text="förp">
                <font>
                   <Font size="14.0" />
                </font>
