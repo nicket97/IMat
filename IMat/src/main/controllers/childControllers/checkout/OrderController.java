@@ -65,7 +65,7 @@ public class OrderController implements Controllable {
     public boolean isVisible(){
     	return order.isVisible() && order.isManaged();
     }
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = CustomDataHandler.getInstance();
@@ -81,9 +81,25 @@ public class OrderController implements Controllable {
     
     private void addListeners(){
     	orderList.setCellFactory(x -> new ListViewOrderItem(shoppingCart, this));
-        
+    	 shoppingCart.addShoppingCartListener(x -> {updateOrder();
+         });
     }
-    public void displaySum(){
+    private void updateOrder() {
+		// TODO Auto-generated method stub
+		orderList.getItems().clear();
+		for(ShoppingItem item : shoppingCart.getItems()){
+            if(orderList.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName())).findAny().isPresent()) {
+                ShoppingItem existingItem =
+                        orderList.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName()))
+                                .findAny().get();
+
+                existingItem.setAmount(Math.max(existingItem.getAmount(),item.getAmount()));
+                orderList.getItems().set(orderList.getItems().indexOf(existingItem), existingItem);
+
+            } else orderList.getItems().add(item);
+        }
+	}
+	public void displaySum(){
     	List<ShoppingItem> viewedItems = orderList.getItems();
         double sum = 0;
         for(ShoppingItem i :viewedItems){
