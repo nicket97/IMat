@@ -154,6 +154,9 @@ public class CheckoutController implements Controllable {
 
         if(!labelError.isVisible()) this.index = index;
 
+        customerController.saveChanges();
+        deliveryController.saveChanges();
+
         if(this.index == 3)
             btnNext.setText("Beställ");
         else

@@ -68,13 +68,13 @@ public class DeliveryController implements Controllable {
         delivery.setManaged(value);
         delivery.toFront();
         loadDefaults();
+    }
 
-        if(!value){
-            Customer currCust = userHandler.getCustomer();
-            currCust.setAddress(txtAddress.getText());
-            currCust.setPostCode(txtPostal.getText());
-            currCust.setPostAddress(txtCity.getText());
-        }
+    public void saveChanges(){
+        Customer currCust = userHandler.getCustomer();
+        currCust.setAddress(txtAddress.getText());
+        currCust.setPostCode(txtPostal.getText());
+        currCust.setPostAddress(txtCity.getText());
     }
 
     public String getTime(){
