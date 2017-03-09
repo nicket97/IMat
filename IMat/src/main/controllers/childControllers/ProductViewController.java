@@ -1,27 +1,25 @@
 package main.controllers.childControllers;
 
-import fxComponents.ProductViewNode;
-import fxComponents.ProductViewSubCategory;
-import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
-import javafx.scene.layout.FlowPane;
-import main.controllers.childControllers.navigation.BottomBarController;
-import se.chalmers.ait.dat215.project.Product;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+
+import fxComponents.ProductViewSubCategory;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
+import javafx.util.Duration;
+import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
@@ -129,7 +127,15 @@ public class ProductViewController implements Controllable{
             
             //System.out.println(scrollValues[i] + "  " + i);
             
-            listBox.getChildren().get(i).setOnMouseClicked(e -> scrollPane.setVvalue(scrollValues[i]));
+            listBox.getChildren().get(i).setOnMouseClicked(e -> {
+            	final Timeline timeline = new Timeline();
+                final KeyValue kv = new KeyValue(scrollPane.vvalueProperty(), scrollValues[i]);
+                final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+                timeline.getKeyFrames().add(kf);
+                timeline.play();
+            	//scrollPane.setVvalue(scrollValues[i]);
+            	
+            });
         }
 
         Platform.runLater(() -> productView.getScene().setCursor(Cursor.DEFAULT));
