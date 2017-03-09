@@ -53,6 +53,14 @@ public class CustomerController implements Controllable {
         customer.toFront();
 
         loadDefaults();
+
+        if(!value){
+            Customer currCust = userHandler.getCustomer();
+            currCust.setEmail(txtMail.getText());
+            currCust.setFirstName(txtFName.getText());
+            currCust.setLastName(txtLName.getText());
+            currCust.setPhoneNumber(txtPhone.getText());
+        }
     }
 
     @Override

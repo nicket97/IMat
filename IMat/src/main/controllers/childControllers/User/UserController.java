@@ -96,6 +96,7 @@ public class UserController implements Initializable{
         if(value) {
             anchorRegister.toFront();
             txtRegEmail.getTxtField().requestFocus();
+            txtRegEmail.setText(currentCustomer.getEmail());
         }
     }
 

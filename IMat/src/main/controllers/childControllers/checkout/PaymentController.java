@@ -24,6 +24,7 @@ import javafx.scene.layout.StackPane;
 import main.backend.CustomDataHandler;
 import main.backend.UserHandler;
 import main.controllers.childControllers.Controllable;
+import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.Order;
 
 

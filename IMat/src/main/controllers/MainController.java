@@ -145,7 +145,9 @@ public class MainController implements Initializable{
         centerstageController.getStartpageController().
                 injectControllers(userController, centerstageController.getHistoryController(), searchController,
                         navController);
-        
+
+        centerstageController.getCheckoutController().injectControllers(userController);
+
         cartController.injectControllers(navController);
         userController.injectControllers(myPagesController);
         

@@ -81,7 +81,9 @@ public class UserHandler {
         if (userExists(user)) {
             currentUser.setUserName(user.getUserName());
             currentUser.setPassword(user.getPassword());
-            clearCustomer(currentCustomer);
+
+            if(currentCustomer.getEmail().isEmpty())
+                clearCustomer(currentCustomer);
 
             System.out.println("Logged in as: " + currentUser.getUserName());
             currentCustomer = getCustomerFromUser(currentUser);

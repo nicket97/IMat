@@ -6,18 +6,21 @@
 package main.controllers.childControllers.checkout;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import main.backend.BackendWrapper;
 import main.backend.CustomDataHandler;
+import main.backend.UserHandler;
 import main.controllers.childControllers.Controllable;
+import main.controllers.childControllers.User.UserController;
+import se.chalmers.ait.dat215.project.Customer;
 
 /**
  *
@@ -70,7 +73,8 @@ public class CheckoutController implements Controllable {
     @FXML private Label labelError;
 
     private int index = 0;
-    private Object dataHandler;
+    private CustomDataHandler dataHandler;
+    private UserController userController;
 
     @Override
     public void setVisible(boolean value) {
@@ -84,7 +88,7 @@ public class CheckoutController implements Controllable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	CustomDataHandler.getInstance();
+    	dataHandler = CustomDataHandler.getInstance();
         for(int i = 0; i < 5; i++){
             Node child = listBox.getChildren().get(i);
             int index = i;
@@ -138,9 +142,8 @@ public class CheckoutController implements Controllable {
                         c.setDisable(true);
                     }
                     listBox.getChildren().get(index).setDisable(false);
+                    promptRegistration();
                 }
-                break;
-            default:
                 break;
         }
 
@@ -157,6 +160,31 @@ public class CheckoutController implements Controllable {
             btnNext.setText("Nästa");
 
         System.out.println(index);
+    }
+
+    public void promptRegistration(){
+        UserHandler uh = dataHandler.getUserHandler();
+        if(uh.isLoggedIn()) return;
+
+        Alert closeAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        closeAlert.setTitle("Registrera");
+        closeAlert.setHeaderText("Du är ej inloggad!");
+        closeAlert.setContentText("Vill du spara dina uppgifter till nästa köp?");
+
+        closeAlert.getButtonTypes().clear();
+        ButtonType btnYes = new ButtonType("Ja", ButtonBar.ButtonData.YES);
+        ButtonType btnNo = new ButtonType("Nej", ButtonBar.ButtonData.NO);
+
+        closeAlert.getButtonTypes().addAll(btnYes, btnNo);
+
+        Optional<ButtonType> result = closeAlert.showAndWait();
+        if(result.get() == btnNo) return;
+
+        userController.setRegisterVisible(true);
+    }
+
+    public void injectControllers(UserController uc){
+        this.userController = uc;
     }
 
     public CustomerController getCustomerController() {
