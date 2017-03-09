@@ -34,7 +34,7 @@ public class ReceiptController implements Initializable {
     @FXML
     private AnchorPane receipt;
     @FXML
-    private ListView listReceipt;
+    private ListView<ShoppingItem> listReceipt;
     @FXML
     private Button btnDone;
     @FXML private Label labelOrderTime;
@@ -51,7 +51,18 @@ public class ReceiptController implements Initializable {
 
     public void displayReceipt(Order order, LocalDate date, String time){
     	this.order = order;
-    	listReceipt.getItems().addAll(order.getItems());
+
+        for(ShoppingItem item : order.getItems()){
+            if(listReceipt.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName())).findAny().isPresent()) {
+                ShoppingItem existingItem =
+                        listReceipt.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName()))
+                                .findAny().get();
+
+                existingItem.setAmount(existingItem.getAmount() + item.getAmount());
+                listReceipt.getItems().set(listReceipt.getItems().indexOf(existingItem), existingItem);
+
+            } else listReceipt.getItems().add(item);
+        }
     	
         DateTimeFormatter dFormat = DateTimeFormatter.ofPattern("dd MMMM");
 

@@ -116,11 +116,9 @@ public class CustomDataHandler extends BackendWrapper {
     }
 
     @Override
-    public Order placeOrder(boolean emptyCart){
+    public Order placeOrder(boolean emptyCart) {
         Order placedOrder = super.placeOrder(emptyCart);
         getUserHandler().addOrderDate(placedOrder.getDate());
         return placedOrder;
     }
-    
-    
 }

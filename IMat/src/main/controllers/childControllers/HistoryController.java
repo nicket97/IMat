@@ -71,7 +71,18 @@ public class HistoryController implements Initializable {
                 .filter(o -> dateFormat.format(o.getDate()).equals(selected)).findFirst().get();
 
         listItems.getItems().clear();
-        selectedOrder.getItems().stream().forEach(i -> listItems.getItems().add(i));
+
+        for(ShoppingItem item : selectedOrder.getItems()){
+            if(listItems.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName())).findAny().isPresent()) {
+                ShoppingItem existingItem =
+                        listItems.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName()))
+                                .findAny().get();
+
+                existingItem.setAmount(existingItem.getAmount() + item.getAmount());
+                listItems.getItems().set(listItems.getItems().indexOf(existingItem), existingItem);
+
+            } else listItems.getItems().add(item);
+        }
 
         double total = 0;
         for(ShoppingItem item : selectedOrder.getItems())

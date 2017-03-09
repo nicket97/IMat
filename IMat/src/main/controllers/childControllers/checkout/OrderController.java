@@ -30,7 +30,7 @@ public class OrderController implements Controllable {
     @FXML
     private AnchorPane order;
     @FXML
-    private ListView orderList;
+    private ListView<ShoppingItem> orderList;
     @FXML
     private VBox orderVBox;
 
@@ -54,13 +54,22 @@ public class OrderController implements Controllable {
             labelGranska.setText("Oj, här var det visst tomt! Du har inte lagt några varor i varukorgen.");
         else
             labelGranska.setText(ordinaryTitle);
+
         shoppingCart = CustomDataHandler.getInstance().getShoppingCart();
-        System.out.println("storlek" + shoppingCart.getItems().size());
-        System.out.println("hej" + orderList.getItems().size());
         orderList.getItems().clear();
-        for(int i = 0; i < shoppingCart.getItems().size(); i++){
-        	orderList.getItems().add(shoppingCart.getItems().get(i));
+
+        for(ShoppingItem item : shoppingCart.getItems()){
+            if(orderList.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName())).findAny().isPresent()) {
+                ShoppingItem existingItem =
+                        orderList.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName()))
+                                .findAny().get();
+
+                existingItem.setAmount(Math.max(existingItem.getAmount(),item.getAmount()));
+                orderList.getItems().set(orderList.getItems().indexOf(existingItem), existingItem);
+
+            } else orderList.getItems().add(item);
         }
+
         this.displaySum();
     }
     public boolean isVisible(){
@@ -81,13 +90,6 @@ public class OrderController implements Controllable {
     }
     
     private void addListeners(){
-    	shoppingCart.addShoppingCartListener(e -> {
-    		 orderList.getItems().clear();
-    	        for(int i = 0; i < shoppingCart.getItems().size(); i++){
-    	        	orderList.getItems().add(shoppingCart.getItems().get(i));
-    	        }
-    	        this.displaySum();
-    	});
     	orderList.setCellFactory(x -> new ListViewOrderItem(shoppingCart, this));
         
     }
