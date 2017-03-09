@@ -102,6 +102,7 @@ public class CartController implements Initializable{
                     .findAny().get();
 
             existingItem.setAmount(existingItem.getAmount() + item.getAmount());
+            shoppingCart.removeItem(item);
             viewedItems.set(viewedItems.indexOf(existingItem), existingItem);
 
         } else if(add) {
