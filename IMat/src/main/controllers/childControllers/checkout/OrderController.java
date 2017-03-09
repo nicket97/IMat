@@ -58,17 +58,7 @@ public class OrderController implements Controllable {
         shoppingCart = CustomDataHandler.getInstance().getShoppingCart();
         orderList.getItems().clear();
 
-        for(ShoppingItem item : shoppingCart.getItems()){
-            if(orderList.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName())).findAny().isPresent()) {
-                ShoppingItem existingItem =
-                        orderList.getItems().stream().filter(i -> i.getProduct().getName().equals(item.getProduct().getName()))
-                                .findAny().get();
-
-                existingItem.setAmount(Math.max(existingItem.getAmount(),item.getAmount()));
-                orderList.getItems().set(orderList.getItems().indexOf(existingItem), existingItem);
-
-            } else orderList.getItems().add(item);
-        }
+        shoppingCart.getItems().forEach(x -> orderList.getItems().add(x));
 
         this.displaySum();
     }
