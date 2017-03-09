@@ -68,7 +68,7 @@ public class UserController implements Initializable{
     public UserController(){
         dataHandler = CustomDataHandler.getInstance();
         userHandler = dataHandler.getUserHandler();
-        currentUser = dataHandler.getUser();
+        currentUser = userHandler.getUser();
         currentCustomer = dataHandler.getCustomer();
     }
     
