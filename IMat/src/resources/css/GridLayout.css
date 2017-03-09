@@ -13,6 +13,7 @@ and open the template in the editor.
     -fx-border-color: #003459;
 
     -fx-border-width: 3px;
+    -fx-cursor: hand;
 }
 .startpageFrame:hover{
     -fx-background-color: #cfdee9;
