@@ -58,6 +58,7 @@ public class DeliveryController implements Controllable {
 	    private Label labelInfo;
 
     private UserHandler userHandler;
+    private boolean defaultsLoaded = false;
 
     private final String[] pickupHours = {"08:00", "10:00", "12:00", "14:00", "16:00", "18:00"};
 
@@ -101,9 +102,12 @@ public class DeliveryController implements Controllable {
     }
 
     private void loadDefaults(){
-        Customer currCust = userHandler.getCustomer();
-        txtAddress.setText(currCust.getAddress());
-        txtPostal.setText(currCust.getPostCode());
-        txtCity.setText(currCust.getPostAddress());
+        if(!defaultsLoaded) {
+            Customer currCust = userHandler.getCustomer();
+            txtAddress.setText(currCust.getAddress());
+            txtPostal.setText(currCust.getPostCode());
+            txtCity.setText(currCust.getPostAddress());
+            defaultsLoaded = true;
+        }
     }
 }

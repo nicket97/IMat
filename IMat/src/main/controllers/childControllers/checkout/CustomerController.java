@@ -44,6 +44,7 @@ public class CustomerController implements Controllable {
     private Label labelPhone;
 
     private UserHandler userHandler;
+    private boolean defaultsLoaded = false;
 
     @Override
     public void setVisible(boolean value) {
@@ -81,11 +82,14 @@ public class CustomerController implements Controllable {
     
 
     private void loadDefaults(){
-        Customer currCustomer = userHandler.getCustomer();
-        txtFName.setText(currCustomer.getFirstName());
-        txtLName.setText(currCustomer.getLastName());
-        txtMail.setText(currCustomer.getEmail());
-        txtPhone.setText(currCustomer.getPhoneNumber());
+        if(!defaultsLoaded) {
+            Customer currCustomer = userHandler.getCustomer();
+            txtFName.setText(currCustomer.getFirstName());
+            txtLName.setText(currCustomer.getLastName());
+            txtMail.setText(currCustomer.getEmail());
+            txtPhone.setText(currCustomer.getPhoneNumber());
+            defaultsLoaded = true;
+        }
     }
     
     
