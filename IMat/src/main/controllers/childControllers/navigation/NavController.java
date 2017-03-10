@@ -66,7 +66,8 @@ public class NavController implements Initializable {
 
     private ImageView imgHome;
    
-    private navigationSearchState searchState;
+    private NavigationState searchState;
+    private NavigationState checkoutState;
     
     // Animation for section change
     private FadeTransition stageFadeIn; 
@@ -93,8 +94,8 @@ public class NavController implements Initializable {
             searchController.setControllers(searchCtrl, bottomCtrl);
             searchCtrl.getSearchView().visibleProperty().addListener(e -> setSearchView());
             
-            checkoutController.getReturnButton().setOnAction(e -> { checkoutController.setVisible(false); 
-                displayedIndex--; clearIds(); gridMain.getChildren().get(displayedIndex).setId("navActive"); playAnimation(true);});
+            checkoutController.getReturnButton().setOnAction(e -> { displayedIndex = checkoutState.getIndex(); playAnimation(false); 
+                clearIds(); gridMain.getChildren().get(displayedIndex).setId("navActive"); });
             bottomCtrl.getBtnNext().setOnAction(x -> {displayedIndex++; clearIds();
                 gridMain.getChildren().get(displayedIndex).setId("navActive"); playAnimation(true);});
             
@@ -104,7 +105,8 @@ public class NavController implements Initializable {
             bottomCtrl.setHelpController(helpCtrl);
             imgHome = (ImageView) nav.getParent().getChildrenUnmodifiable().get(4);
             setHomeHatch();
-            searchCtrl.getBackButton().setOnAction(e -> {searchCtrl.moveBack(); forceCart(displayedIndex < 8 && displayedIndex > 1); bottomCtrl.setButtonsVisible(searchCtrl.getReturnValues()[0], searchCtrl.getReturnValues()[1]);});
+            searchCtrl.getBackButton().setOnAction(e -> {searchCtrl.moveBack(); forceCart(displayedIndex < 8 && displayedIndex > 1); 
+                bottomCtrl.setButtonsVisible(searchCtrl.getReturnValues()[0], searchCtrl.getReturnValues()[1]);});
             setFadeAnimations();
     }
 
@@ -126,8 +128,11 @@ public class NavController implements Initializable {
             gridMain.getChildren().get(i).setOnMouseClicked(e -> {
             	clearIds();            	
             	gridMain.getChildren().get(index).setId("navActive");
-            	displayedIndex = index;
-                
+            	
+                if(index == 8){
+                    checkoutState = new NavigationState(displayedIndex, cartController.isVisible());
+                }
+                displayedIndex = index;
                 playAnimation(true);
             });
         } 
@@ -196,6 +201,7 @@ public class NavController implements Initializable {
             case 8:
                 checkoutController.setVisible(true);
                 bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
+                
                 //forceCart(false);
                 break;
         }
@@ -240,7 +246,7 @@ public class NavController implements Initializable {
 
     private void setSearchView() {
         if(searchCtrl.getSearchView().isVisible()){
-            searchState = new navigationSearchState(displayedIndex, cartController.isVisible());
+            searchState = new NavigationState(displayedIndex, cartController.isVisible());
             clearIds();
             forceCart(true);
         }
@@ -254,15 +260,15 @@ public class NavController implements Initializable {
         if(value)
             stageFadeIn.setOnFinished(e -> {displayCategory(displayedIndex); stageFadeOut.play();});
         else
-            stageFadeIn.setOnFinished(e -> stageFadeOut.play());
+            stageFadeIn.setOnFinished(e -> {checkoutController.setVisible(false);displayCategory(displayedIndex); stageFadeOut.play();});
         stageFadeIn.play();
         
-        if(value){
+        
             if(displayedIndex < 8 && displayedIndex > 1)
              forceCart(true);
             else
              forceCart(false);
-        }
+        
     }
 
     private void setFadeAnimations() {
@@ -278,11 +284,11 @@ public class NavController implements Initializable {
        stageFadeOut.setCycleCount(1);
     }
 
-    private class navigationSearchState{
+    private class NavigationState{
         private int currentIndex;
         private boolean currentCartState;
         
-        public navigationSearchState(int currentIndex, boolean currentCartState){
+        public NavigationState(int currentIndex, boolean currentCartState){
             this.currentIndex = currentIndex;
             this.currentCartState = currentCartState;
         }
