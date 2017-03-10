@@ -99,6 +99,12 @@ public class CustomerController implements Controllable {
             defaultsLoaded = true;
         }
     }
-    
+
+    public void reset(){
+        txtFName.clearText();
+        txtLName.clearText();
+        txtMail.clearText();
+        txtPhone.clearText();
+    }
     
 }

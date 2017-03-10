@@ -117,4 +117,11 @@ public class DeliveryController implements Controllable {
             defaultsLoaded = true;
         }
     }
+
+    public void reset(){
+        txtAddress.clearText();
+        txtCity.clearText();
+        txtPostal.clearText();
+        txtInfo.clear();
+    }
 }

@@ -143,6 +143,7 @@ public class CheckoutController implements Controllable {
                         c.setDisable(true);
                     }
                     listBox.getChildren().get(index).setDisable(false);
+                    reset();
                     promptRegistration();
                 }
                 break;
@@ -215,6 +216,13 @@ public class CheckoutController implements Controllable {
     
     public Button getReturnButton(){
         return btnReturn;
+    }
+
+    public void reset() {
+        customerController.reset();
+        deliveryController.reset();
+        orderController.reset();
+        paymentController.reset();
     }
     
 }

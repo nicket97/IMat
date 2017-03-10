@@ -166,7 +166,12 @@ public class PaymentController implements Controllable {
         paneDebit.setManaged(!value);
     }
 
-    
+    public void reset(){
+        txtCardNumber.clearText();
+        txtCVV.clearText();
+        txtMM.clearText();
+        txtYY.clearText();
+    }
 
     
 }

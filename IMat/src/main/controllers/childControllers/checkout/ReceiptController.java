@@ -72,7 +72,9 @@ public class ReceiptController implements Initializable {
     public void addListeners(){
     	listReceipt.setCellFactory(e -> new ListViewReceiptItem(this.order, this));
         //Living on the edge here
-    	btnDone.setOnAction(e -> Main.requestStartpage());
+    	btnDone.setOnAction(e -> {
+    	    Main.requestStartpage();
+        });
     }
     
 }

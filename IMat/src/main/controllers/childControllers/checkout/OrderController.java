@@ -110,5 +110,9 @@ public class OrderController implements Controllable {
     public boolean validate(){
         return dataHandler.getShoppingCart().getItems().size() > 0;
     }
+
+    public void reset(){
+        orderList.refresh();
+    }
     
 }
