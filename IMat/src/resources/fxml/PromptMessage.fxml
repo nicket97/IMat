@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" fx:id="promptMessage" prefHeight="540.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.childControllers.User.PromptMessageController">
+   <children>
+      <VBox alignment="TOP_RIGHT" prefHeight="540.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnClose" mnemonicParsing="false" onAction="#btnClose_onActionPerformed" styleClass="btnClose" stylesheets="@../css/ButtonSchemes.css" text="X" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+                  <AnchorPane fx:id="anchorLogin" minHeight="0.0" minWidth="0.0" prefWidth="440.0" styleClass="formPanel" stylesheets="@../css/ModalPanels.css">
+                     <children>
+                        <Button fx:id="btnAccept" layoutX="139.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnAccept_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Registrera mig" />
+                        <Label layoutX="105.0" layoutY="178.0" styleClass="txtLabel" stylesheets="@../css/TextFormat.css" text="BLABLABLA MEDDELANDE SOM VI SKA HA" />
+                        <Button fx:id="btnDecline" layoutX="140.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnDecline_onActionPerformed" prefHeight="45.0" prefWidth="160.0" styleClass="btnForms" stylesheets="@../css/ButtonSchemes.css" text="Nej tack!" />
+                        <Label alignment="CENTER" layoutX="39.0" layoutY="60.0" styleClass="labelHeader" stylesheets="@../css/ModalPanels.css" text="Inte redan kund?" />
+                     </children>
+                  </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
