@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import main.backend.CustomDataHandler;
 import main.backend.UserHandler;
 import main.controllers.childControllers.Controllable;
+import main.controllers.childControllers.checkout.CheckoutController;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.User;
 
@@ -30,20 +31,27 @@ public class PromptMessageController implements Controllable {
     @FXML
     private AnchorPane promptMessage;
     @FXML
-    private AnchorPane anchorLogin;
+    private AnchorPane anchorPrompt;
     @FXML
     private Button btnAccept;
     @FXML
     private Button btnDecline;
+    
     private UserHandler uh = CustomDataHandler.getInstance().getUserHandler();
     private StackPane parent;
-   
+    private UserController uc;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addListeners();
+        
     }
 
+    public void setParentPane(StackPane anchorUser) {
+        parent = anchorUser;
+    }
+     
+    
     @Override
     public void setVisible(boolean value) {
         promptMessage.setVisible(value);
@@ -63,42 +71,20 @@ public class PromptMessageController implements Controllable {
         parent.setManaged(false);
         promptMessage.getParent().getParent().toBack();
     }
-
+    public Button getBtnAccept(){
+        return btnAccept;
+    }
+  
     public boolean isVisible() {
         return promptMessage.isVisible();
     }
 
-    public void setParentPane(StackPane anchorUser) {
-        parent = anchorUser;
-    }
-
     private void addListeners() {
-       
-        btnClose.setOnMouseClicked(e -> close());
-    }
-
-
-
-    private String getBtnString(boolean b) {
-        if (b)
-            return "Redigera";
-        else
-            return "Spara";
-    }
-    @FXML
-    private void btnClose_onActionPerformed(javafx.event.ActionEvent e){
-        
+        btnClose.setOnAction(e -> close());
+        btnDecline.setOnAction(e -> close());
     }
     
-    @FXML
-    private void btnAccept_onActionPerformed(javafx.event.ActionEvent e){
-        
-    }
-    
-    @FXML
-    private void btnDecline_onActionPerformed(javafx.event.ActionEvent e){
-        
-    }
+   
 
 /*
 private SpemTextfield txtEmail;

@@ -19,6 +19,7 @@ import main.backend.BackendWrapper;
 import main.backend.CustomDataHandler;
 import main.backend.UserHandler;
 import main.controllers.childControllers.Controllable;
+import main.controllers.childControllers.User.PromptMessageController;
 import main.controllers.childControllers.User.UserController;
 import se.chalmers.ait.dat215.project.Customer;
 
@@ -74,7 +75,7 @@ public class CheckoutController implements Controllable {
 
     private int index = 0;
     private CustomDataHandler dataHandler;
-    private UserController userController;
+    private UserController uc;
 
     @Override
     public void setVisible(boolean value) {
@@ -168,8 +169,9 @@ public class CheckoutController implements Controllable {
     public void promptRegistration(){
         UserHandler uh = dataHandler.getUserHandler();
         if(uh.isLoggedIn()) return;
-
-        Alert closeAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        uc.setPromptMessageVisible(true);
+        
+        /*Alert closeAlert = new Alert(Alert.AlertType.CONFIRMATION);
         closeAlert.setTitle("Registrera");
         closeAlert.setHeaderText("Du är ej inloggad!");
         closeAlert.setContentText("Vill du spara dina uppgifter till nästa köp?");
@@ -178,16 +180,14 @@ public class CheckoutController implements Controllable {
         ButtonType btnYes = new ButtonType("Ja", ButtonBar.ButtonData.YES);
         ButtonType btnNo = new ButtonType("Nej", ButtonBar.ButtonData.NO);
 
-        closeAlert.getButtonTypes().addAll(btnYes, btnNo);
+        closeAlert.getButtonTypes().addAll(btnYes, btnNo);*/
 
-        Optional<ButtonType> result = closeAlert.showAndWait();
-        if(result.get() == btnNo) return;
-
-        userController.setRegisterVisible(true);
+        //Optional<ButtonType> result = closeAlert.showAndWait();
+        //if(result.get() == btnNo) return;
     }
 
     public void injectControllers(UserController uc){
-        this.userController = uc;
+        this.uc = uc;
     }
 
     public CustomerController getCustomerController() {

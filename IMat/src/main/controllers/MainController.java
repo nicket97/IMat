@@ -25,6 +25,7 @@ import javafx.stage.WindowEvent;
 import main.backend.CustomDataHandler;
 import main.controllers.childControllers.*;
 import main.controllers.childControllers.User.MyPagesController;
+import main.controllers.childControllers.User.PromptMessageController;
 import main.controllers.childControllers.User.UserController;
 import main.controllers.childControllers.User.UserStatusController;
 import main.controllers.childControllers.navigation.BottomBarController;
@@ -54,6 +55,8 @@ public class MainController implements Initializable{
     private MyPagesController myPagesController;
     @FXML
     private HelpController helpController;
+    @FXML
+    private PromptMessageController promptMessageController;
 
     @FXML
     StackPane mainPane;
@@ -137,6 +140,7 @@ public class MainController implements Initializable{
         userController.setParentPane(anchorUser);
         myPagesController.setParentPane(anchorUser);
         helpController.setParentPane(anchorUser);
+        promptMessageController.setParentPane(anchorUser);
 
         userStatusController.injectControllers(userController);
 
@@ -149,7 +153,7 @@ public class MainController implements Initializable{
         centerstageController.getCheckoutController().injectControllers(userController);
 
         cartController.injectControllers(navController);
-        userController.injectControllers(myPagesController);
+        userController.injectControllers(myPagesController, promptMessageController);
         
     }
     

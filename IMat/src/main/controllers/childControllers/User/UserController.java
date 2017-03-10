@@ -59,6 +59,7 @@ public class UserController implements Initializable{
     private User currentUser;
     private Customer currentCustomer;
     private MyPagesController myPagesController;
+    private PromptMessageController promptMessageController;
 
     private Stage userStage;
     private Scene loginScene;
@@ -93,6 +94,7 @@ public class UserController implements Initializable{
         setParentVisible(value);
         anchorRegister.setVisible(value);
         myPagesController.setVisible(false);
+        promptMessageController.setVisible(false);
         if(value) {
             anchorRegister.toFront();
             txtRegEmail.getTxtField().requestFocus();
@@ -104,10 +106,21 @@ public class UserController implements Initializable{
         anchorRegister.setVisible(false);
         anchorLogin.setVisible(false);
         myPagesController.setVisible(value);
+        promptMessageController.setVisible(false);
+    }
+    
+    public void setPromptMessageVisible(boolean value){
+        anchorRegister.setVisible(false);
+        anchorLogin.setVisible(false);
+        myPagesController.setVisible(false);
+        promptMessageController.setVisible(value);
     }
 
-    public void injectControllers(MyPagesController myPagesCtrl){
+    public void injectControllers(MyPagesController myPagesCtrl, PromptMessageController promptMsgCtrl){
         myPagesController = myPagesCtrl;
+        promptMessageController = promptMsgCtrl;
+        
+        promptMessageController.getBtnAccept().setOnAction(e -> {setRegisterVisible(true); System.out.println("Clicked");});
     }
 
     public void setParentPane(StackPane pane){
@@ -200,6 +213,8 @@ public class UserController implements Initializable{
             if(!txtRegPasswordSnd.getText().equals(txtRegPassword.getText())) txtRegPasswordSnd.setValid(false);
             else txtRegPasswordSnd.setValid(true);
         });
+        
+
     }
     public UserHandler getUserHandler(){
     	return userHandler;

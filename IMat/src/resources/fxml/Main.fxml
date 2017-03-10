@@ -62,6 +62,15 @@
    </BorderPane>
    <StackPane fx:id="anchorUser" styleClass="userWindow" stylesheets="@../css/Frames.css" visible="false">
       <children>
+          <HBox fx:id="panePrompt" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
+                <children>
+                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
+                        <children>
+                           <fx:include fx:id="promptMessage" source="PromptMessage.fxml" />
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
          <HBox fx:id="paneHelp" alignment="CENTER" prefHeight="1082.0" prefWidth="1926.0">
                 <children>
                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
