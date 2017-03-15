@@ -113,7 +113,6 @@ public class OrderController implements Controllable {
 
     public void reset(){
         orderList.refresh();
-        //setVisible(false);
     }
     
 }

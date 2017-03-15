@@ -235,7 +235,7 @@ public class NavController implements Initializable {
         imgHome.setStyle("-fx-cursor: hand;");
     }    
     public void toCheckOut(){
-        checkoutController.reset();
+        checkoutController.setIndex(0);
         checkoutController.setVisible(true);
         bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
         forceCart(false);

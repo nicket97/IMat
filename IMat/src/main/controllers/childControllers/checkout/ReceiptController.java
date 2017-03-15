@@ -38,8 +38,6 @@ public class ReceiptController implements Initializable {
     @FXML
     private Button btnDone;
     @FXML private Label labelOrderTime;
-    
-    private boolean resetReady = false;
 
     public void setVisible(boolean value) {
         receipt.setVisible(value);
@@ -47,22 +45,22 @@ public class ReceiptController implements Initializable {
         if(value)
             receipt.toFront();
         else
-            receipt.toBack();      
+            receipt.toBack();
     }
-    
+
 
     public void displayReceipt(Order order, LocalDate date, String time){
     	this.order = order;
 
         listReceipt.getItems().clear();
         listReceipt.getItems().addAll(order.getItems());
-    	
+
         DateTimeFormatter dFormat = DateTimeFormatter.ofPattern("dd MMMM");
 
         labelOrderTime.setText("Vi kommer att leverera dina varor den " + date.format(dFormat) + " klockan " + time + ".");
         listReceipt.setStyle("-fx-font-size: 2em;");
 
-        
+
     }
 
     @Override
@@ -73,14 +71,7 @@ public class ReceiptController implements Initializable {
     public void addListeners(){
     	listReceipt.setCellFactory(e -> new ListViewReceiptItem(this.order, this));
         //Living on the edge here
-    	btnDone.setOnAction(e -> {
-    	    Main.requestStartpage();
-    	    resetReady = true;
-        });
+    	btnDone.setOnAction(e -> Main.requestStartpage());
     }
-    
-    public boolean getResetReady(){
-        return resetReady;
-    }
-    
+
 }

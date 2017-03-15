@@ -168,15 +168,14 @@ public class PaymentController implements Controllable {
 
     public void reset(){
         txtCardNumber.clearText();
+        txtCardNumber.setId("");
         txtCVV.clearText();
         txtMM.clearText();
         txtYY.clearText();
-        //setPane(false);
         ordered = false;
         radioCheck.setId("../img/Icons/CheckButton.png");
         radioDel.setId("../img/Icons/CheckButton.png");
         radioDebit.setId("../img/Icons/CheckButton.png");
-        //setVisible(false);
     }
 
     

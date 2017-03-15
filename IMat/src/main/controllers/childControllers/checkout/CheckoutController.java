@@ -89,7 +89,6 @@ public class CheckoutController implements Controllable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         dataHandler = CustomDataHandler.getInstance();
         for(int i = 0; i < 5; i++){
             Node child = listBox.getChildren().get(i);
@@ -103,12 +102,15 @@ public class CheckoutController implements Controllable {
     
     //Sidebar-navigation
     private void openPage(int index){
+        UserHandler uh = dataHandler.getUserHandler();
         //Quick fix
         if(this.index == 4)
             return;
 
         switch (index){
             case 0:
+                if (!uh.isLoggedIn())
+                    this.resetChildren();
                 labelError.setVisible(!orderController.validate());
                 orderController.setVisible(true);
                 break;
@@ -190,6 +192,16 @@ public class CheckoutController implements Controllable {
         //if(result.get() == btnNo) return;
     }
 
+    public void resetChildren() {
+        System.out.println("resetting my children");
+
+        customerController.reset();
+        deliveryController.reset();
+        orderController.reset();
+        paymentController.reset();
+        //labelKundinformation.setId("");
+    }
+
     public void injectControllers(UserController uc){
         this.uc = uc;
     }
@@ -218,13 +230,7 @@ public class CheckoutController implements Controllable {
         return btnReturn;
     }
 
-    public void reset() {
-        customerController.reset();
-        deliveryController.reset();
-        orderController.reset();
-        paymentController.reset();
-        index = 0;
-        //labelKundinformation.setId("");
+    public void setIndex(int index) {
+        this.index = index;
     }
-    
 }

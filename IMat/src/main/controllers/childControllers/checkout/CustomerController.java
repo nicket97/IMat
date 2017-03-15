@@ -101,7 +101,7 @@ public class CustomerController implements Controllable {
     }
 
     public void reset(){
-        txtFName.clearText();
+        txtFName.setText("");
         txtLName.clearText();
         txtMail.clearText();
         txtPhone.clearText();
