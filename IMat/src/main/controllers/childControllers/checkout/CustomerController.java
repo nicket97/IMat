@@ -105,6 +105,8 @@ public class CustomerController implements Controllable {
         txtLName.clearText();
         txtMail.clearText();
         txtPhone.clearText();
+        defaultsLoaded = false;
+        //setVisible(false);
     }
     
 }

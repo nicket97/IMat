@@ -171,6 +171,12 @@ public class PaymentController implements Controllable {
         txtCVV.clearText();
         txtMM.clearText();
         txtYY.clearText();
+        //setPane(false);
+        ordered = false;
+        radioCheck.setId("../img/Icons/CheckButton.png");
+        radioDel.setId("../img/Icons/CheckButton.png");
+        radioDebit.setId("../img/Icons/CheckButton.png");
+        //setVisible(false);
     }
 
     

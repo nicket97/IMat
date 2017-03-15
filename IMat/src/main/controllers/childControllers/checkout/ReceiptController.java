@@ -38,6 +38,8 @@ public class ReceiptController implements Initializable {
     @FXML
     private Button btnDone;
     @FXML private Label labelOrderTime;
+    
+    private boolean resetReady = false;
 
     public void setVisible(boolean value) {
         receipt.setVisible(value);
@@ -66,7 +68,6 @@ public class ReceiptController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addListeners();
-        
     }
 
     public void addListeners(){
@@ -74,7 +75,12 @@ public class ReceiptController implements Initializable {
         //Living on the edge here
     	btnDone.setOnAction(e -> {
     	    Main.requestStartpage();
+    	    resetReady = true;
         });
+    }
+    
+    public boolean getResetReady(){
+        return resetReady;
     }
     
 }

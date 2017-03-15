@@ -123,5 +123,7 @@ public class DeliveryController implements Controllable {
         txtCity.clearText();
         txtPostal.clearText();
         txtInfo.clear();
+        defaultsLoaded = false;
+        //setVisible(false);
     }
 }

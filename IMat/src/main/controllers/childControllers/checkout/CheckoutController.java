@@ -89,7 +89,8 @@ public class CheckoutController implements Controllable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	dataHandler = CustomDataHandler.getInstance();
+
+        dataHandler = CustomDataHandler.getInstance();
         for(int i = 0; i < 5; i++){
             Node child = listBox.getChildren().get(i);
             int index = i;
@@ -143,7 +144,6 @@ public class CheckoutController implements Controllable {
                         c.setDisable(true);
                     }
                     listBox.getChildren().get(index).setDisable(false);
-                    reset();
                     promptRegistration();
                 }
                 break;
@@ -223,6 +223,8 @@ public class CheckoutController implements Controllable {
         deliveryController.reset();
         orderController.reset();
         paymentController.reset();
+        index = 0;
+        //labelKundinformation.setId("");
     }
     
 }

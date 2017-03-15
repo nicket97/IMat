@@ -199,7 +199,7 @@ public class NavController implements Initializable {
                 //forceCart(true);
                 break;
             case 8:
-                checkoutController.setVisible(true);
+                toCheckOut();
                 bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
                 
                 //forceCart(false);
@@ -235,7 +235,8 @@ public class NavController implements Initializable {
         imgHome.setStyle("-fx-cursor: hand;");
     }    
     public void toCheckOut(){
-    	checkoutController.setVisible(true);
+        checkoutController.reset();
+        checkoutController.setVisible(true);
         bottomCtrl.setButtonsVisible(true, false); //Ändra om här kanske, disabla eller dölja?
         forceCart(false);
         cartController.setVisibleOnAdd(false);
