@@ -59,8 +59,6 @@ public class ReceiptController implements Initializable {
 
         labelOrderTime.setText("Vi kommer att leverera dina varor den " + date.format(dFormat) + " klockan " + time + ".");
         listReceipt.setStyle("-fx-font-size: 2em;");
-
-
     }
 
     @Override
@@ -72,6 +70,10 @@ public class ReceiptController implements Initializable {
     	listReceipt.setCellFactory(e -> new ListViewReceiptItem(this.order, this));
         //Living on the edge here
     	btnDone.setOnAction(e -> Main.requestStartpage());
+    }
+
+    public void reset() {
+        setVisible(false);
     }
 
 }

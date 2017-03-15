@@ -102,14 +102,13 @@ public class CheckoutController implements Controllable {
     
     //Sidebar-navigation
     private void openPage(int index){
-        UserHandler uh = dataHandler.getUserHandler();
         //Quick fix
         if(this.index == 4)
             return;
 
         switch (index){
             case 0:
-                if (!uh.isLoggedIn())
+                if (!dataHandler.getUserHandler().isLoggedIn())
                     this.resetChildren();
                 labelError.setVisible(!orderController.validate());
                 orderController.setVisible(true);
@@ -146,7 +145,8 @@ public class CheckoutController implements Controllable {
                         c.setDisable(true);
                     }
                     listBox.getChildren().get(index).setDisable(false);
-                    promptRegistration();
+                    if (!dataHandler.getUserHandler().isLoggedIn())
+                        promptRegistration();
                 }
                 break;
         }
@@ -199,7 +199,7 @@ public class CheckoutController implements Controllable {
         deliveryController.reset();
         orderController.reset();
         paymentController.reset();
-        //labelKundinformation.setId("");
+        receiptController.reset();
     }
 
     public void injectControllers(UserController uc){
