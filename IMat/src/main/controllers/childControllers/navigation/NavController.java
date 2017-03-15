@@ -258,6 +258,7 @@ public class NavController implements Initializable {
 
     public void playAnimation(boolean value) {
         bottomCtrl.getBtnNext().setDisable(true);
+        bottomCtrl.getBtnPrev().setDisable(true);
         if(value)
             stageFadeIn.setOnFinished(e -> {displayCategory(displayedIndex); stageFadeOut.play();});
         else
@@ -283,7 +284,7 @@ public class NavController implements Initializable {
        stageFadeOut.setFromValue(0.0);
        stageFadeOut.setToValue(1.0);
        stageFadeOut.setCycleCount(1);
-       stageFadeOut.setOnFinished(e -> bottomCtrl.getBtnNext().setDisable(false));
+       stageFadeOut.setOnFinished(e -> {bottomCtrl.getBtnNext().setDisable(false); bottomCtrl.getBtnPrev().setDisable(false);});
     }
 
     private class NavigationState{
