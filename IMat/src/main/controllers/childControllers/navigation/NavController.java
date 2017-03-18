@@ -223,6 +223,7 @@ public class NavController implements Initializable {
         for(Node n: gridMain.getChildren())
             n.setId(null);            	     
     }
+
     private void setHomeHatch() {
         imgHome.setOnMouseClicked(e -> {
             startpageController.setVisible(true);
@@ -230,10 +231,11 @@ public class NavController implements Initializable {
             navHome.setId("navActive");
             prodCtrl.setVisible(false);
             bottomCtrl.setButtonsVisible(false, false);
-            forceCart(false);
+            cartController.setVisible(false);
         });
         imgHome.setStyle("-fx-cursor: hand;");
-    }    
+    }
+
     public void toCheckOut(){
         checkoutController.setIndex(0);
         checkoutController.setVisible(true);
